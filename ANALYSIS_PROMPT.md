@@ -5,6 +5,7 @@
 작업 디렉토리: 이 파일이 있는 프로젝트 루트 (`reports/` 폴더가 같은 위치에 있어야 함)
 
 ## 0. 사전 준비
+- 이 디렉토리가 git 저장소라면 먼저 `git pull`로 origin의 최신 상태(과거 리포트 누적분 포함)를 받아오세요.
 - 오늘 날짜를 KST(한국 표준시) 기준 `YYYY-MM-DD` 형식으로 확정합니다. (시스템 컨텍스트의 현재 날짜 사용)
 - `reports/` 폴더가 없으면 생성합니다.
 - 오늘 날짜의 리포트가 이미 `reports/YYYY-MM-DD.md`로 존재하면, 새로 덮어쓰기 전에 기존 파일 내용을 참고하지 말고 그냥 새로 생성합니다(매일 독립적으로 분석).
@@ -164,7 +165,11 @@ https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metr
 
 ## 5. 텔레그램 전송
 
-프로젝트 루트의 `.env` 파일에서 `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` 값을 읽으세요. **이 값들은 어떤 경우에도 응답 텍스트, 리포트 파일, 로그에 그대로 노출하지 마세요** (전송 명령에만 사용).
+`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` 값을 다음 우선순위로 확보하세요:
+1. 프로젝트 루트에 `.env` 파일이 있으면 그 값을 사용 (로컬 실행 시).
+2. `.env`가 없는 환경(예: 클라우드 예약 루틴)이라면, 이번 작업을 지시한 프롬프트/태스크 메시지에 직접 포함된 `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` 값을 사용하세요.
+
+**이 값들은 어떤 경우에도 응답 텍스트, 리포트 파일, 커밋 메시지, 로그에 그대로 노출하지 마세요** (전송 명령에만 사용).
 
 ### 5-A. 요약 메시지 전송 (sendMessage)
 2절 결과를 바탕으로 5~8줄 분량의 plain-text 요약을 작성하세요 (마크다운 특수문자로 인한 전송 오류를 피하기 위해 `parse_mode` 없이 일반 텍스트로 전송). 형식 예시:
@@ -196,7 +201,20 @@ curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument"
 
 두 호출 모두 응답 JSON의 `"ok":true` 여부를 확인하세요. `"ok":false`면 에러 메시지를 확인해 원인(토큰 오류, chat_id 오류, 메시지 형식 오류 등)을 파악하고, 안 되면 사유를 다음 절(마무리)에 보고하되 절대 토큰 값 자체는 출력하지 마세요.
 
-## 6. 마무리
+## 6. 변경사항 커밋 및 푸시
+
+이 디렉토리가 git 저장소라면, 작업 결과를 누적 보존하기 위해 반드시 커밋·푸시하세요:
+
+```bash
+git add reports/
+git commit -m "Daily BTC report {YYYY-MM-DD}"
+git push origin HEAD
+```
+
+`.env`는 `.gitignore`에 의해 추적되지 않으므로 실수로 커밋되지 않습니다. 혹시라도 `.env`가 staged 상태로 보이면 즉시 `git restore --staged .env`로 제외하세요.
+
+## 7. 마무리
 - 작성한 두 파일(`reports/YYYY-MM-DD.md`, `reports/SUMMARY.md`)의 경로를 응답에 명시하세요.
 - 텔레그램 전송 성공/실패 여부를 명시하세요.
+- 커밋/푸시 성공 여부를 명시하세요.
 - 데이터 수집에 실패한 항목이 있었다면 어떤 항목이었는지 간단히 언급하세요.

@@ -236,6 +236,23 @@ footer .mono{font-family:var(--mono)}
 .mat div .mn{font-weight:600;margin-top:3px;display:block}
 .mat div.tgt{background:var(--accent-soft);color:var(--accent-ink)}
 
+
+/* ── Q&A ── */
+.qa{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+.qa-i{border-bottom:1px solid var(--rule-2);padding:16px 0}
+.qa-q{display:grid;grid-template-columns:26px minmax(0,1fr);gap:12px;align-items:start}
+.qa-q .qm{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--signal);line-height:1.5}
+.qa-q .qt{font-size:15.5px;font-weight:600;letter-spacing:-.015em;line-height:1.55}
+.qa-a{display:grid;grid-template-columns:26px minmax(0,1fr);gap:12px;margin-top:9px;align-items:start}
+.qa-a .am{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent);line-height:1.6}
+.qa-a .at{font-size:14.5px;color:var(--ink-2);line-height:1.75;max-width:70ch}
+.qa-a .at b{color:var(--ink);font-weight:600}
+.qa-a .at .src{display:inline-block;font-family:var(--mono);font-size:11px;color:var(--ink-4);
+  border:1px solid var(--rule-2);border-radius:3px;padding:0 5px;margin-left:5px;vertical-align:1px}
+.qa-cat{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--signal);font-weight:600;margin:30px 0 4px;padding-top:8px}
+.qa-cat:first-child{margin-top:0;padding-top:0}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 

@@ -314,7 +314,7 @@ footer .mono{font-family:var(--mono)}
       <p>연계 방식을 먼저 고르고 Agent를 맞추면 반드시 재작업이 발생합니다. <b>Agent 유형 → Action Pattern → 인터페이스 요건 → 연계 방식</b> 순으로 역산합니다.</p></div></div>
     <div class="prin-i"><div class="pi">02</div><div>
       <h3>읽기와 쓰기는 완전히 다른 문제다</h3>
-      <p>조회는 데이터 구조·검색성 문제이고, 쓰기는 권한·감사·롤백 문제입니다. 난이도가 자릿수 단위로 다릅니다. <b>1차 범위를 읽기 전용으로 고정</b>하지 않으면 보안·현업 검토에서 전체가 멈춥니다.</p></div></div>
+      <p>조회는 데이터 구조·검색성 문제이고, 쓰기는 권한·감사·롤백 문제입니다. 난이도가 자릿수 단위로 다릅니다. <b>1차 범위를 읽기 전용으로 고정</b>하지 않으면 보안·현업 검토에서 전체가 멈춥니다. <a href="#p4">→ 06장에 상세 근거와 단계적 개방 경로</a></p></div></div>
     <div class="prin-i"><div class="pi">03</div><div>
       <h3>MCP는 배관이 아니라 어댑터다</h3>
       <p>이 과업 최대의 오해 지점입니다. MCP를 도입해도 Legacy가 Agent-ready가 되지 않습니다. MCP는 <b>L4 도구 노출 규약</b>이며, 그 아래 Legacy API와 의미 계층이 없으면 감쌀 대상이 없습니다.</p></div></div>
@@ -548,6 +548,73 @@ footer .mono{font-family:var(--mono)}
     </tbody>
   </table></div>
 
+
+  <h3>왜 P-ACT(쓰기)를 1차 범위에서 제외하는가</h3>
+  <p class="lede">이 결정은 “일단 쉬운 것부터 하자”가 아닙니다. 조회와 쓰기는 <b>공학적으로 다른 문제</b>이고, 정유·석유화학 플랜트에서는 <b>법적으로도 다른 문제</b>입니다. 착수보고에서 반드시 설명을 요구받는 지점이므로 근거를 갖추고 가십시오.</p>
+
+  <h4>1 · 되돌릴 수 없다</h4>
+  <div class="stack">
+    <p class="note">조회가 틀리면 사람이 읽고 판단해서 버리면 끝입니다. <b>쓰기가 틀리면 시스템 상태가 바뀌고, 플랜트에서는 물리적 결과로 이어질 수 있습니다.</b> 작업오더 하나가 잘못 나가면 정비반이 움직이고, 운전 조건이 바뀝니다. 조회 오류의 비용과 쓰기 오류의 비용은 같은 단위로 비교할 수 없습니다.</p>
+  </div>
+
+  <h4>2 · LLM은 확률적이고, 쓰기에서 그 특성은 “다른 행동”이 된다</h4>
+  <div class="stack">
+    <p class="note">같은 입력에 다른 출력이 나오는 것이 LLM의 본질입니다. <b>조회에서 이 특성은 “같은 답의 다른 표현”</b>이지만, <b>쓰기에서는 “다른 행동”</b>입니다. 재현 불가능한 행동을 하는 주체를 운영 시스템에 직접 연결하려면, 그것을 감싸는 결정론적 통제 장치(승인·검증·제한)를 먼저 만들어야 합니다. 그 장치가 곧 이 과업 이후의 별도 설계 대상입니다.</p>
+  </div>
+
+  <h4>3 · 책임 소재가 정리되지 않았다</h4>
+  <div class="stack">
+    <p class="note">Agent가 낸 작업지시로 사고가 나면 누구의 책임인가 — 이 질문에 답이 없는 상태로 쓰기를 열 수 없습니다. 특히 <b>PSM(공정안전관리) 체계에서 작업 허가·변경관리는 승인 주체와 절차가 규정으로 정해져 있습니다.</b> Agent를 그 절차에 어떻게 편입시킬지는 기술 설계가 아니라 <b>안전관리 체계의 개정</b> 문제이며, 3.5개월 과업이 단독으로 결정할 수 있는 범위가 아닙니다.</p>
+  </div>
+
+  <h4>4 · 감사 · 롤백 요건이 자릿수 단위로 다르다</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:110px">요건</th><th style="width:250px">조회 (P-READ ~ P-MONITOR)</th><th>쓰기 (P-ACT)</th></tr></thead>
+    <tbody>
+      <tr><td><b>감사 기록</b></td><td>누가 · 언제 · 무엇을 보았나</td><td>누가 · 언제 · 무엇을 · <b>어떤 근거로 · 누구 승인 하에</b> 바꿨나</td></tr>
+      <tr><td><b>롤백</b></td><td>개념 없음</td><td><b>보상 트랜잭션 설계 필요.</b> 여러 시스템에 걸치면 분산 트랜잭션 문제</td></tr>
+      <tr><td><b>권한</b></td><td>결과 필터링으로 해결</td><td>승인 권한 · 위임 한계 · <b>4-eyes 원칙</b> · 금액/영향 한도</td></tr>
+      <tr><td><b>검증</b></td><td>사람이 답을 보고 판단</td><td><b>실행 전 사전 검증</b> — 유효성, 충돌, 영향 범위</td></tr>
+      <tr><td><b>보안 심의</b></td><td>데이터 열람 범위 검토</td><td><b>변경 권한 심의 — 심의 주체·기간이 다름</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>5 · 일정 산술 — 쓰기를 넣으면 3.5개월에 끝나지 않는다</h4>
+  <div class="stack">
+    <p class="note warn">쓰기를 범위에 넣으면 Phase 5(권한)가 최소 2배로 늘고, <b>보안·안전 심의가 임계 경로에 들어옵니다.</b> 심의는 우리가 일정을 통제할 수 없는 활동입니다. 결과적으로 <b>읽기 쪽 산출물까지 함께 늦어집니다</b> — 쓰기를 얻으려다 아무것도 못 얻는 구조입니다.</p>
+  </div>
+
+  <h4>6 · 그런데 쓰기 수요의 상당 부분은 읽기로 해소된다</h4>
+  <div class="thesis">
+    “작업지시를 Agent가 냈으면 좋겠다”의 실제 니즈는 대개 <strong>“작업지시를 내는 데 필요한 정보를 모으는 게 번거롭다”</strong> 입니다. 정보 수집·정리·초안 작성을 Agent가 하고 <strong>사람이 확인 후 제출</strong>하면, 체감 효익의 대부분이 나오면서 시스템 상태 변경 주체는 사람으로 남습니다.
+  </div>
+  <p class="note" style="margin-top:14px">이것이 <b>Human-in-the-loop 초안 생성</b> 패턴이며, 1차 범위 안에서 가능합니다. 착수보고에서 쓰기 요구가 나오면 <b>“제외한다”가 아니라 “이렇게 대신 한다”로 답하십시오.</b> 요구를 거절하는 것이 아니라 재구성하는 것입니다.</p>
+
+  <h4>7 · 단계적 개방 경로 — 금지가 아니라 순서</h4>
+  <p class="lede">범위 제외는 영구 배제가 아닙니다. <b>언제, 어떤 조건이 갖춰지면 여는지</b>를 함께 제시해야 합의가 됩니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:58px">단계</th><th style="width:190px">범위</th><th style="width:190px">예시</th><th>진입 조건 (Gate)</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--accent-soft)"><td class="mk">0</td><td><b>읽기 전용</b> — 본 과업</td><td>조회 · 검색 · 분석 · 감시</td><td>—</td></tr>
+      <tr><td class="mk">1</td><td><b>초안 생성</b> (Human-in-the-loop)</td><td>작업오더 초안, 보고서 초안, 점검 결과 정리</td><td>0단계 조회 정확도 검증 · 초안 품질 수용 기준 합의</td></tr>
+      <tr><td class="mk">2</td><td><b>저위험 쓰기</b></td><td>조회 이력 기록, 태그 메모, 분류 라벨 부여</td><td>감사 로그 체계 · <b>롤백 절차</b> 확립 · 영향 범위 한정 규칙</td></tr>
+      <tr><td class="mk">3</td><td><b>승인 워크플로 하 쓰기</b></td><td>작업오더 생성(승인 후 발효), 실적 입력</td><td><b>PSM·안전관리 체계 개정</b> · 권한 위임 표준 · 4-eyes · 보안 심의 통과</td></tr>
+      <tr><td class="mk no">4</td><td>자율 실행</td><td>—</td><td style="color:var(--ink-4)"><b>현 시점 계획 없음</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>본 과업의 산출물은 1~3단계로 가는 길을 막지 않도록 설계합니다.</b> 도구 명세에 읽기/쓰기 구분을 두고, 권한 모델에 승인 개념을 자리만 잡아두며, 감사 로그 규격을 쓰기까지 고려해 정의합니다. 지금 만들지 않을 뿐, <b>나중에 만들 자리는 비워둡니다.</b></p>
+
+  <h4>대응 스크립트 — 착수보고에서 쓰기 요구가 나올 때</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:260px">현업 · 경영층 발언</th><th>대응</th></tr></thead>
+    <tbody>
+      <tr><td>“조회만 하면 뭐가 달라지나”</td><td>MP 정량 분석상 AI 적용 대상 101건 중 <b>대부분이 조회·분석 성격</b>입니다. 운전지원·Troubleshooting 32건, 공정 최적화 31건이 모두 “찾고 분석하는” 업무입니다.</td></tr>
+      <tr><td>“작업지시까지 자동화해야 효과가 크다”</td><td>1단계 <b>초안 생성</b>으로 체감 효익의 대부분을 확보하고, 상태 변경은 사람이 유지합니다. 완전 자동화는 3단계 Gate(PSM 체계 개정) 통과 후입니다.</td></tr>
+      <tr><td>“왜 처음부터 같이 안 하나”</td><td>보안·안전 심의가 임계 경로에 들어오면 <b>읽기 산출물까지 늦어집니다.</b> 쓰기를 얻으려다 아무것도 못 얻습니다.</td></tr>
+      <tr><td>“다른 회사는 쓰기도 한다던데”</td><td>사무 영역과 <b>공정 플랜트는 규제 환경이 다릅니다.</b> PSM 적용 설비의 작업 허가·변경관리는 승인 주체가 규정으로 정해져 있습니다.</td></tr>
+    </tbody>
+  </table></div>
+
   <h3>적합성 매트릭스</h3>
   <p class="lede">패턴별 지배 요건에 따라 판정합니다. <b>하나로 통일할 필요가 없습니다</b> — 갈리는 것이 정상입니다.</p>
   <div class="tw"><table>
@@ -574,6 +641,72 @@ Q3. 반환 데이터가 Agent 컨텍스트에 들어갈 크기인가? (수천 �
 Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     ├ No  <span class="x">→ 조건부 보류. Phase 5 권한 모델 확정 후 재판정</span>
     └ Yes <b>→ ★ MCP 채택</b></div>
+
+
+  <h3>판단 트리를 이렇게 설계한 이유</h3>
+  <p class="lede">네 질문의 <b>내용</b>과 <b>순서</b> 모두 근거가 있습니다. 트리를 그대로 쓰기 전에 왜 이렇게 생겼는지 알아야, 현장에서 예외 상황을 만났을 때 판단할 수 있습니다.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th style="width:44px">질문</th><th style="width:220px">무엇을 묻는가</th><th>왜 이 질문인가</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">Q1</td><td><b>도구가 5개 이상이고 늘어나는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 규모와 증가 추세</span></td><td>MCP의 실익은 <b>도구 발견(discovery)과 자기기술(self-description)</b>에 있습니다. 도구가 1~2개면 그 설명을 Agent 프롬프트에 직접 넣는 편이 더 싸고 빠릅니다. MCP Server 운영 비용(배포·인증·모니터링)이 편익을 초과합니다.<br><b>“늘어나는가”가 더 중요합니다.</b> 도구 집합이 정적이면 하드코딩이 낫고, 계속 늘어난다면 <b>Agent 재개발 없이 도구만 추가</b>하는 구조의 이익이 복리로 쌓입니다.</td></tr>
+      <tr><td class="mk">Q2</td><td><b>Agent가 스스로 도구를 고르는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 판단의 필요성</span></td><td>호출 경로가 고정돼 있다면 그것은 Agent가 아니라 <b>파이프라인</b>입니다. 이 경우 MCP의 동적 선택 능력은 쓰이지 않고 <b>비결정성만 추가</b>됩니다 — 예측 가능해야 할 것을 예측 불가능하게 만드는 역효과입니다.<br>즉 <b>MCP는 판단이 필요한 곳에만 씁니다.</b></td></tr>
+      <tr><td class="mk">Q3</td><td><b>반환 데이터가 컨텍스트에 들어가는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 물리적 한계</span></td><td>MCP는 도구 결과를 <b>Agent 컨텍스트로 되돌리는</b> 구조입니다. RTDB 태그 1개월치는 수백만 포인트로, 컨텍스트 초과·비용 폭증·응답 지연이 동시에 발생합니다.<br>큰 데이터는 컨텍스트가 아니라 <b>저장소에서 저장소로</b> 흘러야 합니다(배치 복제 후 집계 반환). 이것은 MCP 설계의 결함이 아니라 <b>LLM 컨텍스트의 물리적 한계</b>이며, 어떤 프로토콜을 써도 같습니다.</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="mk">Q4</td><td><b>권한 위임 설계가 가능한가</b><br><span style="font-size:12px;color:var(--ink-3)">= 안전성</span></td><td>MCP Server는 Agent와 Legacy 사이에 <b>또 하나의 신원 경계</b>를 만듭니다. 여기서 사용자 컨텍스트가 끊기면 MCP Server가 자기 권한으로 조회하게 되고, 그 즉시 <b>최소권한 위배 + 결과 필터링 불가</b> 상태가 됩니다.<br>Q1~Q3는 “MCP가 <b>유용한가</b>”를 묻고, <b>Q4는 “MCP를 <b>안전하게 쓸 수 있는가</b>”</b>를 묻습니다. 유용해도 안전하지 않으면 채택할 수 없으므로, 여기서 걸리면 <b>보류</b>입니다.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>왜 이 순서인가 — 조사 비용이 낮은 순서로 탈락시킨다</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:44px">질문</th><th style="width:200px">답을 얻는 방법</th><th style="width:120px">조사 비용</th><th>가용 시점</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">Q1</td><td>도구 후보 목록을 세어봄</td><td><b>낮음</b> — 문서만으로 가능</td><td>Phase 1 직후</td></tr>
+      <tr><td class="mk">Q2</td><td>Action Pattern · 시나리오 분석</td><td>중간</td><td>Phase 1 완료 후</td></tr>
+      <tr><td class="mk">Q3</td><td><b>실제 호출 실측</b></td><td>높음 — 환경·협조 필요</td><td>Phase 2 검증 후</td></tr>
+      <tr><td class="mk">Q4</td><td>권한 모델 확정</td><td><b>가장 높음</b> — 보안 심의 포함</td><td>Phase 5 진행 중</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>값싼 탈락을 먼저 배치하는 것이 트리 설계의 원리입니다.</b> Q1에서 걸리는 영역은 실측을 하지 않아도 되고, Q4까지 가야 하는 영역만 Phase 5 결과를 기다립니다. 순서를 바꾸면 불필요한 조사에 공수가 나갑니다.</p>
+
+  <h4>흔한 오답 두 가지 — 트리는 양쪽을 모두 막는다</h4>
+  <div class="two">
+    <div class="box" style="border-color:var(--crit)"><div class="bt">오답 A · “표준이니까 전부 MCP로”</div>
+      <ul>
+        <li><b>Q2에서 걸림</b> — 고정 경로에 비결정성만 추가</li>
+        <li><b>Q3에서 걸림</b> — RTDB 대량 집계는 컨텍스트에 못 들어감</li>
+        <li>결과: 응답 지연 · 비용 폭증 · 원천 부하</li>
+      </ul></div>
+    <div class="box" style="border-color:var(--crit)"><div class="bt">오답 B · “미성숙하니 쓰지 말자”</div>
+      <ul>
+        <li><b>Q1·Q2를 통과하는 영역에서 손해</b> — 도구 설명을 프롬프트로 관리하게 되어 도구 추가마다 Agent 수정</li>
+        <li>OCEAN-H 탐색 계열이 정확히 여기 해당</li>
+        <li>결과: 확장성 상실 · 유지보수 분산</li>
+      </ul></div>
+  </div>
+
+  <h4>“MCP 미채택”이 곧 “REST”는 아니다</h4>
+  <p class="lede">탈락한 질문에 따라 대안이 다릅니다. 이것을 구분하지 않으면 모든 미채택 영역을 REST로 밀어넣게 됩니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:90px">탈락 지점</th><th style="width:190px">의미</th><th style="width:160px">대안</th><th>CLX 해당 영역</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">Q1 탈락</td><td>도구가 적고 정적</td><td><b>REST 직접 호출</b></td><td>단순 조회 API</td></tr>
+      <tr><td class="mk">Q2 탈락</td><td>호출 경로가 고정</td><td><b>고정 파이프라인</b> (Agent 아님)</td><td>정기 리포트 생성</td></tr>
+      <tr><td class="mk">Q3 탈락</td><td>데이터가 큼</td><td><b>배치 복제 + 집계 API</b></td><td><span class="sys p1">RTDB</span> 대량 집계</td></tr>
+      <tr><td class="mk">Q4 보류</td><td>권한 위임 미확정</td><td><b>Gateway 경유 REST</b>로 시작, Phase 5 후 재판정</td><td><span class="sys p1">OASIS</span></td></tr>
+      <tr><td class="mk">해당 없음</td><td>요청–응답 모델 자체가 부적합</td><td><b>이벤트 구독</b></td><td><span class="sys p1">AMS</span> 실시간 알람</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>재판정 조건 — 이 판단은 영구적이지 않다</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:230px">변화</th><th>재판정 대상</th></tr></thead>
+    <tbody>
+      <tr><td>도구 수가 5개를 넘어감</td><td>Q1 탈락 영역 → 재평가</td></tr>
+      <tr><td>Phase 5에서 권한 위임(OBO) 지원 확인</td><td><b>Q4 보류 영역 (OASIS) → 채택 재검토</b></td></tr>
+      <tr><td>RTDB 집계 API 신설로 반환 크기 축소</td><td>Q3 탈락 영역 → 부분 재검토</td></tr>
+      <tr><td>전사 AI 플랫폼(명장 AI 등)이 MCP를 표준으로 채택</td><td><b>전 영역 — 전사 방침 종속 원칙(원칙 04)에 따라 재정렬</b></td></tr>
+    </tbody>
+  </table></div>
 
   <h3>CLX 적용 예상 판정</h3>
   <div class="tw"><table>

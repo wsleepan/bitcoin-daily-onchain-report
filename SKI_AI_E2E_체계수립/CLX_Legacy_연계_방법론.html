@@ -271,8 +271,8 @@ footer .mono{font-family:var(--mono)}
     </div>
     <dl class="facts">
       <div class="fact"><dt>대상 사업장</dt><dd>SK 울산CLX</dd></div>
-      <div class="fact"><dt>기간</dt><dd>3.5개월 · W1–W14</dd></div>
-      <div class="fact"><dt>1순위 대상</dt><dd>RTDB · OCEAN-H · OASIS</dd></div>
+      <div class="fact"><dt>기간</dt><dd>14주 · 9/7–12/13</dd></div>
+      <div class="fact"><dt>설계 대상 1순위</dt><dd>RTDB · OCEAN-H · OASIS</dd></div>
       <div class="fact"><dt>기대 산출물</dt><dd>12종</dd></div>
     </dl>
   </div>
@@ -292,9 +292,11 @@ footer .mono{font-family:var(--mono)}
     <li><a href="#a2a"><span class="n">08</span>Agent 간 연계</a></li>
     <li><a href="#sys"><span class="n">09</span>대상 시스템</a></li>
     <li><a href="#biz"><span class="n">10</span>생산기술 업무 구조</a></li>
-    <li><a href="#risk"><span class="n">11</span>리스크 · 착수 준비</a></li>
-    <li><a href="#deck"><span class="n">12</span>착수보고 장표</a></li>
-    <li><a href="#tmpl"><span class="n">13</span>실무 템플릿</a></li>
+    <li><a href="#plan"><span class="n">11</span>산출물 · 조직 · 거버넌스</a></li>
+    <li><a href="#risk"><span class="n">12</span>리스크 · 착수 준비</a></li>
+    <li><a href="#deck"><span class="n">13</span>착수보고 장표</a></li>
+    <li><a href="#tmpl"><span class="n">14</span>실무 템플릿</a></li>
+    <li><a href="#qa"><span class="n">15</span>예상 질의응답</a></li>
   </ol>
 </nav>
 
@@ -340,9 +342,9 @@ footer .mono{font-family:var(--mono)}
       <p>CLX가 독자 연계 경로를 설계하면 전사 거버넌스와 충돌하고 중복 투자 지적을 받습니다. 산출물을 <b>(a) CLX 적용 기준</b>과 <b>(b) 전사 개선 요청</b> 2갈래로 분리합니다.</p></div></div>
     <div class="prin-i"><div class="pi">05</div><div>
       <h3>진단은 시스템별이 아니라 공통 축으로</h3>
-      <p>시스템을 각각 진단하면 개별 개선 목록만 나오고 통합 로드맵이 나오지 않습니다. <b>Agent-Readiness 6축</b>(인터페이스 · 데이터 구조 · 의미 명확성 · 권한 세분성 · 관측·감사 · 변경관리)으로 평가하면 공통 과제와 특화 과제가 자동으로 갈립니다.</p></div></div>
+      <p>시스템을 각각 진단하면 개별 개선 목록만 나오고 통합 로드맵이 나오지 않습니다. <b>Agent-Readiness 6축 R1~R6</b>(인터페이스 · 데이터 구조 · 의미 명확성 · 권한 세분성 · 관측·감사 · 변경관리)으로 평가하면 공통 과제와 특화 과제가 자동으로 갈립니다.</p></div></div>
     <div class="prin-i"><div class="pi">06</div><div>
-      <h3>세 시스템은 하나의 방식으로 붙지 않는다</h3>
+      <h3>대상 시스템은 하나의 방식으로 붙지 않는다</h3>
       <p>규모가 자릿수 단위로 다르고, 실시간성 요구가 다르고, 쓰기 수요가 다릅니다. “전부 REST로” 또는 “전부 MCP로” 통일하려는 시도가 <b>가장 흔한 실패 경로</b>입니다.</p></div></div>
     <div class="prin-i"><div class="pi">07</div><div>
       <h3>통합의 실질은 API가 아니라 공통 식별자다</h3>
@@ -374,6 +376,37 @@ footer .mono{font-family:var(--mono)}
   <div class="thesis" style="margin-top:20px">
     위에서 아래로 <strong>설계</strong>하고, 아래에서 위로 <strong>구축</strong>합니다. 설계는 L5에서 시작해 내려오고, 구축은 L1·L2부터 올라갑니다. L4(MCP)부터 만들면 아래가 비어 있어 동작하지 않습니다.
   </div>
+  <h3>IT / OT 존 배치 — 계층 모델의 수평 경계</h3>
+  <p class="lede">위 5계층은 <b>기능 계층</b>입니다. 여기에 <b>망 경계</b>를 겹쳐야 설계가 완성됩니다. 1순위 대상인 <span class="sys p1">RTDB</span> 는 DCS 연동 히스토리안으로 <b>OT 인접 자산</b>이고, <span class="sys">OASIS</span> <span class="sys">OCEAN-H</span> 는 IT 자산입니다. 이 둘을 L1 “원천 계층” 하나로 묶어 그리면, 이 문서가 경고한 것과 정확히 같은 급의 실수를 망 설계에서 저지릅니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:118px">존 (IEC 62443)</th><th style="width:230px">배치 컴포넌트</th><th class="c" style="width:96px">OT 인바운드</th><th>접근 대상 · 도관</th></tr></thead>
+    <tbody>
+      <tr><td><b>IT</b><br><span style="font-size:12px;color:var(--ink-3)">Purdue L4/L5</span></td><td>Agent · 오케스트레이터 · MCP Server · API Gateway · 데이터 카탈로그</td><td class="c mk no">금지</td><td>산업 DMZ의 복제본·집계 API만</td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>산업 DMZ</b><br><span style="font-size:12px;color:var(--ink-3)">Purdue L3.5</span></td><td><b>RTDB 복제본 · 구간 집계 API · AMS 이벤트 브로커</b></td><td class="c">—</td><td>OT로부터 <b>단방향 복제 수신</b></td></tr>
+      <tr><td><b>OT</b><br><span style="font-size:12px;color:var(--ink-3)">Purdue L0–L3</span></td><td>RTDB 원본 · DCS · 계장</td><td class="c mk no">금지</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="thesis" style="margin-top:16px;border-left:4px solid var(--crit)">
+    <strong>원칙</strong> — Agent 및 그 하위 어떤 컴포넌트도 <strong>OT 존으로 인바운드 세션을 열지 않는다.</strong> RTDB 접근은 산업 DMZ의 복제본을 대상으로만 하며, 복제는 단방향(필요 시 데이터 다이오드)으로 구성한다.
+  </div>
+  <p class="note crit" style="margin-top:14px"><b>Phase 2-3 “RTDB 대량 구간 조회 검증(W4)”의 대상은 DMZ 복제본입니다.</b> OT 원본을 대상으로 하면 검증 활동 자체가 보안 규정 위반이 됩니다. 복제본이 없으면 그 사실을 먼저 확인하고, 검증 방식을 OT 보안 심의 절차에 태워야 합니다. → 리스크 <span class="pat">R8</span></p>
+  <p class="note" style="margin-top:10px">복제 경로를 쓰면 <b>D3(시점 정합성)에 복제 지연이 새로 끼어듭니다.</b> 도구 응답에 <b>데이터 기준 시각과 복제 지연</b>을 함께 반환하도록 설계하십시오 — 그렇지 않으면 Agent가 "지금 값"이라고 답하는데 실제로는 5분 전 값인 상황이 발생합니다.</p>
+
+  <h3>횡단 관심사 — L3에 빠져 있던 것들</h3>
+  <p class="lede">L3를 “인증·인가·레이트리밋·감사로그” 4개로만 정의하면 운영에서 무너집니다. 아래 5개는 특정 계층이 아니라 <b>전 계층을 관통</b>합니다.</p>
+  <div class="cards">
+    <div class="card"><div class="ct">Cache</div><div class="ch">권한 인지형 캐시</div>
+      <p>Agent는 사람보다 호출량이 자릿수 많고 같은 질문을 반복합니다. 캐시 없이는 원천이 죽습니다. 그런데 <b>캐시는 성능 항목이 아니라 인가 설계의 일부</b>입니다 — 사용자 A 권한으로 채운 캐시가 B에게 반환되면 그것이 인가 우회입니다. <b>캐시 키에 주체 권한 컨텍스트를 포함</b>하십시오.</p></div>
+    <div class="card"><div class="ct">Observability</div><div class="ch">관측성 · trace 전파</div>
+      <p>Agent 답변 품질 저하의 원인이 L1인지 L2인지 L4인지 추적할 수단이 필요합니다. <b>trace context 전파 규격은 L3/L4 인터페이스 설계이므로 ① 과업이 정의</b>하고, 수집·분석 운영은 ③으로 넘깁니다.</p></div>
+    <div class="card"><div class="ct">Quota</div><div class="ch">쿼터 · 비용 귀속</div>
+      <p>레이트리밋은 남용 방지이지 <b>비용 귀속도 비상 정지도 아닙니다.</b> Agent별 월 호출·토큰 상한, 원천별 QPS 상한, 초과 시 동작(감속/차단), 비용 부담 조직을 정의합니다.</p></div>
+    <div class="card"><div class="ct">Isolation</div><div class="ch">격리 · 비상 정지</div>
+      <p>서킷브레이커·백프레셔·degraded mode. 무엇보다 <b>“Agent 트래픽이 현장 조작원의 운영 화면을 밀어내지 않는다”</b>는 격리 보장 — OT 인접에서 이건 성능이 아니라 <b>안전 이슈</b>입니다. 그리고 <b>kill switch</b>: 차단 권한자 · 경로 · 목표 소요시간 · 해제 절차.</p></div>
+    <div class="card"><div class="ct">Classification</div><div class="ch">데이터 분류</div>
+      <p>어떤 등급의 데이터가 어느 모델 컨텍스트까지 갈 수 있는지. 07장 데이터 분류 등급 참조.</p></div>
+  </div>
+
 </section>
 
 <!-- 04 -->
@@ -394,6 +427,9 @@ footer .mono{font-family:var(--mono)}
           <li>시스템별 담당자 지정 및 인터뷰 일정 확정</li>
           <li>전사 Endpoint/Gateway 방침 확보 또는 미확정 사실 확인 + 가정 명시</li>
           <li><b>OCEAN-H vs TDMS</b> 설비 마스터 중복 확인 착수</li>
+          <li><b>합의 ③ — 설계 vs 구축 경계</b>: 본 과업은 표준·기준·방식의 확정까지이며, 사전(태그·별칭·코드)의 <b>전량 구축은 차년도 실행 범위</b></li>
+          <li>협력사에 Agent를 제공할 것인가 (범위 결정 항목)</li>
+          <li>보안 검토 주체 지정 및 심의 기준서 수령 경로 확정</li>
         </ul></div>
         <p class="note warn"><b>이 과업에서 가장 중요한 30분입니다.</b> “MCP 얹으면 되는 것 아니냐”는 기대를 W1에 정리하지 못하면, Phase 2·3의 Legacy 고도화 과제가 “불필요한 일”로 취급됩니다.</p>
       </div>
@@ -407,7 +443,7 @@ footer .mono{font-family:var(--mono)}
         <ul class="exits">
           <li>Agent 유형이 <b>5–8종 이내</b>로 수렴 (10종 넘으면 유형화 실패 — 재분류)</li>
           <li>모든 유형이 Action Pattern으로 표현되고 <b>정량 요건</b>(응답시간·데이터량) 기재</li>
-          <li>수요 매트릭스의 ‘미정’ 셀 0건</li>
+          <li>수요 매트릭스 — <b>MP 정의 13종은 ‘미정’ 0건 필수</b>, 스마트플랜트 2.0 40개 과제는 <b>대표 10건 표본</b> + 나머지는 Legacy 의존도만 1차 분류</li>
           <li><b>P-ACT(쓰기)</b> 요구가 별도 식별되어 1차 범위 밖으로 분리 <span class="sys">OASIS 집중 예상</span></li>
           <li>횡단 질의 비중 측정 + 대표 횡단 질의 5건 선정</li>
         </ul></div>
@@ -420,7 +456,8 @@ footer .mono{font-family:var(--mono)}
         <p class="goal">Legacy의 <b>공급</b> 현황을 6축 공통 기준으로 진단하고 수요와의 Gap을 확정한다. 시스템별 담당 조직이 다르므로 <b>병렬 진행</b>이 필수.</p>
         <div><div class="mini">완료 판단기준</div>
         <ul class="exits">
-          <li>대상 시스템 전부에 6축 점수와 <b>판정 근거</b> 기록 (점수만 있으면 무효)</li>
+          <li><b>진단 대상 6종</b> 전부에 R1~R6 점수와 <b>판정 근거</b> 기록 (점수만 있으면 무효)</li>
+          <li>실호출 검증 차등 — <b>1순위 3종 각 1건 이상 필수</b>(RTDB 대량 구간 조회 포함), 2순위 3종은 인터페이스 명세 확인으로 갈음하되 근거란에 명기</li>
           <li>실제 호출 검증 최소 3건 — <b>RTDB 대량 구간 조회 1건 필수 포함</b></li>
           <li>Phase 1 수요 요건의 100%가 Gap 판정을 받음</li>
           <li>공통 과제와 시스템 특화 과제 분리</li>
@@ -438,7 +475,7 @@ footer .mono{font-family:var(--mono)}
         <p class="goal">Agent가 <b>정확하게 해석할 수 있는</b> 데이터 상태를 정의한다. 핵심 신설 활동은 <b>3-2 시스템 횡단 식별자 표준화</b>.</p>
         <div><div class="mini">완료 판단기준</div>
         <ul class="exits">
-          <li><b>대표 횡단 질의 5건이 공통 식별자만으로 조인 가능함이 확인됨</b></li>
+          <li><b>대표 횡단 질의 5건이 성립하는 최소 범위(1개 공장·유닛 한정)에서 조인 성립 실증</b> + 전량 확장 방식·공수·주체를 로드맵으로 제시<br><span style="font-size:12.5px;color:var(--ink-3)">전량 구축이 아님 — 합의 ③에 따름</span></li>
           <li>4개 축 전부에 기준 원천 지정 및 사유 문서화</li>
           <li>Before/After 예시 3건 — OASIS 상태코드 · OCEAN-H 설비 계층 · RTDB 태그 각 1건</li>
           <li>설계 가이드가 체크리스트 형태로 즉시 적용 가능</li>
@@ -452,7 +489,7 @@ footer .mono{font-family:var(--mono)}
         <p class="goal">연결 방식을 <b>선정하고 기준을 세운다.</b> 이 과업 Key Question에 대한 직접적 답. 상세는 06장 참조.</p>
         <div><div class="mini">완료 판단기준</div>
         <ul class="exits">
-          <li>5개 Action Pattern 전부에 연계 방식 지정 + 사유 문서화</li>
+          <li><b>P-READ~P-MONITOR 4개 패턴</b> 연계 방식 확정 (P-ACT는 요건 기재만)</li>
           <li><b>MCP 채택 판단 완료</b> — 조건부면 조건 명시</li>
           <li>산출물이 <b>(a) CLX 적용 기준 / (b) 전사 협의사항</b> 2갈래로 분리</li>
           <li>대표 횡단 질의 5건의 End-to-End 호출 흐름도</li>
@@ -467,12 +504,12 @@ footer .mono{font-family:var(--mono)}
         <p class="goal">“<b>누구의 권한으로</b> 접근하는가”에 답한다. 보안 승인의 관문.</p>
         <div><div class="mini">완료 판단기준</div>
         <ul class="exits">
-          <li>모든 Action Pattern에 권한 모델 지정</li>
+          <li>1차 범위 4개 패턴에 권한 모델 지정</li>
           <li><b>결과 필터링 요건</b> 명시 — Agent가 요청자 권한 밖 데이터를 반환하지 않음</li>
           <li>Agent 연쇄 호출 시 권한 전파 규칙 정의</li>
           <li>보안 담당 사전 검토 의견 수령 및 반영</li>
         </ul></div>
-        <p class="note"><b>실무의 핵심 난제.</b> Agent 고유 권한(Service Account)은 구현이 쉽지만 최소권한 위배로 승인이 어렵고, 사용자 권한 위임(OBO)은 안전하지만 토큰 전파가 복잡합니다. 대부분 혼합으로 수렴하며, <b>어느 패턴에 무엇을 적용할지 문서로 못박는 것</b>이 산출물의 실질입니다.</p>
+        <p class="note"><b>실무의 핵심 난제.</b> Agent 고유 권한(Service Account)은 구현이 쉽지만 최소권한 위배로 승인이 어렵고, 사용자 권한 위임은 안전하지만 <b>각 신뢰 경계마다 토큰 교환(RFC 8693)</b>이 필요해 복잡합니다. &ldquo;OBO&rdquo;는 특정 IdP 벤더 용어이므로 <b>전사 표준 요청서에는 RFC 8693 Token Exchange로 표기</b>하십시오. 대부분 혼합으로 수렴하며, <b>어느 패턴에 무엇을 적용할지 문서로 못박는 것</b>이 산출물의 실질입니다.</p>
       </div>
     </div>
 
@@ -495,11 +532,26 @@ footer .mono{font-family:var(--mono)}
   <div class="stack wide" style="gap:12px">
     <div class="phase">
       <div class="ph-h"><span class="pn">P7</span><span class="pt">Agent-ready Legacy 목표구조 및 고도화 방안</span><span class="pw">W10–W13</span></div>
-      <div class="ph-b"><p class="goal">Phase 3–6 요건을 시스템별로 종합한 To-be 구조도와 단계적 전환 로드맵. 각 고도화 항목은 Phase 2 Gap 또는 Phase 1 요구사항으로 <b>역추적 가능</b>해야 한다.</p></div>
+      <div class="ph-b"><p class="goal">Phase 3–6 요건을 시스템별로 종합한 To-be 구조도와 단계적 전환 로드맵.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li>고도화 항목 <b>100%가 Phase 2 Gap(R축) 또는 Phase 1 요구사항으로 역추적</b> 가능</li>
+          <li>진단 대상 시스템 전부의 To-be 구조도가 동일 양식으로 작성</li>
+          <li>전환 로드맵 3단계의 시점 · <b>선행조건</b> 명시 (특히 태그 매핑 · 마스터 정비 선행 관계)</li>
+        </ul></div></div>
     </div>
     <div class="phase">
       <div class="ph-h"><span class="pn">P8</span><span class="pt">실행과제 정의 및 통합</span><span class="pw">W12–W14</span></div>
-      <div class="ph-b"><p class="goal">모든 과제를 <b>전사 공통·협의</b> / <b>CLX 특화</b> 로 분류하고, 차년도 추진 범위·수행계획을 의사결정 가능한 수준으로 제시한다. 기대산출물 12종 제출.</p></div>
+      <div class="ph-b"><p class="goal">모든 과제를 <b>전사 공통·협의</b> / <b>CLX 특화</b> 로 분류하고, 차년도 추진 범위·수행계획을 의사결정 가능한 수준으로 제시한다.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li>전 과제가 <b>전사 / CLX 이분</b> 완료</li>
+          <li>과제별 <b>개략 공수 · 선행조건 · 담당 조직 · 착수 가능 시점</b> 지정</li>
+          <li><b>차년도 ROM(개략 투자비) 제시</b> — 예산 없는 실행계획은 승인 대상이 아님</li>
+          <li>기대산출물 <b>12종 검수 통과</b> (11장 명세 기준)</li>
+          <li>경영층 <b>의사결정 요청 항목</b> 정리</li>
+          <li><b>지식 이전 워크숍 2회 완료</b> (6축 진단 · 도구 명세 작성법)</li>
+        </ul></div></div>
     </div>
   </div>
 </section>
@@ -507,7 +559,7 @@ footer .mono{font-family:var(--mono)}
 <!-- 05 -->
 <section id="wbs">
   <div class="sh"><span class="n">05</span><h2>주차별 WBS</h2></div>
-  <p class="lede">9/7 착수 기준 14주. <b>임계 경로</b>는 <span class="mk">P0 → P1 Action Pattern → P2 Gap → P4 연계 설계 → P7 → P8</span> 이며, P1이 1주 지연되면 전 과업이 1주 밀립니다.</p>
+  <p class="lede">9/7 착수 기준 14주. <b>임계 경로</b>는 <span class="mk">P0 → P1 Action Pattern → P2 Gap(RTDB 실측) → <b>P3-2 식별자</b> → P4 연계 설계 → P7 → P8</span> 이며, P1이 1주 지연되면 전 과업이 1주 밀립니다.</p>
   <div class="tw"><table class="gantt">
     <thead><tr><th style="text-align:left;padding-left:11px">Phase</th>
       <th>W1</th><th>W2</th><th>W3</th><th>W4</th><th>W5</th><th>W6</th><th>W7</th><th>W8</th><th>W9</th><th>W10</th><th>W11</th><th>W12</th><th>W13</th><th>W14</th></tr></thead>
@@ -519,11 +571,11 @@ footer .mono{font-family:var(--mono)}
       <tr><td class="lab">P3 데이터·메타</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
       <tr><td class="lab sub">└ 횡단 식별자 표준화</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on s"></td><td class="cell on s"></td><td class="cell on s"></td><td class="cell on s ms"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
       <tr><td class="lab">P4 연계 구조 ★</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
-      <tr><td class="lab sub">└ MCP 채택 판단</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on s"></td><td class="cell on s ms"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
-      <tr><td class="lab">P5 권한 관리체계</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab sub">└ MCP 채택 판단</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on s"></td><td class="cell on s ms"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P5 권한 관리체계</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on ms"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td></tr>
       <tr><td class="lab">P6 Lineage·변경관리</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td></tr>
       <tr><td class="lab">P7 목표구조·로드맵</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td></tr>
-      <tr><td class="lab">P8 실행과제·통합</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td></tr>
+      <tr><td class="lab">P8 실행과제·통합</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on ms"></td></tr>
     </tbody>
   </table></div>
   <div class="lg">
@@ -539,10 +591,10 @@ footer .mono{font-family:var(--mono)}
       <tr><td class="mk">W1</td><td><b>범위 · MCP 판단시점 합의</b></td><td>범위 정의서, 연계방식 판단 기준 합의서</td></tr>
       <tr><td class="mk">W3</td><td>수요 확정</td><td>Agent 유형 정의, Action Pattern, 수요 매트릭스</td></tr>
       <tr><td class="mk">W6</td><td>공급 진단 완료</td><td>Agent-Readiness 히트맵, Gap 분석서, 대상 시스템 확정</td></tr>
-      <tr><td class="mk best">W7</td><td><b>중간보고</b></td><td>현황 분석 결과 + To-be 방향성 초안</td></tr>
+      <tr><td class="mk best">W7</td><td><b>중간보고</b></td><td>현황 분석 결과 + To-be 방향성 초안 + <b>남은 2대 결정(식별자 표준 W8, MCP 채택 W9–10)의 판단 기준과 잠정 방향</b> + <b>보안 사전 검토 결과</b></td></tr>
       <tr><td class="mk">W8</td><td><b>횡단 식별자 표준 확정</b></td><td>공통 식별자·매핑 요건 (횡단 질의 5건 조인 검증 통과)</td></tr>
       <tr><td class="mk">W9–10</td><td><b>MCP 채택 판단</b></td><td>MCP 채택 판단서, 적합성 매트릭스</td></tr>
-      <tr><td class="mk">W11</td><td>핵심 설계 결정 리뷰</td><td>연계 아키텍처, 권한 모델, 도구 정의 기준</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">W11</td><td><b>핵심 설계 결정 리뷰</b> <span style="font-size:12px">(승인 회의체)</span></td><td>연계 아키텍처 · 권한 모델 · 도구 정의 기준 — <b>중간보고에서 유보한 2대 결정을 여기서 승인</b></td></tr>
       <tr><td class="mk best">W14</td><td><b>최종보고</b></td><td>기대산출물 12종 + 차년도 추진계획</td></tr>
     </tbody>
   </table></div>
@@ -645,6 +697,23 @@ footer .mono{font-family:var(--mono)}
     </tbody>
   </table></div>
 
+  <p class="note crit" style="margin-top:14px"><b>이 매트릭스는 2개 축을 하나로 눌러놓은 것입니다 — 읽을 때 주의하십시오.</b><br>
+  원칙 03이 정의한 대로 MCP는 <b>L4 도구 노출 규약</b>이고 REST/GraphQL은 <b>L1 원천 접근 방식</b>입니다. 둘은 배타적 대안이 아니라 <b>중첩</b>됩니다 — <span class="pat">Agent → MCP Server(L4) → Gateway(L3) → REST(L1)</span>. 따라서 “P-READ는 REST가 최적”이라는 판정은 프로토콜 선택이 아니라 <b>배치 위치</b> 이야기입니다.</p>
+  <div class="tw" style="margin-top:12px"><table>
+    <thead><tr><th style="width:118px">Pattern</th><th style="width:220px">축 ① 원천 접근 (L1)</th><th style="width:200px">축 ② Agent 노출 (L4)</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pat">P-READ</span></td><td><b>REST / OpenAPI</b></td><td>영역 판정에 따름 (조건부 MCP)</td><td>정형 조회 — Gateway 통합 성숙</td></tr>
+      <tr><td><span class="pat">P-SEARCH</span></td><td>REST + 검색 색인</td><td><b>MCP 도구</b></td><td>Agent 자율 선택 필요 — MCP 실익 최대</td></tr>
+      <tr><td><span class="pat">P-ANALYZE</span></td><td><b>서버측 집계 API</b> 또는 배치·복제</td><td>조건부 MCP (집계·참조 반환 시)</td><td>아래 주의 참조</td></tr>
+      <tr><td><span class="pat">P-MONITOR</span></td><td><b>이벤트 구독</b> <span class="sys">AMS</span></td><td>구독 관리 계층</td><td>요청–응답 모델 아님</td></tr>
+      <tr><td><span class="pat">P-ACT</span></td><td>REST + Gateway</td><td style="color:var(--ink-4)">1차 범위 밖</td><td>승인·감사·롤백 별도 설계</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>P-ANALYZE 판정 주의 — “대량이면 무조건 배치 복제”는 틀렸습니다.</b> 공정 히스토리안(PI / IP.21 계열)은 <b>서버측 집계 질의</b>(interpolated / summary / time-weighted average)를 표준 기능으로 제공합니다. “실시간 API = 원시값 전송”이 아닙니다. 올바른 순서는 <b>W4 실측으로 서버측 집계 기능·성능 확인 → 있으면 집계 API 래핑(DA-05), 없거나 부하가 크면 복제</b>입니다.</p>
+  <p class="note" style="margin-top:10px"><b>P-SEARCH에 배치·복제를 쓸 때의 함정</b> — 검색 인덱스 복제는 <b>원천 권한과 분리된 사본</b>을 만듭니다. 인가를 인덱스에서 재현하지 못하면 실무에서 가장 흔한 데이터 유출 경로가 됩니다. 인덱스에 권한 필드를 함께 색인하거나, 조회 시 원천 권한으로 후필터링해야 합니다.</p>
+  <p class="note" style="margin-top:10px"><b>GraphQL을 채택하려면</b> — Agent가 임의 쿼리를 생성하므로 <b>쿼리 깊이·복잡도 상한</b>과 <b>필드 단위 인가</b>가 전제입니다. 둘 중 하나라도 없으면 인가 우회와 부하 폭발이 발생하므로, 본 과업에서는 <b>후보에서 제외</b>합니다.</p>
+  <p class="note" style="margin-top:10px"><b>P-MONITOR에 필요한 알람 전처리</b> — 정유 플랜트 알람은 ISA-18.2 / EEMUA 191 관리 대상입니다. 트립 직전 수백 건이 초당 쏟아지는 <b>알람 홍수(flood)</b> 구간에서 Agent가 무엇을 하는지가 설계돼야 하며, 이는 안전 이슈입니다. AMS 연계 요건에 <b>우선순위 필터 · 중복(chattering) 억제 · flood 판정 · shelved 알람 제외</b>를 포함하십시오.</p>
+
   <h3>MCP 채택 판단 트리</h3>
   <div class="tree">Q1. 해당 영역의 도구가 5개 이상이고 앞으로 늘어날 것인가?
     ├ No  <span class="x">→ REST 직접 호출로 충분. MCP 불요</span>
@@ -652,8 +721,8 @@ footer .mono{font-family:var(--mono)}
 Q2. Agent가 상황에 따라 어떤 도구를 쓸지 스스로 판단해야 하는가?
     ├ No  <span class="x">→ 호출 경로 고정 → REST 직접 호출</span>
     └ Yes ↓
-Q3. 반환 데이터가 Agent 컨텍스트에 들어갈 크기인가? (수천 행 이하)
-    ├ No  <span class="x">→ 배치·복제 + 집계 API. MCP 부적합</span>
+Q3. 도구 반환을 집계값 또는 참조(resource link / handle)로 설계할 수 있는가?
+    ├ No  <span class="x">→ 배치·복제 경로. 원시 대량 반환은 어떤 프로토콜로도 불가</span>
     └ Yes ↓
 Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     ├ No  <span class="x">→ 조건부 보류. Phase 5 권한 모델 확정 후 재판정</span>
@@ -668,8 +737,42 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     <tbody>
       <tr><td class="mk">Q1</td><td><b>도구가 5개 이상이고 늘어나는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 규모와 증가 추세</span></td><td>MCP의 실익은 <b>도구 발견(discovery)과 자기기술(self-description)</b>에 있습니다. 도구가 1~2개면 그 설명을 Agent 프롬프트에 직접 넣는 편이 더 싸고 빠릅니다. MCP Server 운영 비용(배포·인증·모니터링)이 편익을 초과합니다.<br><b>“늘어나는가”가 더 중요합니다.</b> 도구 집합이 정적이면 하드코딩이 낫고, 계속 늘어난다면 <b>Agent 재개발 없이 도구만 추가</b>하는 구조의 이익이 복리로 쌓입니다.</td></tr>
       <tr><td class="mk">Q2</td><td><b>Agent가 스스로 도구를 고르는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 판단의 필요성</span></td><td>호출 경로가 고정돼 있다면 그것은 Agent가 아니라 <b>파이프라인</b>입니다. 이 경우 MCP의 동적 선택 능력은 쓰이지 않고 <b>비결정성만 추가</b>됩니다 — 예측 가능해야 할 것을 예측 불가능하게 만드는 역효과입니다.<br>즉 <b>MCP는 판단이 필요한 곳에만 씁니다.</b></td></tr>
-      <tr><td class="mk">Q3</td><td><b>반환 데이터가 컨텍스트에 들어가는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 물리적 한계</span></td><td>MCP는 도구 결과를 <b>Agent 컨텍스트로 되돌리는</b> 구조입니다. RTDB 태그 1개월치는 수백만 포인트로, 컨텍스트 초과·비용 폭증·응답 지연이 동시에 발생합니다.<br>큰 데이터는 컨텍스트가 아니라 <b>저장소에서 저장소로</b> 흘러야 합니다(배치 복제 후 집계 반환). 이것은 MCP 설계의 결함이 아니라 <b>LLM 컨텍스트의 물리적 한계</b>이며, 어떤 프로토콜을 써도 같습니다.</td></tr>
+      <tr><td class="mk">Q3</td><td><b>집계·참조로 설계 가능한가</b><br><span style="font-size:12px;color:var(--ink-3)">= 물리적 한계</span></td><td>MCP는 도구 결과를 <b>Agent 컨텍스트로 되돌리는</b> 구조입니다. RTDB 태그 1개월치는 수백만 포인트로, 컨텍스트 초과·비용 폭증·응답 지연이 동시에 발생합니다.<br>큰 데이터는 컨텍스트가 아니라 <b>저장소에서 저장소로</b> 흘러야 합니다(배치 복제 후 집계 반환). 이것은 MCP 설계의 결함이 아니라 <b>LLM 컨텍스트의 물리적 한계</b>이며, 어떤 프로토콜을 써도 같습니다.</td></tr>
       <tr style="background:var(--signal-soft)"><td class="mk">Q4</td><td><b>권한 위임 설계가 가능한가</b><br><span style="font-size:12px;color:var(--ink-3)">= 안전성</span></td><td>MCP Server는 Agent와 Legacy 사이에 <b>또 하나의 신원 경계</b>를 만듭니다. 여기서 사용자 컨텍스트가 끊기면 MCP Server가 자기 권한으로 조회하게 되고, 그 즉시 <b>최소권한 위배 + 결과 필터링 불가</b> 상태가 됩니다.<br>Q1~Q3는 “MCP가 <b>유용한가</b>”를 묻고, <b>Q4는 “MCP를 <b>안전하게 쓸 수 있는가</b>”</b>를 묻습니다. 유용해도 안전하지 않으면 채택할 수 없으므로, 여기서 걸리면 <b>보류</b>입니다.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>6단 트리로 확장 — Q0(경계)와 Q5(무결성)</h4>
+  <p class="lede">원래 4단 트리는 <b>“MCP가 유용한가 · 안전하게 쓸 수 있는가”</b> 만 물었습니다. 보안 검토 결과 두 축이 빠져 있었습니다 — <b>앞에 망·법적 경계</b>, <b>뒤에 도구 정의 무결성</b>.</p>
+  <div class="tree"><b>Q0. 망 · 법적 경계를 통과할 수 있는가?</b> (OT 존 / 협력사 / 국외)
+    ├ No  <span class="x">→ 채택 불가. 복제본·중계 경로부터 설계</span>
+    └ Yes ↓
+Q1. 도구가 5개 이상이고 늘어나는가?  <span class="x">※ 보정: 도구 수 × 소비 Agent 수 × 변경 빈도로 판단</span>
+    ├ No  <span class="x">→ REST 직접 호출로 충분</span>
+    └ Yes ↓
+Q2. Agent가 상황에 따라 도구를 스스로 골라야 하는가?
+    ├ No  <span class="x">→ 고정 파이프라인 (Agent가 아님)</span>
+    └ Yes ↓
+Q3. 도구 반환을 집계값 또는 참조(resource link / handle)로 설계할 수 있는가?
+    ├ No  <span class="x">→ 배치·복제 경로</span>
+    └ Yes ↓
+Q4. 권한 위임(신뢰 경계별 토큰 교환)을 설계할 수 있는가?
+    ├ No  <span class="x">→ 조건부 보류. Gateway 경유 REST로 시작, Phase 5 후 재판정</span>
+    └ Yes ↓
+<b>Q5. 도구 정의(설명·스키마)의 무결성과 변경 통제가 가능한가?</b>
+    ├ No  <span class="x">→ 채택 불가. tool poisoning · rug pull 방어 불가</span>
+    └ Yes <b>→ ★ MCP 채택</b></div>
+  <p class="note warn" style="margin-top:14px"><b>Q1의 “5”는 대리변수이지 기준이 아닙니다.</b> 실제 결정 변수는 <span class="pat">도구 집합의 변경 빈도 × 소비 Agent 수</span> 입니다. 도구 3개를 Agent 20개가 공유하면 MCP가 명백히 유리한데 단순 개수 기준으로는 탈락합니다. <b>Q1에서 탈락시키기 전에 Q2를 먼저 확인</b>하는 예외를 두십시오 — 값싼 질문이 틀린 답을 내면 절약이 아니라 손실입니다.</p>
+
+  <h4>트리로 판정할 수 없는 5가지 — 예외 처리</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:180px">케이스</th><th style="width:250px">왜 트리가 못 잡는가</th><th>처리</th></tr></thead>
+    <tbody>
+      <tr><td>① 쓰기 (P-ACT)</td><td>1차 범위 밖이라 트리 진입 자체가 없음</td><td>개방 2~3단계 시 <b>쓰기용 별도 트리</b>(승인·롤백·4-eyes 축)</td></tr>
+      <tr><td>② 이벤트·스트리밍 <span class="sys">AMS</span></td><td>요청–응답 모델이 아님</td><td><b>Q0 이전 분기</b>: “요청–응답 모델인가?” No면 이벤트 경로</td></tr>
+      <tr><td>③ 외부·협력사 소유 시스템</td><td>주체가 사내 사용자가 아니라 Q4가 성립 안 함</td><td>주체 유형 축 적용 (08장 주체×등급 매트릭스)</td></tr>
+      <tr><td>④ ② Knowledge Hub (비정형)</td><td>도구 수·데이터 크기 축으로 측정 불가</td><td><b>② 과업 판정 기준으로 이관</b></td></tr>
+      <tr><td>⑤ 원천이 OT망</td><td>망 경계 통과 가능성이 판정에 없었음</td><td><b>Q0에서 처리</b> (신설 사유)</td></tr>
     </tbody>
   </table></div>
 
@@ -740,17 +843,71 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     예상 결론은 <strong>“OCEAN-H 중심 부분 채택”</strong>입니다. 전면 채택도 전면 배제도 아닙니다. “MCP 도입 여부”를 이분법으로 묻는 질문 자체를 재구성하는 것이 컨설턴트의 역할입니다.
   </div>
 
+
+  <h3>Agent 인가 표준 스택 — 신뢰 경계별 토큰 설계</h3>
+  <p class="lede">권한을 “위임한다/안 한다”로만 말하면 구현 단계에서 <b>토큰 passthrough</b>로 귀결되고, 그것이 곧 confused deputy 취약점입니다. 신뢰 경계마다 <b>누가 무엇을 발급하고 누가 검증하는지</b>를 표로 고정하십시오.</p>
+  <div class="tree">[사용자] ──id token──&gt; [Agent] ──access token(aud: 오케스트레이터)──&gt; [오케스트레이터]
+                                          │
+                       <b>RFC 8693 교환</b>  ↓  (aud: MCP Server)
+                                    [MCP Server] ──<b>교환</b>──&gt; (aud: Gateway) ──&gt; [Gateway] ──&gt; [Legacy]
+<span class="x">                    각 화살표마다 토큰 재발급. 원본 토큰 그대로 전달 금지.</span></div>
+  <div class="tw" style="margin-top:14px"><table>
+    <thead><tr><th style="width:150px">신뢰 경계</th><th style="width:110px">발급 주체</th><th style="width:120px">aud (대상)</th><th style="width:130px">교환 방식</th><th>검증 주체 · 실패 시</th></tr></thead>
+    <tbody>
+      <tr><td>사용자 → Agent</td><td>전사 IdP</td><td>Agent</td><td>OAuth 2.1 + <b>PKCE 필수</b></td><td>Agent / 인증 거부</td></tr>
+      <tr><td>Agent → 오케스트레이터</td><td>IdP</td><td>오케스트레이터</td><td>RFC 8693 교환</td><td>오케스트레이터 / 호출 차단</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>오케스트레이터 → MCP Server</b></td><td>IdP</td><td><b>해당 MCP Server</b></td><td><b>RFC 8693 교환</b><br>+ RFC 8707 resource</td><td>MCP Server / <b>aud 불일치 시 거부</b></td></tr>
+      <tr><td>MCP Server → Gateway</td><td>IdP</td><td>Gateway</td><td>RFC 8693 교환</td><td>Gateway / 거부 + 감사</td></tr>
+      <tr><td>Gateway → Legacy</td><td>Gateway</td><td>Legacy 시스템</td><td>시스템별 정책</td><td>Legacy / 권한 필터링</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tw" style="margin-top:12px"><table>
+    <thead><tr><th style="width:150px">참조 표준</th><th>요구사항</th></tr></thead>
+    <tbody>
+      <tr><td><b>OAuth 2.1 + PKCE</b></td><td>MCP 인가 사양이 클라이언트에 PKCE를 <b>필수</b>로 요구</td></tr>
+      <tr><td><b>RFC 9728</b></td><td>Protected Resource Metadata — 리소스 서버 디스커버리</td></tr>
+      <tr><td><b>RFC 8414</b></td><td>Authorization Server Metadata</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>RFC 8707</b></td><td><b>Resource Indicators — MUST.</b> authorization·token 요청 양쪽에 <span class="pat">resource</span> 파라미터를 넣어 토큰의 <span class="pat">aud</span>를 대상 MCP Server에 바인딩. 없으면 AS가 같은 도메인 아무 서비스에나 통하는 범용 토큰을 발급</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>RFC 8693</b></td><td>Token Exchange. <b>MCP Server가 클라이언트 토큰을 업스트림에 재사용하는 것은 사양상 금지</b> — MCP Server는 업스트림에 대해 별도 OAuth 클라이언트이며 자기 토큰을 교환으로 얻어야 함</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>신뢰 경계와 프롬프트 인젝션 통제</h3>
+  <p class="lede">이 설계는 인젝션 성립 조건을 <b>모두 갖추고 있습니다</b> — ① OCEAN-H 정비이력·근무일지의 <b>사람 자유입력</b>이 컨텍스트로 진입 ② 오케스트레이터가 다른 Agent에 위임하므로 <b>도메인 횡단 전파</b> ③ “Agent는 설명만 읽고 도구를 고른다” = <b>도구 설명이 곧 프롬프트</b>. 협력사가 입력한 정비이력 한 줄로 Agent의 도구 선택을 바꿀 수 있다면 그것이 권한 상승 경로입니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:150px">데이터 출처</th><th class="c" style="width:96px">신뢰 등급</th><th style="width:230px">컨텍스트 진입 전 처리</th><th class="c">지시 해석 허용</th></tr></thead>
+    <tbody>
+      <tr><td>시스템 생성 (코드·수치·타임스탬프)</td><td class="c mk best">높음</td><td>그대로 사용</td><td class="c">해당 없음</td></tr>
+      <tr><td>사내 사용자 자유입력 (근무일지·조치내용)</td><td class="c mk mid">낮음</td><td>구분자·역할 태깅으로 <b>데이터 영역 격리</b></td><td class="c mk no">금지</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>협력사 입력</b> (OCEAN-P 경유)</td><td class="c mk no">최저</td><td>격리 + <b>지시문 패턴 탐지</b></td><td class="c mk no">금지</td></tr>
+      <tr><td>외부 (논문·뉴스·특허)</td><td class="c mk no">최저</td><td>격리 + 출처 표기 필수</td><td class="c mk no">금지</td></tr>
+    </tbody>
+  </table></div>
+  <h4>도구 카탈로그 무결성 통제</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:170px">위협</th><th style="width:230px">공격 방식</th><th>통제</th></tr></thead>
+    <tbody>
+      <tr><td><b>Tool poisoning</b><br><span style="font-size:12px;color:var(--ink-3)">OWASP MCP03 · Critical</span></td><td>도구 설명에 은닉 지시를 심어 Agent 행위를 조작</td><td>도구 정의 <b>서명·해시 고정</b>, 등록 시 설명 리뷰</td></tr>
+      <tr><td><b>Rug pull</b></td><td>승인 후 도구 설명을 변조</td><td><b>정의 해시 변경 시 재승인</b> 강제, 런타임 해시 검증</td></tr>
+      <tr><td><b>Line jumping</b></td><td>다중 MCP Server 동시 로드 시 인접 서버 도구를 섀도잉</td><td>동시 로드 금지 또는 <b>네임스페이스 격리</b></td></tr>
+      <tr><td><b>공급망</b></td><td>외부 커뮤니티 MCP Server 도입</td><td>개발·서명·배포 주체 명시, <b>외부 커뮤니티 서버 사용 금지 원칙</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px">OWASP는 tool poisoning을 <b>MCP03(Critical)</b> 로 분류하고, 2026-06 NSA/DoD 합동 권고도 tool poisoning · rug pull · cross-server trust exploitation을 우선 위협으로 지목했습니다. 이 통제가 판단 트리 <b>Q5</b>의 근거입니다.</p>
+
   <h3>전사 Gateway 요건 — 2갈래 분리</h3>
   <p class="lede">Agent 연계는 기존 시스템 간 연계에 없던 요구를 만듭니다. 전사 표준이 이를 담고 있지 않을 가능성이 높습니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:36px">#</th><th style="width:200px">전사 협의 · 개선 요청</th><th>왜 필요한가</th><th style="width:92px">유형</th></tr></thead>
     <tbody>
-      <tr><td class="num">1</td><td><b>Agent 신원 체계</b> 정의</td><td>Agent가 권한 주체가 됨. SKT 사번 부여 방식 참조</td><td>표준 신설</td></tr>
-      <tr><td class="num">2</td><td><b>권한 위임(OBO) 표준</b></td><td>Agent가 사용자 대신 호출. 현행 표준에 없을 가능성</td><td>표준 신설</td></tr>
+      <tr><td class="num">1</td><td><b>Agent 신원 체계</b> 정의</td><td>Agent가 권한 주체가 됨. <b>사람 네임스페이스와 분리된 Agent 식별자 + 소유자 연결 필수</b> (사번 직접 발급은 감사·최소권한과 충돌 — 08장 참조)</td><td>표준 신설</td></tr>
+      <tr><td class="num">2</td><td><b>토큰 교환(RFC 8693) 기반 위임 표준</b></td><td>Agent가 사용자 대신 호출. 현행 표준에 없을 가능성</td><td>표준 신설</td></tr>
       <tr><td class="num">3</td><td>Agent 호출 감사 로그 규격</td><td>사용자 + Agent 이중 주체 기록</td><td>표준 개정</td></tr>
       <tr><td class="num">4</td><td>MCP Server의 Gateway 등록 방식</td><td>신규 유형의 클라이언트</td><td>표준 개정</td></tr>
       <tr><td class="num">5</td><td>Agent용 레이트리밋 정책</td><td>사람과 호출 패턴이 다름</td><td>정책 신설</td></tr>
-      <tr><td class="num">6</td><td><b>LLM 컨텍스트 반출 통제 기준</b></td><td>데이터가 모델 컨텍스트로 나감</td><td>보안 정책 신설</td></tr>
+      <tr><td class="num">6</td><td><b>LLM 컨텍스트 반출 통제 기준</b></td><td>데이터가 모델 컨텍스트로 나감. <b>전사 확정 전까지 CLX 잠정 기준(보수적)을 적용</b>하고 확정 시 대체 — 07장 데이터 분류 등급 참조</td><td>보안 정책 신설</td></tr>
+<tr><td class="num">8</td><td><b>Agent 감사 로그 헤더 규격</b></td><td>원천 시스템 호출 시 <b>최종 사용자ID와 trace_id를 식별 가능한 헤더로 전달</b>. 없으면 원천 로그에 “Gateway 서비스 계정”만 남아 역추적이 끊김</td><td>표준 신설</td></tr>
+<tr><td class="num">9</td><td>IT/OT 경계 통과 기준</td><td>산업 DMZ 복제본 구성·단방향 복제 승인 절차</td><td>OT 보안 정책</td></tr>
       <tr><td class="num">7</td><td>도구 카탈로그와 전사 API 카탈로그 관계</td><td>이중 관리 방지</td><td>거버넌스 정리</td></tr>
     </tbody>
   </table></div>
@@ -784,6 +941,77 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     </tbody>
   </table></div>
   <p class="note warn" style="margin-top:14px"><b>D5는 울산CLX 특화 요건입니다.</b> OCEAN-H 데이터 정제율이 80% 이상이라는 것은, 뒤집으면 최대 20%가 미정제라는 뜻입니다. Agent는 미정제 구간에서 <b>오류를 내지 않고 틀린 답을 냅니다.</b> 일반적인 Agent-ready 체크리스트에는 없는 항목이며, 가장 실용적인 차별화 포인트입니다.</p>
+
+  <h3>D6 · 데이터 분류 등급과 반출 통제</h3>
+  <p class="lede">표지의 Key Question은 <b>“안전하게 활용”</b>인데, 데이터가 모델 컨텍스트로 나가는 문제를 전사 협의 한 줄로 넘기면 그 질문을 스스로 비우는 것입니다. <b>전사 정책 확정 전까지 CLX 잠정 기준(보수적)을 적용</b>하고 확정 시 대체합니다 — 이것이 원칙 04(전사 종속)의 올바른 적용 방식입니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:78px">등급</th><th style="width:180px">정의</th><th>CLX 예시</th><th class="c" style="width:88px">개인정보</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--crit-soft)"><td><b>C1 극비</b></td><td>유출 시 경쟁력 직접 훼손</td><td><b>공정 운전조건 · 촉매 사양 · 수율</b> · 미공개 투자 정보</td><td class="c">—</td></tr>
+      <tr><td><b>C2 기밀</b></td><td>제한된 조직만 열람</td><td>정비 단가 · 협력사 계약 조건 · 사고 조사 보고서</td><td class="c mk mid">일부 포함</td></tr>
+      <tr><td><b>C3 사내</b></td><td>사내 일반 열람</td><td>근무일지 · 정비 이력 · 작업표준</td><td class="c mk mid">포함</td></tr>
+      <tr><td><b>C4 일반</b></td><td>제약 없음</td><td>설비 제원 · 공개 규격</td><td class="c">—</td></tr>
+    </tbody>
+  </table></div>
+  <h4>등급 × 모델 배치 허용 매트릭스 (CLX 잠정 기준)</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:96px">데이터 등급</th><th class="c">사내 온프렘 모델</th><th class="c">전사 사설 모델</th><th class="c">외부 SaaS 모델</th></tr></thead>
+    <tbody>
+      <tr><td><b>C1 극비</b></td><td class="c mk best">허용</td><td class="c mk mid">조건부<br><span style="font-size:12px">학습 재사용 금지 · 로그 사내 보관</span></td><td class="c mk no">금지</td></tr>
+      <tr><td><b>C2 기밀</b></td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk no">금지</td></tr>
+      <tr><td><b>C3 사내</b></td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk mid">조건부<br><span style="font-size:12px">가명처리 후</span></td></tr>
+      <tr><td><b>C4 일반</b></td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk best">허용</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px">확인해야 할 것 — <b>모델 배치 위치 · 프롬프트·응답 로그의 보관 위치와 기간 · 학습 재사용 여부 · 국외 이전 여부</b>. 이 넷이 미정이면 C1·C2는 전부 “금지”가 기본값입니다.<br>
+  <b>반출 감사</b> — 어떤 도구가 어떤 등급 데이터를 몇 건 컨텍스트로 내보냈는지 로깅합니다(08장 감사 로그 스키마).</p>
+  <p class="note warn" style="margin-top:10px"><b>개인정보 축</b> — 근무일지 · 정비 담당자 · 협력사 인원 · 교대 정보, 특히 <b>사고 조사 보고서의 부상·건강 정보</b>가 대상입니다. 각 대상을 <b>가명처리 후 노출 / 노출 금지 / 권한자 한정</b> 중 하나로 판정하고, <b>근무일지의 Agent 노출은 근로자 감시 이슈</b>로도 번질 수 있으므로 판정 주체를 ②와 함께 Phase 0에서 확정하십시오. 개인정보 영향평가 필요 여부도 Phase 0 체크 항목입니다.</p>
+
+  <h3>R축(진단) ↔ D축(데이터 요건) 매핑</h3>
+  <p class="lede">진단은 <b>R축</b>으로 하고 개선과제 근거는 <b>D축</b>으로 씁니다. 두 축이 연결되지 않으면 T6의 “모든 과제는 Phase 2 Gap으로 역추적” 규칙이 물리적으로 성립하지 않습니다. 둘은 목적이 다르므로 통합하지 말고 <b>대응표로 연결</b>합니다 — R축은 <b>시스템의 준비도</b>, D축은 <b>데이터의 AI 가독성</b>.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:130px">D축 (데이터 요건)</th><th style="width:200px">대응 R축 (진단)</th><th>연결 논리</th></tr></thead>
+    <tbody>
+      <tr><td><b>D1</b> 식별 가능성</td><td>R2 데이터 구조 · R3 의미 명확성</td><td>식별자 체계가 있고(R2) 현장 언어와 연결돼야(R3) 특정 가능</td></tr>
+      <tr><td><b>D2</b> 의미 명확성</td><td>R3 의미 명확성</td><td>1:1 대응</td></tr>
+      <tr><td><b>D3</b> 시점 정합성</td><td>R2 데이터 구조</td><td>시간 기준이 스키마에 명시돼야 변환 가능</td></tr>
+      <tr><td><b>D4</b> 조회 단위</td><td>R1 인터페이스 · R2 데이터 구조</td><td>API가 원하는 단위를 지원해야(R1) 성립</td></tr>
+      <tr><td><b>D5</b> 신뢰 표시</td><td>R5 관측·감사</td><td>정제 상태·품질을 시스템이 알고 반환할 수 있어야</td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>D6</b> 분류·반출 통제</td><td>R4 권한 세분성 · R5 관측·감사</td><td>등급별 통제(R4)와 반출 감사(R5)가 전제</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px">T6 개선과제 정의서의 <b>Gap 근거</b> 란은 <span class="pat">R축 점수 + D요건</span> 병기로 작성합니다. 예: <span class="pat">DA-01 | R3=1, R2=2 / D1·D2 미충족</span></p>
+
+  <h3>DA-01 상세 — 태그 사전은 전수 구축하지 않는다</h3>
+  <div class="thesis" style="border-left:4px solid var(--crit)">
+    태그 사전을 <strong>전수 구축하려는 시도가 이 과업의 가장 확실한 실패 경로</strong>입니다. 3.5개월에 불가능하며, 최우선 과제로 걸어놓고 방법이 없으면 착수보고에서 “안 될 일을 1순위로 잡았다”는 평가를 받습니다.
+  </div>
+  <div class="tw" style="margin-top:16px"><table>
+    <thead><tr><th style="width:110px">계층</th><th style="width:200px">대상</th><th style="width:170px">본 과업(3.5개월) 목표</th><th>이후</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--accent-soft)"><td><b>T-A</b> 핵심 태그</td><td>대표 횡단 질의 5건 + AI 과제 <b>#4 · #11</b>이 실제 참조하는 태그</td><td><b>전수 수기 정의</b> (예상 200~500개)<br>설비ID · 물리량 · 단위 · 공학범위 · 정상범위 · 품질코드</td><td>검증 완료</td></tr>
+      <tr><td><b>T-B</b> 규칙 파생</td><td>명명규칙이 확인된 태그군</td><td><b>규칙 문서화 + 자동 파싱 스크립트 + 정확도 측정</b>(샘플 100개)</td><td>차년도 일괄 생성</td></tr>
+      <tr><td><b>T-C</b> 잔여</td><td>규칙 미적용 · 레거시 태그</td><td><b>잔여 규모와 사유만 계량</b> (사전 미작성)</td><td>차년도 과제 DA-01-2</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>본 과업 산출물 4종</b> — ⓐ 핵심 태그 전수 사전 ⓑ 명명규칙 역공학 결과와 자동 생성 규칙 ⓒ 잔여 규모·난이도 계량치 ⓓ 유지 운영 모델. <b>ⓒ가 차년도 예산 산정의 근거</b>가 됩니다.</p>
+  <p class="note warn" style="margin-top:10px"><b>W2 분기점</b> — RTDB <b>태그 총수</b>와 <b>명명규칙 문서 유무</b>를 확인합니다. 규칙 문서가 있으면 T-B 범위가 크게 확대되고, 없으면 T-A만 남습니다. 이 갈림이 DA-01 규모를 결정합니다.<br>
+  구축 수단: ① 태그 명명 규칙 역공학(<span class="pat">TI</span>=Temperature Indicator 등 패턴 파싱) ② <b>DCS/제어 시스템 설정 정보</b>에 이미 있는 태그–루프–설비 관계 활용 ③ P&amp;ID 도면 대조 ④ 현업 검증.</p>
+  <p class="note crit" style="margin-top:10px"><b>DA-02(설비 별칭 사전)의 난이도를 “중” → “고”로 정정합니다.</b> 설비 60만 기 전제에서 자유서술 텍스트 기반 별칭 수집이 태그보다 쉬울 근거가 없습니다. DA-02도 동일한 <b>3단 커버리지(핵심 설비 전수 / 규칙 파생 / 잔여 계량)</b> 로 재정의합니다.</p>
+
+  <h3>D5 상세 — 미정제 20%를 어떻게 찾는가</h3>
+  <p class="lede">“정제율 80% 이상”이라는 수치 위에 D5 요건과 DA-06이 서 있습니다. <b>출처(OCEAN-H 구축 완료보고)와 “정제”의 조작적 정의를 먼저 확보</b>하지 않으면 착수보고에서 근거를 요구받습니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:44px">단계</th><th style="width:260px">활동</th><th style="width:180px">산출</th><th class="c" style="width:70px">주차</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">1</td><td>2021년 OCEAN-H 구축 프로젝트의 <b>정제 대상 정의 · 제외 기준 · 완료 판정 기준</b> 문서 확보</td><td>“정제”의 조작적 정의</td><td class="c mk">W3</td></tr>
+      <tr><td class="mk">2</td><td>정제 제외 사유별 분류 — ⓐ 원천 부재 ⓑ 이관 시 매핑 실패 ⓒ 자유서술 미구조화 ⓓ 저활용 후순위</td><td>미정제 유형 분류표</td><td class="c mk">W4</td></tr>
+      <tr><td class="mk">3</td><td><b>규칙 기반 완결성 검사</b> — 필수 필드 공란율, 설비ID 참조 무결성, 코드값 미등록률, 날짜 이상치를 <b>설비군 × 공장 × 연도</b> 축으로 집계</td><td>미정제 히트맵</td><td class="c mk">W4–5</td></tr>
+      <tr><td class="mk">4</td><td>대표 횡단 질의 5건이 통과하는 데이터 구간 표본 검수</td><td>질의별 신뢰 등급 판정</td><td class="c mk">W5–6</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>20%가 흩어져 있는지 편중돼 있는지가 결론을 가릅니다.</b> 특정 공장·특정 연도 이전에 편중돼 있으면 D5는 <b>구간 단위 신뢰 플래그</b>로 값싸게 해결되고, 무작위로 흩어져 있으면 <b>레코드 단위 플래그</b>가 필요해 DA-06 난이도가 한 단계 올라갑니다. <b>W5까지 이 판정을 못 끝내면 DA-06을 견적할 수 없습니다.</b></p>
+  <p class="note warn" style="margin-top:10px"><b>RTDB에도 같은 문제가 있습니다 — 품질 코드.</b> 히스토리안은 <span class="pat">Bad / Questionable / Substituted</span> 상태값을 가지며, 이를 정상값과 섞어 집계하면 Agent가 조용히 틀린 답을 냅니다. 또한 히스토리안은 exception/compression 알고리즘으로 <b>손실 압축 저장</b>하므로 “원시값”도 이미 재구성된 값입니다. <b>D5 요건에 「RTDB 품질코드 동반 반환」과 「집계 방식·보간 규칙 명시」를 포함</b>하십시오.</p>
 
   <h3>메타데이터 3계층</h3>
   <div class="tw"><table>
@@ -828,7 +1056,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     <thead><tr><th style="width:66px">#</th><th style="width:190px">과제</th><th style="width:88px">대상</th><th>근거</th><th style="width:92px">구분</th></tr></thead>
     <tbody>
       <tr style="background:var(--signal-soft)"><td class="mk">DA-01</td><td><b>RTDB 태그 사전 구축</b></td><td><span class="sys">RTDB</span></td><td>D1·D2 미충족 — <b>연계 자체가 불성립</b></td><td>CLX 특화</td></tr>
-      <tr><td class="mk">DA-02</td><td>설비 별칭 사전 구축</td><td><span class="sys">OCEAN-H</span></td><td>D1 미충족 — 60만 기에서 대상 특정 불가</td><td>CLX 특화</td></tr>
+      <tr><td class="mk">DA-02</td><td>설비 별칭 사전 구축 <span style="font-size:12px;color:var(--signal)">(난이도 고)</span></td><td><span class="sys">OCEAN-H</span></td><td>D1 미충족 — 60만 기에서 대상 특정 불가</td><td>CLX 특화</td></tr>
       <tr><td class="mk">DA-03</td><td>업무 코드 사전</td><td><span class="sys">OASIS</span></td><td>D2 미충족</td><td>CLX 특화</td></tr>
       <tr><td class="mk">DA-04</td><td>생산일↔절대시각 변환 규칙</td><td><span class="sys">OASIS</span></td><td>D3 미충족</td><td>CLX 특화</td></tr>
       <tr><td class="mk">DA-05</td><td>RTDB 구간 집계 API</td><td><span class="sys">RTDB</span></td><td>D4 미충족</td><td>CLX 특화</td></tr>
@@ -858,12 +1086,15 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     <tbody>
       <tr><td><b>계층</b></td><td><b>Agent ↔ 도구</b></td><td><b>Agent ↔ Agent</b></td></tr>
       <tr><td>해결 문제</td><td>외부 도구 · 데이터를 발견하고 호출</td><td>다른 Agent를 발견하고 작업을 위임 · 협업</td></tr>
-      <tr><td>사양</td><td>2025-11-25 스펙 (분산 실행, stateless 전송, 보안 프레임워크)</td><td><b>v1.0 (2026.04)</b></td></tr>
-      <tr><td>생태계</td><td>월 1억 1천만 회 이상 다운로드</td><td><b>150+ 조직</b>, AWS · Microsoft · Google 클라우드 통합</td></tr>
+      <tr><td>사양</td><td><b>2026-07-28</b> (현행) — 프로토콜 코어 stateless화, 세션·핸드셰이크 제거, extension 프레임워크 공식화, 인가 강화<br><span style="font-size:12px;color:var(--ink-3)">확인일 2026.09. 2025-11-25 사양을 대체</span></td><td><b><b>v1.0 (2026.03.12)</b> · Linux Foundation 거버넌스</b></td></tr>
+      <tr><td>생태계</td><td>SDK 다운로드 다수 <span style="font-size:12px;color:var(--ink-3)">(지표 정의·기준일 확인 필요)</span></td><td><b>150+ 조직</b> <span style="font-size:12px;color:var(--ink-3)">(2026.04 Linux Foundation)</span>, AWS · Microsoft · Google 클라우드 통합</td></tr>
       <tr><td>본 과업</td><td>Phase 4 (L4)</td><td>본 장 (L5)</td></tr>
     </tbody>
   </table></div>
-  <p class="note" style="margin-top:14px"><b>A2A는 2026년 4월 v1.0이 나온 신생 표준입니다.</b> 지금 채택을 확정할 단계가 아니라, 필요해질 때 갈 수 있도록 <b>구조를 열어두는 것</b>이 적정 수준입니다. 표준 거버넌스 연구에서 MCP·A2A 모두 권한 위임·책임 소재를 충분히 표현하지 못한다는 지적이 나오므로, 프로토콜에 의존하지 말고 <b>조직 차원의 기준</b>을 별도로 세워야 합니다.</p>
+  <p class="note" style="margin-top:14px"><b>A2A 유보의 근거는 &ldquo;표준이 미성숙해서&rdquo;가 아닙니다.</b> A2A는 2025.04 공개 &rarr; 2025.06 Linux Foundation 이관(벤더 중립 거버넌스) &rarr; <b>2026.03 v1.0 확정</b>으로, JWS(RFC 7515) + JCS(RFC 8785) 기반 서명 Agent Card까지 형식화된 단계입니다. 유보의 실제 근거는 <b>CLX 내 Agent 수가 아직 편익 임계(약 10개)에 못 미쳐 A2A의 이점이 발생하지 않고, 전사 AI 플랫폼 방침이 미확정</b>이라는 것입니다. 그래서 <b>구조만 열어둡니다.</b></p>
+<p class="note warn" style="margin-top:10px"><b>지금 무료로 사는 옵션</b> &mdash; T5 Agent 카드의 필드명을 <b>A2A v1.0 Agent Card 스키마</b>(<span class="pat">name / description / url / skills / securitySchemes / signatures</span>)에 정렬해두면 나중에 A2A 전환 비용이 거의 0이 됩니다.</p>
+<p class="note crit" style="margin-top:10px"><b>MCP는 약 8개월 주기로 breaking change를 포함해 개정됩니다.</b> 본 과업은 W9~10에 채택을 판단하고 그 위에 차년도 구축을 얹으므로, <b>MCP 채택 판단서에 「채택 사양 버전 고정 + 상위 버전 마이그레이션 비용 추정 + 유예 정책」을 필수 항목으로 포함</b>합니다. <span class="pat">R11</span></p>
+<p class="note" style="margin-top:10px">한편 표준 거버넌스 연구는 <b>MCP·A2A 모두 권한 위임·책임 소재를 프로토콜 수준에서 충분히 표현하지 못한다</b>고 지적합니다. 프로토콜에 의존하지 말고 <b>조직 차원의 기준</b>을 별도로 세워야 하는 이유입니다.</p>
 
   <h3>도메인 Agent 구성안</h3>
   <p class="lede">시스템 경계가 아니라 <b>업무 도메인 경계</b>로 나눕니다. 시스템은 바뀌지만 업무 도메인은 오래 가고, 도메인 담당 조직이 곧 Agent 소유 조직이 되어 R&amp;R이 자연스럽게 정해집니다.</p>
@@ -884,7 +1115,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     <thead><tr><th style="width:44px">#</th><th style="width:180px">원칙</th><th>내용</th></tr></thead>
     <tbody>
       <tr><td class="mk">A1</td><td><b>최소 권한 승계</b></td><td>하위 Agent 유효 권한 = <span class="pat">min(사용자 권한, Agent 권한)</span>. 절대 확대되지 않음</td></tr>
-      <tr><td class="mk">A2</td><td>사용자 컨텍스트 필수 전파</td><td>모든 Agent 간 호출에 요청자 신원 · 권한 컨텍스트 동반. 익명 호출 금지</td></tr>
+      <tr><td class="mk">A2</td><td><b>신원 전파 · 토큰 재발급</b></td><td><b>원본 액세스 토큰의 passthrough 금지</b> — 각 신뢰 경계에서 토큰 재발급(RFC 8693 교환). passthrough는 MCP 사양 위반이자 confused deputy 경로. Agent 자신도 상호 인증 대상.<br>모든 Agent 간 호출에 요청자 신원 · 권한 컨텍스트 동반. 익명 호출 금지</td></tr>
       <tr><td class="mk">A3</td><td>전파 깊이 제한</td><td>위임 체인 최대 깊이 3. 초과 시 차단</td></tr>
       <tr style="background:var(--signal-soft)"><td class="mk">A4</td><td><b>권한 밖 명시</b></td><td>권한으로 제외된 데이터가 있으면 <b>“일부 결과가 권한으로 제외됨”</b>을 응답에 표시</td></tr>
       <tr><td class="mk">A5</td><td>감사 이중 기록</td><td>최종 사용자 + 호출 Agent 체인 전체를 로그에 기록</td></tr>
@@ -892,6 +1123,101 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     </tbody>
   </table></div>
   <p class="note warn" style="margin-top:14px"><b>A4가 실무에서 가장 자주 빠집니다.</b> 권한으로 필터링된 결과를 그대로 반환하면 사용자는 “데이터가 없다”고 이해합니다. 안전사고 원인 분석에서 이는 치명적입니다.</p>
+
+  <h3>Agent 신원과 자격증명 — 사람 사번을 쓰지 않는다</h3>
+  <p class="lede">SKT 사례를 참조하되 <b>그대로 쓰면 안 됩니다.</b> 비인간 주체에 사람 사번을 발급하면 네 가지가 동시에 깨집니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:200px">사번 직접 발급 시 문제</th><th>충돌하는 원칙</th></tr></thead>
+    <tbody>
+      <tr><td>사람 권한 체계를 그대로 상속 → 최소권한 심의 대상이 흐려짐</td><td><b>A1</b> 최소 권한 승계</td></tr>
+      <tr><td><b>감사로그에서 사람 행위와 Agent 행위를 구분할 수 없음</b></td><td><b>A5</b> 감사 이중 기록</td></tr>
+      <tr><td>소유자 퇴사·조직개편 시 orphan 권한 잔존</td><td>생애주기 관리</td></tr>
+      <tr><td>같은 Agent의 다중 인스턴스를 식별 불가</td><td>추적성</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tw" style="margin-top:12px"><table>
+    <thead><tr><th style="width:170px">요소</th><th>CLX 설계</th></tr></thead>
+    <tbody>
+      <tr><td><b>식별자 네임스페이스</b></td><td>사람과 <b>분리</b> — <span class="pat">AGT-*</span> 체계, IdP에 별도 등록. 인스턴스 단위 식별자 병행</td></tr>
+      <tr><td><b>인증 방식</b></td><td>워크로드 아이덴티티 — <b>mTLS / SPIFFE-SVID / IdP workload identity federation</b>. 신원을 “주장”하는 것과 “인증되는 것”을 구분</td></tr>
+      <tr><td><b>소유자 연결</b></td><td>사람·조직 소유자 <b>필수</b>. 소유자 부재 시 <b>자동 정지</b></td></tr>
+      <tr><td><b>자격증명 수명</b></td><td>수명·회전 주기 정의. 장기 정적 시크릿 금지</td></tr>
+      <tr><td><b>은퇴 절차</b></td><td>권한 회수 · 도구 등록 해제 · 로그 보존 기간 유지</td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>권한 모델 (권고)</b></td><td><b>신원은 분리된 Agent 식별자, 권한은 사용자 위임 우선.</b> Agent 고유 권한은 사용자 무관 배치 작업(정기 감시 등)에만 한정</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>주체 유형 × 데이터 등급 접근 매트릭스</h3>
+  <p class="lede">협력사(OCEAN-P)는 “인원 정보 마스킹” 한 줄로 처리할 수 없습니다. 실제 위험은 세 방향입니다 — ① <b>협력사 인력이 Agent를 쓸 때 사내 데이터가 나가는 것</b>(마스킹으로 못 막음) ② 협력사 입력 텍스트가 사내 Agent 컨텍스트로 들어오는 것 ③ <b>A사 협력사가 B사 협력사의 작업 이력·단가를 보는 것</b>(테넌트 격리 문제이지 개인정보 문제가 아님).</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:170px">주체 유형</th><th class="c">C1 극비</th><th class="c">C2 기밀</th><th class="c">C3 사내</th><th class="c">C4 일반</th></tr></thead>
+    <tbody>
+      <tr><td>사내 정직원</td><td class="c mk mid">권한자</td><td class="c mk mid">권한자</td><td class="c mk best">허용</td><td class="c mk best">허용</td></tr>
+      <tr><td>사내 상주 협력사</td><td class="c mk no">금지</td><td class="c mk mid">계약 범위</td><td class="c mk mid">담당 범위</td><td class="c mk best">허용</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>사외 협력사</b></td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk mid"><b>자사 건만</b></td><td class="c mk best">허용</td></tr>
+      <tr><td>Agent (사용자 위임)</td><td colspan="4" class="c">요청자 권한과 동일 — <span class="pat">min(사용자, Agent)</span></td></tr>
+      <tr><td>Agent (자체 권한)</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk mid">배치 작업 한정</td><td class="c mk best">허용</td></tr>
+      <tr><td>외부 시스템</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk mid">계약 범위</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>“협력사 사용자에게 Agent를 제공할 것인가”를 Phase 0 범위 결정 항목으로 승격</b>합니다. 현재는 W1 자료 요청 목록에만 있어, 답이 늦게 오면 Phase 5 전체가 재작업입니다. → 리스크 <span class="pat">R12</span></p>
+
+  <h3>허용 위임 그래프 — 깊이 제한은 접근 통제가 아니다</h3>
+  <p class="lede">A3(최대 깊이 3)은 <b>무한 루프 방지책</b>일 뿐입니다. 깊이 2에서도 권한 상승은 가능합니다. <b>어느 Agent가 어느 Agent를 호출해도 되는지의 화이트리스트</b>가 별도로 필요합니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:150px">호출자 ＼ 피호출자</th><th class="c">종합 분석</th><th class="c">설비</th><th class="c">공정</th><th class="c">생산</th><th class="c">지식</th></tr></thead>
+    <tbody>
+      <tr><td><b>종합 분석</b> (오케스트레이터)</td><td class="c mk no">—</td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk best">허용</td></tr>
+      <tr><td><b>설비</b></td><td class="c mk no">금지</td><td class="c mk no">—</td><td class="c mk mid">조건부</td><td class="c mk no">금지</td><td class="c mk mid">조건부</td></tr>
+      <tr><td><b>공정</b></td><td class="c mk no">금지</td><td class="c mk mid">조건부</td><td class="c mk no">—</td><td class="c mk no">금지</td><td class="c mk no">금지</td></tr>
+      <tr><td><b>생산</b></td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk mid">조건부</td><td class="c mk no">—</td><td class="c mk no">금지</td></tr>
+      <tr><td><b>지식</b></td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px">부가 제약 — <b>사이클 금지</b>(호출 체인에 동일 Agent 재등장 금지), <b>팬아웃 상한</b>(한 Agent가 동시 호출할 수 있는 피호출 Agent 수), 조건부는 <b>전파 가능 권한 범위</b>를 명시. 이 표가 없으면 Agent가 늘어날수록 위임 경로가 통제 불가능해집니다.</p>
+
+  <h3>권한 원칙 확장 — A7~A10</h3>
+  <p class="lede">A1~A6에는 네 개의 빈틈이 있습니다. 그리고 <b>원칙마다 “위반 시 탐지 방법”을 병기</b>해야 합니다 — 탐지가 없는 원칙은 심의에서 “선언”으로 간주됩니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:44px">#</th><th style="width:170px">원칙</th><th style="width:290px">내용</th><th>위반 시 탐지</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--signal-soft)"><td class="mk">A7</td><td><b>파생·집계 결과 인가</b></td><td>A1의 <span class="pat">min()</span> 교집합 논리는 <b>원본 접근에만 성립</b>. 권한 있는 A와 B를 <b>결합해 파생한 C</b>(협력사 인력 근무 패턴, 미공개 수율 추정, 설비 고장 빈도 → 투자 판단 정보)는 양쪽 원본 권한이 있어도 노출되면 안 될 수 있음. <b>Agent의 본질이 결합인데 결합 결과가 무통제</b></td><td>다중 도메인 결합 질의 로깅 · 민감 조합 패턴 룰</td></tr>
+      <tr><td class="mk">A8</td><td>Agent 상호 인증</td><td>피호출 Agent도 호출자를 인증한다. 신원 “주장”만으로 호출 수락 금지</td><td>미인증 호출 시도 로그</td></tr>
+      <tr><td class="mk">A9</td><td>위임 화이트리스트</td><td>위 그래프에 없는 호출은 차단</td><td>비허용 경로 호출 시도 알림</td></tr>
+      <tr><td class="mk">A10</td><td><b>등급별 존재 사실 노출 정책</b></td><td>A4(권한 밖 명시)는 <b>그 자체가 정보 누출 채널</b>(존재 오라클). 등급별로 분기 — 아래 표 참조</td><td>동일 주체의 반복 실패 조회 탐지(열거 공격)</td></tr>
+    </tbody>
+  </table></div>
+  <h4>A4와 A10의 충돌 조정 — 오류 노출 정책</h4>
+  <p class="lede">06장은 <b>“권한 없음과 데이터 없음을 구분하지 않는 것이 가장 위험한 설계 결함”</b>이라 했습니다. <b>안전 관점에서는 옳지만 보안 관점에서는 정확히 반대</b>입니다 — 설비ID·오더번호를 순회하며 두 응답의 차이로 <b>미공개 자산의 존재를 확인</b>할 수 있습니다(열거 공격). 두 원칙이 충돌하므로 <b>등급으로 분기</b>합니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:150px">데이터 등급</th><th style="width:230px">오류 응답</th><th>사유</th></tr></thead>
+    <tbody>
+      <tr><td><b>C3 · C4</b> (일반 운전 데이터)</td><td><b>“권한 없음” 명시</b></td><td>안전상 필요 — Agent가 “없다”고 답하면 안 됨</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>C1 · C2</b> (기밀·인사·투자·단가)</td><td><b>“데이터 없음”과 구분 불가하게 반환</b><br>단, <b>감사 로그에는 구분 기록</b></td><td>존재 오라클 차단</td></tr>
+      <tr><td>유사 후보 제시</td><td><b>요청자 권한 범위 내에서만</b></td><td>권한 밖 설비명 유출 경로 차단</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px">T4 도구 명세서에 <b><span class="pat">오류 노출 정책</span> 필드</b>를 추가해 도구별로 고정합니다.</p>
+
+  <h3>Agent 감사 로그 스키마</h3>
+  <p class="lede">A5는 현재 한 줄 선언입니다. 사고 조사에서 <b>“이 답변은 어떤 도구·어떤 원본 레코드·어떤 모델에서 나왔나”</b>를 재구성할 수 없다면 감사 로그는 존재해도 무용입니다. 특히 원천 로그에는 <b>“Gateway 서비스 계정이 조회함”만 남아 최종 사용자로 역추적이 끊깁니다.</b></p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:180px">필드</th><th style="width:130px">구분</th><th>비고</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pat">trace_id</span></td><td>상관관계</td><td>전 계층 전파. 원천 시스템 로그와의 <b>조인 키</b></td></tr>
+      <tr><td><span class="pat">최종사용자ID</span> · <span class="pat">주체유형</span></td><td>주체</td><td>사내 / 상주협력사 / 사외협력사 / 배치</td></tr>
+      <tr><td><span class="pat">Agent 체인[ID·버전]</span></td><td>주체</td><td>위임 경로 전체</td></tr>
+      <tr><td><span class="pat">도구ID·버전·정의해시</span></td><td>행위</td><td><b>정의 해시</b>가 rug pull 탐지의 근거</td></tr>
+      <tr><td><span class="pat">입력 파라미터</span></td><td>행위</td><td>민감값 마스킹 규칙 적용</td></tr>
+      <tr><td><span class="pat">원천 트랜잭션ID</span></td><td>결과</td><td>원천 로그 역추적</td></tr>
+      <tr><td><span class="pat">반환 행수</span> · <span class="pat">권한 필터 제외 건수</span></td><td>결과</td><td>A4·A10 정책 검증</td></tr>
+      <tr style="background:var(--accent-soft)"><td><span class="pat">반출 데이터 분류 등급</span></td><td>결과</td><td><b>D6 반출 감사의 근거</b></td></tr>
+      <tr style="background:var(--accent-soft)"><td><span class="pat">모델ID·버전·시스템프롬프트 해시</span></td><td>재현성</td><td><b>같은 질문에 답이 달라지는 주된 원인은 모델 교체.</b> 당시 모델을 재현할 수 없으면 책임 규명 불가</td></tr>
+      <tr><td><span class="pat">처리시간</span> · <span class="pat">결과 상태</span></td><td>운영</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>부속 요건</b> — 로그 무결성(append-only · 서명), 보관 기간, <b>로그 자체의 접근 권한</b>, 원천 로그 조인 규칙.<br>
+  <b>Phase 6 관리 대상에 모델ID·버전·파라미터를 추가</b>합니다. 문서가 P-ACT 제외 근거로 든 <b>“책임 소재”</b> 논리는 재현 불가능하면 <b>읽기에도 그대로 적용</b>되어, 읽기조차 승인받지 못할 수 있습니다.</p>
 
   <h3>Agent 카드 — 필수 항목</h3>
   <p class="lede">가장 중요한 항목은 <b>“할 수 없는 것”</b>입니다. 오케스트레이터가 어느 Agent에 위임할지 판단하는 근거이며, 이것이 없으면 잘못된 Agent에 위임하고 그 Agent는 <b>모른다고 하지 않고 추측해서 답합니다.</b></p>
@@ -906,13 +1232,14 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
 <!-- 09 -->
 <section id="sys">
   <div class="sh"><span class="n">09</span><h2>대상 시스템</h2></div>
-  <p class="lede">기존 CLX AI 과제 MP 반영으로 대상이 3종에서 8종 이상으로 확장되었습니다. AI 적용이 <b>운전지원·Troubleshooting(64%)</b>과 <b>공정 최적화(54%)</b>에 집중되므로, 무게중심을 <span class="sys p1">RTDB</span> <span class="sys p1">AMS</span> <span class="sys p1">OCEAN-H</span> 에 둡니다.</p>
+  <p class="lede">기존 CLX AI 과제 MP 반영으로 대상이 3종에서 8종 이상으로 확장되었습니다. 두 축을 구분합니다 — <b>업무 수요 집중</b>(AI 과제 볼륨 기준)은 <span class="sys p1">RTDB</span> <span class="sys p1">AMS</span> <span class="sys p1">OCEAN-H</span>, <b>설계 대상 1순위</b>(진단·설계 우선순위)는 <span class="sys p1">RTDB</span> <span class="sys p1">OCEAN-H</span> <span class="sys p1">OASIS</span> 입니다.
+  <b>진단 대상은 6종</b>(RTDB · OCEAN-H · OASIS · AMS · PMS · TDMS)으로 확정하며, DCS는 RTDB 경유 간접, 투자관리·Teams·사고관리·교육포탈은 <b>확장 가이드 적용 대상</b>입니다 — 이것이 R6(대상 확산) 대응의 실체입니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:46px">순위</th><th style="width:104px">시스템</th><th style="width:210px">성격</th><th>보유 데이터</th><th style="width:190px">예상 취약축</th></tr></thead>
     <tbody>
-      <tr><td class="c mk">1</td><td><b>RTDB</b></td><td>공정 실시간 시계열<br><span style="font-size:12px;color:var(--ink-3)">DCS 연동 SP/OP/PV</span></td><td>실시간 공정 운전 Data, 공정 운전 실적</td><td><b>A3 태그 의미</b>, A1 전용 프로토콜</td></tr>
-      <tr><td class="c mk">1</td><td><b>OCEAN-H</b></td><td>설비관리 통합 (EAM)</td><td>정비 Schedule · 이력, <b>근무일지 History</b>, 촉매 구매 이력</td><td>A2 마스터 품질, A3 이력 텍스트</td></tr>
-      <tr><td class="c mk">1</td><td><b>OASIS</b></td><td>생산관리</td><td>생산/품질 실적, 생산 계획/실적</td><td>A3 상태코드, <b>A4 권한 세분성</b></td></tr>
+      <tr><td class="c mk">1</td><td><b>RTDB</b></td><td>공정 실시간 시계열<br><span style="font-size:12px;color:var(--ink-3)">DCS 연동 SP/OP/PV</span></td><td>실시간 공정 운전 Data, 공정 운전 실적</td><td><b>R3 태그 의미</b>, R1 전용 프로토콜</td></tr>
+      <tr><td class="c mk">1</td><td><b>OCEAN-H</b></td><td>설비관리 통합 (EAM)</td><td>정비 Schedule · 이력, <b>근무일지 History</b>, 촉매 구매 이력</td><td>R2 마스터 품질, R3 이력 텍스트</td></tr>
+      <tr><td class="c mk">1</td><td><b>OASIS</b></td><td>생산관리</td><td>생산/품질 실적, 생산 계획/실적</td><td>R3 상태코드, <b>R4 권한 세분성</b></td></tr>
       <tr><td class="c mk mid">2</td><td><b>AMS</b></td><td>알람 관리 <span style="color:var(--signal);font-size:12px">신규 식별</span></td><td><b>실시간 공정 Alarm Data</b></td><td>알람↔공정 Tag 매핑</td></tr>
       <tr><td class="c mk mid">2</td><td><b>PMS</b></td><td>공정 · 성과 관리 <span style="color:var(--signal);font-size:12px">신규 식별</span></td><td>공정 실적 Data, 특허</td><td>OASIS 실적과 중복 가능</td></tr>
       <tr><td class="c mk mid">2</td><td><b>TDMS</b></td><td>기술문서 · 마스터 <span style="color:var(--signal);font-size:12px">신규 식별</span></td><td><b>공정/설비 기본 정보</b></td><td><b>설비 마스터 중복 (OCEAN-H와 충돌 가능)</b></td></tr>
@@ -1045,8 +1372,140 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
 
 
 <!-- 11 -->
+<section id="plan">
+  <div class="sh"><span class="n">11</span><h2>산출물 · 수행 조직 · 거버넌스</h2></div>
+  <p class="lede">방법론이 아무리 정교해도 <b>누가 · 며칠 · 무엇을 · 어떤 기준으로 검수하는가</b>가 없으면 착수 승인이 나지 않습니다. 이 장이 수행계획서의 골격입니다.</p>
+
+  <h3>기대 산출물 12종 명세</h3>
+  <p class="lede">기획서의 <b>6개 과업 항목</b>이 각 2종씩 <b>12종 산출물</b>로 전개됩니다. <b>“내년에 이걸로 무엇을 하나”</b> 열이 이 표의 핵심입니다 — 이 열이 비면 12종 전부 “또 문서”라는 평가를 피할 수 없습니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:32px">#</th><th style="width:210px">산출물</th><th class="c" style="width:52px">Phase</th><th class="c" style="width:52px">제출</th><th style="width:110px">검수 주체</th><th>내년에 이걸로 무엇을 하나</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>CLX Brain AI Agent 유형 정의 · Action Pattern</td><td class="c mk">P1</td><td class="c mk">W3</td><td>DT 추진실</td><td>신규 Agent 기획 시 유형·패턴 판정</td></tr>
+      <tr><td class="num">2</td><td>Agent 유형별 요구사항 정의 (수요–시스템 매트릭스)</td><td class="c mk">P1</td><td class="c mk">W3</td><td>DT 추진실</td><td>신규 과제의 Legacy 영향 사전 판정</td></tr>
+      <tr><td class="num">3</td><td>Agent-Readiness 6축 진단 결과 (R1~R6 히트맵)</td><td class="c mk">P2</td><td class="c mk">W6</td><td>각 시스템 운영</td><td>연 1회 재진단 기준선</td></tr>
+      <tr><td class="num">4</td><td>Gap 분석서 · 대상 시스템 확정서</td><td class="c mk">P2</td><td class="c mk">W6</td><td>DT 추진실</td><td>개선과제 역추적 근거</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="num">5</td><td><b>Legacy 데이터 구조 및 메타 요건 · 횡단 식별자 표준</b></td><td class="c mk">P3</td><td class="c mk">W9</td><td>각 시스템 + 현업</td><td><b>설비↔태그 매핑 실제 구축 착수</b></td></tr>
+      <tr><td class="num">6</td><td>Agent-ready Data 설계 가이드 · 데이터/코드/태그 사전(T-A)</td><td class="c mk">P3</td><td class="c mk">W9</td><td>현업 + IT</td><td>조회 도구 개발 입력</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="num">7</td><td><b>CLX Agent–Legacy 연계 흐름 · 연계 방식 적용 기준 · MCP 채택 판단서</b></td><td class="c mk">P4</td><td class="c mk">W11</td><td>IT 아키텍처</td><td><b>신규 연계 건마다 판정 적용</b></td></tr>
+      <tr><td class="num">8</td><td>전사 Endpoint/Gateway 반영요건 · 도구 정의 기준서</td><td class="c mk">P4</td><td class="c mk">W11</td><td>전사 IT</td><td>도구 개발 발주 사양 · 전사 협의 안건</td></tr>
+      <tr><td class="num">9</td><td>CLX 필요 권한관리 요건 (주체×등급, 위임 그래프 포함)</td><td class="c mk">P5</td><td class="c mk">W12</td><td>정보보호</td><td>보안 심의 제출 문서</td></tr>
+      <tr><td class="num">10</td><td>권한관리체계 고도화 방안 · 감사 로그 규격</td><td class="c mk">P5</td><td class="c mk">W12</td><td>정보보호</td><td>Gateway·IdP 구축 요건</td></tr>
+      <tr><td class="num">11</td><td>Lineage 및 변경관리 요건 · 고도화 방안</td><td class="c mk">P6</td><td class="c mk">W13</td><td>DT 추진실</td><td><b>③ AgentOps 이관 입력</b></td></tr>
+      <tr style="background:var(--accent-soft)"><td class="num">12</td><td><b>Agent-ready Legacy 목표구조 · 개선과제 정의서 · 차년도 추진계획</b></td><td class="c mk">P7·8</td><td class="c mk">W14</td><td>CLX PL + 경영층</td><td><b>차년도 예산 편성 직접 입력</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>검수 통과 기준</b>은 각 Phase의 완료 판단기준(04장)과 동일합니다. 산출물은 <b>내부 QA 리뷰 → 고객 검수 → 확정</b> 3단을 거치며, 버전은 <span class="pat">v0.x 초안 / v1.0 확정</span> 규칙으로 관리합니다.</p>
+
+  <h3>내부 투입 계획 — 누가, 언제, 며칠</h3>
+  <p class="lede">착수보고에서 가장 먼저 나오는 질문입니다. 아래는 <b>고객(CLX·전사) 측 투입</b> 산정이며, 수행사 팀 구성은 별도 제시합니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:160px">역할</th><th style="width:100px">소속</th><th class="num">W1</th><th class="num">W2–3</th><th class="num">W4–6</th><th class="num">W7–9</th><th class="num">W10–13</th><th class="num">W14</th><th class="num" style="width:66px">계 M/D</th><th>주 활동</th></tr></thead>
+    <tbody>
+      <tr><td>과업 오너</td><td>DT 추진실</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">2</td><td class="num">2</td><td class="num">1</td><td class="num"><b>8</b></td><td>의사결정 · 범위 게이트</td></tr>
+      <tr><td>RTDB 운영 담당</td><td>공정정보</td><td class="num">0.5</td><td class="num">2</td><td class="num">4</td><td class="num">1</td><td class="num">2</td><td class="num">0.5</td><td class="num"><b>10</b></td><td>인터뷰 · <b>대량조회 실측 입회</b> · 태그 규칙</td></tr>
+      <tr><td>OCEAN-H(EAM) 담당</td><td>설비</td><td class="num">0.5</td><td class="num">2</td><td class="num">3</td><td class="num">1</td><td class="num">2</td><td class="num">0.5</td><td class="num"><b>9</b></td><td>마스터 구조 · 정제 이력</td></tr>
+      <tr><td>OASIS 담당</td><td>생산관리</td><td class="num">0.5</td><td class="num">2</td><td class="num">3</td><td class="num">1</td><td class="num">2</td><td class="num">0.5</td><td class="num"><b>9</b></td><td>코드 체계 · 생산일/교대 · 위임 확인</td></tr>
+      <tr><td>AMS·PMS·TDMS 담당</td><td>각 소관</td><td class="num">–</td><td class="num">0.5</td><td class="num">2</td><td class="num">–</td><td class="num">1</td><td class="num">–</td><td class="num"><b>3.5</b></td><td>존재 여부 · 마스터 중복 확인</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>생산기술 현업(공정)</b></td><td>생산기술</td><td class="num">0.5</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">0.5</td><td class="num"><b>11</b></td><td>횡단 질의 정의 · <b>도구 설명 작성·검수</b></td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>생산기술 현업(설비)</b></td><td>생산기술</td><td class="num">0.5</td><td class="num">1</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">0.5</td><td class="num"><b>11</b></td><td>설비 별칭 · 정비 용어 검수</td></tr>
+      <tr><td>보안 담당</td><td>정보보호</td><td class="num">0.5</td><td class="num">–</td><td class="num">–</td><td class="num">1</td><td class="num">3</td><td class="num">0.5</td><td class="num"><b>5</b></td><td>권한 모델 사전검토 · 심의</td></tr>
+      <tr style="border-top:2px solid var(--rule)"><td colspan="8"><b>합계</b></td><td class="num"><b>≈66</b></td><td>1인 상근 3개월 미만 규모</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>최대 부하 구간은 W10–W13</b>(도구 설명 작성 · 별칭 검수)입니다. 이 구간 <b>생산기술 현업 2명의 주 1일 확보</b>가 확정되지 않으면 T4·T6 산출물 품질을 보증할 수 없습니다. W2–W3(인터뷰), W4–W6(실측 입회)도 사전 예약이 필요합니다.</p>
+
+  <h3>거버넌스 — 회의체 · 에스컬레이션 · 변경관리</h3>
+  <div class="two">
+    <div class="box"><div class="bt">회의체 3단</div>
+      <ul>
+        <li><b>주간 실무회의</b> — 진척 · 이슈 · 자료 수급 (수행팀 + 과업 오너)</li>
+        <li><b>격주 설계 결정회의</b> — 연계 방식 · 권한 모델 등 설계 결정 (+ 각 시스템 담당, IT 아키텍처)</li>
+        <li><b>월간 Steering</b> — 범위 · 리스크 · 자원 (+ CLX PL)</li>
+        <li>중간보고 W7 · <b>핵심 설계 결정 리뷰 W11</b> · 최종보고 W14</li>
+      </ul></div>
+    <div class="box"><div class="bt">에스컬레이션 SLA</div>
+      <ul>
+        <li>실무 <b>3영업일</b> 미해결 → 격주 설계 결정회의</li>
+        <li>추가 <b>5영업일</b> 미해결 → 월간 Steering</li>
+        <li>임계 경로 영향 건은 <b>즉시 Steering</b></li>
+        <li>대상: R2(협조 미확보) · R3(전사 방침) · R8(보안 심의) — <b>수행사가 스스로 해결할 수 없는 리스크</b></li>
+      </ul></div>
+  </div>
+  <div class="two" style="margin-top:14px">
+    <div class="box"><div class="bt">범위 변경 관리 (CR)</div>
+      <ul>
+        <li>범위 변경은 <b>서면 CR</b>로만 — 구두 합의 무효</li>
+        <li>CR 항목: 변경 내용 · 사유 · 일정 영향 · 공수 영향 · 승인자</li>
+        <li><b>R5(쓰기 범위 팽창) · R6(대상 시스템 확산)의 실질 방어 수단</b>은 논리가 아니라 CR 절차</li>
+        <li>승인: Steering</li>
+      </ul></div>
+    <div class="box"><div class="bt">품질 관리 · 지식 이전</div>
+      <ul>
+        <li>산출물별 <b>내부 QA 리뷰어</b> 지정, 고객 검수 전 통과 필수</li>
+        <li>표준 서식 · 버전 규칙 <span class="pat">v0.x / v1.0</span></li>
+        <li><b>지식 이전</b> — P8에 담당자 워크숍 2회(6축 진단 · 도구 명세 작성법) + 작성 가이드 핸드오버</li>
+        <li>목적: 차년도에 CLX가 <b>직접 확장 적용</b>할 수 있어야 함</li>
+      </ul></div>
+  </div>
+
+  <h3>①②③ 과업 경계 — 산출물 단위 RACI</h3>
+  <p class="lede">세 과업이 동시에 돌면 <b>W6쯤 반드시 충돌</b>합니다. 그때 조정하면 이미 늦습니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:230px">대상</th><th class="c" style="width:110px">① Legacy</th><th class="c" style="width:110px">② Knowledge</th><th class="c" style="width:130px">③ MLOps·AgentOps</th><th>판정</th></tr></thead>
+    <tbody>
+      <tr><td>RTDB 태그 메타</td><td class="c mk best">R</td><td class="c">C</td><td class="c">I</td><td>① 주관 · ②에 온톨로지 입력으로 제공</td></tr>
+      <tr><td>OCEAN-H 정비이력 — 조회 경로·권한</td><td class="c mk best">R</td><td class="c">I</td><td class="c">I</td><td>① 주관</td></tr>
+      <tr><td>OCEAN-H 정비이력 — 조치내용 텍스트 구조화</td><td class="c">C</td><td class="c mk best">R</td><td class="c">I</td><td>② 주관 (①이 필드·경계 제공)</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>근무일지</b></td><td class="c mk best">R</td><td class="c mk best">R</td><td class="c">I</td><td><b>공동 — W1 분할 기준 합의 필수</b> (개인정보 판정 주체 포함)</td></tr>
+      <tr><td>작업표준 · 규정 문서 · P&amp;ID</td><td class="c">I</td><td class="c mk best">R</td><td class="c">I</td><td>② 주관 (①이 설비·Tag 연결 제공)</td></tr>
+      <tr><td>도구(Tool) 명세 표준</td><td class="c mk best">R</td><td class="c">C</td><td class="c">C</td><td>① 주관</td></tr>
+      <tr><td>도구 등록 · 버전 운영</td><td class="c">C</td><td class="c">I</td><td class="c mk best">R</td><td>③ 주관 (①이 기준 정의)</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>Lineage · 변경관리 체계</b></td><td class="c mk best">R</td><td class="c">I</td><td class="c mk mid">A</td><td><b>① 설계 → ③ 운영. W9까지 이관 범위 확정</b></td></tr>
+      <tr><td>Agent 카드 · A2A 구조</td><td class="c mk best">R</td><td class="c">I</td><td class="c mk mid">A</td><td>① 설계 → ③ 운영</td></tr>
+      <tr><td>trace context 전파 규격</td><td class="c mk best">R</td><td class="c">I</td><td class="c">C</td><td>① 정의 → ③ 수집·분석 운영</td></tr>
+      <tr><td>Agent 평가 · 런타임 모니터링</td><td class="c">I</td><td class="c">I</td><td class="c mk best">R</td><td>③ 전담</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>Phase 6(Lineage, W9–W13)이 ③과 가장 크게 겹칩니다.</b> W1 3과업 합동 킥오프에서 <b>“①은 대상 식별과 영향 경로 정의까지, ③은 도구·실행까지”</b>로 선을 긋지 못하면 5주치 일정이 이중 투자가 됩니다.</p>
+
+  <h3>가정 및 제약 (Assumptions &amp; Constraints)</h3>
+  <p class="lede">이 과업은 가정 의존도가 높습니다. <b>가정으로 명시하지 않으면 지연 책임이 전부 수행사로 귀속</b>됩니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36px">#</th><th style="width:250px">가정</th><th style="width:110px">확인 시점</th><th>미충족 시 영향</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>전사 Endpoint/Gateway 표준이 존재하거나 방향이 확정돼 있다</td><td class="mk">W2</td><td>P4 적용기준 근거 부재 → 시나리오 2안 병행(공수 +1주)</td></tr>
+      <tr><td class="num">2</td><td>OCEAN-H 구축 산출물(정제 방법론·마스터 기준)을 재사용할 수 있다</td><td class="mk">W1</td><td>P2·P3 공수 증가, 미정제 20% 식별 절차 지연</td></tr>
+      <tr style="background:var(--crit-soft)"><td class="num">3</td><td><b>RTDB 실호출 검증 환경(DMZ 복제본)이 제공된다</b></td><td class="mk">W3</td><td><b>W4 임계 검증 불가 → P4 결론 지연, 아키텍처 재작업 위험</b></td></tr>
+      <tr><td class="num">4</td><td>보안 심의 주체가 W1에 지정되고 기준서를 W2에 수령한다</td><td class="mk">W2</td><td>P5 완료 불가, 재작업</td></tr>
+      <tr><td class="num">5</td><td>MP·스마트플랜트 2.0 자료와 “업무別 Data List”에 접근할 수 있다</td><td class="mk">W1</td><td>P1 모집단 부재 → 백지 발굴로 전환(공수 +2주)</td></tr>
+      <tr><td class="num">6</td><td>현업 2명의 W10–W13 주 1일 참여가 확보된다</td><td class="mk">W1</td><td>도구 명세·별칭 검수 품질 보증 불가</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>제약</b> — ① 본 과업은 <b>설계·기준 수립</b>이며 시스템 개발·구축은 포함하지 않습니다 ② 수행 인력은 보안서약 및 지정 작업 환경을 준수합니다(PSM 사업장) ③ OT 존 직접 접근은 하지 않습니다.</p>
+
+  <h3>성공 기준과 실패 조기 경보</h3>
+  <div class="stack" style="max-width:none">
+    <p class="thesis"><strong>성공</strong> — ① 대표 횡단 질의 5건 중 최소 3건이 “어떤 매핑이 있으면 답할 수 있는지” 단계별로 특정되고, 그 매핑이 <strong>견적 가능한 과제</strong>로 등재된 상태 ② 신규 AI 과제가 Legacy에 붙을 때 참조할 판정 기준이 <strong>체크리스트로</strong> 존재하는 상태 ③ <strong>성공 ≠ 12종 문서 제출.</strong> 문서만 나오고 개선과제가 차년도 예산에 반영되지 않으면 실패입니다.</p>
+  </div>
+  <div class="tw" style="margin-top:16px"><table>
+    <thead><tr><th style="width:180px">실패 모습</th><th style="width:250px">조기 경보 지표</th><th class="c" style="width:56px">시점</th><th>발동 시 조치</th></tr></thead>
+    <tbody>
+      <tr><td>진단만 하고 끝남</td><td>실제 호출 검증 3건 중 1건 이하 수행</td><td class="c mk">W6</td><td>대상 3종으로 축소, 나머지는 문헌 진단으로 격하</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>태그 사전 착수 불가</b></td><td>RTDB 태그 총수·명명규칙 문서 미확보</td><td class="c mk">W4</td><td>DA-01을 <b>T-A만</b>으로 재정의, 범위 축소 <b>서면 CR</b></td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>횡단 조인 불성립</b></td><td>대표 질의 5건 중 2건 이하 통과</td><td class="c mk">W8</td><td>P4 착수 연기, P3에 2주 재배정(전체 2주 지연 수용)</td></tr>
+      <tr><td>문서만 남음</td><td>T6에 공수·비용 기입 과제 5건 미만</td><td class="c mk">W12</td><td>P8을 “상위 5건 상세 견적”으로 집중, 나머지 목록화</td></tr>
+      <tr><td>현업 참여 없음</td><td>현업 작성 도구 명세 0건</td><td class="c mk">W7</td><td>컨설턴트 초안 → 현업 30분 검수 방식으로 전환</td></tr>
+      <tr><td>보안 반려</td><td>W7 중간보고에 보안 사전검토 결과 없음</td><td class="c mk">W7</td><td>Steering 즉시 에스컬레이션</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>완료 판단기준 미달은 “완료로 인정하지 않는다”가 아니라 “범위를 줄이고 진행한다”로 처리</b>합니다. 미달을 이유로 다음 Phase를 막으면 3.5개월 안에 아무것도 끝나지 않습니다. 축소는 반드시 <b>서면 CR</b>로 기록합니다.</p>
+</section>
+
+
+<!-- 12 -->
 <section id="risk">
-  <div class="sh"><span class="n">11</span><h2>리스크 · 착수 준비</h2></div>
+  <div class="sh"><span class="n">12</span><h2>리스크 · 착수 준비</h2></div>
   <div class="tw"><table>
     <thead><tr><th style="width:42px">#</th><th style="width:190px">리스크</th><th>왜 위험한가</th><th style="width:220px">대응</th></tr></thead>
     <tbody>
@@ -1057,8 +1516,13 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
       <tr style="background:var(--crit-soft)"><td class="mk">R5</td><td><b>쓰기(P-ACT) 범위 팽창</b></td><td>“Agent가 작업지시까지” → 승인·감사 설계로 일정 붕괴</td><td>1차 읽기 전용을 범위 기준선에 명문화. <b>OASIS를 지목해 명시</b></td></tr>
       <tr><td class="mk">R6</td><td>대상 시스템 확산</td><td>3종이 6~8종으로 늘어남</td><td>Phase 0에서 선정 기준 확정, 추가분은 확장 가이드로 이관</td></tr>
       <tr><td class="mk">R7</td><td>② Knowledge 과업과 경계 모호</td><td>같은 데이터를 두 과업이 중복 설계</td><td>Tag Meta는 ① 주관 · ②에 제공. 근무일지는 ①(경로) + ②(텍스트)</td></tr>
-      <tr style="background:var(--crit-soft)"><td class="mk">R9</td><td><b>시스템 간 조인 불가</b></td><td>시스템별로는 다 붙였는데 횡단 질문에 답 못 함. <b>가장 늦게 발견되고 가장 비쌈</b></td><td>Phase 3-2 식별자 표준화, Phase 1에서 횡단 질의 비중 조기 측정</td></tr>
-      <tr><td class="mk">R10</td><td>RTDB를 범용 REST로 붙이려 함</td><td>수백만 포인트 조회로 원천 부하 · 타임아웃</td><td>Phase 2-3에 <b>RTDB 대량 구간 조회 필수 포함</b></td></tr>
+      <tr style="background:var(--crit-soft)"><td class="mk">R8</td><td><b>IT/OT 경계 미정의</b></td><td>RTDB는 OT 인접 자산. Agent가 OT 존으로 세션을 여는 구조가 승인 없이 만들어짐 → 보안 반려</td><td>03장 존 배치도, “OT 인바운드 금지” 원칙. <b>W4 검증 대상을 DMZ 복제본으로 명시</b></td></tr>
+<tr style="background:var(--crit-soft)"><td class="mk">R9</td><td><b>시스템 간 조인 불가</b></td><td>시스템별로는 다 붙였는데 횡단 질문에 답 못 함. <b>가장 늦게 발견되고 가장 비쌈</b></td><td>Phase 3-2 식별자 표준화, Phase 1에서 횡단 질의 비중 조기 측정</td></tr>
+      <tr><td class="mk">R10</td><td>RTDB를 범용 REST로 붙이려 함</td><td>수백만 포인트 조회로 원천 부하 · 타임아웃</td><td>Phase 2-3에 <b>RTDB 대량 구간 조회 필수 포함</b>. 서버측 집계 기능 우선 확인</td></tr>
+<tr><td class="mk">R11</td><td><b>MCP 사양 개정 주기</b></td><td>약 8개월 주기 breaking change. 채택 후 마이그레이션 비용 발생</td><td>채택 판단서에 <b>버전 고정 + 마이그레이션 비용 추정 + 유예 정책</b> 필수 포함</td></tr>
+<tr><td class="mk">R12</td><td><b>협력사 3주체 모델 미정</b></td><td>“협력사에 Agent를 제공하는가”가 늦게 결정되면 P5 전체 재작업</td><td>Phase 0 <b>범위 결정 항목</b>으로 승격. 08장 주체×등급 매트릭스</td></tr>
+<tr><td class="mk">R13</td><td>현업 메타(M2) 작성 공수 미확보</td><td>“여기에 공수를 집중”이라 한 핵심 산출물이 컨설턴트 단독 작업으로 왜곡</td><td>11장 투입 계획 — W10–13 현업 2명 주 1일 사전 확보</td></tr>
+<tr><td class="mk">R14</td><td>프롬프트 인젝션 · 도구 오염</td><td>협력사 입력 텍스트 한 줄로 Agent 도구 선택 조작 (OWASP MCP03)</td><td>06장 신뢰 등급 · 도구 정의 서명·해시 고정 · 판단 트리 Q5</td></tr>
     </tbody>
   </table></div>
 
@@ -1066,7 +1530,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
   <div class="tw"><table>
     <thead><tr><th style="width:36px">#</th><th style="width:270px">자료</th><th>왜 필요한가</th></tr></thead>
     <tbody>
-      <tr><td class="num">1</td><td><b>OCEAN-H 구축 프로젝트 산출물</b><br><span style="font-size:12px;color:var(--ink-3)">데이터 정제 방법론, 마스터 정비 기준, 15종 통합 목록</span></td><td><b>Phase 2·3의 절반을 단축.</b> 이미 만든 것을 다시 만들지 않기 위함</td></tr>
+      <tr><td class="num">1</td><td><b>OCEAN-H 구축 프로젝트 산출물</b><br><span style="font-size:12px;color:var(--ink-3)">데이터 정제 방법론, 마스터 정비 기준, 15종 통합 목록</span></td><td><b>Phase 2·3 공수를 상당 부분 단축 가능.</b> 이미 만든 것을 다시 만들지 않기 위함 <span style="font-size:12px;color:var(--ink-3)">(단축 폭은 산출물 확인 후 산정)</span></td></tr>
       <tr><td class="num">2</td><td><b>업무別 Data List</b></td><td>AI 과제 MP상 울산CLX가 제공하기로 된 산출물. 존재하면 Phase 1 인벤토리 대폭 단축</td></tr>
       <tr><td class="num">3</td><td>스마트플랜트 2.0 40개 과제 목록 및 담당</td><td>Phase 1 Agent 현황 조사의 모집단</td></tr>
       <tr><td class="num">4</td><td>설비 고장예측 과제의 데이터 연계 방식</td><td>현행 연계의 실물 사례</td></tr>
@@ -1092,7 +1556,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
 
 <!-- 12 -->
 <section id="deck">
-  <div class="sh"><span class="n">12</span><h2>착수보고 장표</h2></div>
+  <div class="sh"><span class="n">13</span><h2>착수보고 장표</h2></div>
   <p class="lede">W1 착수보고용 10장. SK 장표 형식(제목 → 핵심 메시지 → 본문)에 맞춰 구성했습니다. <b>4번 장표가 이 보고의 목적</b>이며, 나머지는 그 합의를 받기 위한 준비입니다.</p>
 
   <div class="deck">
@@ -1107,7 +1571,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
           <div class="box"><div class="bt">이 과업이 아닌 것</div>
             <ul><li>Legacy 시스템 실제 개발 · 구축</li><li>Agent 개발 및 운영 <span style="color:var(--ink-3)">(③ MLOps·AgentOps)</span></li><li>비정형 문서 지식화 <span style="color:var(--ink-3)">(② Knowledge)</span></li><li><b>쓰기(Action) 실행 체계 — 1차 범위 밖</b></li></ul></div>
         </div>
-        <p class="note"><span class="hint">기간</span> 9/7 착수 · 14주 · 중간보고 W7 · 최종보고 W14</p>
+        <p class="note"><span class="hint">기간</span> 9/7 착수 · 14주 (~12/13) · 중간보고 W7 · 최종보고 W14</p>
       </div>
     </div>
 
@@ -1184,7 +1648,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
 
     <div class="slide">
       <div class="slide-h"><span class="sn">P6</span><span class="st">대상 시스템 및 우선순위</span></div>
-      <div class="slide-lead">AI 적용이 운전지원·Troubleshooting(64%)과 공정 최적화(54%)에 집중 → 무게중심은 <b>RTDB · AMS · OCEAN-H</b></div>
+      <div class="slide-lead"><b>업무 수요 집중</b> = RTDB · AMS · OCEAN-H (AI 과제 볼륨 기준) / <b>설계 대상 1순위</b> = RTDB · OCEAN-H · OASIS. <b>진단 대상 6종</b> 확정</div>
       <div class="slide-b">
         <div class="tw"><table>
           <thead><tr><th style="width:44px">순위</th><th style="width:96px">시스템</th><th style="width:190px">성격</th><th>본 과업의 핵심 과제</th></tr></thead>
@@ -1221,7 +1685,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
 
     <div class="slide">
       <div class="slide-h"><span class="sn">P8</span><span class="st">추진 일정</span></div>
-      <div class="slide-lead">임계 경로는 <b>P1 → P2 → P4 → P7</b>. P1이 1주 지연되면 전 과업이 1주 밀림</div>
+      <div class="slide-lead">임계 경로는 <b>P0 → P1 → P2 → P3-2 → P4 → P7 → P8</b>. P1이 1주 지연되면 전 과업이 1주 밀림</div>
       <div class="slide-b">
         <div class="tw"><table class="gantt">
           <thead><tr><th style="text-align:left;padding-left:11px">Phase</th><th>W1</th><th>W2</th><th>W3</th><th>W4</th><th>W5</th><th>W6</th><th>W7</th><th>W8</th><th>W9</th><th>W10</th><th>W11</th><th>W12</th><th>W13</th><th>W14</th></tr></thead>
@@ -1253,7 +1717,11 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
             <tr><td class="num">4</td><td>전사 Endpoint/Gateway 표준 · API 정책</td><td>전사 IT / DT 추진실</td><td class="mk">W2</td></tr>
             <tr><td class="num">5</td><td>스마트플랜트 2.0 40개 과제 목록 · 담당</td><td>DT 추진실</td><td class="mk">W2</td></tr>
             <tr style="background:var(--signal-soft)"><td class="num">6</td><td><b>실제 호출 검증 환경</b> — 특히 RTDB 대량 구간 조회</td><td>각 시스템 운영</td><td class="mk">W4</td></tr>
-            <tr><td class="num">7</td><td>보안 검토 주체 및 심의 일정</td><td>보안</td><td class="mk">W10</td></tr>
+            <tr style="background:var(--signal-soft)"><td class="num">7</td><td><b>보안 검토 주체 지정</b> + 심의 기준서·체크리스트 수령</td><td>정보보호</td><td class="mk">W1 / W2</td></tr>
+<tr><td class="num">8</td><td>보안 심의 일정 확정</td><td>정보보호</td><td class="mk">W6</td></tr>
+<tr><td class="num">9</td><td>권한 모델 사전 검토 착수</td><td>정보보호</td><td class="mk">W10</td></tr>
+<tr><td class="num">10</td><td><b>AMS · PMS · TDMS 담당자 지정</b></td><td>각 소관</td><td class="mk">W2</td></tr>
+<tr><td class="num">11</td><td><b>RTDB DMZ 복제본 존재 여부 및 검증 환경</b></td><td>공정정보 + 정보보호</td><td class="mk">W3</td></tr>
           </tbody>
         </table></div>
       </div>
@@ -1282,7 +1750,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
 
 <!-- 13 -->
 <section id="tmpl">
-  <div class="sh"><span class="n">13</span><h2>실무 템플릿</h2></div>
+  <div class="sh"><span class="n">14</span><h2>실무 템플릿</h2></div>
   <p class="lede">각 Phase에서 바로 채워 쓰는 6종. 예시 행은 <b>작성 수준을 보여주기 위한 것</b>이며, 빈 행이 실제 작성 대상입니다.</p>
 
   <div class="deck">
@@ -1291,7 +1759,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
   <div class="tmpl">
     <div class="tmpl-h"><span class="tid">T1</span><span class="tn">Agent-Readiness 6축 진단표</span><span class="tw">Phase 2 · W3–W6</span></div>
     <div class="tmpl-b"><div class="tw tw2"><table>
-      <thead><tr><th style="width:96px">시스템</th><th class="c">A1<br>인터페이스</th><th class="c">A2<br>데이터구조</th><th class="c">A3<br>의미명확성</th><th class="c">A4<br>권한세분성</th><th class="c">A5<br>관측·감사</th><th class="c">A6<br>변경관리</th><th style="width:230px">판정 근거 (필수)</th></tr></thead>
+      <thead><tr><th style="width:96px">시스템</th><th class="c">R1<br>인터페이스</th><th class="c">R2<br>데이터구조</th><th class="c">R3<br>의미명확성</th><th class="c">R4<br>권한세분성</th><th class="c">R5<br>관측·감사</th><th class="c">R6<br>변경관리</th><th style="width:230px">판정 근거 (필수)</th></tr></thead>
       <tbody>
         <tr><td><b>RTDB</b></td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="fill">태그 사전 유무, 집계 API 유무, 대량조회 실측 결과</td></tr>
         <tr><td><b>OCEAN-H</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">마스터 품질, 계층 롤업 가능 여부, 미정제 20% 범위</td></tr>
@@ -1304,7 +1772,7 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
     <div class="tmpl-foot">
       <b>판정 기준</b> — <span class="scale"><span>1 없음</span><span>2 일부</span><span class="on">3 존재·미흡</span><span>4 양호</span><span>5 충분</span></span><br>
       <b>작성 요령</b> · 점수만 있으면 무효입니다. 근거 칸이 비면 Phase 2 완료로 인정하지 않습니다.
-      A3(의미 명확성)은 시스템별로 형태가 다릅니다 — OASIS는 <b>상태 코드</b>, OCEAN-H는 <b>자유서술 이력</b>, RTDB는 <b>태그명</b>.
+      R3(의미 명확성)은 시스템별로 형태가 다릅니다 — OASIS는 <b>상태 코드</b>, OCEAN-H는 <b>자유서술 이력</b>, RTDB는 <b>태그명</b>.
       MP 디지털화 성숙도에서 <b>자동화·지능화 목표</b>인 Activity의 Legacy가 여기서 2점 이하면 <b>최우선 개선과제</b>입니다.
     </div></div>
   </div>
@@ -1428,6 +1896,118 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
       <b>우선순위</b> · <span class="pat">Agent 요구 충족 기여도 × 선행 제약</span>. DA-01(태그 사전)이 최우선입니다 — 이것이 없으면 RTDB를 쓰는 <b>모든 Agent가 성립하지 않습니다.</b>
     </div></div>
   </div>
+
+  </div>
+</section>
+
+
+<!-- 15 -->
+<section id="qa">
+  <div class="sh"><span class="n">15</span><h2>예상 질의응답</h2></div>
+  <p class="lede">현업·DT / 전사 IT·보안 / 경영층 세 관점의 <b>독립 검수에서 실제로 제기된 질문</b>을 기반으로 작성했습니다. 답변 끝의 <span class="src">근거</span> 표시는 문서 내 위치입니다 — 보고 자리에서 바로 넘길 수 있습니다. 답할 수 없는 것은 <b>답할 수 없다고 적었습니다.</b></p>
+
+  <div class="qa">
+
+  <div class="qa-cat">범위 · 기대수준</div>
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">MCP 쓰면 되는 거 아닌가? 왜 Legacy를 고쳐야 하나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">MCP는 <b>배관이 아니라 어댑터</b>입니다. L4 도구 노출 규약이며, 그 아래 Legacy API(L1)와 의미 계층(L2)이 없으면 <b>감쌀 대상이 없습니다.</b> 태그가 무슨 뜻인지 모르는 상태에서 MCP를 얹으면 Agent는 오류를 내지 않고 <b>그럴듯한 틀린 답</b>을 냅니다. <span class="src">원칙 03 · 03장</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">조회만 하면 뭐가 달라지나. 작업지시까지 자동화해야 효과가 크지 않나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">MP 정량 분석상 AI 적용 대상 101건 중 <b>대부분이 조회·분석 성격</b>입니다(운전지원 32건, 공정최적화 31건). 그리고 “작업지시를 Agent가”의 실제 니즈는 대개 <b>“작업지시 내는 데 필요한 정보 모으기가 번거롭다”</b>입니다 — <b>Human-in-the-loop 초안 생성</b>으로 체감 효익 대부분을 확보하면서 상태 변경 주체는 사람으로 남습니다. 완전 자동화는 <b>3단계 Gate(PSM 체계 개정)</b> 통과 후입니다. <span class="src">06장 쓰기 제외 근거 6·7</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">왜 처음부터 쓰기까지 같이 안 하나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">보안·안전 심의가 임계 경로에 들어오면 <b>읽기 산출물까지 늦어집니다.</b> 쓰기를 얻으려다 아무것도 못 얻는 구조입니다. 또한 PSM 적용 설비의 작업 허가·변경관리는 승인 주체가 <b>규정으로</b> 정해져 있어, Agent를 그 절차에 편입시키는 것은 기술 설계가 아니라 <b>안전관리 체계 개정</b> 문제입니다. <span class="src">06장 쓰기 제외 근거 3·5</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">스마트플랜트 2.0으로 이미 하고 있지 않나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">SP2.0은 <b>개별 과제 40건</b>이고, 본 과업은 그것들이 올라탈 <b>공통 기반</b>입니다. 과제별로 Legacy에 개별 연결하면 과제가 끝날 때 연계도 그 과제 자산으로 남고, <b>횡단 질의에 답하는 공통 식별자는 아무도 만들지 않습니다.</b><br>
+    다만 이 주장은 <b>착수 시점에 정황증거입니다.</b> W2에 세 가지를 실측해 근거로 바꿉니다 — ① SP2.0 40개 과제의 Legacy 연결 방식(직결/파일/API/수기) 건수 ② <b>동일 데이터를 2개 이상 과제가 각각 연계한 중복 건수</b> ③ 시스템 2개 이상을 수기로 맞추고 있는 업무 사례 3건. <b>중복 연계가 실제로 확인되면 그것이 최종보고의 첫 슬라이드가 됩니다.</b> <span class="src">13장 P2 장표</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">MP 1단계가 ’25~’26인데 왜 이제야 시작하나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">1단계에서 <b>수요가 확정됐기 때문에 이제야 공급 진단이 가능</b>해졌습니다. AI 과제 13종과 SP2.0 40개 과제가 정의되기 전에는 “Legacy에 무엇이 필요한가”를 역산할 대상 자체가 없었습니다. 본 과업은 1단계의 마지막 산출물이자 <b>2단계(LKM 기반 Junior AI 구성원)의 전제조건</b>입니다. <span class="src">10장 · 13장 P2</span></div></div></div>
+
+  <div class="qa-cat">투입 · 효익</div>
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">우리 인력이 몇 명, 며칠 투입되나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">역할 8종, <b>총 약 66 M/D</b>(1인 상근 3개월 미만 규모)로 산정했습니다. 최대 부하는 <b>W10–W13</b>(도구 설명 작성·별칭 검수)이며, 이 구간 <b>생산기술 현업 2명의 주 1일 확보</b>가 확정되지 않으면 T4·T6 품질을 보증할 수 없습니다. W2–W3(인터뷰), W4–W6(실측 입회)도 사전 예약이 필요합니다. <span class="src">11장 내부 투입 계획</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">현업이 메타데이터를 써야 한다는데 그 시간을 어디서 내나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">M2(업무 메타)는 IT가 추정해 쓰면 틀리므로 현업 작성이 불가피합니다. 다만 <b>부담을 줄이는 두 장치</b>를 둡니다 — ① 전체 코드가 아니라 <b>Phase 1 요구사항에 등장하는 것부터</b> 착수 ② 현업 참여가 확보되지 않으면 <b>컨설턴트 초안 → 현업 30분 검수</b> 방식으로 전환(실패 조기 경보 W7 발동 조치). <span class="src">07장 · 11장 실패 조기경보</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">얼마 들고 뭘 얻나. 이 과업의 효과는</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>본 과업은 절감액을 만드는 과업이 아니라 101건 AI 적용의 성립 조건을 만드는 과업</b>입니다. 효익은 금액이 아니라 <b>가능/불가능</b>으로 프레이밍해야 정확합니다 — 운전지원 32건 + 공정최적화 31건 = <b>63건(101건의 62%)이 RTDB·OCEAN-H에 의존</b>하며, <b>DA-01(태그 사전)이 없으면 RTDB를 쓰는 모든 Agent가 성립하지 않습니다.</b><br>
+    차년도 실행 투자 규모(ROM)는 <b>P8 완료기준</b>으로 산출해 최종보고에서 제시합니다. <span class="src">10장 · 13장 투자와 효익 · P8</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">연 100억 절감이 이 과업 효과인가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>아닙니다.</b> 연 100억은 <b>스마트플랜트 2.0 40개 과제의 기대효과</b>이며 본 과업의 효익이 아닙니다. 문서에서도 별도 표기하고 있습니다. 본 과업의 효익은 위 62% 논리로 제시하며, 별도 절감액 추정은 하지 않습니다 — <b>효과는 차년도 실행 과제 단위로 산정</b>합니다. <span class="src">09장 각주</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">안 하면 어떻게 되나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>AI 과제 13종 + SP2.0 40개 = 53개 과제가 각자 설비 별칭·태그 매핑·권한 연계를 따로 만듭니다.</b> 2년 뒤 “Agent 40개가 각자 Legacy에 직접 붙어 있고 아무도 전체를 모르는 상태” — 이는 정확히 <b>OCEAN-H 구축 전 15종 시스템이 난립하던 상황의 재현</b>이며, 그때의 통합 비용(2019 착수 → 2021.6 가동, 1,000만 건 전환)을 Agent 계층에서 다시 지불하게 됩니다. <span class="src">08장 · 09장</span></div></div></div>
+
+  <div class="qa-cat">실행 가능성</div>
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">태그가 수만 개인데 태그 사전이 현실적인가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>전수 구축하지 않습니다.</b> 전수는 3.5개월에 불가능하며, 그것을 시도하는 것이 이 과업의 가장 확실한 실패 경로입니다. <b>3단 커버리지</b>로 갑니다 — <b>T-A</b> 핵심 태그(대표 질의 5건 + AI 과제 #4·#11 참조분, 200~500개) 전수 정의 / <b>T-B</b> 명명규칙 역공학 + 자동 파싱 스크립트 + 정확도 측정 / <b>T-C</b> 잔여 규모만 계량. <b>T-C 계량치가 차년도 예산 산정 근거</b>가 됩니다. <span class="src">07장 DA-01 상세</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">설비 60만 기 별칭 사전은 더 어려운 문제 아닌가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">맞습니다. 초기 판단에서 난이도를 “중”으로 잡았으나 <b>“고”로 정정</b>했습니다 — 자유서술 텍스트 기반이라 태그보다 쉬울 근거가 없습니다. DA-02도 <b>동일한 3단 커버리지</b>(핵심 설비 전수 / 규칙 파생 / 잔여 계량)로 재정의했습니다. <span class="src">07장 DA-01 상세 말미</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">OCEAN-H 미정제 20%를 어떻게 찾나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">4단계 절차입니다 — ① 2021년 구축 프로젝트의 <b>정제 대상 정의·제외 기준</b> 문서 확보(W3) ② 제외 사유별 분류(W4) ③ <b>규칙 기반 완결성 검사</b>를 설비군 × 공장 × 연도 축으로 집계해 히트맵 작성(W4–5) ④ 대표 질의 5건 구간 표본 검수(W5–6).<br>
+    <b>20%가 편중돼 있으면 구간 단위 신뢰 플래그로 값싸게 해결</b>되고, 흩어져 있으면 레코드 단위 플래그가 필요해 난이도가 한 단계 올라갑니다. W5까지 이 판정을 못 끝내면 DA-06을 견적할 수 없습니다. <span class="src">07장 D5 상세</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">사전을 만든 뒤 누가 유지하나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">M2 업무 메타의 <b>소유 조직 지정이 이 방안의 성패를 가릅니다.</b> 메타 3계층별로 소관을 나누고(M1 시스템 담당 / <b>M2 현업 조직별 지정</b> / M3 자동), 카탈로그를 단일 원천으로 두어 <b>도구 설명을 카탈로그에서 생성</b>합니다 — 수작업으로 따로 쓰면 반드시 어긋납니다. 다만 <b>현업 메타 담당 지정 가능 여부는 Phase 0 확인 사항</b>이며, 불가하면 갱신 규칙을 자동 규칙 중심으로 재설계해야 합니다. <span class="src">07장 메타 3계층</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">컨설턴트가 우리 시스템을 모르는데 3.5개월에 뭘 할 수 있나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">학습 곡선을 줄이는 두 설계를 두었습니다 — ① <b>Phase 1을 백지 발굴이 아니라 역산</b>으로 정의(MP 13종 + SP2.0 40개가 모집단) ② <b>OCEAN-H 구축 산출물 재사용</b>(15종 통합 시의 정제 방법론·마스터 기준). 다만 이 둘은 <b>가정</b>이며, 자료를 못 받으면 각각 공수 +2주 / P2·P3 증가로 반영됩니다. <span class="src">11장 가정 2·5</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">중간보고(W7)에 무엇을 보여주나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">솔직히 말씀드리면 <b>W7에는 이 과업의 두 핵심 결론이 아직 없습니다</b> — 식별자 표준은 W8, MCP 채택은 W9–10입니다. 그래서 중간보고 아젠다를 <b>“현황 분석 결과 + To-be 방향성 + 남은 2대 결정의 판단 기준과 잠정 방향 + 보안 사전검토 결과”</b>로 명시하고, 그 결정은 <b>W11 핵심 설계 결정 리뷰</b>에서 별도 승인받는 구조로 설계했습니다. <span class="src">05장 마일스톤</span></div></div></div>
+
+  <div class="qa-cat">기술 선택</div>
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">그래서 MCP를 쓴다는 건가 안 쓴다는 건가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>이분법 질문 자체가 잘못됐습니다.</b> 예상 결론은 <b>“OCEAN-H 중심 부분 채택”</b>입니다 — 도구가 많고 Agent가 자율 선택해야 하는 탐색·검색 계열에서 실익이 크고, RTDB 대량 집계는 MCP로 감싸도 이득이 없으며, OASIS는 Gateway 정책 준수가 우선입니다. 이 결론은 <b>W9–10에 6단 판단 트리로 확정</b>합니다. <span class="src">06장 판단 트리 · CLX 적용 예상 판정</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">MCP는 계속 바뀌는 표준 아닌가. 지금 채택해도 되나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">맞습니다. <b>MCP는 약 8개월 주기로 breaking change를 포함해 개정</b>됩니다(2025-11-25 → 2026-07-28). 그래서 <b>MCP 채택 판단서에 「채택 사양 버전 고정 + 상위 버전 마이그레이션 비용 추정 + 유예 정책」을 필수 항목으로 포함</b>합니다. 리스크 <span class="pat">R11</span>로 등록했습니다. <span class="src">08장 MCP·A2A 비교</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">A2A는 왜 안 쓰나. 미성숙해서인가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>미성숙해서가 아닙니다.</b> A2A는 2025.04 공개 → 2025.06 Linux Foundation 이관 → <b>2026.03 v1.0 확정</b>으로 서명 Agent Card까지 형식화된 단계입니다. 유보의 실제 근거는 <b>CLX 내 Agent 수가 편익 임계(약 10개)에 못 미쳐 이점이 발생하지 않고, 전사 AI 플랫폼 방침이 미확정</b>이라는 것입니다. 대신 <b>T5 Agent 카드 필드명을 A2A v1.0 스키마에 정렬</b>해 나중 전환 비용을 0에 가깝게 만들어 둡니다. <span class="src">08장</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">RTDB를 대량 조회하면 운영에 지장이 있지 않나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">그래서 <b>W4에 실측</b>합니다 — 그리고 <b>검증 대상은 OT 원본이 아니라 산업 DMZ의 복제본</b>입니다. 또한 “대량이면 무조건 배치 복제”가 아니라, 히스토리안이 제공하는 <b>서버측 집계 질의</b>(interpolated / summary / time-weighted average) 기능·성능을 먼저 확인하고 <b>있으면 집계 API 래핑(DA-05), 없거나 부하가 크면 복제</b>로 갑니다. <span class="src">03장 존 배치 · 06장 매트릭스 주의</span></div></div></div>
+
+  <div class="qa-cat">보안 · 권한</div>
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">Agent가 OT망의 RTDB에 직접 붙는 건가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>아닙니다.</b> 원칙으로 명문화했습니다 — <b>“Agent 및 그 하위 어떤 컴포넌트도 OT 존으로 인바운드 세션을 열지 않는다. RTDB 접근은 산업 DMZ(Purdue L3.5)의 복제본을 대상으로만 한다.”</b> 복제는 단방향(필요 시 데이터 다이오드)입니다. 다만 <b>DMZ 복제본이 실제로 존재하는지는 W3 확인 사항</b>이며, 없으면 그 구성 자체가 선행 과제가 됩니다. <span class="src">03장 IT/OT 존 배치</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">사용자 권한을 넘어선 데이터가 Agent 답변에 섞이지 않나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">권한 전파 원칙 <b>A1</b>(유효 권한 = min(사용자, Agent))과 <b>A4</b>(권한으로 제외된 결과가 있으면 명시)로 막습니다. 다만 <b>A1의 교집합 논리는 원본 접근에만 성립</b>하며, 권한 있는 A와 B를 <b>결합해 파생한 정보</b>는 양쪽 원본 권한이 있어도 노출되면 안 될 수 있습니다 — Agent의 본질이 결합이므로 <b>A7(파생·집계 결과 인가)</b>를 별도 원칙으로 신설했습니다. <span class="src">08장 A1~A10</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">공정 운전조건이 외부 LLM으로 나가는 것 아닌가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>데이터 분류 등급 × 모델 배치 허용 매트릭스</b>로 통제합니다. 공정 운전조건·촉매 사양·수율은 <b>C1(극비)</b>이며 <b>외부 SaaS 모델 금지</b>, 전사 사설 모델도 학습 재사용 금지·로그 사내 보관 조건부입니다. 전사 정책 확정 전까지 <b>CLX 잠정 기준(보수적)을 적용</b>하고 확정 시 대체합니다 — “전사 정책 대기”로 두지 않습니다. <span class="src">07장 D6</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">협력사가 입력한 정비이력이 Agent에 들어가는데 문제없나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>가장 위험한 지점으로 보고 별도 통제를 넣었습니다.</b> 협력사 입력은 <b>신뢰 등급 최저</b>로 분류해 ① 구분자·역할 태깅으로 <b>데이터 영역 격리</b> ② <b>지시문 패턴 탐지</b> ③ <b>지시 해석 금지</b>를 적용합니다. 도구 설명 자체도 프롬프트이므로 <b>정의 서명·해시 고정과 변경 시 재승인</b>(rug pull 방어)을 두고, 이를 판단 트리 <b>Q5</b>로 반영했습니다. <span class="src">06장 신뢰 경계와 인젝션 통제</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">Agent에 사번을 주면 되는 것 아닌가 (SKT처럼)</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">신원 체계는 참조하되 <b>사람 사번을 그대로 발급하면 안 됩니다.</b> ① 사람 권한 체계를 상속해 최소권한 심의가 흐려지고(A1 충돌) ② <b>감사로그에서 사람 행위와 Agent 행위를 구분할 수 없습니다</b>(A5 충돌) ③ 소유자 퇴사 시 orphan 권한이 남습니다.<br>
+    권고는 <b>혼합</b>입니다 — <b>신원은 사람과 분리된 <span class="pat">AGT-*</span> 네임스페이스 + 워크로드 아이덴티티 인증, 권한은 사용자 위임 우선</b>. Agent 고유 권한은 사용자 무관 배치 작업에만 한정합니다. <span class="src">08장 Agent 신원과 자격증명</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">사고가 나면 무엇을 근거로 조사하나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>감사 로그 스키마</b>를 규격으로 정의했습니다 — <span class="pat">trace_id</span>로 전 계층을 잇고, <b>도구 정의 해시</b>(rug pull 탐지), <b>원천 트랜잭션ID</b>(역추적), <b>반출 데이터 등급</b>, <b>모델ID·버전·시스템프롬프트 해시</b>(재현성)를 남깁니다. 특히 전사에 <b>“원천 호출 시 최종 사용자ID와 trace_id를 헤더로 전달”</b>을 요청 항목으로 넣었습니다 — 이게 없으면 원천 로그에 “Gateway 서비스 계정”만 남아 <b>역추적이 끊깁니다.</b> <span class="src">08장 감사 로그 스키마 · 06장 전사 협의 #8</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">보안 심의는 언제 받나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">당초 W10 단일 시점이었으나, <b>연계 방식과 MCP 채택을 결정한 뒤에 보안을 처음 만나는</b> 문제가 있어 <b>3단으로 분해</b>했습니다 — <b>W1 주체 지정 / W2 심의 기준서 수령 / W6 일정 확정 / W10 사전 검토 착수</b>. 그리고 <b>W7 중간보고에 보안 사전검토 결과를 정식 안건</b>으로 배치했습니다. <span class="src">12장 협조 요청 7~9</span></div></div></div>
+
+  <div class="qa-cat">타 과업 관계</div>
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">② Knowledge 과업과 겹치는 것 아닌가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">기본 경계는 <b>정형 시스템 데이터 = ① / 비정형 문서 = ②</b>이나, 실제로는 세 지점이 얽힙니다 — <b>Tag Meta</b>(① 주관, ②에 온톨로지 입력으로 제공), <b>OCEAN-H 정비이력</b>(①이 경로·필드 메타, ②가 텍스트 구조화), <b>근무일지</b>(공동 — W1에 분할 기준과 <b>개인정보 판정 주체</b>까지 합의 필요). 산출물 단위 RACI로 정리했습니다. <span class="src">11장 ①②③ RACI</span></div></div></div>
+
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">Lineage·변경관리는 AgentOps(③) 영역 아닌가</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>정당한 지적입니다.</b> 경계는 <b>“①은 대상 식별과 영향 경로 정의까지, ③은 도구·실행·운영까지”</b>로 긋습니다. Phase 6(W9–W13, 5주)이 ③과 가장 크게 겹치므로 <b>W1 3과업 합동 킥오프에서 이 선을 확정</b>하지 못하면 5주치가 이중 투자가 됩니다. 확정 결과에 따라 <b>Phase 6 범위 축소도 열어둡니다.</b> <span class="src">11장 RACI · P6 완료기준</span></div></div></div>
+
+  <div class="qa-cat">답할 수 없는 것 — Phase 0 확인 사항</div>
+  <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">이 과업 규모가 정확히 얼마나 되나</span></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>착수 전에는 답할 수 없습니다.</b> 규모를 가장 크게 좌우하는 것은 <b>세 시스템의 설비·공정 코드가 이미 통일돼 있는가</b>입니다 — 통일돼 있으면 원칙 07(횡단 식별자) 과업이 크게 축소됩니다. 그 외 <b>OCEAN-H vs TDMS 마스터 중복 / AMS 알람↔Tag 매핑 존재 여부 / RTDB 태그 총수와 명명규칙 문서 유무 / DMZ 복제본 존재 여부</b> 5가지가 W1–W4에 확인되며, 그 결과를 <b>W6 대상 시스템 최종 확정 시점에 범위 조정</b>으로 반영합니다. <span class="src">12장 착수 즉시 확인할 5가지</span></div></div></div>
 
   </div>
 </section>

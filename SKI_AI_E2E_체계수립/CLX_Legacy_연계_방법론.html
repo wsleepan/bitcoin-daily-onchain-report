@@ -345,7 +345,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <ol>
     <li><a href="#k-proc"><span class="n">2.1</span>수행 프로세스</a></li>
     <li><a href="#k-back"><span class="n">2.2</span>활용에서 역산</a></li>
-    <li><a href="#k-onto"><span class="n">2.3</span>Ontology 수준 정의</a></li>
+    <li><a href="#k-onto"><span class="n">2.3</span>온톨로지 레벨 판정</a></li>
     <li><a href="#k-meta"><span class="n">2.4</span>메타 자동화 원칙</a></li>
     <li><a href="#k-out"><span class="n">2.5</span>산출물 · 리스크</a></li>
   </ol>
@@ -2434,7 +2434,93 @@ FIG_K2
 
 <!-- 2.3 -->
 <section id="k-onto">
-  <div class="sh"><span class="n">2.3</span><h2>“Ontology” 수준 정의 — W1 서면 합의 대상</h2></div>
+  <div class="sh"><span class="n">2.3</span><h2>온톨로지는 필요한가 — 레벨 판정</h2></div>
+  <h3>먼저 물어야 할 것 — 온톨로지가 필요한가</h3>
+  <div class="thesis">
+    <strong>“온톨로지가 필요한가”는 잘못된 질문입니다.</strong> 온톨로지는 능력의 사다리이고, 물어야 할 것은 <strong>“어느 레벨까지 필요한가”</strong> 입니다. 레벨을 정하지 않고 착수하면 이름은 온톨로지인데 내용은 데이터 사전이거나, 반대로 3.5개월에 끝나지 않는 형식 모델을 시도하게 됩니다.
+  </div>
+
+  <h4>LLM이 계산을 바꿨다</h4>
+  <p class="lede">온톨로지의 전통적 가치는 넷이었습니다 — ① 개념 관계 명시 ② <b>추론</b> ③ 질의 확장 ④ 이질 스키마 통합. 그런데 <b>①과 ②의 상당 부분을 LLM이 이미 수행합니다.</b> “압축기는 회전기기”, “트립은 이상현상” 같은 도메인 상식은 온톨로지에 넣지 않아도 모델이 압니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:230px">LLM이 아는 것</th><th>LLM이 알 수 없는 것 — <b>CLX 고유의 사실</b></th></tr></thead>
+    <tbody>
+      <tr><td>압축기는 회전기기의 일종이다</td><td><span class="pat">FIC-1203.PV</span> 가 <b>어느 설비의 무슨 물리량</b>인지</td></tr>
+      <tr><td>트립은 비정상 정지를 뜻한다</td><td><span class="pat">STS_CD = '03'</span> 이 <b>무슨 상태</b>인지</td></tr>
+      <tr><td>정비 이력은 설비와 연결된다</td><td>“3호기 압축기”가 <b>어느 설비ID</b>인지 (60만 기 중)</td></tr>
+      <tr><td>생산 실적은 기간 단위로 집계된다</td><td>OASIS 생산일이 <b>06시 기준</b>인지 자정 기준인지</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>LLM 시대에 필요한 것은 “추론 가능한 온톨로지”가 아니라 “기계가 읽을 수 있는 사실 자산”입니다.</b> 이것이 본 과업이 <b>AI-ready data(L0~L3)</b>에 무게를 두고 형식 온톨로지를 뒤로 미루는 근거입니다.</p>
+
+  <h4>레벨 판정 — CLX는 어디까지 필요한가</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:52px">레벨</th><th style="width:170px">내용</th><th style="width:110px">CLX 필요성</th><th>판정 근거</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--accent-soft)"><td class="mk">L0</td><td>데이터 사전<br><span style="font-size:12px;color:var(--ink-3)">컬럼·코드값 의미</span></td><td class="mk best">필수</td><td>이것이 없으면 Agent가 <b>오류 없이 틀린 답</b>을 한다. ① R3 · ② M2 업무 메타</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">L1</td><td>통제어휘<br><span style="font-size:12px;color:var(--ink-3)">대표어·동의어·약어</span></td><td class="mk best">필수</td><td>검색 실패의 최대 원인은 분류 부재가 아니라 <b>같은 것을 다르게 부르는 것</b>. 60만 기 + 현장 호칭</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">L2</td><td>다면 분류체계<br><span style="font-size:12px;color:var(--ink-3)">Taxonomy</span></td><td class="mk best">필수</td><td>단일 트리는 “설비별로 볼지 업무별로 볼지”에서 <b>조직이 합의하지 못해</b> 반드시 실패</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">L3</td><td>경량 Entity-Relation<br><span style="font-size:12px;color:var(--ink-3)">Entity 10~15 · Relation 10</span></td><td class="mk best">필요</td><td>횡단 질의가 <b>실제로 존재</b>한다. 다만 <b>①이 이미 만들고 있다</b> — 아래 참조</td></tr>
+      <tr><td class="mk">L4</td><td>형식 온톨로지<br><span style="font-size:12px;color:var(--ink-3)">OWL/RDF · 추론 규칙</span></td><td class="mk mid">현 단계 불요</td><td>아래 3가지 근거</td></tr>
+      <tr><td class="mk">L5</td><td>지식그래프 구현<br><span style="font-size:12px;color:var(--ink-3)">Triple Store 적재·질의</span></td><td class="mk no">현 단계 불요</td><td>L4가 없으면 적재할 대상이 없음</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>L4를 지금 하지 않는 근거 세 가지</h4>
+  <div class="two">
+    <div class="box"><div class="bt">① 추론 수요가 실증되지 않았다</div>
+      <ul><li>수집할 질의 30~50건 중 <b>추론이 필요한 비율을 아직 모른다</b></li>
+      <li>대부분은 “3호기 압축기 지난달 트립 이력” 같은 <b>사실 조회 + 조인</b></li>
+      <li>조인은 매핑 테이블로 해결된다 — 추론 엔진이 필요 없다</li></ul></div>
+    <div class="box"><div class="bt">② 인스턴스 없는 스키마는 빈 껍데기</div>
+      <ul><li>온톨로지 실패의 전형 — <b>스키마는 완성됐는데 데이터를 매핑할 수 없어 비어 있는 상태</b></li>
+      <li>L0~L2가 없는데 L4를 만들면 정확히 이렇게 된다</li>
+      <li>순서는 <b>사실 자산 먼저, 형식화는 나중</b></li></ul></div>
+  </div>
+  <p class="note crit" style="margin-top:14px"><b>③ 기회비용</b> — 3.5개월에 L4까지 시도하면 <b>L0~L2가 부실해집니다.</b> 그리고 부실한 L0~L2 위에 얹은 L4는 무용합니다. 둘 중 하나만 제대로 할 수 있다면 <b>반드시 L0~L2</b>입니다.</p>
+
+  <h4>L4로 가는 길은 막지 않는다</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:200px">지금 지킬 것</th><th>이유</th></tr></thead>
+    <tbody>
+      <tr><td>Entity·Relation 명명을 <b>SKOS·Dublin Core 어휘에 정렬</b></td><td>나중에 형식화할 때 재매핑 없이 승격 가능</td></tr>
+      <tr><td>관계를 <b>표가 아니라 삼항(주어–관계–목적어)</b> 형태로 기술</td><td>Triple로 그대로 변환됨</td></tr>
+      <tr><td>식별자에 <b>안정적 URI 체계</b> 부여 가능성 확보</td><td>L5 적재 시 키가 됨</td></tr>
+      <tr><td>추론이 필요했던 질의를 <b>별도 기록</b></td><td>L4 필요성의 실증 근거가 축적됨 — <b>재판정 트리거</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>재판정 조건</b> — 수집 질의 중 <b>추론 요구 비율이 20%를 넘거나</b>, 계층·집합 수준 질의(“3호기 전체 설비의 지난달 트립”)가 상시화되거나, 시스템이 6종을 크게 넘어 매핑 테이블 관리가 한계에 이르면 L4를 재검토합니다. 그 판정 근거를 <b>본 과업에서 축적</b>합니다.</p>
+
+  <h4>①과 중복하지 않기 — L3는 이미 만들어지고 있다</h4>
+  <p class="lede">이것이 이 절에서 가장 실무적인 지점입니다. <b>①의 횡단 식별자 4축이 사실상 경량 Entity-Relation입니다.</b></p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:180px">① 과업이 만드는 것</th><th style="width:200px">온톨로지 관점에서는</th><th>② 과업이 할 일</th></tr></thead>
+    <tbody>
+      <tr><td>설비 마스터 · 별칭 사전</td><td>Entity <span class="pat">설비</span> + 레이블</td><td><b>재사용.</b> 다시 정의하지 않음</td></tr>
+      <tr><td>설비↔태그 매핑</td><td>Relation <span class="pat">설비 -[측정]- 물리량</span></td><td><b>재사용</b></td></tr>
+      <tr><td>설비↔공정 매핑</td><td>Relation <span class="pat">공정 -[구성]- 설비</span></td><td><b>재사용</b></td></tr>
+      <tr><td>시간축 변환 규칙</td><td>시간 차원 정의</td><td><b>재사용</b></td></tr>
+      <tr><td>코드 사전</td><td>통제어휘 일부</td><td>지식 도메인 어휘와 <b>정합</b></td></tr>
+      <tr style="background:var(--signal-soft)"><td colspan="2"><b>② 고유 영역</b></td><td>지식 객체(문서·사례·노하우) Entity, 지식↔설비/공정 Relation, 문서유형·생애주기·보안등급 분류축</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note crit" style="margin-top:14px"><b>②가 설비·공정 Entity를 독자적으로 정의하면 ①의 식별자 표준과 어긋난 두 번째 모델이 생깁니다.</b> 원칙: <b>물리 자산(설비·공정·태그·시간·오더)의 Entity·Relation은 ①이 정의하고 ②는 참조</b>하며, <b>②는 그 위에 지식 객체를 얹는 것</b>으로 역할을 나눕니다. → Part 4 협의 사항</p>
+
+  <h4>판정 절차 — 방법론에 넣을 것</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:44px">순서</th><th style="width:220px">활동</th><th class="c" style="width:66px">시점</th><th>산출</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">1</td><td>질의 30~50건 수집 (K1)</td><td class="c mk">W3</td><td>질의 원문 목록</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">2</td><td><b>질의별 필요 능력 판정</b><br><span style="font-size:12px">사실조회 / 조인 / 계층확장 / 추론</span></td><td class="c mk">W3</td><td><b>능력 요구 분포 — 이것이 레벨을 결정</b></td></tr>
+      <tr><td class="mk">3</td><td>목표 레벨 확정 및 In/Out 명문화</td><td class="c mk">W4</td><td>Ontology 범위 정의서 (<b>서면 합의</b>)</td></tr>
+      <tr><td class="mk">4</td><td>①의 식별자 표준과 Entity 중복 제거</td><td class="c mk">W5</td><td>①② 공동 Entity 목록</td></tr>
+      <tr><td class="mk">5</td><td>L4 승격 조건 기록 체계 가동</td><td class="c mk">W5~</td><td>추론 요구 질의 누적 기록</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>2번이 핵심입니다.</b> “온톨로지를 어느 수준까지 할까”를 <b>토론으로 정하지 말고 질의 분포로 판정</b>하십시오. 추론 요구가 5%면 L3에서 멈추는 것이 명백하고, 30%면 L4 검토가 정당합니다. <b>근거 없이 정하면 나중에 반드시 재논쟁이 벌어집니다.</b></p>
+
+
+  <h3>Ontology 수준 정의 — W1 서면 합의 대상</h3>
   <p class="lede">이 과업 최대의 리스크는 <b>용어가 주는 기대와 실제 산출물 수준의 괴리</b>입니다. 형식 온톨로지를 기대한 이해관계자가 있으면 중간보고에서 반드시 터집니다. <b>W1에 In/Out을 명문화하고 시작</b>하십시오.</p>
 FIG_K3
   <p class="note crit" style="margin-top:16px">①의 <b>“MCP는 배관이 아니라 어댑터”</b> 합의와 정확히 같은 성격의 합의입니다. 두 과업 모두 <b>기술 용어가 만든 과잉 기대를 W1에 정리하지 못하면 이후 설계가 “불필요한 일”로 취급</b>됩니다. 합동 킥오프에서 나란히 다루는 것이 효율적입니다.</p>

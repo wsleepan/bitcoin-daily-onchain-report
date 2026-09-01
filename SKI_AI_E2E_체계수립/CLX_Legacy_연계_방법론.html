@@ -186,6 +186,56 @@ td.c,th.c{text-align:center}
 footer{border-top:1px solid var(--rule);padding:26px 0 40px;font-size:12.5px;color:var(--ink-4);
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer .mono{font-family:var(--mono)}
+
+/* ── 장표 (착수보고) ── */
+.deck{display:flex;flex-direction:column;gap:20px}
+.slide{border:1px solid var(--rule);border-radius:6px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+.slide-h{padding:13px 20px 11px;border-bottom:1px solid var(--rule-2);display:flex;gap:13px;align-items:baseline;flex-wrap:wrap}
+.slide-h .sn{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-4);letter-spacing:.08em;
+  border:1px solid var(--rule);border-radius:3px;padding:1px 6px}
+.slide-h .st{font-size:16px;font-weight:600;letter-spacing:-.02em}
+.slide-lead{padding:12px 20px;background:var(--accent-soft);color:var(--accent-ink);font-size:14.5px;
+  line-height:1.65;border-bottom:1px solid var(--rule-2);font-weight:500}
+.slide-b{padding:17px 20px 19px;display:flex;flex-direction:column;gap:13px}
+.slide-b .hint{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-4)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.two{grid-template-columns:1fr}}
+.box{border:1px solid var(--rule-2);border-radius:4px;padding:12px 14px;background:var(--paper)}
+.box .bt{font-size:13px;font-weight:600;margin-bottom:6px}
+.box ul{margin:0;padding-left:17px;font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.box ul li{margin-bottom:3px}
+.arrows{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px}
+.arrows .stepb{border:1px solid var(--rule);border-radius:4px;padding:7px 12px;background:var(--paper);font-weight:500}
+.arrows .stepb.hi{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-ink)}
+.arrows .ar{color:var(--ink-4);font-family:var(--mono)}
+
+/* ── 템플릿 폼 ── */
+.tmpl{border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.tmpl-h{padding:12px 18px;background:var(--ink);color:var(--paper);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+:root:not([data-theme="light"]) .tmpl-h{background:var(--surface-2);color:var(--ink)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) .tmpl-h{background:var(--ink);color:var(--paper)}}
+:root[data-theme="dark"] .tmpl-h{background:var(--surface-2);color:var(--ink)}
+.tmpl-h .tid{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;opacity:.75}
+.tmpl-h .tn{font-size:15px;font-weight:600}
+.tmpl-h .tw{font-family:var(--mono);font-size:11px;opacity:.7;margin-left:auto}
+.tmpl-b{padding:0}
+.tmpl-b .tw2{border:0;border-radius:0;box-shadow:none}
+.tmpl-foot{padding:11px 18px;border-top:1px solid var(--rule-2);background:var(--paper);font-size:13px;color:var(--ink-2);line-height:1.65}
+.tmpl-foot b{color:var(--ink)}
+.fill{color:var(--ink-4);font-family:var(--mono);font-size:12px}
+.scale{display:flex;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;font-size:11.5px;font-family:var(--mono)}
+.scale span{padding:3px 8px;border-right:1px solid var(--rule-2);color:var(--ink-3)}
+.scale span:last-child{border-right:0}
+.scale span.on{background:var(--accent);color:#fff}
+
+/* ── 성숙도 ── */
+.mat{display:flex;gap:0;border:1px solid var(--rule);border-radius:5px;overflow:hidden}
+.mat div{flex:1;padding:11px 10px;text-align:center;border-right:1px solid var(--rule-2);font-size:13px}
+.mat div:last-child{border-right:0}
+.mat div .ml{font-family:var(--mono);font-size:10px;color:var(--ink-4);display:block;letter-spacing:.08em}
+.mat div .mn{font-weight:600;margin-top:3px;display:block}
+.mat div.tgt{background:var(--accent-soft);color:var(--accent-ink)}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -224,7 +274,10 @@ footer .mono{font-family:var(--mono)}
     <li><a href="#data"><span class="n">07</span>데이터 · 메타 관리</a></li>
     <li><a href="#a2a"><span class="n">08</span>Agent 간 연계</a></li>
     <li><a href="#sys"><span class="n">09</span>대상 시스템</a></li>
-    <li><a href="#risk"><span class="n">10</span>리스크 · 착수 준비</a></li>
+    <li><a href="#biz"><span class="n">10</span>생산기술 업무 구조</a></li>
+    <li><a href="#risk"><span class="n">11</span>리스크 · 착수 준비</a></li>
+    <li><a href="#deck"><span class="n">12</span>착수보고 장표</a></li>
+    <li><a href="#tmpl"><span class="n">13</span>실무 템플릿</a></li>
   </ol>
 </nav>
 
@@ -732,8 +785,118 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
 </section>
 
 <!-- 10 -->
+<section id="biz">
+  <div class="sh"><span class="n">10</span><h2>생산기술 업무 구조 — Phase 1의 모집단</h2></div>
+  <p class="lede">기존 CLX AI 과제 MP에 생산기술 업무가 <b>26개 Process</b>로 이미 구조화되어 있고, <b>디지털화 성숙도 5단계</b> 진단과 <b>AI 과제 13종</b>이 정의돼 있습니다. Phase 1은 백지에서 발굴하는 작업이 아니라 <b>이 구조를 Legacy 요구로 번역하는 작업</b>입니다.</p>
+
+  <h3>업무 Hierarchy — Level 1~4</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:96px">Level 2<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Process Chain</span></th><th style="width:176px">Level 3<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Process Group</span></th><th>Level 4 · Process <span style="font-weight:400;text-transform:none;letter-spacing:0">(26)</span></th><th class="c" style="width:62px">주 Legacy</th></tr></thead>
+    <tbody>
+      <tr><td rowspan="2"><b>공장<br>운영기획</b></td><td>예산 수립 및 운영 최적화</td><td>예산 수립 및 실적 분석 · Utility 계통 운영 최적화 · 물류 시설 운영 최적화</td><td class="c"><span class="sys">OASIS</span></td></tr>
+      <tr><td>투자 사업 기획 및 관리</td><td>투자 사업 기획 · 투자 사업 관리</td><td class="c"><span class="sys">투자관리</span></td></tr>
+      <tr style="background:var(--accent-soft)"><td rowspan="3"><b>공정<br>기술관리</b></td><td><b>운전 지원 및 Troubleshooting</b></td><td>공정 운전 지원 · <b>운전 이상 상황 원인 분석 및 대책 수립</b> · <b>설비 이상 원인 분석 및 대책 수립</b> · 제품 품질 문제 해결 및 개선 방안 도출</td><td class="c"><span class="sys p1">RTDB</span><span class="sys p1">AMS</span><span class="sys p1">OCEAN-H</span></td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>공정 최적화 및 개선</b></td><td>공정 운전 데이터 수집 및 분석 · 최적 운전 조건 설정 및 운전 전략 수립 · 공정 개선 과제 도출 및 적용 · 생산성 향상 기술 검토 및 도입 · 촉매 기술 평가</td><td class="c"><span class="sys p1">RTDB</span><span class="sys">PMS</span></td></tr>
+      <tr><td>전략 과제 기획 및 관리</td><td>전략 과제 발굴 · 전략 과제 검토 · 외부 기술 도입 및 라이선스 선정 · R-연구회 운영</td><td class="c">외부 DB</td></tr>
+      <tr><td rowspan="3"><b>공장<br>운영지원</b></td><td>안전/환경 관리</td><td>공정 안전성 평가 및 위험 관리 · 오염물 배출 관리 및 환경 규제 대응 · 사고 조사 및 재발 방지 대책 수립 · 안전 및 환경 인허가 업무 지원</td><td class="c"><span class="sys">OCEAN-H</span><span class="sys">사고관리</span></td></tr>
+      <tr><td>공장 운영 및 운전 정보 제공</td><td>공장 운영 정보 작성 및 제공 · 공정 운전 정보 작성 및 제공</td><td class="c"><span class="sys">RTDB</span><span class="sys">OASIS</span></td></tr>
+      <tr><td>기술 교육 및 역량 향상</td><td>사내 기술 세미나 및 워크숍 운영 · 엔지니어 교육 및 멘토링</td><td class="c">교육포탈</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px">음영 표시한 <b>공정 기술관리</b> 2개 Process Group이 AI 적용 비중 최상위이고, 필요 Legacy가 <span class="sys p1">RTDB</span> <span class="sys p1">AMS</span> <span class="sys p1">OCEAN-H</span> 에 집중됩니다. <b>① 과업의 무게중심은 여기입니다.</b></p>
+
+  <h3>디지털화 성숙도 5단계 — 이미 존재하는 축</h3>
+  <p class="lede">MP는 Activity 단위로 아래 5단계 진단을 이미 수행했습니다. <b>Agent-Readiness 6축 진단(Phase 2)은 이 축을 대체하지 말고 접속시켜야 합니다.</b></p>
+  <div class="mat">
+    <div><span class="ml">L1</span><span class="mn">수작업</span></div>
+    <div><span class="ml">L2</span><span class="mn">정보화 초기</span></div>
+    <div><span class="ml">L3</span><span class="mn">정보화</span></div>
+    <div class="tgt"><span class="ml">L4</span><span class="mn">자동화</span></div>
+    <div class="tgt"><span class="ml">L5</span><span class="mn">지능화</span></div>
+  </div>
+  <div class="tw" style="margin-top:16px"><table>
+    <thead><tr><th style="width:180px">MP 성숙도 축</th><th>① 과업의 접속 지점</th></tr></thead>
+    <tbody>
+      <tr><td><b>업무</b> 성숙도 (MP)</td><td>“그 업무가 얼마나 디지털화되어 있는가” — <b>수요</b> 측 진단</td></tr>
+      <tr><td><b>Agent-Readiness 6축</b> (본 과업)</td><td>“그 업무를 지탱하는 Legacy가 얼마나 준비돼 있는가” — <b>공급</b> 측 진단</td></tr>
+      <tr style="background:var(--signal-soft)"><td colspan="2"><b>결합 지점</b> — MP에서 <b>자동화·지능화 목표</b>로 지정된 Activity의 Legacy가 6축에서 미흡하면, 그것이 곧 <b>최우선 개선과제</b>입니다. Phase 2 Gap 분석에 이 교차표를 넣으십시오.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>AI 과제 13종 — Action Pattern 역산</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:32px">#</th><th style="width:250px">AI 생산 Engineer 구성 기술</th><th style="width:170px">Action Pattern</th><th>주 필요 Legacy</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>생산 성과 분석 AI</td><td><span class="pat">P-ANALYZE</span></td><td><span class="sys">OASIS</span> <span class="sys">PMS</span></td></tr>
+      <tr><td class="num">2</td><td>투자 사업 정보 저장·분류 자동화</td><td><span class="pat">P-READ</span> <span class="pat">P-ACT</span></td><td><span class="sys">투자관리</span> <span class="sys">Teams</span></td></tr>
+      <tr><td class="num">3</td><td>Engineer 공정 분석 AI</td><td><span class="pat">P-ANALYZE</span></td><td><span class="sys p1">RTDB</span> <span class="sys">PMS</span></td></tr>
+      <tr style="background:var(--accent-soft)"><td class="num">4</td><td><b>[생산 공통] 공정 Trouble 대응 지원 AI</b></td><td><span class="pat">P-SEARCH</span> <span class="pat">P-ANALYZE</span> <b style="color:var(--accent-ink)">횡단</b></td><td><span class="sys p1">RTDB</span> <span class="sys p1">AMS</span> <span class="sys p1">OCEAN-H</span> 작업표준</td></tr>
+      <tr><td class="num">5</td><td>[생산 공통] 공정 Data Smart Monitoring</td><td><span class="pat">P-MONITOR</span></td><td><span class="sys p1">RTDB</span> <span class="sys p1">AMS</span></td></tr>
+      <tr><td class="num">6</td><td>기술 정보 수집 Agent</td><td><span class="pat">P-SEARCH</span></td><td>외부 DB (논문·뉴스·특허)</td></tr>
+      <tr><td class="num">7</td><td>생산 운영 정보 저장·분류 자동화</td><td><span class="pat">P-READ</span> <span class="pat">P-ACT</span></td><td><span class="sys">RTDB</span> <span class="sys">Teams</span></td></tr>
+      <tr><td class="num">8</td><td>[SHE] 화학물질 Data 추출·비교 검증 AI</td><td><span class="pat">P-SEARCH</span></td><td>문서 · 법규 <span style="color:var(--ink-4)">(② 접점)</span></td></tr>
+      <tr><td class="num">9</td><td>[SHE] 환경운영 Data DB화·검증 Agent</td><td><span class="pat">P-READ</span> <span class="pat">P-ACT</span></td><td>환경 시스템</td></tr>
+      <tr><td class="num">10</td><td>[SHE] CLX 법률 지식 Q&amp;A Chat-Bot</td><td><span class="pat">P-SEARCH</span></td><td>문서 <span style="color:var(--ink-4)">(② 범위)</span></td></tr>
+      <tr style="background:var(--accent-soft)"><td class="num">11</td><td><b>[설비 공통] 이상현상/고장증상 분석 AI</b></td><td><span class="pat">P-SEARCH</span> <span class="pat">P-ANALYZE</span> <b style="color:var(--accent-ink)">횡단</b></td><td><span class="sys p1">OCEAN-H</span> <span class="sys p1">RTDB</span> <span class="sys p1">AMS</span></td></tr>
+      <tr><td class="num">12</td><td>촉매 구매 ITB 작성 지원 Agent</td><td><span class="pat">P-SEARCH</span></td><td><span class="sys">OCEAN-H</span> 문서</td></tr>
+      <tr><td class="num">13</td><td>[SHE] 사고분석 보고서 작성 AI</td><td><span class="pat">P-SEARCH</span></td><td><span class="sys">사고관리</span> 문서</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>#4와 #11이 명백한 횡단 Agent입니다.</b> 3개 시스템을 동시에 필요로 하므로 <b>Phase 1의 대표 사례로 고정</b>하십시오. 이 둘이 성립하면 원칙 07(공통 식별자)이 증명되고, 성립하지 않으면 무엇이 부족한지가 즉시 드러납니다.</p>
+
+  <h3>업무 Coverage 정량 — 근거 데이터</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Process Group</th><th class="num" style="width:86px">대상 업무</th><th class="num" style="width:100px">AI 수행·지원</th><th class="num" style="width:70px">비율</th><th style="width:120px">주 Legacy</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--accent-soft)"><td><b>운전 지원 및 Troubleshooting</b></td><td class="num">50</td><td class="num">32</td><td class="num"><b>64%</b></td><td><span class="sys p1">RTDB</span><span class="sys p1">OCEAN-H</span></td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>공정 최적화 및 개선</b></td><td class="num">57</td><td class="num">31</td><td class="num"><b>54%</b></td><td><span class="sys p1">RTDB</span></td></tr>
+      <tr><td>예산 수립 및 운영 최적화</td><td class="num">23</td><td class="num">10</td><td class="num">43%</td><td><span class="sys">OASIS</span></td></tr>
+      <tr><td>공장 운영 및 운전 정보 제공</td><td class="num">14</td><td class="num">6</td><td class="num">43%</td><td><span class="sys">RTDB</span></td></tr>
+      <tr><td>안전/환경 관리</td><td class="num">50</td><td class="num">15</td><td class="num">30%</td><td><span class="sys">OCEAN-H</span></td></tr>
+      <tr><td>투자 사업 기획 및 관리</td><td class="num">11</td><td class="num">2</td><td class="num">18%</td><td>투자관리</td></tr>
+      <tr><td>전략 과제 기획 및 관리</td><td class="num">37</td><td class="num">5</td><td class="num">14%</td><td>외부 DB</td></tr>
+      <tr><td>기술 교육 및 역량 향상</td><td class="num">17</td><td class="num">0</td><td class="num">0%</td><td>교육포탈</td></tr>
+      <tr style="border-top:2px solid var(--rule)"><td><b>합계</b></td><td class="num"><b>259</b></td><td class="num"><b>101</b></td><td class="num"><b>39%</b></td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>LKM — 횡단 조인의 구체적 형태</h3>
+  <p class="lede">MP의 생산 LKM(Large Knowledge Model)은 본질적으로 <b>여러 Legacy를 시간·설비 축으로 조인한 결과물</b>입니다. ① 과업이 식별자 표준을 만들지 못하면 LKM은 성립하지 않습니다.</p>
+  <div class="arrows" style="margin-bottom:14px">
+    <span class="stepb hi">상황</span><span class="ar">→</span><span class="stepb hi">증상</span><span class="ar">→</span><span class="stepb hi">조치</span>
+    <span class="ar">⇒</span><span class="stepb">Vector DB 化</span><span class="ar">⇒</span><span class="stepb">생산 Agentic AI</span>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th style="width:150px">LKM 요소</th><th style="width:230px">원천</th><th style="width:230px">필요한 ① 산출물</th><th>없으면</th></tr></thead>
+    <tbody>
+      <tr><td><b>상황</b></td><td>공정 Alarm <span class="sys">AMS</span> · 근무일지 · 작업표준 · 암묵지</td><td><b>AMS 연계 + Alarm↔공정 Tag 매핑</b></td><td>알람이 어느 설비인지 모름</td></tr>
+      <tr><td><b>증상</b></td><td>근무일지 · <span class="sys">DCS/RTDB</span> (SP, OP) · 작업표준</td><td><b>태그↔설비↔물리량 매핑</b></td><td>값은 있으나 의미 없음</td></tr>
+      <tr><td><b>조치</b></td><td>근무일지 <span class="sys">OCEAN-H</span> · <span class="sys">DCS/RTDB</span> (PV) · 암묵지</td><td>근무일지↔설비↔시간 연결</td><td>조치를 상황에 못 붙임</td></tr>
+      <tr><td>상황–증상 연계</td><td>—</td><td><b>시간축 표준</b></td><td>알람 시점과 공정값 시점 불일치</td></tr>
+      <tr><td>전체</td><td>—</td><td><b>설비 식별자 (별칭 포함)</b></td><td>사람 질의를 시스템에 못 연결</td></tr>
+    </tbody>
+  </table></div>
+  <div class="thesis" style="margin-top:18px">
+    MP 1단계('25~'26) 추진 방향성에 <strong>“업무 활용 Data 단위 연계성 구축 要”</strong> 가 명시돼 있습니다. 이것이 곧 ① 과업의 핵심 산출물입니다. 착수보고에서 이 문구를 인용해 과업의 위치를 설명하는 것이 가장 설득력 있습니다.
+  </div>
+
+  <h3>Phase 1 방법론 조정</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:130px">활동</th><th style="width:290px">기존 방법론</th><th>MP 반영 후</th></tr></thead>
+    <tbody>
+      <tr><td><b>1-1</b> Agent 현황 조사</td><td>추진 중·계획 중 Agent를 백지에서 조사</td><td><b>MP 13종 + 스마트플랜트 2.0 40개 과제</b>를 모집단으로 고정하고, 각각의 Legacy 요구를 역산. 신규 발굴은 부차적</td></tr>
+      <tr><td><b>1-3</b> Agent 유형화</td><td>업무 목적·역할 기준으로 신규 정의</td><td><b>26개 Process Hierarchy에 앵커링</b>. 별도 유형 체계를 만들면 조직이 두 개의 분류를 갖게 됨</td></tr>
+      <tr><td><b>1-4</b> Action Pattern</td><td>패턴 정의</td><td>MP 정량 데이터(259→101)로 <b>패턴별 업무 볼륨 가중치</b> 산정</td></tr>
+      <tr><td><b>1-7</b> 횡단 질의</td><td>인터뷰에서 수집</td><td><b>#4 공정 Trouble 대응 지원 AI</b>, <b>#11 이상현상/고장증상 분석 AI</b> 를 대표 사례로 고정</td></tr>
+      <tr><td><b>2-2</b> 6축 진단</td><td>Legacy만 독립 진단</td><td>MP <b>디지털화 성숙도(자동화·지능화 목표) Activity</b>와 교차 → 최우선 개선과제 자동 도출</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+
+<!-- 11 -->
 <section id="risk">
-  <div class="sh"><span class="n">10</span><h2>리스크 · 착수 준비</h2></div>
+  <div class="sh"><span class="n">11</span><h2>리스크 · 착수 준비</h2></div>
   <div class="tw"><table>
     <thead><tr><th style="width:42px">#</th><th style="width:190px">리스크</th><th>왜 위험한가</th><th style="width:220px">대응</th></tr></thead>
     <tbody>
@@ -774,6 +937,349 @@ Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
       <tr><td class="num">5</td><td>OCEAN-H 미정제 20%가 <b>어느 영역</b>인지</td><td>D5 신뢰 표시 설계, Agent 답변 신뢰성</td></tr>
     </tbody>
   </table></div>
+</section>
+
+
+<!-- 12 -->
+<section id="deck">
+  <div class="sh"><span class="n">12</span><h2>착수보고 장표</h2></div>
+  <p class="lede">W1 착수보고용 10장. SK 장표 형식(제목 → 핵심 메시지 → 본문)에 맞춰 구성했습니다. <b>4번 장표가 이 보고의 목적</b>이며, 나머지는 그 합의를 받기 위한 준비입니다.</p>
+
+  <div class="deck">
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P1</span><span class="st">과업 정의</span></div>
+      <div class="slide-lead">AI Agent가 Legacy 데이터를 <b>안전하게</b> 활용하기 위한 데이터 구조 · 연계 방식 · 권한 체계의 고도화 방향을 3.5개월 간 도출</div>
+      <div class="slide-b">
+        <div class="two">
+          <div class="box"><div class="bt">과업 범위 (기대산출물 12종)</div>
+            <ul><li>CLX Agent 현황 및 유형 분석</li><li>Legacy 데이터 구조 및 메타 관리 방안</li><li>AI Agent 연계 구조 및 적용 기준</li><li>Agent-ready Legacy 방향성 및 고도화 방안</li><li>AI Agent 권한 관리체계 고도화</li><li>AI 구성요소 Lineage 및 변경관리 체계</li></ul></div>
+          <div class="box"><div class="bt">이 과업이 아닌 것</div>
+            <ul><li>Legacy 시스템 실제 개발 · 구축</li><li>Agent 개발 및 운영 <span style="color:var(--ink-3)">(③ MLOps·AgentOps)</span></li><li>비정형 문서 지식화 <span style="color:var(--ink-3)">(② Knowledge)</span></li><li><b>쓰기(Action) 실행 체계 — 1차 범위 밖</b></li></ul></div>
+        </div>
+        <p class="note"><span class="hint">기간</span> 9/7 착수 · 14주 · 중간보고 W7 · 최종보고 W14</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P2</span><span class="st">왜 지금인가</span></div>
+      <div class="slide-lead">AI 과제 MP 1단계의 <b>“업무 활용 Data 단위 연계성 구축 要”</b> 가 본 과업의 정의이며, 스마트플랜트 2.0 과제들이 이미 Legacy를 요구하고 있음</div>
+      <div class="slide-b">
+        <div class="arrows">
+          <span class="stepb hi">1단계 ’25~’26<br><span style="font-size:12px;font-weight:400">CLX AI 구성원 도입</span></span><span class="ar">→</span>
+          <span class="stepb">2단계 ’27~’28<br><span style="font-size:12px;font-weight:400">LKM 기반 Junior AI</span></span><span class="ar">→</span>
+          <span class="stepb">3단계 ’29~<br><span style="font-size:12px;font-weight:400">Senior AI · 업무 완결형</span></span>
+        </div>
+        <div class="two">
+          <div class="box"><div class="bt">이미 진행 중인 것</div>
+            <ul><li>스마트플랜트 2.0 <b>40개 과제</b> (공정운전·설비관리·SHE)</li><li>AI 생산 Engineer 구성 기술 <b>13종</b> 정의</li><li>대상 업무 259건 중 <b>101건(39%)</b> AI 수행·지원 목표</li></ul></div>
+          <div class="box"><div class="bt">그래서 지금 필요한 것</div>
+            <ul><li>과제마다 Legacy에 개별 연결 → <b>중복·비일관</b></li><li>횡단 질의에 답하는 <b>공통 식별자 부재</b></li><li>Agent 권한 체계 <b>미정의</b></li><li><b>공통 기반을 지금 세우지 않으면 15종 시스템 난립의 재현</b></li></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P3</span><span class="st">이 과업의 구조 — 여섯 개의 질문</span></div>
+      <div class="slide-lead">“AI와 Legacy를 어떻게 연결하나”는 하나의 질문이 아님. 여섯을 분리해 순서대로 답함</div>
+      <div class="slide-b">
+        <div class="tw"><table>
+          <tbody>
+            <tr><td class="mk" style="width:38px">Q1</td><td>Agent는 Legacy에 <b>무엇을</b> 요구하는가</td><td class="mk" style="width:80px">Phase 1</td></tr>
+            <tr><td class="mk">Q2</td><td>Legacy는 <b>얼마나 준비</b>되어 있는가</td><td class="mk">Phase 2</td></tr>
+            <tr><td class="mk">Q3</td><td><b>어떤 방식으로</b> 연결할 것인가</td><td class="mk best">Phase 4</td></tr>
+            <tr><td class="mk">Q4</td><td><b>누구의 권한으로</b> 접근하는가</td><td class="mk">Phase 5</td></tr>
+            <tr><td class="mk">Q5</td><td>바뀌면 <b>무엇이 영향받는지</b> 아는가</td><td class="mk">Phase 6</td></tr>
+            <tr style="background:var(--signal-soft)"><td class="mk">Q6</td><td>시스템을 <b>가로지르는 질문</b>에 어떻게 답하는가</td><td class="mk">Phase 3·4</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note warn"><b>Q6이 가장 늦게 발견되고 가장 비쌉니다.</b> 시스템별로 다 붙여놓고도 “3호기 압축기 트립이 생산에 얼마나 영향 줬나”에 답하지 못합니다.</p>
+      </div>
+    </div>
+
+    <div class="slide" style="border-color:var(--signal);border-width:1.5px">
+      <div class="slide-h"><span class="sn">P4</span><span class="st">★ 착수 합의 사항 — 이 보고의 목적</span></div>
+      <div class="slide-lead" style="background:var(--signal-soft);color:var(--ink)">두 가지 범위 합의 없이는 이후 3.5개월의 판단 기준이 서지 않음. <b>W1에 서면 합의 요청</b></div>
+      <div class="slide-b">
+        <div class="box" style="border-color:var(--signal)"><div class="bt">합의 ① &nbsp; MCP는 “배관”이 아니라 “어댑터”다</div>
+          <ul>
+            <li>MCP를 도입해도 <b>Legacy가 Agent-ready가 되지 않음</b> — MCP는 도구 노출 규약(L4)이며 그 아래 Legacy API·의미 계층이 없으면 감쌀 대상이 없음</li>
+            <li><b>MCP 채택 여부는 Phase 4(W9~10)에서 Action Pattern 분석 후 판단</b> — 지금 확정하지 않음</li>
+            <li>전면 채택도 전면 배제도 아닌 <b>부분 적용</b>이 유력</li>
+          </ul></div>
+        <div class="box" style="border-color:var(--signal)"><div class="bt">합의 ② &nbsp; 1차 범위 = 읽기 전용</div>
+          <ul>
+            <li>조회는 <b>데이터 구조·검색성</b> 문제, 쓰기는 <b>권한·감사·롤백</b> 문제 — 난이도가 자릿수 단위로 다름</li>
+            <li><b>OASIS 쓰기</b>(작업지시·실적 입력)를 1차 범위 밖으로 명시</li>
+            <li>쓰기는 승인 워크플로·영향범위 한정·롤백 절차를 갖춘 <b>후속 단계</b>로 분리</li>
+          </ul></div>
+        <p class="note crit">이 두 합의를 W1에 받지 못하면, Phase 2·3의 Legacy 고도화 과제가 <b>“불필요한 일”로 취급</b>되거나, 쓰기 요구 유입으로 <b>일정이 붕괴</b>합니다.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P5</span><span class="st">연계 참조 아키텍처 — 5계층</span></div>
+      <div class="slide-lead">계층을 먼저 고정해야 각 결정이 어디에 속하는지 명확해짐. <b>위에서 설계하고 아래에서 구축</b></div>
+      <div class="slide-b">
+        <div class="layers">
+          <div class="layer"><div class="lid">L5</div><div class="lb"><div class="lname">Agent 계층</div><div class="ldesc">업무 Agent · Agent 간 협업(A2A)</div></div></div>
+          <div class="layer hi"><div class="lid">L4</div><div class="lb"><div class="lname">도구 노출 계층 — MCP</div><div class="ldesc">도구 카탈로그 · 스키마 · 설명</div></div></div>
+          <div class="layer"><div class="lid">L3</div><div class="lb"><div class="lname">통제 계층</div><div class="ldesc">전사 Endpoint/Gateway · 인증 · 인가 · 감사</div></div></div>
+          <div class="layer star"><div class="lid">L2</div><div class="lb"><div class="lname">의미 계층</div><div class="ldesc">데이터·코드 사전 · 태그 매핑 · 횡단 식별자</div></div></div>
+          <div class="layer"><div class="lid">L1</div><div class="lb"><div class="lname">원천 계층</div><div class="ldesc">RTDB · OCEAN-H · OASIS · AMS · PMS · TDMS</div></div></div>
+        </div>
+        <p class="note"><b>L4(MCP)부터 만들면 아래가 비어 있어 동작하지 않습니다.</b> 구축은 L1·L2부터 올라갑니다.</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P6</span><span class="st">대상 시스템 및 우선순위</span></div>
+      <div class="slide-lead">AI 적용이 운전지원·Troubleshooting(64%)과 공정 최적화(54%)에 집중 → 무게중심은 <b>RTDB · AMS · OCEAN-H</b></div>
+      <div class="slide-b">
+        <div class="tw"><table>
+          <thead><tr><th style="width:44px">순위</th><th style="width:96px">시스템</th><th style="width:190px">성격</th><th>본 과업의 핵심 과제</th></tr></thead>
+          <tbody>
+            <tr><td class="c mk">1</td><td><b>RTDB</b></td><td>공정 실시간 시계열 (DCS 연동)</td><td><b>태그↔설비↔물리량 매핑</b> · 구간 집계 API</td></tr>
+            <tr><td class="c mk">1</td><td><b>OCEAN-H</b></td><td>설비관리 통합 (EAM)</td><td>설비 별칭 사전 · 정제 미완료 20% 영역 식별</td></tr>
+            <tr><td class="c mk">1</td><td><b>OASIS</b></td><td>생산관리</td><td>업무 코드 사전 · 생산일↔절대시각 · <b>권한 위임</b></td></tr>
+            <tr><td class="c mk mid">2</td><td><b>AMS</b></td><td>알람 관리 <span style="color:var(--signal);font-size:12px">신규</span></td><td>알람↔공정 Tag 매핑 · 이벤트 구독</td></tr>
+            <tr><td class="c mk mid">2</td><td><b>PMS · TDMS</b></td><td>공정성과 / 기술문서·마스터 <span style="color:var(--signal);font-size:12px">신규</span></td><td><b>TDMS와 OCEAN-H 설비 마스터 중복 확인</b></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P7</span><span class="st">수행 방법론 — Phase 0~8</span></div>
+      <div class="slide-lead">현황 분석 → To-be 방향성 → 실행과제. 완료 판단기준은 정성 합의가 아니라 <b>수치</b>로 정의</div>
+      <div class="slide-b">
+        <div class="tw"><table>
+          <thead><tr><th style="width:52px">Phase</th><th style="width:210px">과업</th><th style="width:78px">기간</th><th>완료 판단기준 (발췌)</th></tr></thead>
+          <tbody>
+            <tr><td class="mk">P0</td><td>착수 · 정렬</td><td class="mk">W1</td><td>범위 2건 <b>서면 합의</b></td></tr>
+            <tr><td class="mk">P1</td><td>Agent 현황 · 유형 분석</td><td class="mk">W1–3</td><td>유형 5–8종 수렴 · 횡단 질의 5건 선정</td></tr>
+            <tr><td class="mk">P2</td><td>Legacy Readiness 진단</td><td class="mk">W3–6</td><td>6축 점수+근거 · <b>실제 호출 검증 3건</b></td></tr>
+            <tr><td class="mk">P3</td><td>데이터 · 메타 구조</td><td class="mk">W4–9</td><td><b>횡단 질의 5건이 식별자만으로 조인</b></td></tr>
+            <tr style="background:var(--accent-soft)"><td class="mk">P4</td><td><b>연계 구조 · 적용 기준 ★</b></td><td class="mk">W6–11</td><td>패턴별 방식 지정 · <b>MCP 판단</b> · 2갈래 분리</td></tr>
+            <tr><td class="mk">P5</td><td>권한 관리체계</td><td class="mk">W7–12</td><td>결과 필터링 요건 · 보안 사전검토</td></tr>
+            <tr><td class="mk">P6</td><td>Lineage · 변경관리</td><td class="mk">W9–13</td><td>변경 시나리오 3건 영향 경로</td></tr>
+            <tr><td class="mk">P7·8</td><td>목표구조 · 실행과제</td><td class="mk">W10–14</td><td>산출물 12종 · 전사/CLX 과제 분류</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P8</span><span class="st">추진 일정</span></div>
+      <div class="slide-lead">임계 경로는 <b>P1 → P2 → P4 → P7</b>. P1이 1주 지연되면 전 과업이 1주 밀림</div>
+      <div class="slide-b">
+        <div class="tw"><table class="gantt">
+          <thead><tr><th style="text-align:left;padding-left:11px">Phase</th><th>W1</th><th>W2</th><th>W3</th><th>W4</th><th>W5</th><th>W6</th><th>W7</th><th>W8</th><th>W9</th><th>W10</th><th>W11</th><th>W12</th><th>W13</th><th>W14</th></tr></thead>
+          <tbody>
+            <tr><td class="lab">P0 착수</td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+            <tr><td class="lab">P1 현황·유형</td><td class="cell on p"></td><td class="cell on"></td><td class="cell on ms"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+            <tr><td class="lab">P2 진단</td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on s"></td><td class="cell on"></td><td class="cell on ms"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+            <tr><td class="lab">P3 데이터·메타</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on ms"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+            <tr><td class="lab">P4 연계 구조 ★</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on ms"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+            <tr><td class="lab">P5 권한</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td></tr>
+            <tr><td class="lab">P6 Lineage</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td></tr>
+            <tr><td class="lab">P7·8 실행과제</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td></tr>
+          </tbody>
+        </table></div>
+        <div class="lg"><span>◆ 마일스톤</span><span><i style="background:var(--signal);opacity:.85"></i>임계 검증 (RTDB 대량조회)</span><span>중간보고 W7 · 최종보고 W14</span></div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P9</span><span class="st">협조 요청 사항</span></div>
+      <div class="slide-lead">착수 전 확보되지 않으면 임계 경로가 즉시 지연됨. <b>W1 내 확정 요청</b></div>
+      <div class="slide-b">
+        <div class="tw"><table>
+          <thead><tr><th style="width:34px">#</th><th style="width:230px">요청 사항</th><th style="width:140px">대상</th><th>시점</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td><b>시스템별 담당자 지정</b> 및 인터뷰 일정</td><td>RTDB·OCEAN-H·OASIS 운영</td><td class="mk">W1 (착수 전)</td></tr>
+            <tr><td class="num">2</td><td><b>OCEAN-H 구축 프로젝트 산출물</b><br><span style="font-size:12px;color:var(--ink-3)">정제 방법론 · 마스터 정비 기준 · 15종 통합 목록</span></td><td>EAM 운영</td><td class="mk">W1</td></tr>
+            <tr><td class="num">3</td><td><b>업무別 Data List</b> <span style="font-size:12px;color:var(--ink-3)">(MP상 울산CLX 제공 산출물)</span></td><td>울산CLX</td><td class="mk">W1</td></tr>
+            <tr><td class="num">4</td><td>전사 Endpoint/Gateway 표준 · API 정책</td><td>전사 IT / DT 추진실</td><td class="mk">W2</td></tr>
+            <tr><td class="num">5</td><td>스마트플랜트 2.0 40개 과제 목록 · 담당</td><td>DT 추진실</td><td class="mk">W2</td></tr>
+            <tr style="background:var(--signal-soft)"><td class="num">6</td><td><b>실제 호출 검증 환경</b> — 특히 RTDB 대량 구간 조회</td><td>각 시스템 운영</td><td class="mk">W4</td></tr>
+            <tr><td class="num">7</td><td>보안 검토 주체 및 심의 일정</td><td>보안</td><td class="mk">W10</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P10</span><span class="st">주요 리스크 및 대응</span></div>
+      <div class="slide-lead">기대 정렬 실패와 횡단 조인 불가가 이 과업 최대 리스크</div>
+      <div class="slide-b">
+        <div class="tw"><table>
+          <thead><tr><th style="width:180px">리스크</th><th>영향</th><th style="width:210px">대응</th></tr></thead>
+          <tbody>
+            <tr style="background:var(--crit-soft)"><td><b>MCP를 배관으로 오해</b></td><td>Legacy 고도화 과제가 부정됨</td><td>P4 장표 합의 ① · 판단을 Phase 4로 명문화</td></tr>
+            <tr style="background:var(--crit-soft)"><td><b>쓰기 범위 팽창</b></td><td>승인·감사 설계로 일정 붕괴</td><td>P4 장표 합의 ② · OASIS 지목 명시</td></tr>
+            <tr style="background:var(--crit-soft)"><td><b>시스템 간 조인 불가</b></td><td>횡단 질문에 답 못 함. 가장 늦게 발견</td><td>Phase 3-2 식별자 표준화 · W8 마일스톤</td></tr>
+            <tr><td>Legacy 소유 조직 협조 미확보</td><td>진단 자체가 불가</td><td>협조 요청 #1 — 착수 전 확정</td></tr>
+            <tr><td>RTDB 대량 조회 불가 발견</td><td>후반 발견 시 아키텍처 재작업</td><td>W4에 실물 검증 배치 (협조 요청 #6)</td></tr>
+            <tr><td>② Knowledge 과업과 중복</td><td>같은 데이터 이중 설계</td><td>Tag Meta는 ① 주관·② 제공. W1 경계 합의</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 13 -->
+<section id="tmpl">
+  <div class="sh"><span class="n">13</span><h2>실무 템플릿</h2></div>
+  <p class="lede">각 Phase에서 바로 채워 쓰는 6종. 예시 행은 <b>작성 수준을 보여주기 위한 것</b>이며, 빈 행이 실제 작성 대상입니다.</p>
+
+  <div class="deck">
+
+  <!-- T1 -->
+  <div class="tmpl">
+    <div class="tmpl-h"><span class="tid">T1</span><span class="tn">Agent-Readiness 6축 진단표</span><span class="tw">Phase 2 · W3–W6</span></div>
+    <div class="tmpl-b"><div class="tw tw2"><table>
+      <thead><tr><th style="width:96px">시스템</th><th class="c">A1<br>인터페이스</th><th class="c">A2<br>데이터구조</th><th class="c">A3<br>의미명확성</th><th class="c">A4<br>권한세분성</th><th class="c">A5<br>관측·감사</th><th class="c">A6<br>변경관리</th><th style="width:230px">판정 근거 (필수)</th></tr></thead>
+      <tbody>
+        <tr><td><b>RTDB</b></td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="fill">태그 사전 유무, 집계 API 유무, 대량조회 실측 결과</td></tr>
+        <tr><td><b>OCEAN-H</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">마스터 품질, 계층 롤업 가능 여부, 미정제 20% 범위</td></tr>
+        <tr><td><b>OASIS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">코드 사전 유무, 권한 위임(OBO) 지원 여부</td></tr>
+        <tr><td><b>AMS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">알람↔Tag 매핑, 이벤트 구독 지원</td></tr>
+        <tr><td><b>PMS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">OASIS 실적과의 관계</td></tr>
+        <tr><td><b>TDMS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">OCEAN-H와 마스터 중복 여부</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tmpl-foot">
+      <b>판정 기준</b> — <span class="scale"><span>1 없음</span><span>2 일부</span><span class="on">3 존재·미흡</span><span>4 양호</span><span>5 충분</span></span><br>
+      <b>작성 요령</b> · 점수만 있으면 무효입니다. 근거 칸이 비면 Phase 2 완료로 인정하지 않습니다.
+      A3(의미 명확성)은 시스템별로 형태가 다릅니다 — OASIS는 <b>상태 코드</b>, OCEAN-H는 <b>자유서술 이력</b>, RTDB는 <b>태그명</b>.
+      MP 디지털화 성숙도에서 <b>자동화·지능화 목표</b>인 Activity의 Legacy가 여기서 2점 이하면 <b>최우선 개선과제</b>입니다.
+    </div></div>
+  </div>
+
+  <!-- T2 -->
+  <div class="tmpl">
+    <div class="tmpl-h"><span class="tid">T2</span><span class="tn">수요–시스템 매트릭스</span><span class="tw">Phase 1 · W2–W3</span></div>
+    <div class="tmpl-b"><div class="tw tw2"><table>
+      <thead><tr><th style="width:210px">AI 과제 / Agent</th><th style="width:150px">Action Pattern</th><th class="c">RTDB</th><th class="c">OCEAN-H</th><th class="c">OASIS</th><th class="c">AMS</th><th class="c">기타</th><th class="c" style="width:64px">횡단</th></tr></thead>
+      <tbody>
+        <tr><td>#4 공정 Trouble 대응 지원 AI</td><td><span class="pat">P-SEARCH</span> <span class="pat">P-ANALYZE</span></td><td class="c mk best">●</td><td class="c mk best">●</td><td class="c mk no">○</td><td class="c mk best">●</td><td class="c fill">작업표준</td><td class="c mk mid">Y</td></tr>
+        <tr><td>#11 이상현상/고장증상 분석 AI</td><td><span class="pat">P-SEARCH</span> <span class="pat">P-ANALYZE</span></td><td class="c mk best">●</td><td class="c mk best">●</td><td class="c mk no">○</td><td class="c mk best">●</td><td class="c fill">—</td><td class="c mk mid">Y</td></tr>
+        <tr><td class="fill">…</td><td class="fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tmpl-foot">
+      <b>표기</b> — <span class="mk best">●</span> 필수 &nbsp; <span class="mk mid">◐</span> 조건부 &nbsp; <span class="mk no">○</span> 불요. <b>‘미정’은 남기지 않습니다</b> — 미정 셀 0건이 Phase 1 완료 조건입니다.<br>
+      <b>작성 요령</b> · 모집단은 MP의 AI 과제 13종 + 스마트플랜트 2.0 40개 과제입니다. 백지에서 발굴하지 마십시오.
+      각 셀에 <b>정량 요건</b>(응답시간·데이터량·갱신주기)을 주석으로 답니다. ● 이 2개 이상이면 <b>횡단 = Y</b>이며, 그 비율이 원칙 07의 근거가 됩니다.
+    </div></div>
+  </div>
+
+  <!-- T3 -->
+  <div class="tmpl">
+    <div class="tmpl-h"><span class="tid">T3</span><span class="tn">횡단 식별자 매핑표</span><span class="tw">Phase 3-2 · W5–W8 · 최우선</span></div>
+    <div class="tmpl-b"><div class="tw tw2"><table>
+      <thead><tr><th style="width:78px">축</th><th style="width:150px">기준 원천<br><span style="font-weight:400;text-transform:none;letter-spacing:0">(Master of Record)</span></th><th style="width:190px">매핑 대상</th><th style="width:96px">현행 존재</th><th style="width:110px">구축 방식</th><th>산출물</th></tr></thead>
+      <tbody>
+        <tr><td><b>설비</b></td><td><span class="sys p1">OCEAN-H</span> 설비 마스터<br><span style="font-size:12px;color:var(--signal)">TDMS 중복 확인</span></td><td>RTDB 태그 / OASIS 오더 / AMS 알람</td><td class="c fill">유 · 무 · 일부</td><td class="c fill">자동/반자동/수동</td><td class="fill">설비↔태그 매핑표, 계층 롤업 규칙</td></tr>
+        <tr><td><b>시간</b></td><td>절대 시각 (KST)</td><td>OASIS 생산일·교대 / OCEAN-H 작업일자</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">시간축 변환 규칙, 교대 경계 정의</td></tr>
+        <tr><td><b>공정·유닛</b></td><td class="fill">Phase 2에서 확정</td><td>3종 시스템 공정 코드</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">표준 공정 코드 + 매핑표</td></tr>
+        <tr><td><b>오더·배치</b></td><td><span class="sys p1">OASIS</span></td><td>설비 / 시간 구간</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">오더↔설비↔시간 매핑 규칙</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tmpl-foot"><b>검증 절차</b> — 대표 횡단 질의 <i>“3호기 압축기 지난달 트립, 원인이 뭐고 생산에 얼마나 영향 있었나?”</i> 를 아래 7단계로 통과시킵니다. <b>체크가 하나라도 비면 그 매핑이 개선과제입니다.</b></div>
+    <div class="tw tw2"><table>
+      <thead><tr><th style="width:34px">#</th><th>단계</th><th style="width:180px">필요 매핑</th><th class="c" style="width:56px">확인</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>“3호기 압축기” → 설비ID</td><td><b>별칭 사전</b></td><td class="c">☐</td></tr>
+        <tr><td class="num">2</td><td>설비ID → 트립 이력 <span class="sys">OCEAN-H</span></td><td>—</td><td class="c">☐</td></tr>
+        <tr><td class="num">3</td><td>트립 시각 → 알람 이력 <span class="sys">AMS</span></td><td><b>알람↔Tag 매핑</b></td><td class="c">☐</td></tr>
+        <tr><td class="num">4</td><td>설비ID → 관련 태그 <span class="sys">RTDB</span></td><td><b>설비↔태그 매핑</b></td><td class="c">☐</td></tr>
+        <tr><td class="num">5</td><td>트립 시각 → 생산일 · 교대</td><td><b>시간축 변환</b></td><td class="c">☐</td></tr>
+        <tr><td class="num">6</td><td>생산일·교대 → 실적 <span class="sys">OASIS</span></td><td>—</td><td class="c">☐</td></tr>
+        <tr><td class="num">7</td><td>설비ID → 영향 공정 → 오더</td><td><b>설비↔공정 매핑</b></td><td class="c">☐</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tmpl-foot"><b>먼저 확인할 것</b> · 세 시스템의 설비·공정 코드가 <b>이미 통일돼 있으면 이 과업은 크게 축소됩니다.</b> 구축 방식을 정하기 전에 이것부터 확인하십시오.</div>
+    </div>
+  </div>
+
+  <!-- T4 -->
+  <div class="tmpl">
+    <div class="tmpl-h"><span class="tid">T4</span><span class="tn">도구(Tool) 명세서</span><span class="tw">Phase 4-7 · W10–W11</span></div>
+    <div class="tmpl-b"><div class="tw tw2"><table>
+      <tbody>
+        <tr><th style="width:130px">도구 ID</th><td colspan="3"><span class="pat">OCEANH_MAINT_HISTORY_001</span></td></tr>
+        <tr><th>도구명</th><td colspan="3">설비_정비이력_조회</td></tr>
+        <tr><th>소유 조직</th><td style="width:200px">EAM 운영</td><th style="width:110px">Action Pattern</th><td><span class="pat">P-READ</span></td></tr>
+        <tr><th>연계 방식</th><td>MCP (OCEAN-H)</td><th>버전</th><td class="fill">v1.0</td></tr>
+        <tr style="background:var(--accent-soft)"><th>설명 <span style="font-weight:400;text-transform:none;letter-spacing:0">(Agent용)</span></th><td colspan="3" style="line-height:1.7">
+          특정 설비의 정비 이력을 조회한다. 예방정비·고장정비·개선작업을 모두 포함한다.<br>
+          설비는 <b>설비ID로 지정</b>하며, 현장 호칭(예: “3호기 압축기”)으로는 조회할 수 없다.<br>
+          <b>→ 현장 호칭으로 시작할 때는 <span class="pat">설비_검색</span> 도구로 설비ID를 먼저 확정할 것.</b><br>
+          기간 미지정 시 최근 1년을 반환. 최대 200건.<br>
+          <b>반환하지 않는 것</b>: 실시간 공정값(→ 공정 Agent), 생산 실적(→ 생산 Agent)</td></tr>
+        <tr><th>입력</th><td colspan="3"><span class="pat">설비ID</span> string <b>필수</b> · <span class="pat">시작일</span> date · <span class="pat">종료일</span> date · <span class="pat">정비유형</span> enum[예방·고장·개선]</td></tr>
+        <tr><th>출력</th><td colspan="3">건수, 이력목록[{정비일자, 정비유형, 현상, 조치내용, 담당, 협력사여부}]<br><span style="font-size:12.5px;color:var(--ink-3)">※ 조치내용은 자유서술 — ② Knowledge 구조화 대상과 경계 확인</span></td></tr>
+        <tr><th>권한</th><td colspan="3">요청 사용자의 설비 열람 권한 <b>상속</b>. 협력사 인원 정보 마스킹</td></tr>
+        <tr><th>신뢰 메타</th><td colspan="3">응답에 <b>정제상태</b>(검증완료/미검증), 최종갱신일, 출처 동반 — <b>OCEAN-H 미정제 20% 대응</b></td></tr>
+        <tr><th>오류 응답</th><td colspan="3">설비ID 미존재 → <b>유사 설비 후보 3건 제시</b><br><b>권한 없음 → “권한 없음”을 명시 반환</b> (빈 결과로 처리 금지)</td></tr>
+        <tr><th>비기능</th><td colspan="3">응답 2초 이내 · 기본 50행/최대 200행 · 페이징 <span class="pat">next_cursor</span></td></tr>
+        <tr><th>변경관리</th><td colspan="3">스키마 변경 시 30일 전 공지, 하위호환 1버전 유지</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tmpl-foot">
+      <b>도구 분할 원칙</b> · <i>“현업이 한 문장으로 물어볼 수 있는가”</i> — “3호기 압축기 최근 정비 이력” → 도구 1개. “그리고 그때 공정값도”가 붙으면 <b>도구 2개 + Agent 조합</b>입니다.<br>
+      <b>설명 작성이 핵심</b> · Agent는 설명만 읽고 도구를 고릅니다. <b>무엇을 반환하지 않는지</b>와 <b>선행 도구</b>를 반드시 쓰십시오. 이것은 개발 산출물이 아니라 <b>업무 지식 산출물</b>이며, IT가 아니라 현업+컨설턴트가 작성합니다.
+    </div></div>
+  </div>
+
+  <!-- T5 -->
+  <div class="tmpl">
+    <div class="tmpl-h"><span class="tid">T5</span><span class="tn">Agent 카드</span><span class="tw">L5 · Agent 간 연계</span></div>
+    <div class="tmpl-b"><div class="tw tw2"><table>
+      <tbody>
+        <tr><th style="width:130px">Agent ID / 명</th><td colspan="3"><span class="pat">AGT-EQP-001</span> &nbsp; 설비 Agent</td></tr>
+        <tr><th>소유 조직</th><td style="width:200px">EAM 운영</td><th style="width:110px">신원</th><td>사번 기반 <span style="font-size:12px;color:var(--ink-3)">(SKT AX 혁신 2.0 방식)</span></td></tr>
+        <tr><th>담당 도메인</th><td colspan="3">설비 사양 · 정비 이력 · 유사 사례 탐색</td></tr>
+        <tr><th>할 수 있는 것</th><td colspan="3">설비 식별(현장 호칭 → 설비ID) · 설비 기본정보·계층 조회 · 정비 이력 조회 · 유사 사례 검색</td></tr>
+        <tr style="background:var(--signal-soft)"><th>할 수 없는 것 ★</th><td colspan="3">실시간 공정값 <b>(→ 공정 Agent)</b> · 생산 실적 <b>(→ 생산 Agent)</b> · 작업오더 생성 등 쓰기 <b>(1차 범위 밖)</b></td></tr>
+        <tr><th>사용 도구</th><td colspan="3"><span class="pat">OCEANH_*</span> 7개</td></tr>
+        <tr><th>입력 계약</th><td colspan="3">{질의, 설비ID?, 기간?, <b>사용자컨텍스트: token</b>}</td></tr>
+        <tr><th>출력 계약</th><td colspan="3">{답변, <b>근거[{출처, 도구ID, 조회시각, 정제상태}]</b>, 신뢰도: 확실·추정·<b>불충분</b>, 미확보범위}</td></tr>
+        <tr><th>권한</th><td colspan="3">요청 사용자 권한 <b>상속(위임)</b>. 협력사 정보 마스킹. 위임 깊이 최대 3</td></tr>
+        <tr><th>응답 목표</th><td colspan="3">P-READ 5초 / P-SEARCH 15초</td></tr>
+        <tr><th>실패 시</th><td colspan="3">부분 결과 + 실패 범위 명시. <b>추정 금지.</b> 권한 제외 시 “일부 결과가 권한으로 제외됨” 표시</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tmpl-foot">
+      <b>‘할 수 없는 것’이 가장 중요합니다.</b> 오케스트레이터가 어느 Agent에 위임할지 판단하는 근거이며, 이것이 없으면 잘못된 Agent에 위임하고 그 Agent는 <b>모른다고 하지 않고 추측해서 답합니다.</b><br>
+      <b>“불충분” 반환</b> · Agent가 항상 답을 내도록 설계하면 없는 사실을 만들어냅니다. <b>모른다고 말할 수 있는 것이 계약의 핵심 조항</b>입니다.
+    </div></div>
+  </div>
+
+  <!-- T6 -->
+  <div class="tmpl">
+    <div class="tmpl-h"><span class="tid">T6</span><span class="tn">개선과제 정의서</span><span class="tw">Phase 3·7·8</span></div>
+    <div class="tmpl-b"><div class="tw tw2"><table>
+      <thead><tr><th style="width:62px">과제ID</th><th style="width:180px">과제명</th><th style="width:86px">대상</th><th style="width:74px">유형</th><th style="width:170px">Gap 근거 <span style="font-weight:400;text-transform:none;letter-spacing:0">(역추적)</span></th><th class="c" style="width:56px">난이도</th><th style="width:130px">선행조건</th><th style="width:88px">구분</th></tr></thead>
+      <tbody>
+        <tr style="background:var(--signal-soft)"><td class="mk">DA-01</td><td><b>RTDB 태그 사전 구축</b></td><td><span class="sys p1">RTDB</span></td><td>신규</td><td>D1·D2 미충족 — <b>연계 불성립</b></td><td class="c">고</td><td>태그 명명규칙 역공학</td><td>CLX 특화</td></tr>
+        <tr><td class="mk">DA-02</td><td>설비 별칭 사전 구축</td><td><span class="sys">OCEAN-H</span></td><td>신규</td><td>D1 미충족 — 60만 기 특정 불가</td><td class="c">중</td><td>정비이력 텍스트 분석</td><td>CLX 특화</td></tr>
+        <tr><td class="mk">DA-03</td><td>업무 코드 사전</td><td><span class="sys">OASIS</span></td><td>신규</td><td>D2 미충족</td><td class="c">중</td><td>현업 메타 담당 지정</td><td>CLX 특화</td></tr>
+        <tr><td class="mk">DA-0n</td><td class="fill">…</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="c fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tmpl-foot">
+      <b>필수 규칙</b> · 모든 과제는 <b>Phase 2 Gap 또는 Phase 1 요구사항으로 역추적 가능</b>해야 합니다. 근거 칸이 비면 과제로 인정하지 않습니다.<br>
+      <b>구분</b> · <b>CLX 특화</b>(자체 실행) / <b>전사 협의</b>(전사 표준·정책 필요)로 반드시 이분합니다 — 기획서 “전사 공통·협의사안 vs CLX 특화 과제”에 직접 대응하며, 최종보고의 핵심 슬라이드가 됩니다.<br>
+      <b>우선순위</b> · <span class="pat">Agent 요구 충족 기여도 × 선행 제약</span>. DA-01(태그 사전)이 최우선입니다 — 이것이 없으면 RTDB를 쓰는 <b>모든 Agent가 성립하지 않습니다.</b>
+    </div></div>
+  </div>
+
+  </div>
 </section>
 
 <footer>

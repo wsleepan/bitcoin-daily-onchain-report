@@ -3295,7 +3295,145 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <section id="m-proc">
   <div class="sh"><span class="n">3.1</span><h2>수행 프로세스</h2></div>
   <p class="lede">③은 ①·②와 성격이 다릅니다. <b>새로 설계하는 것이 아니라</b> 전사 현황 · CLX 현황 · Best Practice 세 원천을 <b>같은 축으로 대비해 Gap을 재고</b> 보완 방향을 제시하는 것이 본질입니다. 그래서 <b>입력 자료 확보가 곧 과업의 성패</b>입니다.</p>
-FIG_M1
+<figure>
+<svg viewBox="0 0 940 512" role="img" aria-label="③ MLOps·AgentOps 과업의 M0~M5 13주 진행과, 3원 입력을 맞대어 Gap을 재고 요건과 운영 기준을 내는 진단형 논리 구조.">
+<defs>
+  <marker id="ar-m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+  <marker id="ar-m1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+</defs>
+
+<!-- legend -->
+<rect x="640" y="12" width="13" height="11" rx="2" class="dg-fill"/>
+<text x="659" y="22" class="dg-s">MLOps 진단</text>
+<rect x="742" y="12" width="13" height="11" rx="2" class="dg-hi"/>
+<text x="761" y="22" class="dg-s">AgentOps 정의</text>
+
+<!-- week axis -->
+<text x="14" y="40" class="dg-m">주차</text>
+<text x="236" y="40" class="dg-m" text-anchor="middle">W1</text>
+<text x="288" y="40" class="dg-m" text-anchor="middle">W2</text>
+<text x="340" y="40" class="dg-m" text-anchor="middle">W3</text>
+<text x="392" y="40" class="dg-m" text-anchor="middle">W4</text>
+<text x="444" y="40" class="dg-m" text-anchor="middle">W5</text>
+<text x="496" y="40" class="dg-m" text-anchor="middle">W6</text>
+<text x="548" y="40" class="dg-m" text-anchor="middle">W7</text>
+<text x="600" y="40" class="dg-m" text-anchor="middle">W8</text>
+<text x="652" y="40" class="dg-m" text-anchor="middle">W9</text>
+<text x="704" y="40" class="dg-m" text-anchor="middle">W10</text>
+<text x="756" y="40" class="dg-m" text-anchor="middle">W11</text>
+<text x="808" y="40" class="dg-m" text-anchor="middle">W12</text>
+<text x="860" y="40" class="dg-m" text-anchor="middle">W13</text>
+<line x1="210" y1="48" x2="886" y2="48" class="dg-ln" stroke-opacity=".3"/>
+<line x1="262" y1="48" x2="262" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="314" y1="48" x2="314" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="366" y1="48" x2="366" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="418" y1="48" x2="418" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="470" y1="48" x2="470" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="522" y1="48" x2="522" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="574" y1="48" x2="574" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="626" y1="48" x2="626" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="678" y1="48" x2="678" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="730" y1="48" x2="730" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="782" y1="48" x2="782" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<line x1="834" y1="48" x2="834" y2="240" class="dg-ln" stroke-opacity=".1"/>
+
+<!-- handoff guides (막대 아래에 깔림) -->
+<path d="M548 240 L548 56" class="dg-dash" stroke="var(--signal)"/>
+<path d="M756 240 L756 56" class="dg-dash" stroke="var(--accent)"/>
+<path d="M808 240 L808 56" class="dg-dash" stroke="var(--accent)"/>
+
+<!-- M0 -->
+<text x="14" y="75" class="dg-m">M0</text>
+<text x="46" y="76" class="dg-t">착수 · 입력 확보</text>
+<rect x="210" y="60" width="52" height="22" rx="3" class="dg-box"/>
+<text x="272" y="76" class="dg-s">전사 TF 산출물 확보</text>
+<!-- M1 -->
+<text x="14" y="105" class="dg-m">M1</text>
+<text x="46" y="106" class="dg-t">MLOps 현황·Gap</text>
+<rect x="210" y="90" width="260" height="22" rx="3" class="dg-fill"/>
+<text x="340" y="106" class="dg-t" text-anchor="middle">Gap을 3축으로 분해</text>
+<!-- M2 -->
+<text x="14" y="135" class="dg-m">M2</text>
+<text x="46" y="136" class="dg-t">사용자 요건·개선과제</text>
+<rect x="366" y="120" width="156" height="22" rx="3" class="dg-fill"/>
+<text x="444" y="136" class="dg-t" text-anchor="middle">자체 / 전사 이분</text>
+<!-- M3 -->
+<text x="14" y="165" class="dg-m">M3</text>
+<text x="46" y="166" class="dg-t">AgentOps 외부 BP</text>
+<rect x="470" y="150" width="156" height="22" rx="3" class="dg-hi"/>
+<text x="548" y="166" class="dg-acc" text-anchor="middle">관리 범위 확정</text>
+<!-- M4 -->
+<text x="14" y="195" class="dg-m">M4</text>
+<text x="46" y="196" class="dg-t">AgentOps 요건 정의</text>
+<rect x="574" y="180" width="156" height="22" rx="3" class="dg-hi"/>
+<text x="652" y="196" class="dg-acc" text-anchor="middle">생애주기 전 단계</text>
+<!-- M5 -->
+<text x="14" y="225" class="dg-m">M5</text>
+<text x="46" y="226" class="dg-t">운영 기준·대응체계</text>
+<rect x="678" y="210" width="208" height="22" rx="3" class="dg-hi"/>
+<text x="782" y="226" class="dg-acc" text-anchor="middle">지표·임계 · kill switch</text>
+
+<!-- handoff markers -->
+<polygon points="548,244 554,254 542,254" fill="var(--signal)"/>
+<text x="548" y="270" class="dg-sig" text-anchor="middle">③→① 모델 배치 제약 · W7</text>
+<polygon points="756,254 762,244 750,244" fill="var(--accent)"/>
+<text x="756" y="270" class="dg-acc" text-anchor="middle">①→③ 도구 명세 · Agent 카드 · W11</text>
+<polygon points="808,254 814,244 802,244" fill="var(--accent)"/>
+<text x="808" y="288" class="dg-acc" text-anchor="middle">①→③ Lineage · 감사 규격 · W12</text>
+
+<line x1="14" y1="306" x2="926" y2="306" class="dg-ln" stroke-opacity=".25"/>
+<text x="14" y="326" class="dg-tb">③의 논리 — 새로 설계하지 않는다. 잰다.</text>
+
+<!-- 3원 입력 -->
+<text x="102" y="348" class="dg-m" text-anchor="middle">3원 입력</text>
+<rect x="14" y="356" width="176" height="30" rx="4" class="dg-box"/>
+<text x="102" y="375" class="dg-t" text-anchor="middle">전사 MLOps 현황</text>
+<rect x="14" y="394" width="176" height="30" rx="4" class="dg-box"/>
+<text x="102" y="413" class="dg-t" text-anchor="middle">CLX 현황 · SP2.0 40개</text>
+<rect x="14" y="432" width="176" height="30" rx="4" class="dg-box"/>
+<text x="102" y="451" class="dg-t" text-anchor="middle">외부 Best Practice</text>
+<path d="M190 371 L222 371 L222 402 L246 402" class="dg-ln" marker-end="url(#ar-m1)"/>
+<path d="M190 409 L246 409" class="dg-ln" marker-end="url(#ar-m1)"/>
+<path d="M190 447 L222 447 L222 416 L246 416" class="dg-ln" marker-end="url(#ar-m1)"/>
+
+<!-- chain -->
+<rect x="250" y="372" width="180" height="80" rx="5" class="dg-hi"/>
+<text x="340" y="398" class="dg-acc" text-anchor="middle">Gap 분석</text>
+<text x="340" y="418" class="dg-s" text-anchor="middle">관리영역 · 프로세스</text>
+<text x="340" y="433" class="dg-s" text-anchor="middle">· R&R 3축 분해</text>
+<text x="340" y="448" class="dg-m" text-anchor="middle">M1 · M3</text>
+
+<path d="M430 412 L466 412" class="dg-ln-a" marker-end="url(#ar-m1a)"/>
+<text x="448" y="404" class="dg-s" text-anchor="middle">1:1</text>
+<text x="448" y="430" class="dg-s" text-anchor="middle">역추적</text>
+
+<rect x="470" y="372" width="180" height="80" rx="5" class="dg-fill"/>
+<text x="560" y="398" class="dg-tb" text-anchor="middle">보완 요건 · 개선과제</text>
+<text x="560" y="418" class="dg-s" text-anchor="middle">CLX 자체 개선 /</text>
+<text x="560" y="433" class="dg-s" text-anchor="middle">전사 공통 · 협의</text>
+<text x="560" y="448" class="dg-m" text-anchor="middle">M2 · M4</text>
+
+<path d="M650 412 L686 412" class="dg-ln-a" marker-end="url(#ar-m1a)"/>
+<text x="668" y="404" class="dg-s" text-anchor="middle">운영</text>
+<text x="668" y="430" class="dg-s" text-anchor="middle">규칙화</text>
+
+<rect x="690" y="372" width="200" height="80" rx="5" class="dg-warn"/>
+<text x="790" y="398" class="dg-sig" text-anchor="middle">운영 기준 · 대응체계</text>
+<text x="790" y="418" class="dg-s" text-anchor="middle">탐지 지표 · 임계</text>
+<text x="790" y="433" class="dg-s" text-anchor="middle">kill switch 절차</text>
+<text x="790" y="448" class="dg-m" text-anchor="middle">M5</text>
+
+<!-- 출력 -->
+<path d="M340 452 L340 466" class="dg-ln" marker-end="url(#ar-m1)"/>
+<path d="M560 452 L560 466" class="dg-ln" marker-end="url(#ar-m1)"/>
+<path d="M790 452 L790 466" class="dg-ln" marker-end="url(#ar-m1)"/>
+<rect x="250" y="470" width="640" height="32" rx="4" class="dg-box"/>
+<text x="570" y="490" class="dg-sig" text-anchor="middle">출력 = 방향성 · 요건 · 운영 주체 R&R 협의 사항 — 전사 합의 전에는 확정 불가</text>
+</svg>
+<figcaption><b>③은 없는 것을 만드는 과업이 아니라 있는 것을 재는 과업이다</b> — 전사 현황·CLX 현황·외부 Best Practice 3원을 맞대어 <b>Gap을 관리영역·프로세스·R&R 3축으로 분해</b>하고, 그 Gap마다 1:1로 역추적되는 보완 요건을 내고, 마지막에 운영 기준과 대응체계로 굳힌다. 앞의 절반(M1·M2)은 이미 돌고 있는 MLOps를 진단하는 구간이고, 뒤의 절반(M3~M5)은 아직 없는 AgentOps를 정의하는 구간이다. <b>점선 세 줄이 ①과의 인계 시점</b>으로, W11·W12 인계가 늦으면 M4·M5가 근거 없이 진행된다.</figcaption>
+</figure>
   <h3>③ MLOps · AgentOps 고도화 방향성 — 방법론 골격</h3>
   <p class="lede">성격이 <b>진단형</b>입니다. ①·②처럼 새로 설계하는 것이 아니라 <b>전사 체계와 Best Practice 대비 Gap을 재고 보완 방향을 제시</b>하는 것이 본질입니다.</p>
   <div class="tw"><table>
@@ -3306,7 +3444,7 @@ FIG_M1
       <tr><td class="mk">M2</td><td>MLOps 사용자 요건 · 개선과제</td><td class="c mk">W4–6</td><td>요건이 <b>CLX 자체 개선</b> / <b>전사 공통·협의</b> 로 이분<br>개선과제가 Gap으로 역추적 가능</td></tr>
       <tr><td class="mk">M3</td><td>AgentOps 외부 BP · 추진방향</td><td class="c mk">W6–8</td><td>Agent 운영의 <b>관리 범위 확정</b> — 무엇을 AgentOps가 책임지는가<br>①의 Agent 카드·도구 카탈로그와 <b>중복 없음</b> 확인</td></tr>
       <tr><td class="mk">M4</td><td>AgentOps 방향성 · 요건 정의</td><td class="c mk">W8–10</td><td>Agent 등록·배포·버전·평가·회수 <b>생애주기 전 단계</b> 요건<br>운영 주체 및 R&amp;R 협의 사항 도출</td></tr>
-      <tr><td class="mk">M5</td><td>운영 · 모니터링 기준 · 대응체계</td><td class="c mk">W10–13</td><td>품질 저하·오작동 <b>탐지 지표와 임계</b><br><b>비상 정지(kill switch) 절차</b> — 권한자·경로·목표 소요시간</td></tr>
+      <tr><td class="mk">M5</td><td>운영 · 모니터링 기준 · 대응체계</td><td class="c mk">W10–13</td><td>품질 저하·오작동 <b>탐지 지표와 임계</b><br><b>비상 정지(kill switch) 절차</b> — 차단 권한자 · 경로 · 목표 소요시간 · 해제 절차. <b>차단 단위를 3단(Agent 단위 / 도구 단위 / 전체)으로 분리</b><br><b>Agent 평가셋</b> — 배포 전 통과 기준 및 배포 후 정기 실행. 규모 <b>300~500 Q&amp;A쌍</b>(②의 K3B 산출물과 ①의 대표 횡단 질의에서 구성), <b>점수 하락이 곧 롤백 트리거</b></td></tr>
     </tbody>
   </table></div>
   <p class="note warn" style="margin-top:14px"><b>③에서 가장 자주 빠지는 것 세 가지</b> — ① <b>모델 버전·프롬프트 해시의 기록</b>(같은 질문에 답이 달라지는 주된 원인은 모델 교체인데, 재현 불가능하면 사고 조사가 성립하지 않음) ② <b>비상 정지 절차</b>(레이트리밋은 남용 방지이지 kill switch가 아님) ③ <b>Agent 평가셋</b>(“잘 되고 있는지” 판정 수단이 없으면 운영이 아니라 방치). 세 가지 모두 ①의 산출물과 맞물립니다.</p>
@@ -3318,7 +3456,83 @@ FIG_M1
 <section id="m-diff">
   <div class="sh"><span class="n">3.2</span><h2>MLOps와 AgentOps는 무엇이 다른가</h2></div>
   <p class="lede">둘을 하나로 묶어 다루면 요건이 뭉개집니다. CLX에는 <b>예측 모델</b>(설비 고장예측 등)과 <b>Agent</b>(공정 Trouble 대응 지원 AI 등)가 함께 있으므로 <b>둘 다 필요하고, 관리 대상이 다릅니다.</b></p>
-FIG_M2
+<figure>
+<svg viewBox="0 0 940 512" role="img" aria-label="MLOps와 AgentOps의 관리 대상 차이를 다섯 개 축으로 비교하고, 두 체계가 공유하는 공통 기반을 아래에 표시한다.">
+<defs>
+  <marker id="ar-m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+</defs>
+
+<rect x="30" y="20" width="350" height="64" rx="5" class="dg-fill"/>
+<text x="205" y="44" class="dg-tb" text-anchor="middle">MLOps</text>
+<text x="205" y="63" class="dg-t" text-anchor="middle">관리 대상 — 모델</text>
+<text x="205" y="79" class="dg-s" text-anchor="middle">학습된 가중치 · 예측 함수</text>
+
+<rect x="560" y="20" width="350" height="64" rx="5" class="dg-hi"/>
+<text x="735" y="44" class="dg-acc" text-anchor="middle">AgentOps</text>
+<text x="735" y="63" class="dg-t" text-anchor="middle">관리 대상 — Agent</text>
+<text x="735" y="79" class="dg-s" text-anchor="middle">도구 + 프롬프트 + 위임 경로</text>
+
+<line x1="205" y1="84" x2="205" y2="96" class="dg-ln"/>
+<line x1="735" y1="84" x2="735" y2="96" class="dg-ln"/>
+<rect x="90" y="96" width="230" height="26" rx="13" class="dg-box"/>
+<text x="205" y="113" class="dg-s" text-anchor="middle">CLX 예 · 설비 고장예측</text>
+<rect x="608" y="96" width="254" height="26" rx="13" class="dg-box"/>
+<text x="735" y="113" class="dg-s" text-anchor="middle">CLX 예 · 공정 Trouble 대응 지원 AI</text>
+
+<text x="470" y="60" class="dg-m" text-anchor="middle">비교 축</text>
+<text x="470" y="134" class="dg-sig" text-anchor="middle">↓ 갈리는 영역</text>
+
+<line x1="400" y1="146" x2="400" y2="406" class="dg-ln" stroke-opacity=".18"/>
+<line x1="540" y1="146" x2="540" y2="406" class="dg-ln" stroke-opacity=".18"/>
+<line x1="30" y1="146" x2="910" y2="146" class="dg-ln" stroke-opacity=".22"/>
+
+<!-- row 1 -->
+<text x="470" y="177" class="dg-m" text-anchor="middle">배포 단위</text>
+<text x="205" y="172" class="dg-t" text-anchor="middle">모델 아티팩트</text>
+<text x="205" y="189" class="dg-s" text-anchor="middle">가중치 + 전처리 파이프라인</text>
+<text x="735" y="172" class="dg-t" text-anchor="middle">Agent 정의</text>
+<text x="735" y="189" class="dg-s" text-anchor="middle">도구 목록 + 프롬프트 + 기반 모델 지정</text>
+<line x1="30" y1="198" x2="910" y2="198" class="dg-ln" stroke-opacity=".15"/>
+<!-- row 2 -->
+<text x="470" y="229" class="dg-m" text-anchor="middle">버전이 바뀌는 것</text>
+<text x="205" y="224" class="dg-t" text-anchor="middle">학습 데이터 · 하이퍼파라미터</text>
+<text x="205" y="241" class="dg-s" text-anchor="middle">모델 가중치</text>
+<text x="735" y="224" class="dg-t" text-anchor="middle">도구 정의(해시) · 시스템 프롬프트</text>
+<text x="735" y="241" class="dg-s" text-anchor="middle">위임 화이트리스트 · 기반 모델 교체</text>
+<line x1="30" y1="250" x2="910" y2="250" class="dg-ln" stroke-opacity=".15"/>
+<!-- row 3 -->
+<text x="470" y="281" class="dg-m" text-anchor="middle">실패의 모습</text>
+<text x="205" y="276" class="dg-t" text-anchor="middle">성능 저하 — 정확도 하락</text>
+<text x="205" y="293" class="dg-s" text-anchor="middle">입력 분포 변화(drift)</text>
+<text x="735" y="276" class="dg-t" text-anchor="middle">오호출 · 근거 없는 추측 답변</text>
+<text x="735" y="293" class="dg-s" text-anchor="middle">권한 밖 결합 · 위임 경로 이탈</text>
+<line x1="30" y1="302" x2="910" y2="302" class="dg-ln" stroke-opacity=".15"/>
+<!-- row 4 -->
+<text x="470" y="333" class="dg-m" text-anchor="middle">탐지 지표</text>
+<text x="205" y="328" class="dg-t" text-anchor="middle">예측 오차 · 입력 분포 편차</text>
+<text x="205" y="345" class="dg-s" text-anchor="middle">재학습 트리거 임계</text>
+<text x="735" y="328" class="dg-t" text-anchor="middle">도구 오호출률 · 평가셋 점수</text>
+<text x="735" y="345" class="dg-s" text-anchor="middle">허용되지 않은 위임 경로 호출</text>
+<line x1="30" y1="354" x2="910" y2="354" class="dg-ln" stroke-opacity=".15"/>
+<!-- row 5 -->
+<text x="470" y="385" class="dg-m" text-anchor="middle">복구 행위</text>
+<text x="205" y="380" class="dg-t" text-anchor="middle">재학습 · 모델 롤백</text>
+<text x="205" y="397" class="dg-s" text-anchor="middle">학습 데이터 보정</text>
+<text x="735" y="380" class="dg-t" text-anchor="middle">프롬프트 · 도구 회수 · 버전 롤백</text>
+<text x="735" y="397" class="dg-s" text-anchor="middle">비상 정지(kill switch)</text>
+<line x1="30" y1="406" x2="910" y2="406" class="dg-ln" stroke-opacity=".22"/>
+
+<path d="M205 406 L205 424" class="dg-ln" marker-end="url(#ar-m2)"/>
+<path d="M735 406 L735 424" class="dg-ln" marker-end="url(#ar-m2)"/>
+
+<rect x="30" y="428" width="880" height="76" rx="5" class="dg-warn"/>
+<text x="470" y="452" class="dg-sig" text-anchor="middle">겹치는 영역 — 하나의 운영 체계로 묶어야 하는 부분</text>
+<text x="470" y="474" class="dg-t" text-anchor="middle">레지스트리 · 버전 관리 · 배포 승인 · 모니터링 알람 · 인시던트 대응 · 접근 통제</text>
+<text x="470" y="493" class="dg-m" text-anchor="middle">①의 감사 로그 규격 · trace 전파 규격이 양쪽 공통 기반 — 카탈로그를 두 개 만들면 여기서 갈라진다</text>
+</svg>
+<figcaption><b>둘은 같은 파이프라인의 두 이름이 아니라, 관리 대상이 다른 두 체계다</b> — MLOps가 다루는 것은 학습된 가중치이고 실패는 정확도 하락으로 나타나며 복구는 재학습이다. AgentOps가 다루는 것은 <b>도구·프롬프트·위임 경로의 묶음</b>이고 실패는 오호출과 근거 없는 답변으로 나타나며 복구는 도구 회수와 비상 정지다. 아래 띠가 두 체계가 공유하는 부분으로, <b>여기를 하나로 묶지 못하면 CLX에 운영 체계가 두 벌 생긴다.</b> SP2.0 40개 과제에는 설비 고장예측 같은 예측 모델과 공정 Trouble 대응 지원 AI 같은 Agent가 함께 있어 <b>둘 다 필요하다.</b></figcaption>
+</figure>
   <div class="tw" style="margin-top:18px"><table>
     <thead><tr><th style="width:130px">관점</th><th style="width:290px">MLOps — 모델</th><th>AgentOps — Agent</th></tr></thead>
     <tbody>
@@ -3337,7 +3551,153 @@ FIG_M2
 <section id="m-life">
   <div class="sh"><span class="n">3.3</span><h2>Agent 생애주기 — ①이 정의하고 ③이 운영한다</h2></div>
   <p class="lede">경계 원칙은 <b>“①은 어떤 규칙으로 연결되는가, ③은 그것을 어떻게 돌리고 지키는가”</b> 입니다. 아래 생애주기에서 ①의 산출물이 각 단계에 어떻게 투입되는지 보면 경계가 분명해집니다.</p>
-FIG_M3
+<figure>
+<svg viewBox="0 0 940 366" role="img" aria-label="Agent 생애주기 7단계에서 ①이 만든 규격과 ③이 수행하는 운영 행위를 위아래로 나눠 표시하고, 기획 이후부터 ③의 운영 대상이 됨을 보인다.">
+<defs>
+  <marker id="ar-m3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+  <marker id="ar-m3d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--ink-4)"/></marker>
+</defs>
+
+<path d="M204 30 L204 312" class="dg-dash" stroke="var(--signal)"/>
+<text x="212" y="26" class="dg-sig">여기서부터 ③의 운영 대상 — 기획·정의는 ①</text>
+
+<text x="4" y="72" class="dg-tb">① 산출물</text>
+<text x="4" y="88" class="dg-s">규격 · 양식</text>
+<text x="4" y="104" class="dg-m">본 과업</text>
+<text x="4" y="176" class="dg-tb">생애주기</text>
+<text x="4" y="192" class="dg-s">단계</text>
+<text x="4" y="256" class="dg-tb">③ 운영</text>
+<text x="4" y="272" class="dg-s">행위</text>
+<text x="4" y="288" class="dg-m">RACI</text>
+
+<!-- col 1 기획 -->
+<rect x="88" y="44" width="104" height="76" rx="4" class="dg-warn"/>
+<text x="140" y="62" class="dg-s" text-anchor="middle">도메인 Agent</text>
+<text x="140" y="78" class="dg-s" text-anchor="middle">구성안</text>
+<text x="140" y="96" class="dg-s" text-anchor="middle">Agent 카드의</text>
+<text x="140" y="112" class="dg-s" text-anchor="middle">‘할 수 없는 것’</text>
+<rect x="88" y="152" width="104" height="44" rx="4" class="dg-box"/>
+<text x="140" y="171" class="dg-tb" text-anchor="middle">기획</text>
+<text x="140" y="188" class="dg-s" text-anchor="middle">도메인 · 경계</text>
+<rect x="88" y="228" width="104" height="76" rx="4" class="dg-box" stroke-dasharray="4 4"/>
+<text x="140" y="262" class="dg-s" text-anchor="middle">① 주도</text>
+<text x="140" y="280" class="dg-s" text-anchor="middle">③ 미관여</text>
+
+<!-- col 2 등록 -->
+<rect x="210" y="44" width="104" height="76" rx="4" class="dg-warn"/>
+<text x="262" y="62" class="dg-s" text-anchor="middle">Agent 카드</text>
+<text x="262" y="78" class="dg-s" text-anchor="middle">양식 (T5)</text>
+<text x="262" y="96" class="dg-s" text-anchor="middle">AGT-* 신원</text>
+<text x="262" y="112" class="dg-s" text-anchor="middle">소유자 필수</text>
+<rect x="210" y="152" width="104" height="44" rx="4" class="dg-box"/>
+<text x="262" y="171" class="dg-tb" text-anchor="middle">등록</text>
+<text x="262" y="188" class="dg-s" text-anchor="middle">카드·신원·소유자</text>
+<rect x="210" y="228" width="104" height="76" rx="4" class="dg-hi"/>
+<text x="262" y="252" class="dg-t" text-anchor="middle">카탈로그 등록</text>
+<text x="262" y="270" class="dg-s" text-anchor="middle">소유자 승인</text>
+<text x="262" y="292" class="dg-m" text-anchor="middle">R = ③</text>
+
+<!-- col 3 도구 연결 -->
+<rect x="332" y="44" width="104" height="76" rx="4" class="dg-warn"/>
+<text x="384" y="62" class="dg-s" text-anchor="middle">도구 명세</text>
+<text x="384" y="78" class="dg-s" text-anchor="middle">표준 (T4)</text>
+<text x="384" y="96" class="dg-s" text-anchor="middle">정의 해시</text>
+<text x="384" y="112" class="dg-s" text-anchor="middle">오류 노출 정책</text>
+<rect x="332" y="152" width="104" height="44" rx="4" class="dg-box"/>
+<text x="384" y="171" class="dg-tb" text-anchor="middle">도구 연결</text>
+<text x="384" y="188" class="dg-s" text-anchor="middle">카탈로그 선택</text>
+<rect x="332" y="228" width="104" height="76" rx="4" class="dg-hi"/>
+<text x="384" y="252" class="dg-t" text-anchor="middle">바인딩 승인</text>
+<text x="384" y="270" class="dg-s" text-anchor="middle">버전 고정</text>
+<text x="384" y="292" class="dg-m" text-anchor="middle">R = ③</text>
+
+<!-- col 4 배포 -->
+<rect x="454" y="44" width="104" height="76" rx="4" class="dg-warn"/>
+<text x="506" y="62" class="dg-s" text-anchor="middle">권한 전파</text>
+<text x="506" y="78" class="dg-s" text-anchor="middle">원칙 A1~A10</text>
+<text x="506" y="96" class="dg-s" text-anchor="middle">위임</text>
+<text x="506" y="112" class="dg-s" text-anchor="middle">화이트리스트</text>
+<rect x="454" y="152" width="104" height="44" rx="4" class="dg-box"/>
+<text x="506" y="171" class="dg-tb" text-anchor="middle">배포</text>
+<text x="506" y="188" class="dg-s" text-anchor="middle">승인 · 릴리스</text>
+<rect x="454" y="228" width="104" height="76" rx="4" class="dg-hi"/>
+<text x="506" y="252" class="dg-t" text-anchor="middle">배포 승인</text>
+<text x="506" y="270" class="dg-s" text-anchor="middle">모델 배치</text>
+<text x="506" y="286" class="dg-s" text-anchor="middle">제약 적용</text>
+
+<!-- col 5 운영 -->
+<rect x="576" y="44" width="104" height="76" rx="4" class="dg-warn"/>
+<text x="628" y="62" class="dg-s" text-anchor="middle">감사 로그</text>
+<text x="628" y="78" class="dg-s" text-anchor="middle">스키마</text>
+<text x="628" y="96" class="dg-s" text-anchor="middle">trace 전파</text>
+<text x="628" y="112" class="dg-s" text-anchor="middle">규격</text>
+<rect x="576" y="152" width="104" height="44" rx="4" class="dg-box"/>
+<text x="628" y="171" class="dg-tb" text-anchor="middle">운영·모니터링</text>
+<text x="628" y="188" class="dg-s" text-anchor="middle">상시</text>
+<rect x="576" y="228" width="104" height="76" rx="4" class="dg-hi"/>
+<text x="628" y="248" class="dg-t" text-anchor="middle">지표·임계 감시</text>
+<text x="628" y="265" class="dg-s" text-anchor="middle">평가셋 정기 실행</text>
+<text x="628" y="281" class="dg-s" text-anchor="middle">kill switch</text>
+<text x="628" y="298" class="dg-m" text-anchor="middle">R = ③ 전담</text>
+
+<!-- col 6 변경 -->
+<rect x="698" y="44" width="104" height="76" rx="4" class="dg-warn"/>
+<text x="750" y="70" class="dg-s" text-anchor="middle">Lineage ·</text>
+<text x="750" y="87" class="dg-s" text-anchor="middle">영향 경로</text>
+<text x="750" y="104" class="dg-s" text-anchor="middle">변경관리 체계</text>
+<rect x="698" y="152" width="104" height="44" rx="4" class="dg-box"/>
+<text x="750" y="171" class="dg-tb" text-anchor="middle">변경</text>
+<text x="750" y="188" class="dg-s" text-anchor="middle">도구/프롬프트/모델</text>
+<rect x="698" y="228" width="104" height="76" rx="4" class="dg-hi"/>
+<text x="750" y="252" class="dg-t" text-anchor="middle">재평가 후 반영</text>
+<text x="750" y="270" class="dg-s" text-anchor="middle">롤백</text>
+<text x="750" y="292" class="dg-m" text-anchor="middle">A = ③</text>
+
+<!-- col 7 은퇴 -->
+<rect x="820" y="44" width="104" height="76" rx="4" class="dg-warn"/>
+<text x="872" y="62" class="dg-s" text-anchor="middle">은퇴 절차</text>
+<text x="872" y="78" class="dg-s" text-anchor="middle">권한 회수 ·</text>
+<text x="872" y="96" class="dg-s" text-anchor="middle">등록 해제 ·</text>
+<text x="872" y="112" class="dg-s" text-anchor="middle">로그 보존</text>
+<rect x="820" y="152" width="104" height="44" rx="4" class="dg-box"/>
+<text x="872" y="171" class="dg-tb" text-anchor="middle">은퇴</text>
+<text x="872" y="188" class="dg-s" text-anchor="middle">권한 회수</text>
+<rect x="820" y="228" width="104" height="76" rx="4" class="dg-hi"/>
+<text x="872" y="252" class="dg-t" text-anchor="middle">실행 · 소유자</text>
+<text x="872" y="270" class="dg-s" text-anchor="middle">부재 시</text>
+<text x="872" y="286" class="dg-s" text-anchor="middle">자동 정지</text>
+
+<!-- vertical links -->
+<path d="M140 120 L140 148" class="dg-dash" marker-end="url(#ar-m3d)"/>
+<path d="M262 120 L262 148" class="dg-dash" marker-end="url(#ar-m3d)"/>
+<path d="M384 120 L384 148" class="dg-dash" marker-end="url(#ar-m3d)"/>
+<path d="M506 120 L506 148" class="dg-dash" marker-end="url(#ar-m3d)"/>
+<path d="M628 120 L628 148" class="dg-dash" marker-end="url(#ar-m3d)"/>
+<path d="M750 120 L750 148" class="dg-dash" marker-end="url(#ar-m3d)"/>
+<path d="M872 120 L872 148" class="dg-dash" marker-end="url(#ar-m3d)"/>
+<path d="M262 196 L262 224" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M384 196 L384 224" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M506 196 L506 224" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M628 196 L628 224" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M750 196 L750 224" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M872 196 L872 224" class="dg-ln" marker-end="url(#ar-m3)"/>
+
+<!-- chain -->
+<path d="M192 174 L206 174" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M314 174 L328 174" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M436 174 L450 174" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M558 174 L572 174" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M680 174 L694 174" class="dg-ln" marker-end="url(#ar-m3)"/>
+<path d="M802 174 L816 174" class="dg-ln" marker-end="url(#ar-m3)"/>
+
+<!-- loop -->
+<path d="M750 304 L750 326 L628 326 L628 308" class="dg-ln-a" marker-end="url(#ar-m3)"/>
+<text x="689" y="344" class="dg-acc" text-anchor="middle">재평가를 통과해야 다시 운영으로 — 상시 순환</text>
+</svg>
+<figcaption><b>①이 규격을 만들고 ③이 그 규격으로 운영한다</b> — 위 칸(주의색)은 본 과업 ①이 산출하는 양식·표준·원칙이고, 아래 칸은 ③이 실제로 수행하는 행위다. <b>경계는 ‘기획’과 ‘등록’ 사이</b>에서 갈린다. 기획·정의는 ①이 하고, 등록 시점부터 Agent는 ③의 운영 대상이 된다. 위 칸이 비면 ③은 근거 없이 운영하게 되므로, <b>Agent 카드 양식(W11)과 감사 로그·trace 규격(W12) 인계가 이 그림의 전제</b>다. 은퇴는 끝이 아니라 권한 회수·도구 등록 해제·로그 보존이 함께 일어나는 절차다.</figcaption>
+</figure>
   <p class="note warn" style="margin-top:16px"><b>Phase 6(Lineage, W9–W13)이 ③과 가장 크게 겹칩니다.</b> W1 합동 킥오프에서 이 선을 확정하지 못하면 <b>5주치 일정이 이중 투자</b>가 됩니다. 확정 결과에 따라 ①의 Phase 6 범위 축소도 열어둡니다 — Part 4 협의 #3.</p>
 </section>
 
@@ -3345,7 +3705,89 @@ FIG_M3
 <section id="m-miss">
   <div class="sh"><span class="n">3.4</span><h2>③에서 자주 빠지는 세 가지</h2></div>
   <p class="lede">운영 체계를 설계할 때 <b>기능 요건은 잘 나오는데 사고 대응 수단이 빠지는</b> 경우가 많습니다. 아래 셋은 각각 구체적인 사고를 막는 장치입니다.</p>
-FIG_M4
+<figure>
+<svg viewBox="0 0 940 444" role="img" aria-label="③에서 자주 빠지는 세 가지 장치와 각 장치가 막는 실패를 나란히 보인다. 모델 기록은 재현 불가를, kill switch는 정지 불능을, 평가셋은 방치를 막는다.">
+<defs>
+  <marker id="ar-m4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+  <marker id="ar-m4c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--crit)"/></marker>
+</defs>
+
+<text x="115" y="30" class="dg-m" text-anchor="middle">근거 · 연결</text>
+<text x="425" y="30" class="dg-m" text-anchor="middle">자주 빠뜨리는 장치</text>
+<text x="800" y="30" class="dg-m" text-anchor="middle">막는 것</text>
+
+<!-- ROW 1 -->
+<rect x="20" y="64" width="190" height="72" rx="4" class="dg-box"/>
+<text x="115" y="86" class="dg-t" text-anchor="middle">① 감사 로그 스키마</text>
+<text x="115" y="104" class="dg-s" text-anchor="middle">재현성 필드 · trace_id</text>
+<text x="115" y="122" class="dg-s" text-anchor="middle">Phase 6 관리 대상 추가</text>
+<path d="M212 100 L246 100" class="dg-ln" marker-end="url(#ar-m4)"/>
+<rect x="250" y="48" width="350" height="104" rx="5" class="dg-warn"/>
+<circle cx="272" cy="76" r="11" class="dg-warn"/>
+<text x="272" y="81" class="dg-sig" text-anchor="middle">1</text>
+<text x="292" y="81" class="dg-t">모델ID · 버전 · 시스템프롬프트 해시</text>
+<text x="292" y="106" class="dg-s">호출마다 기록 — 로그와 함께 보관</text>
+<text x="292" y="124" class="dg-s">도구 정의 해시는 rug pull 탐지 근거</text>
+<text x="292" y="142" class="dg-m">감사 로그 스키마 · 재현성</text>
+<line x1="602" y1="100" x2="628" y2="100" class="dg-ln-w"/>
+<rect x="630" y="68" width="12" height="64" rx="2" class="dg-warn"/>
+<text x="636" y="148" class="dg-sig" text-anchor="middle">차단</text>
+<path d="M676 100 L650 100" class="dg-ln-c" marker-end="url(#ar-m4c)"/>
+<rect x="680" y="58" width="240" height="84" rx="5" class="dg-crit"/>
+<text x="800" y="82" class="dg-cr" text-anchor="middle">같은 질문에 답이 달라진다</text>
+<text x="800" y="103" class="dg-s" text-anchor="middle">주된 원인은 모델 교체</text>
+<text x="800" y="123" class="dg-s" text-anchor="middle">재현 불가 → 책임 규명 불가</text>
+
+<!-- ROW 2 -->
+<rect x="20" y="194" width="190" height="72" rx="4" class="dg-box"/>
+<text x="115" y="216" class="dg-t" text-anchor="middle">06장 횡단 관심사</text>
+<text x="115" y="234" class="dg-s" text-anchor="middle">M5 완료 판단기준</text>
+<text x="115" y="252" class="dg-s" text-anchor="middle">차단 = 운영 권한 설계</text>
+<path d="M212 230 L246 230" class="dg-ln" marker-end="url(#ar-m4)"/>
+<rect x="250" y="178" width="350" height="104" rx="5" class="dg-warn"/>
+<circle cx="272" cy="206" r="11" class="dg-warn"/>
+<text x="272" y="211" class="dg-sig" text-anchor="middle">2</text>
+<text x="292" y="211" class="dg-t">비상 정지 (kill switch)</text>
+<text x="292" y="236" class="dg-s">차단 권한자 · 경로 · 목표 소요시간 · 해제 절차</text>
+<text x="292" y="254" class="dg-s">Agent 단위 / 도구 단위 / 전체 — 3단 분리</text>
+<text x="292" y="272" class="dg-cr">레이트리밋은 남용 방지 — kill switch가 아니다</text>
+<line x1="602" y1="230" x2="628" y2="230" class="dg-ln-w"/>
+<rect x="630" y="198" width="12" height="64" rx="2" class="dg-warn"/>
+<text x="636" y="278" class="dg-sig" text-anchor="middle">차단</text>
+<path d="M676 230 L650 230" class="dg-ln-c" marker-end="url(#ar-m4c)"/>
+<rect x="680" y="188" width="240" height="84" rx="5" class="dg-crit"/>
+<text x="800" y="212" class="dg-cr" text-anchor="middle">오작동 중인데 멈출 수 없다</text>
+<text x="800" y="233" class="dg-s" text-anchor="middle">OT 인접 — 성능이 아니라 안전</text>
+<text x="800" y="253" class="dg-s" text-anchor="middle">현장 운영 화면을 밀어낸다</text>
+
+<!-- ROW 3 -->
+<rect x="20" y="324" width="190" height="72" rx="4" class="dg-box"/>
+<text x="115" y="346" class="dg-t" text-anchor="middle">② K3B 산출물</text>
+<text x="115" y="364" class="dg-s" text-anchor="middle">현업 실제 질의 30건+</text>
+<text x="115" y="382" class="dg-s" text-anchor="middle">W12 ② → ③ 인계</text>
+<path d="M212 360 L246 360" class="dg-ln" marker-end="url(#ar-m4)"/>
+<rect x="250" y="308" width="350" height="104" rx="5" class="dg-warn"/>
+<circle cx="272" cy="336" r="11" class="dg-warn"/>
+<text x="272" y="341" class="dg-sig" text-anchor="middle">3</text>
+<text x="292" y="341" class="dg-t">Agent 평가셋 — 300~500 Q&A쌍</text>
+<text x="292" y="366" class="dg-s">배포 전 통과 기준 · 배포 후 정기 실행</text>
+<text x="292" y="384" class="dg-s">오호출 · 근거 없는 답 · 권한 밖 결합을 항목화</text>
+<text x="292" y="402" class="dg-m">점수 하락이 곧 롤백 트리거</text>
+<line x1="602" y1="360" x2="628" y2="360" class="dg-ln-w"/>
+<rect x="630" y="328" width="12" height="64" rx="2" class="dg-warn"/>
+<text x="636" y="408" class="dg-sig" text-anchor="middle">차단</text>
+<path d="M676 360 L650 360" class="dg-ln-c" marker-end="url(#ar-m4c)"/>
+<rect x="680" y="318" width="240" height="84" rx="5" class="dg-crit"/>
+<text x="800" y="342" class="dg-cr" text-anchor="middle">잘 되는지 아무도 모른다</text>
+<text x="800" y="363" class="dg-s" text-anchor="middle">운영이 아니라 방치</text>
+<text x="800" y="383" class="dg-s" text-anchor="middle">품질 저하를 신고로만 알게 된다</text>
+
+<text x="20" y="436" class="dg-sig">세 장치 모두 ①·②의 산출물과 맞물린다 — ③ 단독으로는 만들 수 없다.</text>
+</svg>
+<figcaption><b>빠뜨린 세 가지는 각각 하나의 사고 유형을 그대로 통과시킨다</b> — 모델ID·버전·시스템프롬프트 해시를 남기지 않으면 답이 달라진 이유를 재현할 수 없어 사고 조사 자체가 성립하지 않고, 비상 정지 절차가 없으면 오작동하는 Agent를 멈출 수단이 없으며(레이트리밋은 남용 방지이지 정지 수단이 아니다), 평가셋이 없으면 품질 저하를 현업 신고로만 알게 된다. <b>셋 다 ③ 혼자 만들 수 없다</b> — 기록 규격은 ①의 감사 로그 스키마에서, 평가셋의 질문은 ②의 K3B 도메인 데이터에서 온다.</figcaption>
+</figure>
   <div class="tw" style="margin-top:18px"><table>
     <thead><tr><th style="width:180px">빠지는 것</th><th style="width:250px">막으려는 사고</th><th>연결되는 ① 산출물</th></tr></thead>
     <tbody>

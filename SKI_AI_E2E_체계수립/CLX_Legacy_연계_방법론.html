@@ -1,0 +1,785 @@
+<title>Agent-Ready Legacy 설계 방법론</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+KR:wght@400;600&display=swap">
+<style>
+:root{
+  --ink:#12191c; --ink-2:#33454a; --ink-3:#5f7378; --ink-4:#8ba0a3;
+  --paper:#f1f4f3; --surface:#fdfefe; --surface-2:#e7ecea; --rule:#cfd9d7; --rule-2:#dfe6e4;
+  --accent:#0e6b70; --accent-soft:#d9eaea; --accent-ink:#0a4f53;
+  --signal:#b06a15; --signal-soft:#f6e8d4;
+  --crit:#a63a2c; --crit-soft:#f6dfda;
+  --ok:#37704a; --ok-soft:#dcebe0;
+  --shadow:0 1px 2px rgba(18,25,28,.05),0 8px 24px -12px rgba(18,25,28,.18);
+  --sans:"IBM Plex Sans KR",-apple-system,BlinkMacSystemFont,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+  --serif:"Noto Serif KR",Georgia,serif;
+  --maxw:1180px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#e6edec; --ink-2:#b6c6c6; --ink-3:#8a9c9d; --ink-4:#63767a;
+    --paper:#0d1315; --surface:#141d20; --surface-2:#1c272a; --rule:#2b393d; --rule-2:#223034;
+    --accent:#4dadb2; --accent-soft:#12363a; --accent-ink:#7fcbcf;
+    --signal:#d69a4d; --signal-soft:#3a2c17;
+    --crit:#d97c6b; --crit-soft:#3b1f1a;
+    --ok:#6fae83; --ok-soft:#1a2f21;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#e6edec; --ink-2:#b6c6c6; --ink-3:#8a9c9d; --ink-4:#63767a;
+  --paper:#0d1315; --surface:#141d20; --surface-2:#1c272a; --rule:#2b393d; --rule-2:#223034;
+  --accent:#4dadb2; --accent-soft:#12363a; --accent-ink:#7fcbcf;
+  --signal:#d69a4d; --signal-soft:#3a2c17;
+  --crit:#d97c6b; --crit-soft:#3b1f1a;
+  --ok:#6fae83; --ok-soft:#1a2f21;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;
+  font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+h1,h2,h3,h4{text-wrap:balance;margin:0;font-weight:600;letter-spacing:-.02em;line-height:1.3}
+p{margin:0}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ── shell ── */
+.shell{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:206px minmax(0,1fr);gap:52px;align-items:start}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0;padding:0 20px}}
+
+/* ── masthead ── */
+.mast{border-bottom:1px solid var(--rule);background:var(--surface)}
+.mast-in{max-width:var(--maxw);margin:0 auto;padding:44px 28px 34px}
+@media(max-width:900px){.mast-in{padding:32px 20px 26px}}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.eyebrow .sep{color:var(--ink-4)}
+h1{font-size:clamp(28px,4.4vw,44px);margin:14px 0 0;letter-spacing:-.035em;font-weight:700}
+.sub{font-size:17px;color:var(--ink-2);margin-top:12px;max-width:60ch;font-weight:300}
+.kq{margin-top:26px;border-left:3px solid var(--signal);background:var(--signal-soft);padding:16px 20px;max-width:74ch;border-radius:0 4px 4px 0}
+.kq .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:600}
+.kq p{font-family:var(--serif);font-size:16px;line-height:1.7;margin-top:7px;color:var(--ink)}
+.facts{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border-top:1px solid var(--rule-2)}
+.fact{padding:14px 26px 0 0;margin-right:26px;border-right:1px solid var(--rule-2)}
+.fact:last-child{border-right:0}
+.fact dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)}
+.fact dd{margin:3px 0 0;font-size:14.5px;font-weight:500}
+
+/* ── nav ── */
+nav{position:sticky;top:0;padding:38px 0 40px;font-size:13px;max-height:100vh;overflow-y:auto}
+@media(max-width:900px){nav{position:static;padding:22px 0 0;max-height:none;border-bottom:1px solid var(--rule)}}
+nav .nt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:12px}
+nav ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+@media(max-width:900px){nav ol{flex-direction:row;flex-wrap:wrap;gap:6px}}
+nav a{display:flex;gap:9px;padding:5px 8px;margin-left:-8px;color:var(--ink-2);text-decoration:none;border-radius:3px;line-height:1.45}
+nav a:hover{background:var(--surface-2);color:var(--ink)}
+nav a .n{font-family:var(--mono);font-size:11px;color:var(--ink-4);padding-top:1px;min-width:14px}
+
+/* ── sections ── */
+main{padding:38px 0 100px;min-width:0}
+section{margin-bottom:66px;scroll-margin-top:20px}
+.sh{display:flex;align-items:baseline;gap:13px;padding-bottom:11px;border-bottom:2px solid var(--ink);margin-bottom:26px}
+.sh .n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.04em}
+.sh h2{font-size:22px;letter-spacing:-.025em}
+h3{font-size:16.5px;margin:34px 0 12px}
+h4{font-size:14px;margin:22px 0 8px;color:var(--ink-2)}
+.lede{font-size:15.5px;color:var(--ink-2);max-width:66ch;margin-bottom:20px;font-weight:300}
+.stack{display:flex;flex-direction:column;gap:14px;max-width:70ch}
+.stack.wide{max-width:none}
+
+/* ── callouts ── */
+.thesis{font-family:var(--serif);font-size:17px;line-height:1.7;padding:20px 24px;background:var(--accent-soft);
+  border-radius:5px;color:var(--ink);max-width:72ch}
+.thesis strong{font-weight:600;color:var(--accent-ink)}
+.note{border-left:3px solid var(--rule);padding:2px 0 2px 17px;color:var(--ink-2);font-size:14.5px;max-width:70ch}
+.note.warn{border-color:var(--signal)}
+.note.crit{border-color:var(--crit)}
+.note b{color:var(--ink);font-weight:600}
+
+/* ── chips ── */
+.sys{font-family:var(--mono);font-size:12px;font-weight:500;padding:1.5px 6px;border-radius:3px;
+  background:var(--surface-2);color:var(--ink-2);white-space:nowrap;border:1px solid var(--rule-2)}
+.sys.p1{background:var(--accent-soft);color:var(--accent-ink);border-color:transparent}
+.pat{font-family:var(--mono);font-size:11.5px;font-weight:500;padding:1px 5px;border-radius:3px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+
+/* ── tables ── */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:5px;background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:440px}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--rule-2);vertical-align:top;line-height:1.55}
+th{font-size:11px;font-family:var(--mono);font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);
+  background:var(--surface-2);border-bottom:1px solid var(--rule);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono)}
+td.c,th.c{text-align:center}
+.mk{font-family:var(--mono);font-weight:600;font-size:14px}
+.mk.best{color:var(--accent)}
+.mk.no{color:var(--ink-4)}
+.mk.mid{color:var(--signal)}
+
+/* ── layer diagram ── */
+.layers{display:flex;flex-direction:column;gap:5px;max-width:760px}
+.layer{display:grid;grid-template-columns:74px minmax(0,1fr);gap:0;border:1px solid var(--rule);border-radius:5px;
+  overflow:hidden;background:var(--surface)}
+.layer .lid{background:var(--surface-2);padding:13px 12px;font-family:var(--mono);font-size:12px;font-weight:600;
+  color:var(--ink-3);border-right:1px solid var(--rule-2);display:flex;align-items:center;justify-content:center}
+.layer .lb{padding:12px 16px}
+.layer .lname{font-weight:600;font-size:14.5px}
+.layer .ldesc{font-size:13px;color:var(--ink-3);margin-top:3px}
+.layer.hi{border-color:var(--accent);border-width:1.5px}
+.layer.hi .lid{background:var(--accent-soft);color:var(--accent-ink)}
+.layer.star .lb::after{content:"★ 가장 과소평가";font-family:var(--mono);font-size:10.5px;color:var(--signal);
+  letter-spacing:.06em;display:block;margin-top:5px}
+
+/* ── phases ── */
+.phase{border:1px solid var(--rule);border-radius:5px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+.ph-h{display:flex;gap:14px;align-items:baseline;padding:14px 18px;background:var(--surface-2);border-bottom:1px solid var(--rule-2);flex-wrap:wrap}
+.ph-h .pn{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.03em}
+.ph-h .pt{font-weight:600;font-size:15.5px;flex:1;min-width:180px}
+.ph-h .pw{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);background:var(--paper);padding:2px 8px;border-radius:10px;border:1px solid var(--rule-2)}
+.ph-b{padding:15px 18px;display:flex;flex-direction:column;gap:11px}
+.ph-b .goal{font-size:14.5px;color:var(--ink-2)}
+.exits{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+.exits li{padding-left:20px;position:relative;color:var(--ink-2)}
+.exits li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;border:1.5px solid var(--ink-4);border-radius:2px}
+.exits li b{color:var(--ink);font-weight:600}
+.mini{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)}
+.stage-bar{display:flex;align-items:center;gap:11px;margin:34px 0 16px}
+.stage-bar .sn{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);font-weight:600}
+.stage-bar .ln{flex:1;height:1px;background:var(--rule)}
+
+/* ── gantt ── */
+.gantt{font-size:12px;min-width:660px}
+.gantt th{font-family:var(--mono);font-size:10.5px;padding:6px 3px;text-align:center}
+.gantt td{padding:0;border-bottom:1px solid var(--rule-2)}
+.gantt td.lab{padding:6px 11px;font-size:12.5px;white-space:nowrap;font-weight:500}
+.gantt td.lab.sub{font-weight:400;color:var(--ink-3);padding-left:22px}
+.gantt .cell{height:26px;border-right:1px solid var(--rule-2)}
+.gantt .cell.on{background:var(--accent);opacity:.82}
+.gantt .cell.on.p{background:var(--accent);opacity:.3}
+.gantt .cell.on.s{background:var(--signal);opacity:.85}
+.gantt .ms{position:relative}
+.gantt .ms::after{content:"◆";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--signal);font-size:11px}
+.lg{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink-3);margin-top:10px;font-family:var(--mono)}
+.lg span{display:flex;align-items:center;gap:6px}
+.lg i{width:13px;height:11px;border-radius:2px;display:inline-block}
+
+/* ── grid cards ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px}
+.card{border:1px solid var(--rule);border-radius:5px;padding:14px 16px;background:var(--surface)}
+.card .ct{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.card .ch{font-weight:600;font-size:15px;margin-top:5px}
+.card p{font-size:13.5px;color:var(--ink-2);margin-top:6px;line-height:1.65}
+
+/* ── decision tree ── */
+.tree{font-family:var(--mono);font-size:12.5px;line-height:1.95;background:var(--surface);border:1px solid var(--rule);
+  border-radius:5px;padding:16px 18px;overflow-x:auto;white-space:pre;color:var(--ink-2)}
+.tree b{color:var(--accent);font-weight:600}
+.tree .x{color:var(--ink-4)}
+
+/* ── principles ── */
+.prin{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+.prin-i{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--rule-2)}
+.prin-i .pi{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent);padding-top:3px}
+.prin-i h3{margin:0 0 5px;font-size:15.5px}
+.prin-i p{font-size:14px;color:var(--ink-2);max-width:66ch}
+
+footer{border-top:1px solid var(--rule);padding:26px 0 40px;font-size:12.5px;color:var(--ink-4);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .mono{font-family:var(--mono)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="mast">
+  <div class="mast-in">
+    <div class="eyebrow">
+      <span>CLX AI E-to-E 운영체계 정립 PI</span><span class="sep">/</span>
+      <span>수행범위 ①</span><span class="sep">/</span>
+      <span>v1.0 · 2026.09</span>
+    </div>
+    <h1>Agent-Ready Legacy 설계 방법론</h1>
+    <p class="sub">AI Agent 적용을 위한 Legacy 구조 고도화 및 Governance 체계 설계 — 수행 방법론과 적용 기준</p>
+    <div class="kq">
+      <div class="lbl">Key Question</div>
+      <p>AI Agent가 Legacy 시스템의 데이터를 <strong>안전하게</strong> 활용하기 위해 데이터 구조 · 연계 방식 · 권한 체계를 어떻게 고도화해야 하는가?</p>
+    </div>
+    <dl class="facts">
+      <div class="fact"><dt>대상 사업장</dt><dd>SK 울산CLX</dd></div>
+      <div class="fact"><dt>기간</dt><dd>3.5개월 · W1–W14</dd></div>
+      <div class="fact"><dt>1순위 대상</dt><dd>RTDB · OCEAN-H · OASIS</dd></div>
+      <div class="fact"><dt>기대 산출물</dt><dd>12종</dd></div>
+    </dl>
+  </div>
+</header>
+
+<div class="shell">
+<nav>
+  <div class="nt">Contents</div>
+  <ol>
+    <li><a href="#q"><span class="n">01</span>여섯 개의 질문</a></li>
+    <li><a href="#pr"><span class="n">02</span>7대 설계 원칙</a></li>
+    <li><a href="#arch"><span class="n">03</span>5계층 참조 아키텍처</a></li>
+    <li><a href="#ph"><span class="n">04</span>Phase 0–8 절차</a></li>
+    <li><a href="#wbs"><span class="n">05</span>주차별 WBS</a></li>
+    <li><a href="#p4"><span class="n">06</span>연계 방식 선정 · MCP</a></li>
+    <li><a href="#data"><span class="n">07</span>데이터 · 메타 관리</a></li>
+    <li><a href="#a2a"><span class="n">08</span>Agent 간 연계</a></li>
+    <li><a href="#sys"><span class="n">09</span>대상 시스템</a></li>
+    <li><a href="#risk"><span class="n">10</span>리스크 · 착수 준비</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- 01 -->
+<section id="q">
+  <div class="sh"><span class="n">01</span><h2>여섯 개의 질문</h2></div>
+  <p class="lede">“AI와 Legacy를 어떻게 연결할 것인가”는 하나의 질문이 아닙니다. 섞어서 다루면 결론이 나오지 않습니다. 방법론은 이 여섯을 분리해 순서대로 답합니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36px">#</th><th>질문</th><th style="width:104px">성격</th><th style="width:96px">담당</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">Q1</td><td>Agent는 Legacy에 <b>무엇을</b> 요구하는가</td><td>수요 정의</td><td class="mk">Phase 1</td></tr>
+      <tr><td class="mk">Q2</td><td>Legacy는 지금 <b>얼마나 준비되어 있는가</b></td><td>현황 진단</td><td class="mk">Phase 2</td></tr>
+      <tr><td class="mk">Q3</td><td><b>어떤 방식으로</b> 연결할 것인가 (MCP / API / Gateway)</td><td>연계 설계</td><td class="mk best">Phase 4</td></tr>
+      <tr><td class="mk">Q4</td><td><b>누구의 권한으로</b> 접근하는가</td><td>권한 설계</td><td class="mk">Phase 5</td></tr>
+      <tr><td class="mk">Q5</td><td>바뀌었을 때 <b>무엇이 영향받는지</b> 아는가</td><td>변경 관리</td><td class="mk">Phase 6</td></tr>
+      <tr><td class="mk">Q6</td><td>시스템을 <b>가로지르는 질문</b>에 어떻게 답하는가</td><td>식별자 · 조인</td><td class="mk">Phase 3·4</td></tr>
+    </tbody>
+  </table></div>
+  <div class="stack" style="margin-top:16px">
+    <p class="note">Q3만 논의하면 반드시 막힙니다. <b>Q1이 없으면 선정 기준이 없고, Q2가 없으면 무엇을 고쳐야 하는지 모르며, Q4가 없으면 보안 승인을 못 받습니다.</b></p>
+    <p class="note warn"><b>Q6은 가장 늦게 발견되고 가장 비싼 문제입니다.</b> 시스템별로 잘 붙여놓고도 “3호기 압축기 트립이 생산에 얼마나 영향 줬나” 같은 횡단 질문에 답하지 못합니다. 현업이 실제로 궁금해하는 것은 대부분 횡단 질문입니다.</p>
+  </div>
+</section>
+
+<!-- 02 -->
+<section id="pr">
+  <div class="sh"><span class="n">02</span><h2>7대 설계 원칙</h2></div>
+  <p class="lede">체계가 사실상 백지에서 시작하므로 “무엇을 먼저 정하느냐”가 성패를 가릅니다. 아래 일곱이 이후 모든 Phase 순서의 근거입니다.</p>
+  <div class="prin">
+    <div class="prin-i"><div class="pi">01</div><div>
+      <h3>Action Pattern이 연계 요건을 결정한다</h3>
+      <p>연계 방식을 먼저 고르고 Agent를 맞추면 반드시 재작업이 발생합니다. <b>Agent 유형 → Action Pattern → 인터페이스 요건 → 연계 방식</b> 순으로 역산합니다.</p></div></div>
+    <div class="prin-i"><div class="pi">02</div><div>
+      <h3>읽기와 쓰기는 완전히 다른 문제다</h3>
+      <p>조회는 데이터 구조·검색성 문제이고, 쓰기는 권한·감사·롤백 문제입니다. 난이도가 자릿수 단위로 다릅니다. <b>1차 범위를 읽기 전용으로 고정</b>하지 않으면 보안·현업 검토에서 전체가 멈춥니다.</p></div></div>
+    <div class="prin-i"><div class="pi">03</div><div>
+      <h3>MCP는 배관이 아니라 어댑터다</h3>
+      <p>이 과업 최대의 오해 지점입니다. MCP를 도입해도 Legacy가 Agent-ready가 되지 않습니다. MCP는 <b>L4 도구 노출 규약</b>이며, 그 아래 Legacy API와 의미 계층이 없으면 감쌀 대상이 없습니다.</p></div></div>
+    <div class="prin-i"><div class="pi">04</div><div>
+      <h3>전사 방침에 종속하고, CLX는 적용 기준만 만든다</h3>
+      <p>CLX가 독자 연계 경로를 설계하면 전사 거버넌스와 충돌하고 중복 투자 지적을 받습니다. 산출물을 <b>(a) CLX 적용 기준</b>과 <b>(b) 전사 개선 요청</b> 2갈래로 분리합니다.</p></div></div>
+    <div class="prin-i"><div class="pi">05</div><div>
+      <h3>진단은 시스템별이 아니라 공통 축으로</h3>
+      <p>시스템을 각각 진단하면 개별 개선 목록만 나오고 통합 로드맵이 나오지 않습니다. <b>Agent-Readiness 6축</b>(인터페이스 · 데이터 구조 · 의미 명확성 · 권한 세분성 · 관측·감사 · 변경관리)으로 평가하면 공통 과제와 특화 과제가 자동으로 갈립니다.</p></div></div>
+    <div class="prin-i"><div class="pi">06</div><div>
+      <h3>세 시스템은 하나의 방식으로 붙지 않는다</h3>
+      <p>규모가 자릿수 단위로 다르고, 실시간성 요구가 다르고, 쓰기 수요가 다릅니다. “전부 REST로” 또는 “전부 MCP로” 통일하려는 시도가 <b>가장 흔한 실패 경로</b>입니다.</p></div></div>
+    <div class="prin-i"><div class="pi">07</div><div>
+      <h3>통합의 실질은 API가 아니라 공통 식별자다</h3>
+      <p>개별 API를 아무리 잘 만들어도 <b>설비 · 시간 · 공정 · 오더</b> 4개 축의 식별자가 정합되지 않으면 횡단 질문에 답할 수 없습니다. 이것이 ① 과업의 숨은 핵심 산출물입니다.</p></div></div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section id="arch">
+  <div class="sh"><span class="n">03</span><h2>5계층 참조 아키텍처</h2></div>
+  <p class="lede">연계 설계의 혼선 대부분은 서로 다른 계층의 문제를 같은 자리에서 논쟁하기 때문에 생깁니다. 계층을 먼저 고정하면 각 결정이 어디에 속하는지 명확해집니다.</p>
+  <div class="layers">
+    <div class="layer"><div class="lid">L5</div><div class="lb">
+      <div class="lname">Agent 계층</div>
+      <div class="ldesc">업무 Agent(고장예측 · 운전지원 · 안전감시) — Agent 간 협업은 A2A 영역</div></div></div>
+    <div class="layer hi"><div class="lid">L4</div><div class="lb">
+      <div class="lname">도구 노출 계층 &nbsp;<span class="sys p1">MCP</span></div>
+      <div class="ldesc">MCP Server / Tool Adapter · 도구 카탈로그 · 스키마 · 설명</div></div></div>
+    <div class="layer"><div class="lid">L3</div><div class="lb">
+      <div class="lname">통제 계층</div>
+      <div class="ldesc">전사 Endpoint / API Gateway · 인증 · 인가 · 레이트리밋 · 감사로그</div></div></div>
+    <div class="layer star"><div class="lid">L2</div><div class="lb">
+      <div class="lname">의미 계층</div>
+      <div class="ldesc">데이터 사전 · 코드 사전 · 태그 매핑 · 횡단 식별자(설비 · 시간 · 공정 · 오더)</div></div></div>
+    <div class="layer"><div class="lid">L1</div><div class="lb">
+      <div class="lname">원천 계층</div>
+      <div class="ldesc"><span class="sys">RTDB</span> <span class="sys">OCEAN-H</span> <span class="sys">OASIS</span> <span class="sys">AMS</span> <span class="sys">PMS</span> <span class="sys">TDMS</span> — Legacy API / 데이터 구조</div></div></div>
+  </div>
+  <div class="thesis" style="margin-top:20px">
+    위에서 아래로 <strong>설계</strong>하고, 아래에서 위로 <strong>구축</strong>합니다. 설계는 L5에서 시작해 내려오고, 구축은 L1·L2부터 올라갑니다. L4(MCP)부터 만들면 아래가 비어 있어 동작하지 않습니다.
+  </div>
+</section>
+
+<!-- 04 -->
+<section id="ph">
+  <div class="sh"><span class="n">04</span><h2>Phase 0–8 수행 절차</h2></div>
+  <p class="lede">기획서의 3단계 흐름(현황 분석 → To-be 방향성 → 실행과제)을 유지하되 실행 가능한 Phase로 분해했습니다. 완료 판단기준은 정성 합의가 아니라 <b>수치</b>로 정의합니다.</p>
+
+  <div class="stage-bar"><span class="sn">Stage 1 · 현황 분석</span><span class="ln"></span><span class="mini">W1–W6</span></div>
+  <div class="stack wide" style="gap:12px">
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P0</span><span class="pt">착수 · 정렬</span><span class="pw">W1</span></div>
+      <div class="ph-b">
+        <p class="goal">이후 3.5개월의 판단 기준선을 고정한다. 특히 <b>1차 범위를 읽기 전용으로 긋는 것</b>과 <b>MCP 판단 시점을 뒤로 미루는 것</b>에 대한 합의.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li>1차 범위(읽기 전용) <b>서면 합의</b> — 미합의 시 Phase 5 일정이 성립하지 않음</li>
+          <li>MCP 판단 시점 합의 (Phase 4)</li>
+          <li>시스템별 담당자 지정 및 인터뷰 일정 확정</li>
+          <li>전사 Endpoint/Gateway 방침 확보 또는 미확정 사실 확인 + 가정 명시</li>
+          <li><b>OCEAN-H vs TDMS</b> 설비 마스터 중복 확인 착수</li>
+        </ul></div>
+        <p class="note warn"><b>이 과업에서 가장 중요한 30분입니다.</b> “MCP 얹으면 되는 것 아니냐”는 기대를 W1에 정리하지 못하면, Phase 2·3의 Legacy 고도화 과제가 “불필요한 일”로 취급됩니다.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P1</span><span class="pt">CLX AI Agent 현황 및 유형 분석</span><span class="pw">W1–W3</span></div>
+      <div class="ph-b">
+        <p class="goal">Legacy에 대한 <b>수요</b>를 확정한다. 이후 모든 설계의 근거. 기존 AI 과제 MP의 13종 구성 기술과 스마트플랜트 2.0 40개 과제가 <b>이미 모집단</b>이므로, 발굴이 아니라 <b>요구의 역산</b>이다.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li>Agent 유형이 <b>5–8종 이내</b>로 수렴 (10종 넘으면 유형화 실패 — 재분류)</li>
+          <li>모든 유형이 Action Pattern으로 표현되고 <b>정량 요건</b>(응답시간·데이터량) 기재</li>
+          <li>수요 매트릭스의 ‘미정’ 셀 0건</li>
+          <li><b>P-ACT(쓰기)</b> 요구가 별도 식별되어 1차 범위 밖으로 분리 <span class="sys">OASIS 집중 예상</span></li>
+          <li>횡단 질의 비중 측정 + 대표 횡단 질의 5건 선정</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P2</span><span class="pt">Legacy Agent-Readiness 진단</span><span class="pw">W3–W6</span></div>
+      <div class="ph-b">
+        <p class="goal">Legacy의 <b>공급</b> 현황을 6축 공통 기준으로 진단하고 수요와의 Gap을 확정한다. 시스템별 담당 조직이 다르므로 <b>병렬 진행</b>이 필수.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li>대상 시스템 전부에 6축 점수와 <b>판정 근거</b> 기록 (점수만 있으면 무효)</li>
+          <li>실제 호출 검증 최소 3건 — <b>RTDB 대량 구간 조회 1건 필수 포함</b></li>
+          <li>Phase 1 수요 요건의 100%가 Gap 판정을 받음</li>
+          <li>공통 과제와 시스템 특화 과제 분리</li>
+        </ul></div>
+        <p class="note crit"><b>RTDB 대량 구간 조회 검증(W4)이 가장 중요한 단일 검증입니다.</b> 태그 1개월 이력 조회에서 타임아웃이 확인되면 Phase 4의 연계 방식 결론이 즉시 달라지며, 이를 W10에 발견하면 아키텍처 재작업입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-bar"><span class="sn">Stage 2 · To-be 방향성</span><span class="ln"></span><span class="mini">W4–W13</span></div>
+  <div class="stack wide" style="gap:12px">
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P3</span><span class="pt">데이터 · 메타 구조 고도화</span><span class="pw">W4–W9</span></div>
+      <div class="ph-b">
+        <p class="goal">Agent가 <b>정확하게 해석할 수 있는</b> 데이터 상태를 정의한다. 핵심 신설 활동은 <b>3-2 시스템 횡단 식별자 표준화</b>.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li><b>대표 횡단 질의 5건이 공통 식별자만으로 조인 가능함이 확인됨</b></li>
+          <li>4개 축 전부에 기준 원천 지정 및 사유 문서화</li>
+          <li>Before/After 예시 3건 — OASIS 상태코드 · OCEAN-H 설비 계층 · RTDB 태그 각 1건</li>
+          <li>설계 가이드가 체크리스트 형태로 즉시 적용 가능</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P4</span><span class="pt">연계 구조 및 적용 기준 수립 ★</span><span class="pw">W6–W11</span></div>
+      <div class="ph-b">
+        <p class="goal">연결 방식을 <b>선정하고 기준을 세운다.</b> 이 과업 Key Question에 대한 직접적 답. 상세는 06장 참조.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li>5개 Action Pattern 전부에 연계 방식 지정 + 사유 문서화</li>
+          <li><b>MCP 채택 판단 완료</b> — 조건부면 조건 명시</li>
+          <li>산출물이 <b>(a) CLX 적용 기준 / (b) 전사 협의사항</b> 2갈래로 분리</li>
+          <li>대표 횡단 질의 5건의 End-to-End 호출 흐름도</li>
+          <li>Phase 5 권한 모델과 상충 없음 (교차 확인 회의 실시)</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P5</span><span class="pt">권한 관리체계 고도화</span><span class="pw">W7–W12</span></div>
+      <div class="ph-b">
+        <p class="goal">“<b>누구의 권한으로</b> 접근하는가”에 답한다. 보안 승인의 관문.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li>모든 Action Pattern에 권한 모델 지정</li>
+          <li><b>결과 필터링 요건</b> 명시 — Agent가 요청자 권한 밖 데이터를 반환하지 않음</li>
+          <li>Agent 연쇄 호출 시 권한 전파 규칙 정의</li>
+          <li>보안 담당 사전 검토 의견 수령 및 반영</li>
+        </ul></div>
+        <p class="note"><b>실무의 핵심 난제.</b> Agent 고유 권한(Service Account)은 구현이 쉽지만 최소권한 위배로 승인이 어렵고, 사용자 권한 위임(OBO)은 안전하지만 토큰 전파가 복잡합니다. 대부분 혼합으로 수렴하며, <b>어느 패턴에 무엇을 적용할지 문서로 못박는 것</b>이 산출물의 실질입니다.</p>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P6</span><span class="pt">Lineage · 변경관리 체계 설계</span><span class="pw">W9–W13</span></div>
+      <div class="ph-b">
+        <p class="goal">“무언가 바뀌었을 때 <b>무엇이 영향받는지</b> 안다”를 성립시킨다.</p>
+        <div><div class="mini">완료 판단기준</div>
+        <ul class="exits">
+          <li>관리 대상 구성요소 빠짐없이 식별 — <b>프롬프트 · 도구 정의 누락이 가장 흔함</b></li>
+          <li>대표 변경 시나리오 3건의 영향 경로 End-to-End 작성</li>
+          <li>③ MLOps/AgentOps 과업과 역할 경계 합의</li>
+        </ul></div>
+        <p class="note warn"><b>Legacy 스키마 변경이 Agent 응답을 조용히 망가뜨리는 것</b>이 이 Phase가 막으려는 사고입니다. 전통적 연계는 오류가 나지만, Agent는 그럴듯한 틀린 답을 반환합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-bar"><span class="sn">Stage 3 · 실행과제</span><span class="ln"></span><span class="mini">W10–W14</span></div>
+  <div class="stack wide" style="gap:12px">
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P7</span><span class="pt">Agent-ready Legacy 목표구조 및 고도화 방안</span><span class="pw">W10–W13</span></div>
+      <div class="ph-b"><p class="goal">Phase 3–6 요건을 시스템별로 종합한 To-be 구조도와 단계적 전환 로드맵. 각 고도화 항목은 Phase 2 Gap 또는 Phase 1 요구사항으로 <b>역추적 가능</b>해야 한다.</p></div>
+    </div>
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P8</span><span class="pt">실행과제 정의 및 통합</span><span class="pw">W12–W14</span></div>
+      <div class="ph-b"><p class="goal">모든 과제를 <b>전사 공통·협의</b> / <b>CLX 특화</b> 로 분류하고, 차년도 추진 범위·수행계획을 의사결정 가능한 수준으로 제시한다. 기대산출물 12종 제출.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section id="wbs">
+  <div class="sh"><span class="n">05</span><h2>주차별 WBS</h2></div>
+  <p class="lede">9/7 착수 기준 14주. <b>임계 경로</b>는 <span class="mk">P0 → P1 Action Pattern → P2 Gap → P4 연계 설계 → P7 → P8</span> 이며, P1이 1주 지연되면 전 과업이 1주 밀립니다.</p>
+  <div class="tw"><table class="gantt">
+    <thead><tr><th style="text-align:left;padding-left:11px">Phase</th>
+      <th>W1</th><th>W2</th><th>W3</th><th>W4</th><th>W5</th><th>W6</th><th>W7</th><th>W8</th><th>W9</th><th>W10</th><th>W11</th><th>W12</th><th>W13</th><th>W14</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">P0 착수·정렬</td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P1 Agent 현황·유형</td><td class="cell on p"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P2 Readiness 진단</td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on s"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab sub">└ RTDB 대량조회 검증</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on s"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P3 데이터·메타</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab sub">└ 횡단 식별자 표준화</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on s"></td><td class="cell on s"></td><td class="cell on s"></td><td class="cell on s ms"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P4 연계 구조 ★</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab sub">└ MCP 채택 판단</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on s"></td><td class="cell on s ms"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P5 권한 관리체계</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P6 Lineage·변경관리</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P7 목표구조·로드맵</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell"></td></tr>
+      <tr><td class="lab">P8 실행과제·통합</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td></tr>
+    </tbody>
+  </table></div>
+  <div class="lg">
+    <span><i style="background:var(--accent);opacity:.82"></i>주력</span>
+    <span><i style="background:var(--accent);opacity:.3"></i>병행</span>
+    <span><i style="background:var(--signal);opacity:.85"></i>임계 검증</span>
+    <span>◆ 마일스톤</span>
+  </div>
+  <h3>주요 마일스톤</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:70px">시점</th><th style="width:210px">마일스톤</th><th>산출물</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">W1</td><td><b>범위 · MCP 판단시점 합의</b></td><td>범위 정의서, 연계방식 판단 기준 합의서</td></tr>
+      <tr><td class="mk">W3</td><td>수요 확정</td><td>Agent 유형 정의, Action Pattern, 수요 매트릭스</td></tr>
+      <tr><td class="mk">W6</td><td>공급 진단 완료</td><td>Agent-Readiness 히트맵, Gap 분석서, 대상 시스템 확정</td></tr>
+      <tr><td class="mk best">W7</td><td><b>중간보고</b></td><td>현황 분석 결과 + To-be 방향성 초안</td></tr>
+      <tr><td class="mk">W8</td><td><b>횡단 식별자 표준 확정</b></td><td>공통 식별자·매핑 요건 (횡단 질의 5건 조인 검증 통과)</td></tr>
+      <tr><td class="mk">W9–10</td><td><b>MCP 채택 판단</b></td><td>MCP 채택 판단서, 적합성 매트릭스</td></tr>
+      <tr><td class="mk">W11</td><td>핵심 설계 결정 리뷰</td><td>연계 아키텍처, 권한 모델, 도구 정의 기준</td></tr>
+      <tr><td class="mk best">W14</td><td><b>최종보고</b></td><td>기대산출물 12종 + 차년도 추진계획</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>W7–W9가 가장 위험한 구간입니다.</b> P3·P4·P5 3개 Phase가 동시에 돌고 중간보고와 겹칩니다. P3 시스템별 적용 방안을 W6부터 앞당겨 착수하는 것을 권장합니다.</p>
+</section>
+
+<!-- 06 -->
+<section id="p4">
+  <div class="sh"><span class="n">06</span><h2>연계 방식 선정과 MCP 판단</h2></div>
+
+  <h3>Action Pattern 정의</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:100px">Pattern</th><th style="width:180px">정의</th><th>CLX 예시</th><th style="width:150px">주 시스템</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pat">P-READ</span></td><td>식별된 대상의 정형 데이터 조회</td><td>“3호기 압축기 사양”, “오늘 생산실적”</td><td><span class="sys">OCEAN-H</span> <span class="sys">OASIS</span></td></tr>
+      <tr><td><span class="pat">P-SEARCH</span></td><td>조건이 모호한 탐색적 검색</td><td>“유사 트립 사례 찾아줘”</td><td><span class="sys">OCEAN-H</span></td></tr>
+      <tr><td><span class="pat">P-ANALYZE</span></td><td>대량 데이터 집계 · 비교</td><td>“지난달 온도 추이, 정상 대비 편차”</td><td><span class="sys">RTDB</span> <span class="sys">OASIS</span></td></tr>
+      <tr><td><span class="pat">P-MONITOR</span></td><td>상태 변화 감시 · 알림</td><td>“임계치 초과 시 알림”</td><td><span class="sys">AMS</span> <span class="sys">RTDB</span></td></tr>
+      <tr><td><span class="pat">P-ACT</span></td><td>시스템에 쓰기 · 실행</td><td>“작업오더 생성”, “실적 입력”</td><td><span class="sys">OASIS</span> — 1차 범위 밖</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>적합성 매트릭스</h3>
+  <p class="lede">패턴별 지배 요건에 따라 판정합니다. <b>하나로 통일할 필요가 없습니다</b> — 갈리는 것이 정상입니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:118px">Pattern</th><th class="c">MCP</th><th class="c">REST</th><th class="c">GraphQL</th><th class="c">이벤트</th><th class="c">배치·복제</th><th>판정 근거</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pat">P-READ</span></td><td class="c mk">○</td><td class="c mk best">◎</td><td class="c mk">○</td><td class="c mk no">×</td><td class="c mk mid">△</td><td>정형 조회는 Gateway 통합이 성숙한 REST가 최적</td></tr>
+      <tr><td><span class="pat">P-SEARCH</span></td><td class="c mk best">◎</td><td class="c mk mid">△</td><td class="c mk">○</td><td class="c mk no">×</td><td class="c mk">○</td><td><b>어떤 도구를 쓸지 Agent가 판단</b>해야 함 → MCP 실익 최대</td></tr>
+      <tr><td><span class="pat">P-ANALYZE</span></td><td class="c mk mid">△</td><td class="c mk mid">△</td><td class="c mk mid">△</td><td class="c mk no">×</td><td class="c mk best">◎</td><td>대량 집계를 실시간 API로 하면 <b>원천이 죽음</b></td></tr>
+      <tr><td><span class="pat">P-MONITOR</span></td><td class="c mk no">×</td><td class="c mk no">×</td><td class="c mk no">×</td><td class="c mk best">◎</td><td class="c mk no">×</td><td>요청–응답으로는 상시 감시 불성립. 폴링은 부하만 생성</td></tr>
+      <tr><td><span class="pat">P-ACT</span></td><td class="c mk mid">△</td><td class="c mk best">◎</td><td class="c mk no">×</td><td class="c mk no">×</td><td class="c mk no">×</td><td>쓰기는 Gateway 인증·인가·감사 필수 통과</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>MCP 채택 판단 트리</h3>
+  <div class="tree">Q1. 해당 영역의 도구가 5개 이상이고 앞으로 늘어날 것인가?
+    ├ No  <span class="x">→ REST 직접 호출로 충분. MCP 불요</span>
+    └ Yes ↓
+Q2. Agent가 상황에 따라 어떤 도구를 쓸지 스스로 판단해야 하는가?
+    ├ No  <span class="x">→ 호출 경로 고정 → REST 직접 호출</span>
+    └ Yes ↓
+Q3. 반환 데이터가 Agent 컨텍스트에 들어갈 크기인가? (수천 행 이하)
+    ├ No  <span class="x">→ 배치·복제 + 집계 API. MCP 부적합</span>
+    └ Yes ↓
+Q4. 권한 위임(사용자 컨텍스트 전달) 설계가 가능한가?
+    ├ No  <span class="x">→ 조건부 보류. Phase 5 권한 모델 확정 후 재판정</span>
+    └ Yes <b>→ ★ MCP 채택</b></div>
+
+  <h3>CLX 적용 예상 판정</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:200px">영역</th><th class="c" style="width:52px">Q1</th><th class="c" style="width:52px">Q2</th><th class="c" style="width:52px">Q3</th><th class="c" style="width:66px">Q4</th><th>판정</th></tr></thead>
+    <tbody>
+      <tr><td><b>OCEAN-H</b> 설비·정비이력 탐색</td><td class="c">Yes</td><td class="c"><b>Yes</b></td><td class="c">Yes</td><td class="c">검증</td><td><b style="color:var(--accent)">★ MCP 채택 유력</b></td></tr>
+      <tr><td><b>OASIS</b> 실적·계획 조회</td><td class="c">Yes</td><td class="c">부분</td><td class="c">Yes</td><td class="c">위임 필수</td><td>조건부 — Gateway 우선, MCP는 2단계</td></tr>
+      <tr><td><b>RTDB</b> 대량 집계</td><td class="c">No</td><td class="c">No</td><td class="c"><b>No</b></td><td class="c">—</td><td>MCP 부적합 — 집계 API + 복제</td></tr>
+      <tr><td><b>AMS</b> 실시간 알람 감시</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td>이벤트 구독</td></tr>
+      <tr><td><b>OASIS</b> 쓰기 (작업지시 등)</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td style="color:var(--ink-4)">1차 범위 밖</td></tr>
+    </tbody>
+  </table></div>
+  <div class="thesis" style="margin-top:18px">
+    예상 결론은 <strong>“OCEAN-H 중심 부분 채택”</strong>입니다. 전면 채택도 전면 배제도 아닙니다. “MCP 도입 여부”를 이분법으로 묻는 질문 자체를 재구성하는 것이 컨설턴트의 역할입니다.
+  </div>
+
+  <h3>전사 Gateway 요건 — 2갈래 분리</h3>
+  <p class="lede">Agent 연계는 기존 시스템 간 연계에 없던 요구를 만듭니다. 전사 표준이 이를 담고 있지 않을 가능성이 높습니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36px">#</th><th style="width:200px">전사 협의 · 개선 요청</th><th>왜 필요한가</th><th style="width:92px">유형</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>Agent 신원 체계</b> 정의</td><td>Agent가 권한 주체가 됨. SKT 사번 부여 방식 참조</td><td>표준 신설</td></tr>
+      <tr><td class="num">2</td><td><b>권한 위임(OBO) 표준</b></td><td>Agent가 사용자 대신 호출. 현행 표준에 없을 가능성</td><td>표준 신설</td></tr>
+      <tr><td class="num">3</td><td>Agent 호출 감사 로그 규격</td><td>사용자 + Agent 이중 주체 기록</td><td>표준 개정</td></tr>
+      <tr><td class="num">4</td><td>MCP Server의 Gateway 등록 방식</td><td>신규 유형의 클라이언트</td><td>표준 개정</td></tr>
+      <tr><td class="num">5</td><td>Agent용 레이트리밋 정책</td><td>사람과 호출 패턴이 다름</td><td>정책 신설</td></tr>
+      <tr><td class="num">6</td><td><b>LLM 컨텍스트 반출 통제 기준</b></td><td>데이터가 모델 컨텍스트로 나감</td><td>보안 정책 신설</td></tr>
+      <tr><td class="num">7</td><td>도구 카탈로그와 전사 API 카탈로그 관계</td><td>이중 관리 방지</td><td>거버넌스 정리</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>흔히 빠뜨리는 비기능 설계</h3>
+  <div class="cards">
+    <div class="card"><div class="ct">Context Budget</div><div class="ch">컨텍스트 예산</div>
+      <p>단일 도구 반환 기본 50행 / 최대 200행. 시계열은 원시값 금지 — 집계값 + 대표 추이 100포인트 이하.</p></div>
+    <div class="card"><div class="ct">Error Design</div><div class="ch">오류 · 폴백</div>
+      <p><b>“권한 없음”과 “데이터 없음”을 구분하지 않는 것</b>이 가장 위험한 설계 결함입니다. Agent가 “그런 이력은 없습니다”라고 답하는데 실제로는 볼 권한이 없었을 뿐인 상황이 발생합니다.</p></div>
+    <div class="card"><div class="ct">Tool Description</div><div class="ch">도구 설명</div>
+      <p>Agent는 설명만 읽고 도구를 고릅니다. <b>무엇을 반환하지 않는지</b>와 <b>선행 도구</b>를 반드시 명시. 이것은 개발 산출물이 아니라 <b>업무 지식 산출물</b>입니다.</p></div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section id="data">
+  <div class="sh"><span class="n">07</span><h2>데이터 구조 · 메타데이터 관리</h2></div>
+  <div class="thesis">API는 Agent를 <strong>연결</strong>하지만, 메타데이터는 Agent를 <strong>정확하게</strong> 만듭니다.</div>
+  <p class="lede" style="margin-top:18px">전통적 연계에서 메타데이터는 “있으면 좋은 것”이었습니다. 호출하는 쪽이 사람이 만든 프로그램이었고, 개발자가 사양서를 읽고 의미를 코드에 박아 넣었기 때문입니다. Agent는 <b>런타임에 데이터의 의미를 스스로 해석</b>하고, 근거가 없으면 그럴듯하게 지어냅니다. 그래서 메타데이터는 <b>정확성 요건</b>으로 승격됩니다. 이것이 이 과업이 “API 개발 프로젝트”가 아닌 이유입니다.</p>
+
+  <h3>AI Readable 5대 요건</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:38px">#</th><th style="width:112px">요건</th><th>정의</th><th style="width:190px">미충족 시 증상</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">D1</td><td><b>식별 가능성</b></td><td>현장 언어로 표현된 대상을 시스템 식별자로 특정할 수 있음</td><td>“3호기 압축기”를 못 찾음</td></tr>
+      <tr><td class="mk">D2</td><td><b>의미 명확성</b></td><td>컬럼 · 코드값의 업무 의미가 자연어로 기술됨</td><td>코드를 오해해 틀린 답</td></tr>
+      <tr><td class="mk">D3</td><td><b>시점 정합성</b></td><td>데이터의 시간 기준이 명확하고 시스템 간 변환 가능</td><td>다른 시스템 데이터와 시점 불일치</td></tr>
+      <tr><td class="mk">D4</td><td><b>조회 단위 적정성</b></td><td>Agent가 필요로 하는 단위로 잘라서 가져올 수 있음</td><td>전부 아니면 전무</td></tr>
+      <tr><td class="mk">D5</td><td><b>신뢰 표시</b></td><td>정제 여부 · 품질 · 최신성이 함께 반환됨</td><td>미정제 구간을 사실로 답함</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>D5는 울산CLX 특화 요건입니다.</b> OCEAN-H 데이터 정제율이 80% 이상이라는 것은, 뒤집으면 최대 20%가 미정제라는 뜻입니다. Agent는 미정제 구간에서 <b>오류를 내지 않고 틀린 답을 냅니다.</b> 일반적인 Agent-ready 체크리스트에는 없는 항목이며, 가장 실용적인 차별화 포인트입니다.</p>
+
+  <h3>메타데이터 3계층</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:118px">계층</th><th>내용</th><th style="width:170px">작성 주체</th><th style="width:120px">갱신 계기</th></tr></thead>
+    <tbody>
+      <tr><td><b>M1</b> 기술 메타</td><td>테이블 · 컬럼 · 타입 · 키 · 제약, API 스펙</td><td>시스템 담당 (IT)</td><td>스키마 변경 시</td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>M2</b> 업무 메타 ★</td><td>업무 의미, 코드값 뜻, 사용 주의사항, 별칭</td><td><b>현업 + 컨설턴트</b></td><td>업무 변경 시</td></tr>
+      <tr><td><b>M3</b> 운영 메타</td><td>정제 상태, 최종 갱신, 품질 지표, 사용 이력</td><td>시스템 자동</td><td>실시간 · 배치</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>M2가 이 과업의 핵심 산출물이고 가장 만들기 어렵습니다.</b> M1은 시스템에서 추출되고 M3는 자동 생성되지만, M2는 사람의 업무 지식을 글로 옮기는 일입니다. 여기에 컨설팅 공수를 집중하십시오.</p>
+
+  <h3>횡단 식별자 4축</h3>
+  <p class="lede">Agent 질의는 대부분 시스템 경계를 넘습니다. 이 4축이 정합되지 않으면 개별 API를 아무리 잘 만들어도 횡단 질문에 답할 수 없습니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:92px">축</th><th style="width:180px">기준 원천</th><th>해결할 문제</th><th style="width:200px">산출</th></tr></thead>
+    <tbody>
+      <tr><td><b>설비</b></td><td><span class="sys p1">OCEAN-H</span> 설비 마스터<br><span style="font-size:12px;color:var(--signal)">TDMS와 중복 확인 필요</span></td><td>RTDB 태그와 매핑 부재 / OASIS 오더는 공정 단위</td><td>설비↔태그 매핑표, 설비↔공정 매핑표, 계층 롤업 규칙</td></tr>
+      <tr><td><b>시간</b></td><td>절대 시각 (KST)</td><td>OASIS <b>생산일·교대</b>(예 06:00~익일 06:00) ↔ RTDB 절대시각 ↔ OCEAN-H 작업일자</td><td>시간축 변환 규칙, 교대 경계 정의</td></tr>
+      <tr><td><b>공정·유닛</b></td><td>Phase 2에서 확정</td><td>시스템별 코드 체계 상이 가능</td><td>표준 공정 코드 및 매핑표</td></tr>
+      <tr><td><b>오더·배치</b></td><td><span class="sys p1">OASIS</span></td><td>설비 · 시계열과 연결 고리 부재</td><td>오더↔설비↔시간 매핑 규칙</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>검증 시나리오 — 이 표를 Phase 3의 검증 도구로 사용</h3>
+  <p class="lede">“3호기 압축기 지난달 트립, 원인이 뭐고 생산에 얼마나 영향 있었나?” — 체크가 하나라도 비면 그 매핑이 개선과제입니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th>단계</th><th style="width:200px">필요 매핑</th><th class="c" style="width:60px">확인</th></tr></thead>
+    <tbody>
+      <tr><td>“3호기 압축기” → 설비ID</td><td>별칭 사전</td><td class="c">☐</td></tr>
+      <tr><td>설비ID → 트립 이력 <span class="sys">OCEAN-H</span></td><td>—</td><td class="c">☐</td></tr>
+      <tr><td>트립 시각 → RTDB 조회 구간</td><td>시간축</td><td class="c">☐</td></tr>
+      <tr><td>설비ID → 관련 태그</td><td><b>설비↔태그 매핑</b></td><td class="c">☐</td></tr>
+      <tr><td>트립 시각 → 생산일 · 교대</td><td><b>시간축 변환</b></td><td class="c">☐</td></tr>
+      <tr><td>생산일·교대 → OASIS 실적</td><td>—</td><td class="c">☐</td></tr>
+      <tr><td>설비ID → 영향 공정 → 오더</td><td><b>설비↔공정 매핑</b></td><td class="c">☐</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>최우선 개선과제</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:66px">#</th><th style="width:190px">과제</th><th style="width:88px">대상</th><th>근거</th><th style="width:92px">구분</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--signal-soft)"><td class="mk">DA-01</td><td><b>RTDB 태그 사전 구축</b></td><td><span class="sys">RTDB</span></td><td>D1·D2 미충족 — <b>연계 자체가 불성립</b></td><td>CLX 특화</td></tr>
+      <tr><td class="mk">DA-02</td><td>설비 별칭 사전 구축</td><td><span class="sys">OCEAN-H</span></td><td>D1 미충족 — 60만 기에서 대상 특정 불가</td><td>CLX 특화</td></tr>
+      <tr><td class="mk">DA-03</td><td>업무 코드 사전</td><td><span class="sys">OASIS</span></td><td>D2 미충족</td><td>CLX 특화</td></tr>
+      <tr><td class="mk">DA-04</td><td>생산일↔절대시각 변환 규칙</td><td><span class="sys">OASIS</span></td><td>D3 미충족</td><td>CLX 특화</td></tr>
+      <tr><td class="mk">DA-05</td><td>RTDB 구간 집계 API</td><td><span class="sys">RTDB</span></td><td>D4 미충족</td><td>CLX 특화</td></tr>
+      <tr><td class="mk">DA-06</td><td>데이터 정제상태 플래그</td><td><span class="sys">OCEAN-H</span></td><td>D5 미충족</td><td>CLX 특화</td></tr>
+      <tr><td class="mk">DA-07</td><td>데이터 카탈로그 도입</td><td>전사</td><td>M2 관리 수단 부재</td><td><b>전사 협의</b></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 08 -->
+<section id="a2a">
+  <div class="sh"><span class="n">08</span><h2>Agent 간 연계 구조</h2></div>
+  <p class="lede">기획서의 “AI Agent 연계 구조”는 통상 Agent–Legacy 연계로만 해석됩니다. 그러나 그룹 방향이 <b>‘1인 1에이전트’</b>이고 울산CLX에 스마트플랜트 2.0 과제 40여 개가 이미 돌아갑니다. <b>Agent 수가 늘면 문제의 성격이 바뀝니다.</b></p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:110px">Agent 수</th><th style="width:250px">지배적 문제</th><th>필요 설계</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">1–5개</td><td>Legacy에 어떻게 붙나</td><td>L1–L4 (도구 · API)</td></tr>
+      <tr><td class="mk">10–30개</td><td>도구 중복, 권한 일관성</td><td>도구 카탈로그 거버넌스</td></tr>
+      <tr><td class="mk mid">50개+</td><td><b>Agent 간 중복 · 충돌 · 연쇄 책임</b></td><td><b>L5 Agent 간 연계 체계</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note crit" style="margin-top:14px">지금 설계하지 않으면 2년 뒤 <b>“Agent 40개가 각자 Legacy에 직접 붙어 있고 아무도 전체를 모르는 상태”</b>가 됩니다. 이는 정확히 <b>OCEAN-H 구축 전 15종 시스템이 난립하던 상황의 재현</b>입니다. 조직에 그 학습이 남아 있으므로 이 비유가 가장 잘 통합니다.</p>
+
+  <h3>MCP와 A2A는 경쟁이 아니다</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:110px"></th><th>MCP (Model Context Protocol)</th><th>A2A (Agent2Agent)</th></tr></thead>
+    <tbody>
+      <tr><td><b>계층</b></td><td><b>Agent ↔ 도구</b></td><td><b>Agent ↔ Agent</b></td></tr>
+      <tr><td>해결 문제</td><td>외부 도구 · 데이터를 발견하고 호출</td><td>다른 Agent를 발견하고 작업을 위임 · 협업</td></tr>
+      <tr><td>사양</td><td>2025-11-25 스펙 (분산 실행, stateless 전송, 보안 프레임워크)</td><td><b>v1.0 (2026.04)</b></td></tr>
+      <tr><td>생태계</td><td>월 1억 1천만 회 이상 다운로드</td><td><b>150+ 조직</b>, AWS · Microsoft · Google 클라우드 통합</td></tr>
+      <tr><td>본 과업</td><td>Phase 4 (L4)</td><td>본 장 (L5)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>A2A는 2026년 4월 v1.0이 나온 신생 표준입니다.</b> 지금 채택을 확정할 단계가 아니라, 필요해질 때 갈 수 있도록 <b>구조를 열어두는 것</b>이 적정 수준입니다. 표준 거버넌스 연구에서 MCP·A2A 모두 권한 위임·책임 소재를 충분히 표현하지 못한다는 지적이 나오므로, 프로토콜에 의존하지 말고 <b>조직 차원의 기준</b>을 별도로 세워야 합니다.</p>
+
+  <h3>도메인 Agent 구성안</h3>
+  <p class="lede">시스템 경계가 아니라 <b>업무 도메인 경계</b>로 나눕니다. 시스템은 바뀌지만 업무 도메인은 오래 가고, 도메인 담당 조직이 곧 Agent 소유 조직이 되어 R&amp;R이 자연스럽게 정해집니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:170px">Agent</th><th style="width:230px">담당 도메인</th><th style="width:150px">주 사용 시스템</th><th>Pattern</th></tr></thead>
+    <tbody>
+      <tr><td><b>설비 Agent</b></td><td>설비 사양 · 정비이력 · 유사사례</td><td><span class="sys p1">OCEAN-H</span></td><td><span class="pat">P-READ</span> <span class="pat">P-SEARCH</span></td></tr>
+      <tr><td><b>공정 Agent</b></td><td>실시간 · 이력 공정값, 추이 · 편차</td><td><span class="sys p1">RTDB</span> <span class="sys">AMS</span></td><td><span class="pat">P-ANALYZE</span> <span class="pat">P-MONITOR</span></td></tr>
+      <tr><td><b>생산 Agent</b></td><td>생산계획 · 실적 · 품질</td><td><span class="sys p1">OASIS</span></td><td><span class="pat">P-READ</span> <span class="pat">P-ANALYZE</span></td></tr>
+      <tr><td><b>지식 Agent</b></td><td>기술문서 · 규정 · 과거 보고서</td><td>Knowledge Hub (②)</td><td><span class="pat">P-SEARCH</span></td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>종합 분석 Agent</b><br><span style="font-size:12px;color:var(--ink-3)">오케스트레이터</span></td><td>횡단 질의 조합 · 판단</td><td>위 Agent들 (A2A)</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>권한 전파 원칙 — 최대 난제</h3>
+  <p class="lede">중간 Agent가 자기 권한으로 조회하면 <b>사용자가 볼 수 없는 데이터가 답변에 섞여 나옵니다.</b> 사용자는 그것이 권한 밖 데이터인지 알 수 없습니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:44px">#</th><th style="width:180px">원칙</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">A1</td><td><b>최소 권한 승계</b></td><td>하위 Agent 유효 권한 = <span class="pat">min(사용자 권한, Agent 권한)</span>. 절대 확대되지 않음</td></tr>
+      <tr><td class="mk">A2</td><td>사용자 컨텍스트 필수 전파</td><td>모든 Agent 간 호출에 요청자 신원 · 권한 컨텍스트 동반. 익명 호출 금지</td></tr>
+      <tr><td class="mk">A3</td><td>전파 깊이 제한</td><td>위임 체인 최대 깊이 3. 초과 시 차단</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="mk">A4</td><td><b>권한 밖 명시</b></td><td>권한으로 제외된 데이터가 있으면 <b>“일부 결과가 권한으로 제외됨”</b>을 응답에 표시</td></tr>
+      <tr><td class="mk">A5</td><td>감사 이중 기록</td><td>최종 사용자 + 호출 Agent 체인 전체를 로그에 기록</td></tr>
+      <tr><td class="mk">A6</td><td>쓰기 위임 금지</td><td>Agent가 다른 Agent에 쓰기 작업을 위임할 수 없음</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>A4가 실무에서 가장 자주 빠집니다.</b> 권한으로 필터링된 결과를 그대로 반환하면 사용자는 “데이터가 없다”고 이해합니다. 안전사고 원인 분석에서 이는 치명적입니다.</p>
+
+  <h3>Agent 카드 — 필수 항목</h3>
+  <p class="lede">가장 중요한 항목은 <b>“할 수 없는 것”</b>입니다. 오케스트레이터가 어느 Agent에 위임할지 판단하는 근거이며, 이것이 없으면 잘못된 Agent에 위임하고 그 Agent는 <b>모른다고 하지 않고 추측해서 답합니다.</b></p>
+  <div class="cards">
+    <div class="card"><div class="ct">Identity</div><div class="ch">신원 · 소유</div><p>Agent ID, 소유 조직, 사번 기반 신원, 담당 도메인</p></div>
+    <div class="card"><div class="ct">Capability</div><div class="ch">할 수 있는 것 / 없는 것</div><p>위임 판단의 근거. 없으면 오위임 발생</p></div>
+    <div class="card"><div class="ct">Contract</div><div class="ch">입출력 계약</div><p>사용자 컨텍스트 필수, 응답에 <b>근거(Provenance)</b> 동반 — 출처 · 조회시각 · <b>정제 상태</b> · 신뢰도 · 미확보 범위</p></div>
+    <div class="card"><div class="ct">Failure</div><div class="ch">실패 시</div><p>부분 결과 + 실패 범위 명시. <b>추정 금지.</b> “불충분”을 반환할 수 있어야 함</p></div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section id="sys">
+  <div class="sh"><span class="n">09</span><h2>대상 시스템</h2></div>
+  <p class="lede">기존 CLX AI 과제 MP 반영으로 대상이 3종에서 8종 이상으로 확장되었습니다. AI 적용이 <b>운전지원·Troubleshooting(64%)</b>과 <b>공정 최적화(54%)</b>에 집중되므로, 무게중심을 <span class="sys p1">RTDB</span> <span class="sys p1">AMS</span> <span class="sys p1">OCEAN-H</span> 에 둡니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:46px">순위</th><th style="width:104px">시스템</th><th style="width:210px">성격</th><th>보유 데이터</th><th style="width:190px">예상 취약축</th></tr></thead>
+    <tbody>
+      <tr><td class="c mk">1</td><td><b>RTDB</b></td><td>공정 실시간 시계열<br><span style="font-size:12px;color:var(--ink-3)">DCS 연동 SP/OP/PV</span></td><td>실시간 공정 운전 Data, 공정 운전 실적</td><td><b>A3 태그 의미</b>, A1 전용 프로토콜</td></tr>
+      <tr><td class="c mk">1</td><td><b>OCEAN-H</b></td><td>설비관리 통합 (EAM)</td><td>정비 Schedule · 이력, <b>근무일지 History</b>, 촉매 구매 이력</td><td>A2 마스터 품질, A3 이력 텍스트</td></tr>
+      <tr><td class="c mk">1</td><td><b>OASIS</b></td><td>생산관리</td><td>생산/품질 실적, 생산 계획/실적</td><td>A3 상태코드, <b>A4 권한 세분성</b></td></tr>
+      <tr><td class="c mk mid">2</td><td><b>AMS</b></td><td>알람 관리 <span style="color:var(--signal);font-size:12px">신규 식별</span></td><td><b>실시간 공정 Alarm Data</b></td><td>알람↔공정 Tag 매핑</td></tr>
+      <tr><td class="c mk mid">2</td><td><b>PMS</b></td><td>공정 · 성과 관리 <span style="color:var(--signal);font-size:12px">신규 식별</span></td><td>공정 실적 Data, 특허</td><td>OASIS 실적과 중복 가능</td></tr>
+      <tr><td class="c mk mid">2</td><td><b>TDMS</b></td><td>기술문서 · 마스터 <span style="color:var(--signal);font-size:12px">신규 식별</span></td><td><b>공정/설비 기본 정보</b></td><td><b>설비 마스터 중복 (OCEAN-H와 충돌 가능)</b></td></tr>
+      <tr><td class="c mk no">3</td><td>DCS</td><td>제어 시스템</td><td>SP/OP/PV 원천</td><td>RTDB 경유 접근</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>울산CLX 규모 — 왜 이 과업이 어려운가</h3>
+  <div class="cards">
+    <div class="card"><div class="ct">Site</div><div class="ch">250만 평 · 설비 60만 기</div>
+      <p>이 규모에서 <b>“어느 설비인지 특정하는 것” 자체가 난제</b>입니다. “3호기 압축기”의 후보가 수십 개일 수 있습니다.</p></div>
+    <div class="card"><div class="ct">OCEAN-H</div><div class="ch">15종 통합 · 1,000만 건</div>
+      <p>2019년 착수 → 2021년 6월 가동. <b>조직에 통합 프로젝트 학습이 축적</b>돼 있으므로 당시 마스터 정비 방법론을 재사용하십시오.</p></div>
+    <div class="card"><div class="ct">Data Quality</div><div class="ch">정제 완료 80%</div>
+      <p>양날의 검입니다. 진단 부담은 줄지만 <b>남은 20%가 어디인지</b>가 Agent 신뢰성을 좌우합니다.</p></div>
+    <div class="card"><div class="ct">Smart Plant 2.0</div><div class="ch">40개 과제 · 연 100억 절감</div>
+      <p>공정운전 · 설비관리 · SHE 3개 분야. <b>“Agent가 아직 없다”는 전제로 접근하면 안 됩니다.</b></p></div>
+  </div>
+  <p class="note" style="margin-top:16px"><b>설비 고장예측 과제를 Phase 1의 대표 사례로 삼으십시오.</b> OCEAN-H와 RTDB를 동시에 필요로 하므로 횡단 식별자 문제가 즉시 드러나고, 이미 추진 중이라 담당자와 실제 데이터가 존재합니다. 가장 설득력 있는 근거 사례가 됩니다.</p>
+</section>
+
+<!-- 10 -->
+<section id="risk">
+  <div class="sh"><span class="n">10</span><h2>리스크 · 착수 준비</h2></div>
+  <div class="tw"><table>
+    <thead><tr><th style="width:42px">#</th><th style="width:190px">리스크</th><th>왜 위험한가</th><th style="width:220px">대응</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--crit-soft)"><td class="mk">R1</td><td><b>MCP를 “배관”으로 오해</b></td><td>MCP만 얹으면 된다는 기대 → Legacy 고도화 과제가 부정됨</td><td>계층 모델을 착수보고에 명시, MCP 판단을 Phase 4로 명문화</td></tr>
+      <tr><td class="mk">R2</td><td>Legacy 소유 조직 협조 미확보</td><td>시스템별 담당이 각각 다름. 진단 자체가 불가</td><td>착수 전 시스템별 담당자 지정 및 일정 확보</td></tr>
+      <tr><td class="mk">R3</td><td>전사 Gateway 방침 미확정</td><td>CLX 적용 기준을 만들 근거가 없음</td><td>Phase 0에서 확인. 미확정이면 가정 명시 + 시나리오 2안</td></tr>
+      <tr><td class="mk">R4</td><td>권한 위임 설계 누락</td><td>권한 밖 데이터 노출 → 보안 승인 반려</td><td>Phase 5 독립 배치, 결과 필터링 필수 요건화</td></tr>
+      <tr style="background:var(--crit-soft)"><td class="mk">R5</td><td><b>쓰기(P-ACT) 범위 팽창</b></td><td>“Agent가 작업지시까지” → 승인·감사 설계로 일정 붕괴</td><td>1차 읽기 전용을 범위 기준선에 명문화. <b>OASIS를 지목해 명시</b></td></tr>
+      <tr><td class="mk">R6</td><td>대상 시스템 확산</td><td>3종이 6~8종으로 늘어남</td><td>Phase 0에서 선정 기준 확정, 추가분은 확장 가이드로 이관</td></tr>
+      <tr><td class="mk">R7</td><td>② Knowledge 과업과 경계 모호</td><td>같은 데이터를 두 과업이 중복 설계</td><td>Tag Meta는 ① 주관 · ②에 제공. 근무일지는 ①(경로) + ②(텍스트)</td></tr>
+      <tr style="background:var(--crit-soft)"><td class="mk">R9</td><td><b>시스템 간 조인 불가</b></td><td>시스템별로는 다 붙였는데 횡단 질문에 답 못 함. <b>가장 늦게 발견되고 가장 비쌈</b></td><td>Phase 3-2 식별자 표준화, Phase 1에서 횡단 질의 비중 조기 측정</td></tr>
+      <tr><td class="mk">R10</td><td>RTDB를 범용 REST로 붙이려 함</td><td>수백만 포인트 조회로 원천 부하 · 타임아웃</td><td>Phase 2-3에 <b>RTDB 대량 구간 조회 필수 포함</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>착수 시 확보할 내부 자료 — 우선순위</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36px">#</th><th style="width:270px">자료</th><th>왜 필요한가</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>OCEAN-H 구축 프로젝트 산출물</b><br><span style="font-size:12px;color:var(--ink-3)">데이터 정제 방법론, 마스터 정비 기준, 15종 통합 목록</span></td><td><b>Phase 2·3의 절반을 단축.</b> 이미 만든 것을 다시 만들지 않기 위함</td></tr>
+      <tr><td class="num">2</td><td><b>업무別 Data List</b></td><td>AI 과제 MP상 울산CLX가 제공하기로 된 산출물. 존재하면 Phase 1 인벤토리 대폭 단축</td></tr>
+      <tr><td class="num">3</td><td>스마트플랜트 2.0 40개 과제 목록 및 담당</td><td>Phase 1 Agent 현황 조사의 모집단</td></tr>
+      <tr><td class="num">4</td><td>설비 고장예측 과제의 데이터 연계 방식</td><td>현행 연계의 실물 사례</td></tr>
+      <tr><td class="num">5</td><td>전사 Endpoint/Gateway 표준 · API 정책</td><td>Phase 4 필수 입력</td></tr>
+      <tr><td class="num">6</td><td>OCEAN-P 협력사 권한 정책</td><td>사내 · 협력사 · Agent 3주체 권한 모델</td></tr>
+      <tr><td class="num">7</td><td>설비 · 공정 코드 체계 정의서 (3종 시스템)</td><td><b>이미 통일돼 있으면 원칙 07 과업이 크게 축소됨</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>착수 즉시 확인할 5가지</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36px">#</th><th style="width:300px">확인 사항</th><th>영향</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>OCEAN-H vs TDMS</b> — 설비 마스터의 Master of Record</td><td>식별자 표준 전체의 기준점</td></tr>
+      <tr><td class="num">2</td><td>AMS의 <b>알람↔공정 Tag 매핑</b> 존재 여부</td><td>LKM ‘상황’ 축 성립 여부, P-MONITOR 설계</td></tr>
+      <tr><td class="num">3</td><td>세 시스템의 설비 · 공정 <b>코드 통일 여부</b></td><td>이 과업 규모를 가장 크게 좌우</td></tr>
+      <tr><td class="num">4</td><td>OASIS <b>생산일 · 교대 정의</b> 및 권한 위임(OBO) 지원 가능성</td><td>시간축 변환 규칙, Phase 5 성립의 전제</td></tr>
+      <tr><td class="num">5</td><td>OCEAN-H 미정제 20%가 <b>어느 영역</b>인지</td><td>D5 신뢰 표시 설계, Agent 답변 신뢰성</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>
+  <span>CLX AI E-to-E 운영체계 정립 PI · 수행범위 ① 방법론 v1.0</span>
+  <span class="mono">2026.09</span>
+</footer>
+
+</main>
+</div>

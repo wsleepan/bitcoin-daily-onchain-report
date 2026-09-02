@@ -446,7 +446,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <tr><td>PM · 과업 오너</td><td><a href="#itf">4.1 인터페이스 · 협의</a> → <a href="#plan">5.1 산출물 · 조직 · 거버넌스</a> → <a href="#risk">5.2 리스크 · 착수 준비</a> → <a href="#qa">5.5 Q&amp;A</a></td></tr>
     <tr><td>① 수행자</td><td><a href="#q">1.1 핵심 논점</a> → <a href="#scope">1.3 과업의 시야</a> → 담당 논점의 절(<a href="#biz">1.5</a>~<a href="#chg">1.10</a>) → <a href="#ph">1.11 수행 절차</a> → <a href="#tmpl">5.4 템플릿</a></td></tr>
     <tr><td>② 수행자</td><td><a href="#k-proc">2.1 수행 프로세스</a> → <a href="#k-onto">2.3 온톨로지 적용 수준 판정</a> → <a href="#itf">4.1 인터페이스</a>(#1a · #1b · #9)</td></tr>
-    <tr><td>③ 수행자</td><td><a href="#m-proc">3.1 수행 프로세스</a> → <a href="#m-miss">3.4 빈번한 누락 3종</a> → <a href="#itf">4.1 인터페이스</a>(#4a · #4b · #5a · #5b · #10)</td></tr>
+    <tr><td>③ 수행자</td><td><a href="#m-proc">3.1 수행 프로세스</a> → <a href="#m-miss">3.4 빈번한 누락 3종</a> → <a href="#itf">4.1 인터페이스</a>(#4a · #4b · #5a-초 · #5a-확 · #5b-초 · #5b-확 · #10 · <b>#11</b>)</td></tr>
     <tr><td>전사 IT · 보안</td><td><a href="#arch">1.4 참조 아키텍처</a>(존 4개 · 도관) → <a href="#p4">1.8 신뢰 경계 · 인젝션 통제</a> → <a href="#data">1.7 데이터 분류 등급</a> → <a href="#a2a">1.9 권한 전파 · 감사 로그</a></td></tr>
     <tr><td>현업 · 각 시스템 담당</td><td><a href="#scope">1.3 과업의 시야</a>(우리 시스템을 어느 깊이로 보는가) → <a href="#biz">1.5 Q1 수요 정의</a> → <a href="#sys">1.6 Q2 진단</a> → <a href="#plan">5.1 내부 투입 계획</a>(역할별 소요 일수)</td></tr>
   </table>
@@ -564,7 +564,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <rect x="28" y="526" width="250" height="44" rx="4" class="dg-box"/>
 <text x="40" y="545" class="dg-t">P6  Lineage · 변경관리</text>
 <text x="266" y="545" class="dg-m" text-anchor="end">W9–W13</text>
-<text x="40" y="562" class="dg-s">관리 대상 8종 · 변경 유형 6종 · 시나리오 3건</text>
+<text x="40" y="562" class="dg-s">관리 대상 10종 · 변경 유형 7종 · 시나리오 S1~S3</text>
 
 <rect x="28" y="578" width="250" height="26" rx="4" class="dg-box"/>
 <text x="40" y="595" class="dg-m">P0 착수 · P7 목표 · P8 실행과제</text>
@@ -638,7 +638,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="192" y="656" class="dg-acc">#4a  W8 · 도구 명세 · Agent 카드 초안 → ③ M4 입력</text>
 
 <path d="M120 604 L120 700 L832 700 L832 560" class="dg-ln-a" marker-end="url(#ar-tsk-a)"/>
-<text x="126" y="692" class="dg-acc">#5b-초 W12 · #5b-확 W13 · Lineage 요건 · 변경관리으로 M5 선행</text>
+<text x="126" y="692" class="dg-acc">#5b-초 W12 · #5b-확 W13 · Lineage 요건 · 변경관리 — ③은 #5b-초로 M5 선행</text>
 
 <!-- ===== 종착점과 범위 경계 ===== -->
 <line x1="20" y1="724" x2="920" y2="724" class="dg-ln" stroke-opacity=".25"/>
@@ -717,7 +717,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <path d="M636 352 L400 348 L234 262" class="dg-ln" marker-end="url(#ar12)"/>
 <rect x="332" y="340" width="212" height="38" rx="4" class="dg-box"/>
 <text x="438" y="357" class="dg-t" text-anchor="middle">운영 제약 · 플랫폼 요건</text>
-<text x="438" y="372" class="dg-s" text-anchor="middle">모델 배치 · 관측 규격 · W7</text>
+<text x="438" y="372" class="dg-s" text-anchor="middle">모델 배치 · 관측 규격 W7(#6) · 저장소·레지스트리 소재 W9(#11)</text>
 
 <!-- ② ↔ ③ -->
 <path d="M740 140 L740 276" class="dg-dash" marker-end="url(#ar12)"/>
@@ -967,7 +967,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="tw"><table>
     <thead><tr><th style="width:110px">기호</th><th style="width:230px">쓰임 A</th><th style="width:230px">쓰임 B</th><th>구분 기준</th></tr></thead>
     <tbody>
-      <tr><td class="mk">R1~R6</td><td><b>Agent-Readiness 진단 6축</b><br><span style="font-size:12px">인터페이스·데이터구조·의미명확성·권한세분성·관측감사·변경관리 (1.2 · 1.7 · T1)</span></td><td><b>① 리스크 번호</b><br><span style="font-size:12px">R1~R15 (5.2)</span></td><td>진단축은 <b>1.2·1.7·템플릿</b>에만, 리스크는 <b>5.2와 리스크 표</b>에만 나온다. 인용 시 “<b>진단 R3</b>” / “<b>리스크 R3</b>”로 부를 것</td></tr>
+      <tr><td class="mk">R1~R6</td><td><b>Agent-Readiness 진단 6축</b><br><span style="font-size:12px">인터페이스·데이터구조·의미명확성·권한세분성·관측감사·변경관리 (1.2 · <b>1.6</b> · 1.7 · T1)</span></td><td><b>① 리스크 번호</b><br><span style="font-size:12px">R1~R16 (5.2)</span></td><td>진단축은 <b>1.2 · 1.6 · 1.7 · 템플릿</b>에만, 리스크는 <b>5.2와 리스크 표</b>에만 나온다. 인용 시 “<b>진단 R3</b>” / “<b>리스크 R3</b>”로 부를 것</td></tr>
       <tr><td class="mk">M1~M3</td><td><b>메타데이터 3계층</b><br><span style="font-size:12px">기술·업무·운영 메타 (1.7)</span></td><td><b>③ 수행 Phase</b><br><span style="font-size:12px">M0~M6 (Part 3)</span></td><td>메타 계층은 <b>1.7과 ①의 산출물</b>에만, Phase는 <b>Part 3</b>에만. 인용 시 “<b>메타 M2</b>” / “<b>Phase M2</b>”</td></tr>
       <tr><td class="mk">Q1~Q6</td><td colspan="2"><b>1.1 핵심 논점 6개</b> — 문서 전체에서 단일 쓰임<br><span style="font-size:12px">Q<i>n</i>은 <b>P<i>n</i></b>에서 답한다 · 주답 절은 <b>1.4+<i>n</i></b></span></td><td><b>논점 번호 · Phase 번호 · 절 번호가 한 축</b>이다 — Q3은 Phase 3, 주답 절은 1.7이다. MCP 채택 판단 게이트는 <b><span class="pat">G0~G5</span></b>로 분리했으므로(1.8), <b>Q가 나오면 언제나 1.1의 논점</b>이다. 다만 P0 · P7 · P8은 논점에 대응하지 않는 <b>수렴 단계</b>다</td></tr>
       <tr><td class="mk">L1~L6</td><td><b>1.4 아키텍처 L1~L6</b><br><span style="font-size:12px">L1a·L1b · L3-N·L3-S · L4 · L5 · L6</span></td><td><b>2.3 온톨로지 레벨</b><br><span style="font-size:12px">L0~L5</span></td><td>Part 1의 L은 아키텍처 계층, <b>Part 2의 L은 온톨로지 레벨</b>. <b>L 축은 넷이다</b> — ① 아키텍처 ② 온톨로지(L0~L5) ③ <b>Purdue(L0~L5 · L3.5)</b> ④ MP 디지털화 성숙도. <b>“L0이 나오면 온톨로지”는 성립하지 않는다</b> — 1.4 존 표에 Purdue L0–L3가 나온다. 성숙도 축은 <b><span class="pat">MP-L1~L5</span></b>로 접두 분리하고, 나머지는 인용 시 축 이름을 병기한다</td></tr>
@@ -976,11 +976,12 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="mk">A · B · C</td><td colspan="2"><b>다섯 축에서 동시에 쓰인다</b> — Part 1 그룹 밴드 A~D · 1.1 추적표 A~C · 1.4 호출 경로 A~D · 1.13 인터뷰 유형 A/B/C · 1.7 태그 커버리지 T-A/T-B/T-C</td><td>단독으로 쓰지 말고 <b>앞에 축 이름을 붙인다</b> — 「밴드 C」 · 「표 C」 · 「경로 C」 · 「C형 인터뷰」 · 「T-C」. 태그 축만 <span class="pat">T-</span> 접두로 이미 분리되어 있다</td></tr>
       <tr><td class="mk">DA-01~07</td><td colspan="2"><b>1.7 데이터·메타 개선과제</b></td><td>다른 축과 충돌하지 않는 신규 접두. 1.3이 1.7보다 앞에서 인용하므로 <b>정의는 1.7</b>임을 함께 표기한다</td></tr>
       <tr><td class="mk">G0~G5</td><td colspan="2"><b>1.8 MCP 채택 판단 게이트 6단</b> <span style="font-size:12px">G0 전제(망·법적 경계) · G1~G3 유용성 · G4·G5 안전성</span></td><td>이전 판의 <b>Q0~Q5 표기는 폐기</b>됐다. <b>Q는 논점, G는 게이트</b>이며 1.8 밖에서 인용할 때는 「판단 게이트 G4」로 축 이름을 붙인다</td></tr>
-      <tr><td class="mk">합의 ①②③<br>협의 #1~#13</td><td colspan="2"><b>착수 합의 3건</b> <span style="font-size:12px">(5.3 장표 P4 — 1차 범위 · MCP 판단 시점 · 설계 대 구축 경계)</span> / <b>과업 간 합동 결정 13건</b> <span style="font-size:12px">(Part 4)</span></td><td>동그라미는 <b>착수 합의</b>, 우물정자는 <b>과업 간 협의</b>다. 인용 시 「<b>착수 합의 ③</b>」 / 「<b>협의 #3</b>」으로 접두를 붙인다 — 둘 다 세 번째 항목이라 가장 자주 혼동된다</td></tr>
-<tr><td class="mk">인계 #1~#11<br><span style="font-size:12px">-초 / -확</span></td><td colspan="2"><b>Part 4 과업 간 인계 — 11항목 · 16행</b> <span style="font-size:12px">(#1a/#1b는 인계물이 서로 다른 <b>층</b> 분할, #4a/#4b · #5a-초/#5a-확 · #5b-초/#5b-확은 같은 인계물의 <b>단</b> 분할)</span></td><td><b>접미 <span class="pat">-초</span>는 초안, <span class="pat">-확</span>은 확정본</b>이다. <b>#4a/#4b는 이 규칙 이전에 붙은 이름</b>이라 문자로 단을 가르고 있으며, 10곳 이상의 인용을 끊지 않기 위해 그대로 둔다 — 인용 시 「<b>#4a(초안)</b>」처럼 병기한다. <b>협의 #과 혼동하지 않도록 「인계 #5b-확」 · 「협의 #3」으로 축 이름을 붙인다</b></td></tr>
-      <tr><td class="mk">S1~S3</td><td colspan="2"><b>1.10 대표 변경 시나리오 3건</b> <span style="font-size:12px">(S1 코드값 의미 · S2 태그 폐기 · S3 모델 교체)</span></td><td>다른 축과 충돌하지 않는 신규 접두. 변경 <b>유형</b> 7종은 번호로만 부르며 접두를 쓰지 않는다</td></tr>
+      <tr><td class="mk">합의 ①②③<br>협의 #1~#13</td><td colspan="2"><b>착수 합의 3건</b> <span style="font-size:12px">(5.3 장표 P4 — ① MCP의 성격 · ② 1차 범위 · ③ 설계 대 구축 경계)</span> / <b>과업 간 합동 결정 13건</b> <span style="font-size:12px">(Part 4)</span></td><td>동그라미는 <b>착수 합의</b>, 우물정자는 <b>과업 간 협의</b>다. 인용 시 「<b>착수 합의 ③</b>」 / 「<b>협의 #3</b>」으로 접두를 붙인다 — 둘 다 세 번째 항목이라 가장 자주 혼동된다</td></tr>
+<tr><td class="mk">전사 안건 #1~#9</td><td colspan="2"><b>1.8 전사 Gateway 개선 요청 · 협의 안건</b> <span style="font-size:12px">(전사 IT에 제기하는 것)</span></td><td><b>Part 4의 협의 #1~#13과 번호가 겹친다</b> — 1.8의 #8은 「감사 로그 헤더 규격」, Part 4의 #8은 「현업 참여 일정 조정」이다. 인용 시 「<b>전사 안건 #8</b>」 / 「<b>협의 #8</b>」로 축 이름을 붙인다</td></tr>
+      <tr><td class="mk">인계 #1~#11<br><span style="font-size:12px">-초 / -확</span></td><td colspan="2"><b>Part 4 과업 간 인계 — 11항목 · 16행</b> <span style="font-size:12px">(#1a/#1b는 인계물이 서로 다른 <b>층</b> 분할, #4a/#4b · #5a-초/#5a-확 · #5b-초/#5b-확은 같은 인계물의 <b>단</b> 분할)</span></td><td><b>접미 <span class="pat">-초</span>는 초안, <span class="pat">-확</span>은 확정본</b>이다. <b>#4a/#4b는 이 규칙 이전에 붙은 이름</b>이라 문자로 단을 가르고 있으며, 10곳 이상의 인용을 끊지 않기 위해 그대로 둔다 — 인용 시 「<b>#4a(초안)</b>」처럼 병기한다. <b>협의 #과 혼동하지 않도록 「인계 #5b-확」 · 「협의 #3」으로 축 이름을 붙인다</b></td></tr>
+      <tr><td class="mk">S1~S3</td><td colspan="2"><b>1.10 대표 변경 시나리오 3건</b> <span style="font-size:12px">(S1 코드값 의미 · S2 태그 폐기 · S3 모델 교체)</span></td><td><b>1.6의 진단 단계 S1~S6과 겹친다</b> — 1.6이 앞에 있으므로 순서대로 읽으면 S1을 「문헌 수령」으로 먼저 배운다. 인용 시 「<b>시나리오 S1</b>」 / 「<b>단계 S1</b>」로 축 이름을 붙인다. 변경 <b>유형</b> 7종은 번호로만 부르며 접두를 쓰지 않는다</td></tr>
       <tr><td class="mk">IV-01~21</td><td colspan="2"><b>1.13 인터뷰 식별자</b> <span style="font-size:12px">(A 심층 · B 간략 · C 합동 워크숍)</span></td><td>다른 축과 충돌하지 않는 신규 접두</td></tr>
-      <tr><td class="mk">KR / MR</td><td colspan="2"><b>② 리스크 = KR1~KR6 · KR1b</b> / <b>③ 리스크 = MR1~MR8</b></td><td>접두로 과업 구분. ①만 접두 없이 R1~R15</td></tr>
+      <tr><td class="mk">KR / MR</td><td colspan="2"><b>② 리스크 = KR1~KR6 · KR1b</b> / <b>③ 리스크 = MR1~MR8</b></td><td>접두로 과업 구분. ①만 접두 없이 R1~R16</td></tr>
     </tbody>
   </table></div>
 
@@ -2378,7 +2379,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="sh"><span class="n">1.6</span><h2>Q2 · Legacy Agent-Readiness 진단 — 대상 시스템과 진단 축</h2></div>
   <p class="note"><b>대응 논점</b> — <b>Q2 주답</b>(진단 대상 6종 확정 · 6축 판정 절차) · Q3 부분(설비 마스터 중복 판정). 판정 척도는 <a href="#tmpl">5.4 T1</a>, 칸별 도달 깊이는 <a href="#scope">1.3 대상 × 해상도 매트릭스</a>, 근거 유형 프레임은 <a href="#itv">1.13</a> <a href="#q">→ 1.1 표 A</a></p>
   <p class="lede">기존 CLX AI 과제 MP 반영으로 대상이 3종에서 8종 이상으로 확장되었습니다. 두 축을 구분합니다 — <b>업무 수요 집중</b>(AI 과제 볼륨 기준)은 <span class="sys p1">RTDB</span> <span class="sys p1">AMS</span> <span class="sys p1">OCEAN-H</span>, <b>설계 대상 1순위</b>(진단·설계 우선순위)는 <span class="sys p1">RTDB</span> <span class="sys p1">OCEAN-H</span> <span class="sys p1">OASIS</span> 입니다.
-  <b>진단 대상은 6종</b>(RTDB · OCEAN-H · OASIS · AMS · PMS · TDMS)으로 확정하며, DCS는 RTDB 경유 간접, 투자관리·Teams·사고관리·교육포탈은 <b>확장 가이드 적용 대상</b>입니다 — 이것이 R6(대상 확산) 대응의 실체입니다.</p>
+  <b>진단 대상은 6종</b>(RTDB · OCEAN-H · OASIS · AMS · PMS · TDMS)으로 확정하며, DCS는 RTDB 경유 간접, 투자관리·Teams·사고관리·교육포탈은 <b>확장 가이드 적용 대상</b>입니다 — 이것이 <b>리스크 R6</b>(대상 확산) 대응의 실체입니다.</p>
   <h3>진단 대상 6종 — 확정과 제외</h3>
   <div class="tw"><table>
     <thead><tr><th style="width:46px">순위</th><th style="width:104px">시스템</th><th style="width:210px">성격</th><th>보유 데이터</th><th style="width:190px">예상 취약축</th></tr></thead>
@@ -3767,7 +3768,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
   <h3>③ MLOps · AgentOps · 차년도 운영 조직과의 역할 경계</h3>
   <div class="thesis">이 절의 위험은 <strong>이중 투자가 아니라 소관 공백입니다.</strong> ③의 M0~M6 완료 판단기준을 그대로 대조해 보면 <strong>Lineage·변경관리를 산출하는 항목이 하나도 없고</strong>, M6의 “①의 Lineage 확정본 반영 확인” 한 줄이 전부입니다. ③은 문서 스스로 <strong>“새로 설계하는 것이 아니라 Gap을 재고 보완 방향을 제시하는 진단형”</strong>으로 규정한 과업이므로, 경계를 못 그으면 같은 일을 두 번 하는 것이 아니라 <strong>아무도 하지 않는 칸이 남습니다.</strong></div>
-  <p class="lede" style="margin-top:18px">협의 #3이 이미 원칙을 적어 두었습니다 — <b>“①은 대상 식별·영향 경로까지, ③은 도구·실행까지”</b>. 그런데 그 “도구·실행”의 상당 부분은 <b>③의 14주가 아니라 차년도 실행 범위</b>입니다(0.2 과업 지형 — “21종은 표준·기준·로드맵까지이며 시스템 구현은 차년도”). 그래서 아래 표는 받는 쪽을 <b>③ 과업(14주)</b>과 <b>차년도 운영 조직</b> 둘로 갈라 씁니다. <b>둘을 한 칸에 두면 W9에 “③이 한다”로 합의하고 W14에 아무도 안 한 상태를 발견합니다.</b></p>
+  <p class="lede" style="margin-top:18px">협의 #3이 이미 원칙을 적어 두었습니다 — <b>“①은 대상 식별·영향 경로까지, ③은 도구·실행까지”(확정 문구는 <b>“③은 판정·수용까지”</b> — 1.10 경계 표)</b>. 그런데 그 “도구·실행”의 상당 부분은 <b>③의 14주가 아니라 차년도 실행 범위</b>입니다(0.2 과업 지형 — “21종은 표준·기준·로드맵까지이며 시스템 구현은 차년도”). 그래서 아래 표는 받는 쪽을 <b>③ 과업(14주)</b>과 <b>차년도 운영 조직</b> 둘로 갈라 씁니다. <b>둘을 한 칸에 두면 W9에 “③이 한다”로 합의하고 W14에 아무도 안 한 상태를 발견합니다.</b></p>
   <div class="tw"><table>
     <thead><tr><th style="width:130px">활동</th><th style="width:210px">① 본 과업 (14주)</th><th style="width:200px">③ 과업 (14주)</th><th>차년도 운영 조직</th><th class="c" style="width:72px">확정 시점</th></tr></thead>
     <tbody>
@@ -4146,6 +4147,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="mk">W6</td><td>공급 진단 완료</td><td>Agent-Readiness 히트맵, Gap 분석서, 대상 시스템 확정</td></tr>
       <tr><td class="mk best">W7</td><td><b>중간보고</b></td><td>현황 분석 결과 + To-be 방향성 초안 + <b>남은 2대 결정(식별자 표준 W8, MCP 채택 W9–10)의 판단 기준과 잠정 방향</b> + <b>보안 사전 검토 결과</b></td></tr>
       <tr><td class="mk">W8</td><td><b>횡단 식별자 표준 확정</b></td><td>공통 식별자·매핑 요건 (횡단 질의 5건 조인 검증 통과)</td></tr>
+      <tr><td class="mk">W9</td><td><b>③ 경계 확정 및 초안 인계</b></td><td>협의 #3 서면 귀속(1.10 경계 표) · 인계 <b>#5a-초</b> 발신 · 인계 <b>#11</b> 수령 · <span class="pat">IV-21</span></td></tr>
       <tr><td class="mk">W9–10</td><td><b>MCP 채택 판단</b></td><td>MCP 채택 판단서, 적합성 매트릭스</td></tr>
       <tr style="background:var(--accent-soft)"><td class="mk">W11</td><td><b>핵심 설계 결정 리뷰</b> <span style="font-size:12px">(승인 회의체)</span></td><td>연계 아키텍처 · 권한 모델 · 도구 정의 기준 — <b>중간보고에서 유보한 2대 결정을 여기서 승인</b></td></tr>
             <tr><td class="mk">W11</td><td><b>연계 구조 설계 승인</b></td><td>연계 구조 설계서(산출물 4) · CLX 적용 기준 · 전사 협의사항 부록A</td></tr>
@@ -4885,7 +4887,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <h4>①과의 중복 방지 — L3의 기존 산출 활용</h4>
   <p class="lede">이것이 이 절에서 가장 실무적인 지점입니다. <b>①의 횡단 식별자 4축이 경량 Entity-Relation의 「인스턴스 층」을 제공합니다.</b></p>
   <p class="note warn" style="margin-top:12px"><b>“4축 = 경량 ER”이라고 쓰면 반론에 노출됩니다.</b> 매핑표와 Relation은 네 가지가 다르고, 넷 다 실무에서 즉시 문제가 됩니다 — ⓐ <b>외연 vs 내포</b>(매핑표는 사실의 나열, Relation은 도메인·레인지·카디널리티까지 포함) ⓑ <b>관계 타입 부재</b>(태그↔설비는 <b>측정/제어/알람/계산</b> 4종인데 매핑표 한 장은 구분하지 못한다 — 문서 스스로 LKM에서 SP·OP·PV를 구분하라고 한 것이 그 증거) ⓒ <b>전이성·방향성</b>(“공정-[구성]-설비”는 전이적인데 매핑표는 전이성을 표현하지 못해 롤업 규칙을 별도 코딩하게 된다) ⓓ <b>시간 유효성</b>. <b>따라서 ②의 역할은 “재사용”이 아니라 그 위에 관계 타입·카디널리티·유효기간을 얹는 것</b>입니다.</p>
-  <p class="note crit" style="margin-top:12px"><b>ⓓ 시간 유효성이 실무에서 가장 큰 문제를 일으킵니다.</b> 매핑표는 통상 <b>현재 상태</b>를 담습니다. “3호기 압축기의 2023년 정비 이력”을 조회할 때 그 사이 개조·이설·ID 승계가 있었다면, <span class="pat">valid_from</span>/<span class="pat">valid_to</span>가 없는 매핑표는 <b>오류 없이 틀린 답</b>을 냅니다. LKM의 상황–증상–조치는 본질적으로 <b>과거 시점 조인</b>이므로 이 결함은 LKM의 정확성을 직접 훼손합니다. <b>①의 4축 산출물 명세에 다음 세 필드를 필수로 넣으십시오</b> — ⓐ 관계 타입 코드 ⓑ <span class="pat">valid_from</span>·<span class="pat">valid_to</span> ⓒ 카디널리티·매핑 신뢰도. 그리고 이 세 필드를 <b>Part 4 인터페이스 #1의 인계 필수 필드</b>로 올립니다.</p>
+  <p class="note crit" style="margin-top:12px"><b>ⓓ 시간 유효성이 실무에서 가장 큰 문제를 일으킵니다.</b> 매핑표는 통상 <b>현재 상태</b>를 담습니다. “3호기 압축기의 2023년 정비 이력”을 조회할 때 그 사이 개조·이설·ID 승계가 있었다면, <span class="pat">valid_from</span>/<span class="pat">valid_to</span>가 없는 매핑표는 <b>오류 없이 틀린 답</b>을 냅니다. LKM의 상황–증상–조치는 본질적으로 <b>과거 시점 조인</b>이므로 이 결함은 LKM의 정확성을 직접 훼손합니다. <b>①의 4축 산출물 명세에 다음 세 필드를 필수로 넣으십시오</b> — ⓐ 관계 타입 코드 ⓑ <span class="pat">valid_from</span>·<span class="pat">valid_to</span> ⓒ 카디널리티·매핑 신뢰도. 그리고 이 세 필드를 <b>Part 4 인터페이스 #1a(관계 타입) · #1b(유효기간 · 매핑 신뢰도)의 인계 필수 필드</b>로 올립니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:180px">① 과업 산출물</th><th style="width:200px">온톨로지 관점 해석</th><th>② 과업 수행 내용</th></tr></thead>
     <tbody>
@@ -5518,7 +5520,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <rect x="698" y="228" width="104" height="76" rx="4" class="dg-hi"/>
 <text x="750" y="252" class="dg-t" text-anchor="middle">재평가 후 반영</text>
 <text x="750" y="270" class="dg-s" text-anchor="middle">롤백</text>
-<text x="750" y="292" class="dg-m" text-anchor="middle">A = ③</text>
+<text x="750" y="292" class="dg-m" text-anchor="middle">R = ③ · A = DT 추진실</text>
 
 <!-- col 7 은퇴 -->
 <rect x="820" y="44" width="104" height="76" rx="4" class="dg-warn"/>
@@ -5629,9 +5631,9 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- ROW 3 -->
 <rect x="20" y="324" width="190" height="72" rx="4" class="dg-box"/>
-<text x="115" y="346" class="dg-t" text-anchor="middle">② K3B 산출물</text>
-<text x="115" y="364" class="dg-s" text-anchor="middle">현업 실제 질의 30건+</text>
-<text x="115" y="382" class="dg-s" text-anchor="middle">W12 ② → ③ 인계</text>
+<text x="115" y="346" class="dg-t" text-anchor="middle">② K1 질의 원문 목록</text>
+<text x="115" y="364" class="dg-s" text-anchor="middle">현업 실제 질의 30~50건</text>
+<text x="115" y="382" class="dg-s" text-anchor="middle">W4 ② → ③ 인계 #9</text>
 <path d="M212 360 L246 360" class="dg-ln" marker-end="url(#ar-m4)"/>
 <rect x="250" y="308" width="350" height="104" rx="5" class="dg-warn"/>
 <circle cx="272" cy="336" r="11" class="dg-warn"/>
@@ -5652,13 +5654,13 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <text x="20" y="436" class="dg-sig">세 장치 모두 ①·②의 산출물과 맞물린다 — ③ 단독 수립 불가</text>
 </svg>
-<figcaption><b>누락된 세 항목은 각각 하나의 사고 유형을 그대로 통과시킨다</b> — 모델ID·버전·시스템프롬프트 해시를 남기지 않으면 답이 달라진 이유를 재현할 수 없어 사고 조사 자체가 성립하지 않고, 비상 정지 절차가 없으면 오작동하는 Agent를 멈출 수단이 없으며(레이트리밋은 남용 방지이지 정지 수단이 아니다), 평가셋이 없으면 품질 저하를 현업 신고로만 알게 된다. <b>셋 다 ③ 혼자 만들 수 없다</b> — 기록 규격은 ①의 감사 로그 스키마에서, 평가셋의 질문은 ②의 K3B 산출물 #5·#6에서 온다.</figcaption>
+<figcaption><b>누락된 세 항목은 각각 하나의 사고 유형을 그대로 통과시킨다</b> — 모델ID·버전·시스템프롬프트 해시를 남기지 않으면 답이 달라진 이유를 재현할 수 없어 사고 조사 자체가 성립하지 않고, 비상 정지 절차가 없으면 오작동하는 Agent를 멈출 수단이 없으며(레이트리밋은 남용 방지이지 정지 수단이 아니다), 평가셋이 없으면 품질 저하를 현업 신고로만 알게 된다. <b>셋 다 ③ 혼자 만들 수 없다</b> — 기록 규격은 ①의 감사 로그 스키마에서, 평가셋의 질문은 ②의 K1 질의 원문 목록(인계 #9 · W4)과 ①의 대표 횡단 질의(#10 · W4)에서 온다.</figcaption>
 </figure>
   <div class="tw" style="margin-top:18px"><table>
     <thead><tr><th style="width:180px">누락 항목</th><th style="width:250px">막으려는 사고</th><th>연결되는 ① 산출물</th></tr></thead>
     <tbody>
       <tr style="background:var(--crit-soft)"><td><b>모델ID·버전·프롬프트 해시 기록</b></td><td>같은 질문에 답이 달라지는 주된 원인은 <b>모델 교체</b>. 당시 모델을 재현할 수 없으면 <b>사고 조사와 책임 규명이 불가능</b></td><td>감사 로그 스키마 (①이 규격 정의)</td></tr>
-      <tr style="background:var(--crit-soft)"><td><b>비상 정지 (kill switch)</b></td><td>Agent 오작동·원천 과부하 시 <b>차단 권한자 · 경로 · 목표 소요시간.</b> 레이트리밋은 남용 방지이지 kill switch가 아님</td><td>L3 횡단 관심사 — 격리·서킷 요건</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>비상 정지 (kill switch)</b></td><td>Agent 오작동·원천 과부하 시 <b>차단 권한자 · 경로 · 목표 소요시간.</b> 레이트리밋은 남용 방지이지 kill switch가 아님</td><td>P-OPS 횡단 관심사(1.4) — 격리·서킷 요건</td></tr>
       <tr style="background:var(--crit-soft)"><td><b>Agent 평가셋</b></td><td>“잘 되고 있는지” 판정 수단이 없으면 <b>운영이 아니라 방치</b>. 본 과업 산출은 <b>설계 규격 + 시드 50~80쌍</b>이며 300~500쌍은 <b>운영 이관 후 목표</b> (3.1 M5 · MR5)</td><td>②의 <b>K1 질의 원문 목록(인터페이스 #9)</b>과 ①의 <b>대표 횡단 질의(#10)</b> — 둘 다 <b>W4 인계</b></td></tr>
     </tbody>
   </table></div>
@@ -5678,7 +5680,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
   <h3>주요 리스크 — MR1~MR8</h3>
-  <p class="lede">①은 R1~R14, ②는 KR1~KR6이 있는데 <b>③에만 리스크 표가 없었습니다.</b> 진단형 과업이라 리스크가 없는 것이 아니라, <b>입력을 남에게 의존하는 과업이라 오히려 더 많습니다.</b></p>
+  <p class="lede">①은 R1~R16, ②는 KR1~KR6 · KR1b가 있는데 <b>③에만 리스크 표가 없었습니다.</b> 진단형 과업이라 리스크가 없는 것이 아니라, <b>입력을 남에게 의존하는 과업이라 오히려 더 많습니다.</b></p>
   <div class="tw"><table>
     <thead><tr><th style="width:52px">#</th><th style="width:200px">리스크</th><th style="width:80px">발현 시점</th><th>대응</th></tr></thead>
     <tbody>
@@ -5719,7 +5721,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <section id="itf">
   <div class="sh"><span class="n">4.1</span><h2>과업 간 인터페이스 및 협의 사항</h2></div>
   <h3>인터페이스 — 인계 항목과 시점</h3>
-  <p class="lede">아래 <b>16건</b>이 실제로 넘겨야 하는 산출물입니다(#1 · #4 · #5a · #5b는 일정 정합을 위해 <b>2단으로 분할</b>했습니다 — 받는 쪽 Phase가 끝난 뒤 도착하는 인계는 인계가 아니기 때문입니다). 각 항목에 <b>기한이 있는 이유</b>는, 받는 쪽 Phase의 입력이기 때문입니다.</p>
+  <p class="lede">아래 <b>16건</b>이 실제로 넘겨야 하는 산출물입니다(<b>#1a/#1b는 인계물이 서로 다른 「층」 분할</b>이고, <b>#4 · #5a · #5b는 같은 인계물의 「단」 분할</b>입니다 — 받는 쪽 Phase가 끝난 뒤 도착하는 인계는 인계가 아니기 때문입니다). 각 항목에 <b>기한이 있는 이유</b>는, 받는 쪽 Phase의 입력이기 때문입니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:36px">#</th><th style="width:70px">방향</th><th style="width:210px">인계 항목</th><th class="c" style="width:60px">시점</th><th>수령 측 활용 및 지연 시 영향</th></tr></thead>
     <tbody>
@@ -5998,7 +6000,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
         <li>실무 <b>3영업일</b> 미해결 → 격주 설계 결정회의</li>
         <li>추가 <b>5영업일</b> 미해결 → 월간 Steering</li>
         <li>임계 경로 영향 건은 <b>즉시 Steering</b></li>
-        <li>대상: R2(협조 미확보) · R3(전사 방침) · R8(보안 심의) — <b>수행사가 스스로 해결할 수 없는 리스크</b></li>
+        <li>대상: R2(협조 미확보) · R3(전사 방침) · R8(보안 심의) · <b>R16</b>(실측 2칸 승인) — <b>수행사가 스스로 해결할 수 없는 리스크</b></li>
       </ul></div>
   </div>
   <div class="two" style="margin-top:14px">
@@ -6030,7 +6032,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td>작업표준 · 규정 문서 · P&amp;ID</td><td class="c">I</td><td class="c mk best">R</td><td class="c">I</td><td>② 주관 (①이 설비·Tag 연결 제공)</td></tr>
       <tr><td>도구(Tool) 명세 표준</td><td class="c mk best">R</td><td class="c">C</td><td class="c">C</td><td>① 주관</td></tr>
       <tr><td>도구 등록 · 버전 운영</td><td class="c">C</td><td class="c">I</td><td class="c mk best">R</td><td>③ 주관 (①이 기준 정의)</td></tr>
-      <tr style="background:var(--signal-soft)"><td><b>Lineage · 변경관리 체계</b></td><td class="c mk best">R</td><td class="c">I</td><td class="c mk mid">C</td><td><b>A = DT 추진실 · R = ① · C = ③ · I = 정보보호.</b> ① 설계 → ③ 수용 → 차년도 운영. 이관 범위는 협의 #3 W9 확정</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>Lineage · 변경관리 체계</b></td><td class="c mk best">R</td><td class="c">I</td><td class="c mk mid">C</td><td><b>A = DT 추진실 · R = ① · C = ③ · I = ②(표) 및 정보보호(통보).</b> ① 설계 → ③ 수용 → 차년도 운영. 이관 범위는 협의 #3 W9 확정</td></tr>
       <tr><td><b>Agent 카드 · A2A 구조</b></td><td class="c mk best">R</td><td class="c">I</td><td class="c mk mid">C</td><td><b>A = IT 아키텍처 · 전사 IT · R = ① · C = ③ · I = ②.</b> ① 설계 → ③ 운영 수용. <b>A는 산출물 검수 주체를 따릅니다</b> — 산출물 4(연계 구조 설계서)의 검수 주체가 IT 아키텍처·전사 IT이므로 최종 책임도 같은 곳입니다</td></tr>
       <tr><td>trace context 전파 규격</td><td class="c mk best">R</td><td class="c">I</td><td class="c">C</td><td>① 정의 → ③ 수집·분석 운영</td></tr>
       <tr><td>Agent 평가 · 런타임 모니터링</td><td class="c">I</td><td class="c">I</td><td class="c mk best">R</td><td>③ 전담</td></tr>
@@ -6312,7 +6314,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
             <tr><td class="lab">P7·8 실행과제</td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td><td class="cell on"></td></tr>
           </tbody>
         </table></div>
-        <div class="lg"><span>◆ 마일스톤</span><span><i style="background:var(--signal);opacity:.85"></i>임계 검증 (RTDB 대량조회)</span><span>중간보고 W7 · 최종보고 W14</span></div>
+        <div class="lg"><span>◆ 마일스톤</span><span><i style="background:var(--signal);opacity:.85"></i>임계 검증 (RTDB 대량조회)</span><span><b>W8</b> 식별자 표준 확정</span><span><b>W11</b> 핵심 설계 결정 리뷰(승인)</span><span>중간보고 W7 · 최종보고 W14</span></div>
       </div>
     </div>
 
@@ -6334,7 +6336,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <tr><td class="num">9</td><td>권한 모델 사전 검토 착수</td><td>정보보호</td><td class="mk">W10</td></tr>
 <tr><td class="num">10</td><td><b>AMS · PMS · TDMS 담당자 지정</b></td><td>각 소관</td><td class="mk">W2</td></tr>
 <tr><td class="num">11</td><td><b>RTDB DMZ 복제본 존재 여부 및 검증 환경</b></td><td>공정정보 + 정보보호</td><td class="mk">W3</td></tr>
-            <tr style="background:var(--crit-soft)"><td class="num">12</td><td><b>OCEAN-H 완결성 검사용 추출본 반출 승인</b><br><span style="font-size:12px;color:var(--ink-3)">설비 마스터 · 정비이력 필수 필드 / 개인정보 · 협력사 정보 제외 / 사내망 한정</span></td><td>EAM 운영 + 정보보호</td><td class="mk">W3 <span style="font-size:12px;color:var(--ink-3)">(IV-14 등급 판정보다 이름)</span></td></tr>
+            <tr style="background:var(--crit-soft)"><td class="num">12</td><td><b>OCEAN-H 완결성 검사용 추출본 반출 승인</b><br><span style="font-size:12px;color:var(--ink-3)">설비 마스터 · 정비이력 필수 필드 / 개인정보 · 협력사 정보 제외 / 사내망 한정</span></td><td>EAM 운영 + 정보보호</td><td class="mk">W3 <span style="font-size:12px;color:var(--ink-3)">(IV-14 등급 판정보다 이른 시점)</span></td></tr>
 <tr style="background:var(--crit-soft)"><td class="num">13</td><td><b>OASIS 권한 위임 필터링 시험 승인</b><br><span style="font-size:12px;color:var(--ink-3)">권한 범위가 다른 시험 계정 2종 · 시험 환경 · 담당자 입회 — 운영 계정 사용 불가</span></td><td>생산관리 + 정보보호</td><td class="mk">W3</td></tr>
           </tbody>
         </table></div>
@@ -6354,6 +6356,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
             <tr><td>Legacy 소유 조직 협조 미확보</td><td>진단 자체가 불가</td><td>협조 요청 #1 — 착수 전 확정</td></tr>
             <tr><td>RTDB 대량 조회 불가 발견</td><td>후반 발견 시 아키텍처 재작업</td><td>W4에 실물 검증 배치 (협조 요청 #6)</td></tr>
             <tr><td>② Knowledge 과업과 중복</td><td>같은 데이터 이중 설계</td><td>Tag Meta는 ① 주관·② 제공. W1 경계 합의</td></tr>
+        <tr style="background:var(--crit-soft)"><td><b>실측 2칸 승인 미확보</b></td><td>Q5의 <b>유일한 실물 근거</b>가 사라짐 — 권한 위임 필터링 동작을 확인 못 함</td><td>협조 요청 12·13 <b>W3</b> · 미승인 시 「인」으로 서면 격하 (R16)</td></tr>
+        <tr style="background:var(--crit-soft)"><td><b>변경의 조용한 오답</b></td><td>코드값 의미가 바뀌어도 <b>호출이 성공해 자동 탐지 불가</b> — 오류 대신 그럴듯한 틀린 답</td><td>관리 대상 10종 등록부(T7) · 탐지 불가 유형에 <b>대체 통제 지정</b> (R15)</td></tr>
           </tbody>
         </table></div>
       </div>
@@ -6716,7 +6720,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <div class="qa-a"><span class="am">A</span><div class="at"><b>정당한 지적이라 판정 규칙으로 교체했습니다.</b> 단일 임계는 근거를 대지 못하고, n=30에서 비율의 95% 신뢰구간이 대략 ±14%p라 20%와 30%가 통계적으로 구분되지 않습니다. 대신 세 조건을 <b>모두</b> 만족할 때 재판정을 엽니다 — ① 질의 유형 5분류 중 <b>(d) 분류 추론 · (e) 규칙 함의</b>가 <b>최고 리스크 업무에 반복 출현</b>(다단 조인·계층 롤업·집합 부정은 SQL과 재귀 CTE로 풀리므로 계수 제외). <b>비율 임계는 두지 않습니다</b> — 30~50건 표본에서 어떤 비율도 ±14%p 안에서 구분되지 않으므로, 20%를 버리고 15%를 세우면 같은 오류입니다 ② <b>2인 독립 판정 불일치율 10% 이하</b> ③ <b>“L3 수단으로 표현하려는 실제 시도가 실패했다”는 기록.</b> 세 번째가 핵심입니다 — 의견이 아니라 실증으로 정의하면 재판정 논쟁이 사라집니다. <span class="src">2.3 재판정 조건</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">매핑표를 Relation이라 부르는데, 3년 전 개조 전 구성으로 정비이력을 조회하면 틀린 답이 나오지 않나</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at"><b>그대로 두면 나옵니다. 그래서 필수 필드를 세 개 추가했습니다.</b> ①의 4축은 경량 ER의 <b>인스턴스 층</b>이지 Relation 그 자체가 아니며, 차이가 넷입니다 — 관계 타입 부재(태그↔설비만 <b>측정/제어/알람/계산</b> 4종), 전이성 미표현, 카디널리티 부재, 그리고 <b>시간 유효성</b>입니다. 매핑표는 통상 현재 상태만 담으므로 개조·이설·ID 승계가 끼면 <b>오류 없이 틀린 답</b>이 나오고, LKM의 상황–증상–조치는 본질적으로 <b>과거 시점 조인</b>이라 정확성을 직접 훼손합니다. 4축 산출물에 <b>관계 타입 코드 · <span class="pat">valid_from</span>/<span class="pat">valid_to</span> · 카디널리티·매핑 신뢰도</b>를 필수화하고, 인터페이스 #1b의 인계 필수 필드로 올렸습니다. <span class="src">2.3 ①과 중복하지 않기</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>그대로 두면 나옵니다. 그래서 필수 필드를 세 개 추가했습니다.</b> ①의 4축은 경량 ER의 <b>인스턴스 층</b>이지 Relation 그 자체가 아니며, 차이가 넷입니다 — 관계 타입 부재(태그↔설비만 <b>측정/제어/알람/계산</b> 4종), 전이성 미표현, 카디널리티 부재, 그리고 <b>시간 유효성</b>입니다. 매핑표는 통상 현재 상태만 담으므로 개조·이설·ID 승계가 끼면 <b>오류 없이 틀린 답</b>이 나오고, LKM의 상황–증상–조치는 본질적으로 <b>과거 시점 조인</b>이라 정확성을 직접 훼손합니다. 4축 산출물에 <b>관계 타입 코드 · <span class="pat">valid_from</span>/<span class="pat">valid_to</span> · 카디널리티·매핑 신뢰도</b>를 필수화하고, 인터페이스 #1b의 인계 필수 필드로 올렸습니다. <span class="src">2.3 ①과의 중복 방지</span></div></div></div>
 
   <div class="qa-cat">수행 관리 · 일정</div>
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">인력계획을 보면 인력계획상 11/30과 12/07에 투입이 끝나는데, 12/13 최종보고는 누가 하나</span></div>

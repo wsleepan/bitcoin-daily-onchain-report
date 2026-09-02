@@ -444,7 +444,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <tr><td>① 수행자</td><td><a href="#q">1.1 핵심 논점</a> → <a href="#pr">1.2 설계 원칙</a> → <a href="#ph">1.4 수행 절차</a> → <a href="#p4">1.6 연계 방식 · MCP</a> → <a href="#tmpl">5.4 템플릿</a></td></tr>
     <tr><td>② 수행자</td><td><a href="#k-proc">2.1 수행 프로세스</a> → <a href="#k-onto">2.3 온톨로지 적용 수준 판정</a> → <a href="#itf">4.1 인터페이스</a>(#1a · #1b · #9)</td></tr>
     <tr><td>③ 수행자</td><td><a href="#m-proc">3.1 수행 프로세스</a> → <a href="#m-miss">3.4 빈번한 누락 3종</a> → <a href="#itf">4.1 인터페이스</a>(#4a · #4b · #5a · #5b · #10)</td></tr>
-    <tr><td>전사 IT · 보안</td><td><a href="#arch">1.3 참조 아키텍처</a>(IT/OT 존 배치) → <a href="#p4">1.6 신뢰 경계 · 인젝션 통제</a> → <a href="#data">1.7 데이터 분류 등급</a> → <a href="#a2a">1.8 권한 전파 · 감사 로그</a></td></tr>
+    <tr><td>전사 IT · 보안</td><td><a href="#arch">1.3 참조 아키텍처</a>(존 4개 · 도관) → <a href="#p4">1.6 신뢰 경계 · 인젝션 통제</a> → <a href="#data">1.7 데이터 분류 등급</a> → <a href="#a2a">1.8 권한 전파 · 감사 로그</a></td></tr>
     <tr><td>현업 · 각 시스템 담당</td><td><a href="#sys">1.9 대상 시스템</a> → <a href="#biz">1.10 생산기술 업무 구조</a> → <a href="#plan">5.1 내부 투입 계획</a>(역할별 소요 일수)</td></tr>
   </table>
 
@@ -962,7 +962,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="mk">R1~R6</td><td><b>Agent-Readiness 진단 6축</b><br><span style="font-size:12px">인터페이스·데이터구조·의미명확성·권한세분성·관측감사·변경관리 (1.2 · 1.7 · T1)</span></td><td><b>① 리스크 번호</b><br><span style="font-size:12px">R1~R14 (5.2)</span></td><td>진단축은 <b>1.2·1.7·템플릿</b>에만, 리스크는 <b>5.2와 리스크 표</b>에만 나온다. 인용 시 “<b>진단 R3</b>” / “<b>리스크 R3</b>”로 부를 것</td></tr>
       <tr><td class="mk">M1~M3</td><td><b>메타데이터 3계층</b><br><span style="font-size:12px">기술·업무·운영 메타 (1.7)</span></td><td><b>③ 수행 Phase</b><br><span style="font-size:12px">M0~M6 (Part 3)</span></td><td>메타 계층은 <b>1.7과 ①의 산출물</b>에만, Phase는 <b>Part 3</b>에만. 인용 시 “<b>메타 M2</b>” / “<b>Phase M2</b>”</td></tr>
       <tr><td class="mk">Q1~Q6</td><td><b>1.1 핵심 논점 6개</b></td><td><b>MCP 판단 트리</b><br><span style="font-size:12px">Q0~Q5 (1.6)</span></td><td>1.6 안의 Q는 전부 판단 트리</td></tr>
-      <tr><td class="mk">L1~L5</td><td><b>1.3 참조 아키텍처 5계층</b><br><span style="font-size:12px">L1 Legacy … L5 Agent 연계</span></td><td><b>2.3 온톨로지 레벨</b><br><span style="font-size:12px">L0~L5</span></td><td>Part 1의 L은 아키텍처 계층, <b>Part 2의 L은 온톨로지 레벨</b>. L0 표기가 있으면 온톨로지 축</td></tr>
+      <tr><td class="mk">L1~L5</td><td><b>1.3 아키텍처 L1~L6</b><br><span style="font-size:12px">L1a·L1b · L3-N·L3-S · L4 · L5 · L6</span></td><td><b>2.3 온톨로지 레벨</b><br><span style="font-size:12px">L0~L5</span></td><td>Part 1의 L은 아키텍처 계층, <b>Part 2의 L은 온톨로지 레벨</b>. <b>L 축은 넷이다</b> — ① 아키텍처 ② 온톨로지(L0~L5) ③ <b>Purdue(L0~L5 · L3.5)</b> ④ MP 디지털화 성숙도. <b>“L0이 나오면 온톨로지”는 성립하지 않는다</b> — 1.3 존 표에 Purdue L0–L3가 나온다. 성숙도 축은 <b><span class="pat">MP-L1~L5</span></b>로 접두 분리하고, 나머지는 인용 시 축 이름을 병기한다</td></tr>
       <tr><td class="mk">T1~T6 / T04</td><td><b>① 실무 템플릿 T1~T6</b><br><span style="font-size:12px">T4 = 도구 명세서 (5.4)</span></td><td><b>② 템플릿 T01~T12</b><br><span style="font-size:12px">별도 문서 세트</span></td><td>본 문서의 <b>T는 ①의 것</b>이다. ②의 템플릿은 두 자리(T01~T12)이며 별도 세트로 관리한다</td></tr>
       <tr><td class="mk">IV-01~20</td><td colspan="2"><b>1.11 인터뷰 식별자</b> <span style="font-size:12px">(A 심층 · B 간략 · C 합동 워크숍)</span></td><td>다른 축과 충돌하지 않는 신규 접두</td></tr>
       <tr><td class="mk">KR / MR</td><td colspan="2"><b>② 리스크 = KR1~KR6 · KR1b</b> / <b>③ 리스크 = MR1~MR8</b></td><td>접두로 과업 구분. ①만 접두 없이 R1~R14</td></tr>
@@ -1128,180 +1128,217 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 03 -->
 <section id="arch">
-  <div class="sh"><span class="n">1.3</span><h2>5계층 참조 아키텍처</h2></div>
-  <p class="lede">연계 설계의 혼선 대부분은 서로 다른 계층의 문제를 같은 자리에서 논쟁하기 때문에 생깁니다. 계층을 먼저 고정하면 각 결정이 어디에 속하는지 명확해집니다.</p>
-  <div class="layers">
-    <div class="layer"><div class="lid">L5</div><div class="lb">
-      <div class="lname">Agent 계층</div>
-      <div class="ldesc">업무 Agent(고장예측 · 운전지원 · 안전감시) — Agent 간 협업은 A2A 영역</div></div></div>
-    <div class="layer hi"><div class="lid">L4</div><div class="lb">
-      <div class="lname">도구 노출 계층 &nbsp;<span class="sys p1">MCP</span></div>
-      <div class="ldesc">MCP Server / Tool Adapter · 도구 카탈로그 · 스키마 · 설명</div></div></div>
-    <div class="layer"><div class="lid">L3</div><div class="lb">
-      <div class="lname">통제 계층</div>
-      <div class="ldesc">전사 Endpoint / API Gateway · 인증 · 인가 · 레이트리밋 · 감사로그</div></div></div>
-    <div class="layer star"><div class="lid">L2</div><div class="lb">
-      <div class="lname">의미 계층</div>
-      <div class="ldesc">데이터 사전 · 코드 사전 · 태그 매핑 · 횡단 식별자(설비 · 시간 · 공정 · 오더)</div></div></div>
-    <div class="layer"><div class="lid">L1</div><div class="lb">
-      <div class="lname">원천 계층</div>
-      <div class="ldesc"><span class="sys">RTDB</span> <span class="sys">OCEAN-H</span> <span class="sys">OASIS</span> <span class="sys">AMS</span> <span class="sys">PMS</span> <span class="sys">TDMS</span> — Legacy API / 데이터 구조</div></div></div>
-  </div>
-<figure>
-<svg viewBox="0 0 940 690" role="img" aria-label="AI Agent 호출이 MCP 도구 노출 계층과 전사 Gateway를 거쳐 Legacy에 닿는 경로. RTDB는 OT 존에 있어 산업 DMZ의 복제본을 통해서만 접근하며 Agent는 OT 존으로 인바운드 세션을 열지 않는다.">
-<defs>
-  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-    <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
-  <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-    <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
-  <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-    <path d="M0 0 L10 5 L0 10 z" fill="var(--signal)"/></marker>
-</defs>
+  <div class="sh"><span class="n">1.3</span><h2>참조 아키텍처 — 실행 스택 · 참조 평면 · 존</h2></div>
+  <p class="lede">연계 설계의 혼선 대부분은 서로 다른 축의 문제를 같은 자리에서 논쟁하기 때문에 생깁니다. 축을 먼저 고정하면 각 결정이 어디에 속하는지, 그리고 <b>누가 판정하는지</b>가 함께 정해집니다.</p>
 
-<text x="20" y="26" class="dg-m">IT 존 · PURDUE L4/L5</text>
-<line x1="20" y1="34" x2="920" y2="34" class="dg-ln" stroke-opacity=".25"/>
-
-<!-- L5 Agent -->
-<text x="20" y="70" class="dg-m">L5</text>
-<rect x="70" y="48" width="150" height="44" rx="4" class="dg-fill"/>
-<text x="145" y="68" class="dg-tb" text-anchor="middle">종합 분석 Agent</text>
-<text x="145" y="83" class="dg-s" text-anchor="middle">오케스트레이터</text>
-<rect x="240" y="48" width="120" height="44" rx="4" class="dg-box"/>
-<text x="300" y="75" class="dg-t" text-anchor="middle">설비 Agent</text>
-<rect x="374" y="48" width="120" height="44" rx="4" class="dg-box"/>
-<text x="434" y="75" class="dg-t" text-anchor="middle">공정 Agent</text>
-<rect x="508" y="48" width="120" height="44" rx="4" class="dg-box"/>
-<text x="568" y="75" class="dg-t" text-anchor="middle">생산 Agent</text>
-<path d="M220 70 L236 70" class="dg-ln" marker-end="url(#ar)"/>
-<path d="M360 70 L370 70" class="dg-ln" marker-end="url(#ar)"/>
-<path d="M494 70 L504 70" class="dg-ln" marker-end="url(#ar)"/>
-<text x="700" y="66" class="dg-s">Agent 간 위임 = A2A 영역</text>
-<text x="700" y="82" class="dg-s">(본 과업은 기준만 수립)</text>
-
-<!-- arrow to L4 -->
-<path d="M340 96 L340 138" class="dg-ln-a" marker-end="url(#ara)"/>
-<text x="352" y="121" class="dg-acc">도구 발견 · 호출 규약</text>
-
-<!-- L4 MCP -->
-<text x="20" y="176" class="dg-m">L4</text>
-<rect x="70" y="146" width="560" height="58" rx="5" class="dg-hi"/>
-<text x="90" y="171" class="dg-tb">도구 노출 계층 — MCP Server / Tool Adapter</text>
-<text x="90" y="191" class="dg-s">도구 카탈로그 · 스키마 · 설명 · 정의 해시 서명</text>
-<rect x="500" y="158" width="118" height="34" rx="16" class="dg-box" stroke="var(--accent)"/>
-<text x="559" y="180" class="dg-acc" text-anchor="middle">★ MCP는 여기</text>
-<text x="654" y="170" class="dg-sig">MCP 아래가 비어 있으면</text>
-<text x="654" y="187" class="dg-sig">감쌀 대상 부재</text>
-
-<!-- arrow to L3 -->
-<path d="M340 208 L340 246" class="dg-ln" marker-end="url(#ar)"/>
-<text x="352" y="231" class="dg-t">인증 · 인가 · 감사 · 레이트리밋</text>
-
-<!-- L3 Gateway -->
-<text x="20" y="282" class="dg-m">L3</text>
-<rect x="70" y="254" width="560" height="52" rx="5" class="dg-fill"/>
-<text x="90" y="277" class="dg-tb">통제 계층 — 전사 Endpoint / API Gateway</text>
-<text x="90" y="295" class="dg-s">토큰 교환(RFC 8693) · 권한 인지형 캐시 · trace 전파 · 쿼터 · 서킷</text>
-<text x="654" y="285" class="dg-s">MCP Server도 Gateway를</text>
-<text x="654" y="301" class="dg-s">우회하지 않고 경유</text>
-
-<!-- arrow to L2 -->
-<path d="M340 310 L340 344" class="dg-ln" marker-end="url(#ar)"/>
-
-<!-- L2 의미 -->
-<text x="20" y="380" class="dg-m">L2</text>
-<rect x="70" y="352" width="560" height="52" rx="5" class="dg-warn"/>
-<text x="90" y="375" class="dg-tb">의미 계층 — 데이터 사전 · 코드 사전 · 태그 매핑</text>
-<text x="90" y="393" class="dg-s">횡단 식별자 (설비 · 시간 · 공정 · 오더) — 부재 시 Agent 오답의 직접 원인</text>
-<text x="654" y="383" class="dg-sig">가장 과소평가되는 계층</text>
-
-<!-- fan-out to L1 -->
-<path d="M180 408 L180 440" class="dg-ln" marker-end="url(#ar)"/>
-<path d="M340 408 L340 440" class="dg-ln" marker-end="url(#ar)"/>
-<path d="M500 408 L500 440" class="dg-ln" marker-end="url(#ar)"/>
-<path d="M620 408 L620 425 L790 425 L790 526" class="dg-ln" marker-end="url(#ar)"/>
-
-<!-- L1 IT -->
-<text x="20" y="472" class="dg-m">L1</text>
-<rect x="100" y="446" width="160" height="46" rx="4" class="dg-box"/>
-<text x="180" y="468" class="dg-tb" text-anchor="middle">OCEAN-H</text>
-<text x="180" y="484" class="dg-s" text-anchor="middle">설비관리 · 정비이력</text>
-<rect x="272" y="446" width="150" height="46" rx="4" class="dg-box"/>
-<text x="347" y="468" class="dg-tb" text-anchor="middle">OASIS</text>
-<text x="347" y="484" class="dg-s" text-anchor="middle">생산관리</text>
-<rect x="434" y="446" width="150" height="46" rx="4" class="dg-box"/>
-<text x="509" y="468" class="dg-tb" text-anchor="middle">PMS · TDMS</text>
-<text x="509" y="484" class="dg-s" text-anchor="middle">공정성과 · 기술문서</text>
-
-<!-- zone boundary: DMZ -->
-<line x1="20" y1="512" x2="920" y2="512" class="dg-zone"/>
-<rect x="60" y="502" width="238" height="20" rx="3" fill="var(--surface)"/>
-<text x="70" y="517" class="dg-m" fill="var(--crit)">산업 DMZ · PURDUE L3.5</text>
-
-<!-- DMZ boxes -->
-<rect x="620" y="530" width="200" height="52" rx="4" class="dg-warn"/>
-<text x="720" y="552" class="dg-tb" text-anchor="middle">RTDB 복제본</text>
-<text x="720" y="569" class="dg-s" text-anchor="middle">구간 집계 API</text>
-<rect x="836" y="530" width="86" height="52" rx="4" class="dg-warn"/>
-<text x="879" y="552" class="dg-tb" text-anchor="middle">AMS</text>
-<text x="879" y="569" class="dg-s" text-anchor="middle">이벤트</text>
-
-<!-- zone boundary: OT -->
-<line x1="20" y1="602" x2="920" y2="602" class="dg-zone"/>
-<rect x="230" y="592" width="452" height="20" rx="3" fill="var(--surface)"/>
-<text x="240" y="607" class="dg-m" fill="var(--crit)">OT 존 · PURDUE L0–L3 — AGENT 인바운드 세션 금지</text>
-
-<!-- OT boxes -->
-<rect x="620" y="620" width="140" height="50" rx="4" class="dg-fill"/>
-<text x="690" y="642" class="dg-tb" text-anchor="middle">RTDB 원본</text>
-<text x="690" y="658" class="dg-s" text-anchor="middle">SP / OP / PV</text>
-<rect x="782" y="620" width="140" height="50" rx="4" class="dg-fill"/>
-<text x="852" y="649" class="dg-tb" text-anchor="middle">DCS</text>
-<path d="M782 645 L766 645" class="dg-ln" marker-end="url(#ar)"/>
-<path d="M690 618 L690 586" class="dg-ln-w" marker-end="url(#arw)"/>
-<text x="596" y="640" class="dg-sig" text-anchor="end">단방향 복제 (필요 시 데이터 다이오드)</text>
-<path d="M600 636 L682 636" class="dg-ln-w" stroke-dasharray="4 3"/>
-
-<!-- prohibited arrow -->
-<path d="M200 530 L200 660 L604 660" class="dg-ln-c" stroke-dasharray="6 4"/>
-<line x1="188" y1="630" x2="212" y2="654" class="dg-ln-c"/>
-<line x1="212" y1="630" x2="188" y2="654" class="dg-ln-c"/>
-<text x="222" y="686" class="dg-cr">Agent → OT 직접 접근 금지</text>
-</svg>
-<figcaption><b>MCP는 L4 도구 노출 계층에 들어간다</b> — Agent와 Legacy 사이의 배관이 아니라, 이미 존재하는 API 위에 도구 설명·스키마를 얹는 어댑터다. 아래의 Gateway(L3)·의미 계층(L2)·Legacy API(L1)가 없으면 감쌀 대상이 없다. 굵은 점선은 망 경계로, <b>RTDB는 OT 존에 있으므로 Agent는 산업 DMZ의 복제본까지만 접근</b>하며 OT로 인바운드 세션을 열지 않는다.</figcaption>
-</figure>
-
-  <div class="thesis" style="margin-top:20px">
-    위에서 아래로 <strong>설계</strong>하고, 아래에서 위로 <strong>구축</strong>합니다. 설계는 L5에서 시작해 내려오고, 구축은 L1·L2부터 올라갑니다. L4(MCP)부터 만들면 아래가 비어 있어 동작하지 않습니다.
-  </div>
-  <h3>IT / OT 존 배치 — 계층 모델의 수평 경계</h3>
-  <p class="lede">위 5계층은 <b>기능 계층</b>입니다. 여기에 <b>망 경계</b>를 겹쳐야 설계가 완성됩니다. 1순위 대상인 <span class="sys p1">RTDB</span> 는 DCS 연동 히스토리안으로 <b>OT 인접 자산</b>이고, <span class="sys">OASIS</span> <span class="sys">OCEAN-H</span> 는 IT 자산입니다. 이 둘을 L1 “원천 계층” 하나로 묶어 그리면, 이 문서가 경고한 것과 정확히 같은 급의 실수를 망 설계에서 저지릅니다.</p>
+  <h3>축 구성 — 기능 계층 하나로 답하지 못하는 질문</h3>
+  <p>연계 설계에서 실제로 벌어지는 논쟁은 세 종류입니다. 첫째는 구성요소별 책임 경계, 둘째는 그 구성요소의 배포 망과 세션 개시 방향, 셋째는 호출이 지나가지 않는 자산의 소유와 비용 부담입니다. <b>기능 계층 하나로는 첫 번째만 답할 수 있습니다.</b> 배포 위치와 운영 책임은 계층 축과 직교하는 정보이므로, 같은 그림에 세로로 겹쳐 그려야 판정이 가능합니다. 그래서 본 절은 기능 축에 <b>존 축</b>과 <b>평면 축</b>을 더해 세 축으로 구성합니다.</p>
   <div class="tw"><table>
-    <thead><tr><th style="width:118px">존 (IEC 62443)</th><th style="width:230px">배치 컴포넌트</th><th class="c" style="width:96px">OT 인바운드</th><th>접근 대상 · 도관</th></tr></thead>
+    <thead><tr><th style="width:150px">축</th><th style="width:250px">확정 대상</th><th style="width:130px">구성</th><th>판정 대상 분쟁</th></tr></thead>
     <tbody>
-      <tr><td><b>IT</b><br><span style="font-size:12px;color:var(--ink-3)">Purdue L4/L5</span></td><td>Agent · 오케스트레이터 · MCP Server · API Gateway · 데이터 카탈로그</td><td class="c mk no">금지</td><td>산업 DMZ의 복제본·집계 API만</td></tr>
-      <tr style="background:var(--accent-soft)"><td><b>산업 DMZ</b><br><span style="font-size:12px;color:var(--ink-3)">Purdue L3.5</span></td><td><b>RTDB 복제본 · 구간 집계 API · AMS 이벤트 브로커</b></td><td class="c">—</td><td>OT로부터 <b>단방향 복제 수신</b></td></tr>
-      <tr><td><b>OT</b><br><span style="font-size:12px;color:var(--ink-3)">Purdue L0–L3</span></td><td>RTDB 원본 · DCS · 계장</td><td class="c mk no">금지</td><td>—</td></tr>
+      <tr><td><b>실행 스택</b></td><td>호출 순서와 계층별 책임 경계</td><td>계층 <b>7개</b><br><span style="font-size:12px;color:var(--ink-3)">L6 · L5 · L4 · L3-N · L3-S · L1a · L1b</span></td><td>기능 귀속 — 담당·비담당 경계</td></tr>
+      <tr><td><b>참조 평면</b></td><td>호출 홉 밖 참조 자산의 소재와 소유</td><td>평면 <b>2개</b><br><span style="font-size:12px;color:var(--ink-3)">P-SEM · P-OPS</span></td><td>소유·투자 — 구축 주체와 비용 부담</td></tr>
+      <tr><td><b>존</b> <span style="font-size:12px;color:var(--ink-3)">IEC 62443</span></td><td>구성요소의 배포 망과 세션 개시 방향</td><td>존 <b>4개</b><br><span style="font-size:12px;color:var(--ink-3)">외부·클라우드 · IT · 산업 DMZ · OT</span></td><td>보안 심의 — 도관 승인 가부</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>계층 번호 L1~L5는 재부여하지 않습니다.</b> 본 문서 15곳 이상이 이 번호를 참조하고 있어, 번호를 다시 매기면 인용이 전부 끊깁니다. 확장은 <b>추가(L6)와 분할(L1a/L1b · L3-N/L3-S)</b>로만 수행하며, 기존 L2(의미 계층)는 번호를 없애는 대신 <b>참조 평면 P-SEM으로 이관</b>합니다. L 기호가 네 축에서 쓰이므로 인용 시 축 이름을 병기하십시오 — 0.5 기호 규칙 참조.</p>
+
+  <h3>축 1 · 실행 스택 — 계층별 담당과 비담당</h3>
+  <!-- FIGURE: 계층 스택 — L6부터 L1a/L1b까지 7개 계층을 위에서 아래로 쌓고, 오른쪽에 P-SEM·P-OPS 두 평면을 스택 옆(호출 홉 밖)에 세로로 붙인다. L4에 MCP 위치를 별표로 표시하고, L3를 N/S 두 칸으로 가른다. -->
+  <div class="tw"><table>
+    <thead><tr><th style="width:74px">계층</th><th style="width:150px">명칭</th><th style="width:300px">담당</th><th>하지 않는 것</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">L6</td><td><b>Agent 런타임 · 모델 서빙</b><br><span style="font-size:12px;color:var(--signal)">신설</span></td><td>명장 AI · Azure GenAI · LLM 추론 · 세션 · 메모리</td><td class="mk no"><b>① 범위 밖</b> — ③ 및 전사 AI 플랫폼 소관. ①은 요건만 제시</td></tr>
+      <tr><td class="mk">L5</td><td><b>Agent 계층</b></td><td>오케스트레이터 + 도메인 Agent <b>6종</b><br><span style="font-size:12px;color:var(--ink-3)">설비 · 공정 · 생산 · 지식 · 안전(SHE) · 종합분석</span></td><td>인가 판정(L3) · 원시데이터 가공(L4)</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">L4</td><td><b>도구 노출 계층</b> &nbsp;<span class="sys p1">MCP</span></td><td>MCP <b>Tools · Resources · Prompts</b> · 도구 카탈로그 · 스키마 · 정의 해시 서명</td><td>인가 판정(L3-S) · <b>별칭 사전 보유</b>(P-SEM 참조) · 대량 원시데이터 전달(L1b 경유)</td></tr>
+      <tr><td class="mk">L3-N</td><td><b>통제 계층 · 북측</b><br><span style="font-size:12px;color:var(--signal)">신설</span></td><td><b>도구 · Agent 게이트웨이</b> — 도구 호출 인가 · Agent 쿼터 · 오호출 감사 · kill switch</td><td>데이터 접근 인가(L3-S 소관)</td></tr>
+      <tr><td class="mk">L3-S</td><td><b>통제 계층 · 남측</b></td><td>전사 API Gateway — 인증 · 인가 · <b>토큰 교환(RFC 8693)</b></td><td>캐시 · 관측 · 분류(P-OPS 소관)</td></tr>
+      <tr><td class="mk">L1a</td><td><b>원천 시스템</b></td><td><span class="sys p1">RTDB</span> <span class="sys p1">OCEAN-H</span> <span class="sys p1">OASIS</span> <span class="sys">AMS</span> <span class="sys">PMS</span> <span class="sys">TDMS</span></td><td>—</td></tr>
+      <tr><td class="mk">L1b</td><td><b>파생 저장소</b><br><span style="font-size:12px;color:var(--signal)">신설 분할</span></td><td>RTDB DMZ 복제본 · 검색/벡터 색인 · <b>이벤트 브로커(구독 관리)</b></td><td><b>원천 대체 아님.</b> 권한은 원천과 별도 사본으로 관리</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>「하지 않는 것」 열이 이 표의 본체입니다.</b> 담당만 적힌 표는 두 조직이 같은 기능을 각자 구현해도 위반이 되지 않지만, 비담당이 적힌 표는 설계 리뷰에서 <b>즉시 반려 근거</b>가 됩니다. L1a만 이 열이 비어 있는데, 원천 시스템은 본 과업이 설계하는 대상이 아니라 <b>주어진 조건</b>이기 때문입니다 — L1a에 대한 요구는 “하지 말 것”이 아니라 1.7의 진단 6축(R1~R6) 결과로 표현됩니다.</p>
+  <div class="tw" style="margin-top:12px"><table>
+    <thead><tr><th style="width:280px">예상 설계 분쟁</th><th style="width:160px">판정 근거</th><th>판정</th></tr></thead>
+    <tbody>
+      <tr><td>별칭 해석의 수행 주체 — MCP 도구 대 Gateway<br><span style="font-size:12px;color:var(--ink-3)">“3호기 압축기” → 설비 ID 변환</span></td><td>L4 「별칭 사전 보유」 비담당</td><td><b>해석 행위는 도구 안에서 일어나되 사전은 도구가 보유하지 않습니다.</b> 도구마다 자기 매핑표를 들면 사전이 도구 수만큼 복제됩니다. 도구는 P-SEM 자산을 참조합니다</td></tr>
+      <tr><td>MCP Server의 사용자 권한 직접 판정 가부</td><td>L4 「인가 판정」 비담당</td><td>MCP Server는 <span class="pat">aud</span> 검증까지만 수행합니다. <b>데이터 접근 인가는 L3-S, 도구 호출 인가는 L3-N</b>으로 나뉩니다</td></tr>
+      <tr><td>kill switch의 배치 위치 — 전사 API Gateway 대 도구 게이트웨이</td><td>L3-S 담당 범위</td><td><b>L3-N에 둡니다.</b> 전사 Gateway를 끄면 Agent 이외의 트래픽까지 함께 멈춥니다. 차단 단위는 시스템이 아니라 <b>Agent·도구</b>여야 합니다</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>구성요소 배치 정본</h4>
+  <p>본 문서 다른 절에서 언급되는 구성요소 <b>13종</b>의 소속을 아래에 고정합니다. 이 표에 없는 구성요소가 설계 산출물에 등장하면, 그것은 <b>본 아키텍처가 아직 자리를 정하지 않은 항목</b>이므로 등재 절차를 거쳐야 합니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:44px">#</th><th style="width:290px">구성요소</th><th style="width:90px">소속</th><th>출처 절</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>오케스트레이터(종합분석 Agent)</td><td class="mk">L5</td><td>1.8 도메인 Agent 구성안</td></tr>
+      <tr><td class="num">2</td><td>도메인 Agent 6종</td><td class="mk">L5</td><td>1.8 도메인 Agent 구성안</td></tr>
+      <tr><td class="num">3</td><td>MCP Server(도구 어댑터)</td><td class="mk">L4</td><td>1.6 Build vs Buy</td></tr>
+      <tr><td class="num">4</td><td>도구 카탈로그 · 정의 해시 서명</td><td class="mk">L4</td><td>1.6 도구 카탈로그 무결성</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="num">5</td><td><b>도구 · Agent 게이트웨이</b>(쿼터 · kill switch)</td><td class="mk">L3-N</td><td>본 절 횡단 관심사 · 1.8 위임 그래프</td></tr>
+      <tr><td class="num">6</td><td>전사 API Gateway · IdP 연계</td><td class="mk">L3-S</td><td>1.6 Agent 인가 표준 스택</td></tr>
+      <tr><td class="num">7</td><td>RTDB DMZ 복제본 · 구간 집계 API</td><td class="mk">L1b</td><td>1.6 CLX 적용 예상 판정 · 5.1 인프라</td></tr>
+      <tr><td class="num">8</td><td>AMS 이벤트 브로커</td><td class="mk">L1b</td><td>1.6 CLX 적용 예상 판정</td></tr>
+      <tr><td class="num">9</td><td>검색 · 벡터 색인</td><td class="mk">L1b</td><td>5.1 인프라 항목 4</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="num">10</td><td><b>태그 · 별칭 · 코드 사전 · 횡단 식별자 4축</b></td><td class="mk">P-SEM</td><td>1.7 데이터 구조 · 2.3 온톨로지</td></tr>
+      <tr><td class="num">11</td><td>권한 인지형 캐시</td><td class="mk">P-OPS</td><td>본 절 횡단 관심사</td></tr>
+      <tr><td class="num">12</td><td>감사 로그 저장소</td><td class="mk">P-OPS</td><td>1.8 권한 전파 A5 · 5.1 인프라 항목 7</td></tr>
+      <tr><td class="num">13</td><td>데이터 카탈로그 · 프롬프트/가드레일 정책</td><td class="mk">P-OPS</td><td>1.7 메타 3계층 · 1.6 인젝션 통제</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>축 2 · 참조 평면 2종</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:170px">평면</th><th style="width:330px">내용</th><th>배치 근거</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--accent-soft)"><td><b>P-SEM</b> 의미 자산<br><span style="font-size:12px;color:var(--ink-3)">구 L2 의미 계층</span></td><td>데이터 사전 · 코드 사전 · 별칭 사전 · 태그 매핑 · 횡단 식별자 4축 · 시간축 변환 규칙</td><td>호출 홉이 아니라 <b>L4 도구 구현과 L1이 참조하는 설계시 자산</b>. 별칭 해석은 도구 안에서 일어난다</td></tr>
+      <tr><td><b>P-OPS</b> 운영 평면</td><td>권한 인지형 캐시 · 관측 · 쿼터 · 격리 · 데이터 분류 · 프롬프트/가드레일 정책 · 감사 로그 저장소 · 데이터 카탈로그</td><td>본문이 이미 “전 계층 관통”이라 선언한 항목들을 계층 축 밖으로 옮긴 것</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>P-SEM을 스택에서 뺀 이유</h4>
+  <p><b>실행 스택은 호출이 통과하는 순서를 나타내는 축인데, 런타임의 어떤 요청도 “L3를 지나 의미 계층을 거쳐 L1에 닿지” 않습니다.</b> 별칭 해석은 도구 구현 안에서 일어나고, 태그와 설비의 매핑은 L1b 색인을 만들 때 이미 적용되어 들어가 있습니다. 의미 자산은 호출 시점의 정거장이 아니라 <b>설계·구축 시점의 참조 대상</b>입니다. 이것을 계층으로 그리면 두 가지 오해가 따라옵니다 — 첫째, 의미 계층에도 프로세스가 있어야 한다고 읽혀 사전 조회 전용 서버를 세우는 설계가 나옵니다. 둘째, 게이트웨이를 통과하기만 하면 의미가 자동으로 붙는다고 읽힙니다.</p>
+  <p class="note warn" style="margin-top:12px"><b>평면으로 옮기는 것은 격하가 아니라 그 반대입니다.</b> 의미 자산의 진짜 위험은 <b>호출 경로에 보이지 않기 때문에 과소평가된다</b>는 것입니다. 아키텍처 그림에서 사각형 하나로 그려진 계층은 “그 계층 제품을 하나 사면 되는 것”으로 읽히고, 예산 삭감 논의에서 가장 먼저 후보가 됩니다. 실제로는 <b>P-SEM이 L1과 함께 이 과업 비용의 대부분</b>이며 MCP 채택 여부와 무관하게 필요합니다 — 1.6 조달 구분 참조. 평면으로 분리하면 투자 귀속을 계층과 독립적으로 논의할 수 있습니다.</p>
+  <p class="note" style="margin-top:10px">P-SEM·P-OPS는 <b>호출 홉이 아니므로 지연 예산도 갖지 않습니다.</b> 다만 P-OPS의 캐시·관측은 L3-S와 L3-N 안에서 <b>구현</b>되며, 그 지연은 해당 계층의 예산에 포함해 계산합니다.</p>
+
+  <h3>축 3 · 존 4개와 도관</h3>
+  <p class="lede">위 스택은 <b>기능 축</b>입니다. 여기에 <b>망 경계</b>를 겹쳐야 설계가 완성됩니다. 1순위 대상인 <span class="sys p1">RTDB</span> 는 DCS 연동 히스토리안으로 <b>OT 인접 자산</b>이고, <span class="sys">OASIS</span> <span class="sys">OCEAN-H</span> 는 IT 자산입니다. 이 둘을 원천 계층 하나로 묶어 그리면 망 설계에서 되돌리기 어려운 실수가 발생합니다.</p>
+  <!-- FIGURE: 존 배치 — 외부·클라우드 / IT / 산업 DMZ / OT 4개 존을 가로 띠로 쌓고, 앞 절의 7개 계층 구성요소를 각 존에 배치한다. 도관마다 세션 개시 방향을 화살표로 표시하고, OT→DMZ만 위쪽 방향임을 보인다. Agent→OT 직접 접근과 C1 데이터의 클라우드 반출은 금지 표시. -->
+  <div class="tw"><table>
+    <thead><tr><th style="width:118px">존 <span style="font-weight:400;font-size:12px">(IEC 62443)</span></th><th class="c" style="width:96px">Purdue · SL-T</th><th style="width:250px">배치 컴포넌트</th><th>허용 도관 — 개시 방향 · 성격</th></tr></thead>
+    <tbody>
+      <tr><td><b>외부 · 클라우드</b></td><td class="c">—<br><b>SL 2</b></td><td>명장 AI · Azure GenAI <span style="font-size:12px;color:var(--ink-3)">(L6)</span></td><td><b>IT→클라우드 단방향.</b> <span class="pat">C1</span> 극비 데이터 반출 금지 — 1.7 D6</td></tr>
+      <tr><td><b>IT</b></td><td class="c">L4/L5<br><b>SL 2</b></td><td>오케스트레이터 · 도메인 Agent · MCP Server · L3-N · L3-S · OCEAN-H · OASIS · PMS · TDMS</td><td>IT→DMZ 개시 허용 (HTTPS · 집계 API)</td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>산업 DMZ</b></td><td class="c">L3.5<br><b>SL 3</b></td><td><b>RTDB 복제본 · 구간 집계 API · AMS 이벤트 브로커</b> <span style="font-size:12px;color:var(--ink-3)">(L1b)</span></td><td><b>DMZ는 OT로 세션 개시 금지.</b> OT로부터 단방향 복제 수신</td></tr>
+      <tr><td><b>OT</b></td><td class="c">L0–L3<br><b>SL 3~4</b></td><td>RTDB 원본 · DCS · 계장</td><td><b>OT→DMZ push만 허용.</b> 데이터 다이오드 채택 시 프로토콜 브레이크 필요</td></tr>
     </tbody>
   </table></div>
   <div class="thesis" style="margin-top:16px;border-left:4px solid var(--crit)">
     <strong>원칙</strong> — Agent 및 그 하위 어떤 컴포넌트도 <strong>OT 존으로 인바운드 세션을 열지 않는다.</strong> RTDB 접근은 산업 DMZ의 복제본을 대상으로만 하며, 복제는 단방향(필요 시 데이터 다이오드)으로 구성한다.
   </div>
-  <p class="note crit" style="margin-top:14px"><b>Phase 2-3 “RTDB 대량 구간 조회 검증(W4)”의 대상은 DMZ 복제본입니다.</b> OT 원본을 대상으로 하면 검증 활동 자체가 보안 규정 위반이 됩니다. 복제본이 없으면 그 사실을 먼저 확인하고, 검증 방식을 OT 보안 심의 절차에 태워야 합니다. → 리스크 <span class="pat">R8</span></p>
-  <p class="note" style="margin-top:10px">복제 경로를 쓰면 <b>D3(시점 정합성)에 복제 지연이 새로 끼어듭니다.</b> 도구 응답에 <b>데이터 기준 시각과 복제 지연</b>을 함께 반환하도록 설계하십시오 — 그렇지 않으면 Agent가 "지금 값"이라고 답하는데 실제로는 5분 전 값인 상황이 발생합니다.</p>
+  <p class="note" style="margin-top:14px"><b>SL-T는 목표 보안수준(Security Level – Target)이며 위 값은 본 과업의 제안치입니다.</b> IEC 62443-3-2는 존별 SL-T를 위험평가 결과로 정하도록 규정하므로, <b>전사 보안이 이미 CLX 존별 SL-T를 정해 두었다면 그 값이 우선</b>합니다. W2 보안 인터뷰에서 기존 존 정의서와 SL-T 지정 여부를 확인하고, 없으면 위 값을 잠정 기준으로 사용합니다.</p>
+  <p class="note crit" style="margin-top:10px"><b>Phase 2-3 「RTDB 대량 구간 조회 검증(W4)」의 대상은 DMZ 복제본입니다.</b> OT 원본을 대상으로 하면 검증 활동 자체가 보안 규정 위반이 됩니다. 복제본이 없으면 그 사실을 먼저 확인하고, 검증 방식을 OT 보안 심의 절차에 태워야 합니다. → 리스크 <span class="pat">R8</span></p>
+  <p class="note" style="margin-top:10px">복제 경로를 쓰면 <b>D3(시점 정합성)에 복제 지연이 새로 끼어듭니다.</b> 도구 응답에 <b>데이터 기준 시각과 복제 지연</b>을 함께 반환하도록 설계하십시오 — 그렇지 않으면 Agent가 “지금 값”이라고 답하는데 실제로는 수 분 전 값인 상황이 발생합니다.</p>
 
-  <h3>횡단 관심사 — L3에 빠져 있던 것들</h3>
-  <p class="lede">L3를 “인증·인가·레이트리밋·감사로그” 4개로만 정의하면 운영에서 무너집니다. 아래 5개는 특정 계층이 아니라 <b>전 계층을 관통</b>합니다.</p>
+  <h3>호출 경로 4종</h3>
+  <p>세 축을 겹치면 실제로 성립하는 호출 경로는 넷입니다. 아래 표는 <b>1.6의 CLX 적용 예상 판정과 1:1로 대응</b>합니다 — 판정이 다섯 개인데 경로가 넷인 이유는 다섯 번째 판정이 <b>경로를 정의하지 않는 것</b>이기 때문입니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:130px">경로</th><th style="width:210px">통과 계층</th><th style="width:190px">CLX 적용 · 1.6 판정</th><th>스킵 계층과 사유</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--accent-soft)"><td><b>A</b> MCP 도구</td><td><span class="pat">L5→L4→L3-S→L1a</span></td><td><span class="sys p1">OCEAN-H</span> 설비·정비이력 탐색<br><b style="color:var(--accent)">MCP 채택 유력</b></td><td>—</td></tr>
+      <tr><td><b>B</b> Gateway 직결</td><td><span class="pat">L5→L3-S→L1a</span></td><td><span class="sys">OASIS</span> 실적·계획 조회<br>조건부 — Gateway 우선</td><td><b>L4 미채택</b> — 판단 트리 Q4(권한 위임) 보류 영역</td></tr>
+      <tr><td><b>C</b> 파생 조회</td><td><span class="pat">L5→L3-S→L1b</span></td><td><span class="sys p1">RTDB</span> 대량 집계<br>MCP 부적합 — 집계 API + 복제</td><td><b>L1a 직접 접근 금지</b> — 존 규칙(OT 인바운드 금지)에 따라 복제본만 대상</td></tr>
+      <tr><td><b>D</b> 이벤트 구독</td><td><span class="pat">L1a→L1b→L3-N→L5</span><br><span style="font-size:12px;color:var(--signal)">역방향 push</span></td><td><span class="sys">AMS</span> 실시간 알람<br>이벤트 구독</td><td><b>요청–응답 모델 아님.</b> L4·L3-S를 통과하지 않으며 L3-N의 이벤트 도관을 경유</td></tr>
+      <tr><td class="mk no">경로 없음</td><td>—</td><td><span class="sys">OASIS</span> 쓰기(작업지시 등)<br>1차 범위 밖</td><td><b>의도적 미정의.</b> P-ACT 경로를 그리지 않는 것이 1.6 쓰기 제외 판단의 아키텍처 표현입니다</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>경로 D가 이 확장의 실익을 가장 잘 보여줍니다.</b> 이전 단일 스택에서는 AMS 이벤트 구독이 어느 계층에도 그려지지 않았습니다. 화살표가 위에서 아래로만 흐르는 그림에는 <b>아래에서 위로 밀어 올리는 호출</b>을 담을 자리가 없기 때문입니다. L1b(이벤트 브로커)와 L3-N(이벤트 도관)이 생기면서 이 경로가 처음으로 그려집니다.</p>
+
+  <h4>홉 위상 정본</h4>
+  <p>계층 축의 L5는 오케스트레이터와 도메인 Agent를 함께 담고 있으므로, <b>L5 내부에서 한 홉이 더 발생</b>합니다. 이 홉이 A2A 구간이며 신뢰 경계이기도 합니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:230px">홉</th><th style="width:130px">계층 위상</th><th style="width:170px">인증 · 교환 방식</th><th><span class="pat">aud</span> (대상)</th></tr></thead>
+    <tbody>
+      <tr><td>사용자 → 오케스트레이터</td><td>외부 → L5</td><td>OAuth 2.1 + <b>PKCE 필수</b></td><td>오케스트레이터</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>오케스트레이터 → 도메인 Agent</b><br><span style="font-size:12px;color:var(--ink-3)">A2A 홉</span></td><td>L5 → L5</td><td><b>RFC 8693 교환</b></td><td><b>피호출 도메인 Agent의 식별자</b> <span class="pat">AGT-*</span></td></tr>
+      <tr><td>도메인 Agent → MCP Server</td><td>L5 → L4</td><td>RFC 8693 교환 + RFC 8707 <span class="pat">resource</span></td><td>해당 MCP Server</td></tr>
+      <tr><td>오케스트레이터 → MCP Server<br><span style="font-size:12px;color:var(--ink-3)">도메인 Agent 미경유 직결</span></td><td>L5 → L4</td><td>RFC 8693 교환 + RFC 8707 <span class="pat">resource</span></td><td>해당 MCP Server</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note crit" style="margin-top:14px"><b>A2A 홉의 <span class="pat">aud</span>를 정의하지 않으면 위임 체인 전체가 무의미해집니다.</b> 오케스트레이터가 받은 토큰을 그대로 도메인 Agent에 넘기면 그것이 곧 passthrough이고, 1.8이 A2로 금지한 바로 그 형태입니다. 이 홉의 대상은 <b>피호출 도메인 Agent의 워크로드 식별자</b>이며, 사람 사번과 분리된 <span class="pat">AGT-*</span> 네임스페이스를 씁니다 — 1.8 Agent 신원 참조. 나머지 두 홉(MCP Server → Gateway, Gateway → Legacy)의 정의는 1.6 신뢰 경계별 토큰 설계 표에 있으며, 위 네 홉과 <b>같은 표에 등재해 한 벌로 관리</b>합니다.</p>
+
+  <h3>계층 간 호출 규칙</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36px">#</th><th style="width:250px">규칙</th><th>근거 · 예외</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>순방향 기본</b> — <span class="pat">L5→L4→L3→L1</span></td><td>계층을 건너뛰는 호출은 예외로만 허용하며 예외는 아래 2·3에 한정합니다</td></tr>
+      <tr><td class="num">2</td><td><b>L4 스킵 허용 · L3 스킵 금지</b></td><td>L4는 판단 트리에서 탈락하면 경로 B처럼 생략됩니다. <b>L3는 어떤 경우에도 생략하지 않습니다</b> — 인증·인가·감사가 사라지기 때문입니다</td></tr>
+      <tr><td class="num">3</td><td><b>역방향은 이벤트 경로에 한정</b></td><td>경로 D만 해당하며, <b>L3-N의 이벤트 도관을 반드시 경유</b>합니다. 브로커가 Agent에 직접 push하는 구성은 인가·쿼터·감사를 우회합니다</td></tr>
+      <tr><td class="num">4</td><td><b>동일 계층 호출은 L5에서만</b></td><td>A2A 구간. <b>위임 깊이 3 · 사이클 금지 · 화이트리스트 기반</b> — 1.8 허용 위임 그래프. L4 도구가 다른 L4 도구를 호출하는 구성은 금지합니다</td></tr>
+      <tr><td class="num">5</td><td><b>P-SEM · P-OPS는 호출 홉이 아니라 참조 대상</b></td><td>평면을 “호출”하는 설계는 성립하지 않습니다. 평면 자산은 계층 구현 안에 <b>내장되거나 배포 시점에 주입</b>됩니다</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>계층별 비기능 목표</h3>
+  <p><b>값은 W4 실측 후 확정하되, 자리는 지금 만듭니다.</b> 비기능 항목이 표에 없으면 설계 리뷰에서 아무도 묻지 않고, 구축 단계에 이르러서야 목표치를 소급해 정하게 됩니다. 아래 값은 착수 시점의 <b>설계 목표치</b>이며, 실측 결과가 목표를 벗어나면 목표가 아니라 <b>연계 방식</b>을 바꿉니다 — 경로 C로의 전환이 그 예입니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:74px">계층</th><th style="width:330px">지표 · 설계 목표치</th><th>확정 방법 · 시점</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">L4</td><td>도구 응답 <b>p95 ≤ 3초</b> · 반환 <b>200행 / 2MB</b> 상한</td><td>OCEAN-H 도구 시제로 측정 — <b>W4</b></td></tr>
+      <tr><td class="mk">L3</td><td>Gateway 추가 지연 예산 <b>≤ 300ms</b> · 타임아웃 <b>60초</b></td><td>전사 Gateway 현행 지연 실측 · 전사 IT 확인 — <b>W4</b></td></tr>
+      <tr><td class="mk">L1a</td><td>원천 QPS 상한 — <b>시스템별 W4 실측</b></td><td>시스템 담당 입회 하 부하 확인. 값 없이 도구를 열면 원천 과부하 — <b>W4</b></td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">L1b</td><td>복제 지연 목표 <b>≤ 5분</b> · <b>D3 시점 정합성 반환 필수</b></td><td>복제본 존재 확인 후 실측. 존재하지 않으면 구성 자체가 선행 과제 — <b>W3 확인 · W4 실측</b></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px">L5·L6의 비기능은 본 과업이 값을 정하지 않습니다. 모델 추론 지연과 세션 처리량은 <b>전사 AI 플랫폼의 배치 방식에 종속</b>되며, ①은 인터페이스 #6으로 그 제약을 <b>수령</b>하는 쪽입니다 — Part 4 인터페이스 참조.</p>
+
+  <h3>계층별 투자 귀속</h3>
+  <div class="thesis">
+    <strong>예산은 계층을 따라 균등하게 배분되지 않습니다.</strong> <strong>L1과 P-SEM이 비용의 대부분</strong>이고, L3는 기존 전사 자산의 확장이며, L4는 컨테이너 두 대 규모의 경량 구성이고, L5·L6는 전사 플랫폼에 종속되어 본 과업의 투자 항목이 아닙니다.
+  </div>
+  <div class="tw" style="margin-top:16px"><table>
+    <thead><tr><th style="width:130px">계층 · 평면</th><th class="c" style="width:120px">조달 성격</th><th style="width:110px">비용 비중</th><th>판단 근거 · 확정 시점</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--crit-soft)"><td><b>L1a · L1b · P-SEM</b></td><td class="c"><b>자체 구축</b></td><td class="mk no"><b>대 — 대부분</b></td><td>우리 데이터에 특화되어 사올 수 없습니다. <b>MCP 채택 여부와 무관하게 필요</b>합니다. L1b 복제본 스토리지는 <b>W4 실측 후 W6 산정</b></td></tr>
+      <tr><td><b>L3-S</b></td><td class="c">기존 자산 확장</td><td class="mk best">소</td><td>전사 API Gateway가 이미 존재합니다. 신규 구매는 중복 투자 — 전사 협의 사항</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>L3-N</b></td><td class="c"><b>미결</b></td><td class="mk mid">소~중</td><td><b>신규 구축과 전사 Gateway의 MCP 지원 활용 중 택일</b>이며 아직 정해지지 않았습니다. 전사 Gateway 제품군이 도구 호출 인가를 지원하면 신규 투자는 0에 수렴합니다 — <b>전사 협의 사항 · W2 확인</b></td></tr>
+      <tr><td><b>L4</b></td><td class="c">자체 개발</td><td class="mk best">소</td><td>컨테이너 2~4 vCPU / 4~8 GB × 2대(이중화). 프로토콜 라이선스 비용 0 — 5.1 인프라 항목 1</td></tr>
+      <tr><td><b>L5 · L6</b></td><td class="c mk no">범위 밖</td><td class="mk no">③ 소관</td><td>전사 AI 플랫폼 종속. LLM 추론 GPU가 최대 항목이나 <b>①은 요건만 제시</b>합니다</td></tr>
+      <tr><td><b>P-OPS</b></td><td class="c">기존 확장 + 소규모 신규</td><td class="mk mid">소~중</td><td>감사 로그 저장소 규모는 <b>보존 기간이 정해져야</b> 산정됩니다 — 5.1 인프라 항목 7</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>이 아키텍처가 전제하는 미확인 사실</h3>
+  <p>아래 넷은 본 절의 구성이 성립하기 위한 전제이나 <b>착수 시점에는 확인되지 않았습니다.</b> 넷 다 <b>전사 IT·보안 인터뷰 한 번</b>으로 답이 나오는 질문이므로, W2 인터뷰의 확인 항목으로 고정하고 결과를 5.1 가정 표에 등재합니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:36px"></th><th style="width:250px">전제</th><th class="c" style="width:70px">확인</th><th>미충족 시 영향</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">ⓐ</td><td><b>RTDB DMZ 복제본이 존재한다</b></td><td class="c mk">W3</td><td>경로 C 성립 불가. W4 임계 검증 불가 → 복제본 구성이 선행 과제로 승격 — 5.1 가정 3 · <span class="pat">R8</span></td></tr>
+      <tr style="background:var(--signal-soft)"><td class="mk">ⓑ</td><td><b>전사 Gateway가 MCP Server 등록을 지원한다</b></td><td class="c mk">W2</td><td>L3-N을 신규 구축해야 하며 투자 귀속표의 L3-N 행이 “소~중”에서 “중”으로 이동. 경로 A의 지연 예산 재산정</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="mk">ⓒ</td><td><b>전사 IdP가 RFC 8693 토큰 교환을 지원한다</b></td><td class="c mk">W2</td><td><b>홉 위상 정본 전체가 성립하지 않습니다.</b> 대안은 Agent 고유 권한(Service Account)뿐이며 최소권한 위배로 보안 심의 통과가 어려움 — 1.6 · 1.8</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="mk">ⓓ</td><td><b>AMS 원본의 소재 존과 이벤트 브로커 유무</b></td><td class="c mk">W2</td><td>AMS가 OT 존에 있고 브로커가 없으면 <b>경로 D는 그림으로만 존재</b>하게 됩니다. 브로커 신설이 선행 과제</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note warn" style="margin-top:14px"><b>ⓑ·ⓒ·ⓓ는 이번 확장으로 새로 드러난 전제입니다.</b> 단일 스택에서는 L3가 한 칸이라 “Gateway가 있다”로 충분했으나, L3를 북측과 남측으로 나누는 순간 <b>둘 중 어느 것이 이미 있는지</b>를 확인해야 합니다. 확인 비용이 인터뷰 한 번이므로 W2에 반드시 소진하십시오.</p>
+
+  <h3>이 아키텍처가 다루지 않는 것</h3>
+  <p class="lede">범위 밖 항목을 그리지 않은 채로 두면 <b>누락으로 읽힙니다.</b> 아래는 누락이 아니라 <b>명시적 배제</b>이며, 각 항목이 어느 과업 소관인지와 ①이 그 대신 무엇을 내는지를 함께 적습니다.</p>
+  <div class="two">
+    <div class="box"><div class="bt">L6 — ③ 및 전사 AI 플랫폼 범위</div>
+      <ul>
+        <li>모델 서빙 · 추론 인프라 · GPU 조달</li>
+        <li><b>세션 · 메모리 · 대화 이력 · 컨텍스트 관리</b></li>
+        <li>프롬프트 튜닝 · 모델 선택 · 평가셋 운영</li>
+        <li><b>①이 내는 것</b> — 데이터 등급 × 모델 배치 허용 매트릭스(1.7 D6)와 감사 로그 헤더 규격. 즉 <b>요건만</b> 제시하고 구축은 하지 않습니다</li>
+      </ul></div>
+    <div class="box"><div class="bt">스택 안이지만 1차 범위 밖</div>
+      <ul>
+        <li><b>P-ACT 쓰기 경로</b> — 호출 경로를 정의하지 않습니다(1.6)</li>
+        <li>협력사 테넌트 격리의 물리 배치 — 범위 결정 후 설계 <span class="pat">R12</span></li>
+        <li>가용성 등급 · 재해복구 · 이중화 설계</li>
+        <li>비용 정산·차지백 모델 — 쿼터 정의까지만(P-OPS)</li>
+      </ul></div>
+  </div>
+  <p class="note crit" style="margin-top:14px"><b>L6을 그림에 그리되 회색으로 두는 이유</b> — 없는 것처럼 그리면 Agent 런타임의 소재를 묻는 질의에 답할 자리가 없어지고, 진하게 그리면 ①이 만드는 것으로 오해됩니다. <b>자리는 만들되 소관은 ③으로 명시</b>하는 것이 정확한 표현이며, 그 인계 경로가 Part 4 인터페이스 #6(③ → ①, 모델 배치 방식 · 플랫폼 제약, W7)입니다.</p>
+
+  <div class="thesis" style="margin-top:20px">
+    위에서 아래로 <strong>설계</strong>하고, 아래에서 위로 <strong>구축</strong>합니다. 설계는 L5에서 시작해 내려오고, 구축은 <strong>L1과 P-SEM부터</strong> 올라갑니다. L4(MCP)부터 만들면 아래가 비어 있어 동작하지 않습니다.
+  </div>
+
+  <h3>횡단 관심사 — P-OPS의 구성 항목</h3>
+  <p class="lede">L3를 “인증·인가·레이트리밋·감사로그” 4개로만 정의하면 운영에서 무너집니다. 아래 5개는 특정 계층의 기능이 아니라 <b>전 계층을 관통</b>하므로 P-OPS 평면에 둡니다.</p>
   <div class="cards">
     <div class="card"><div class="ct">Cache</div><div class="ch">권한 인지형 캐시</div>
       <p>Agent는 사람보다 호출량이 자릿수 많고 같은 질문을 반복합니다. 캐시 없이는 원천 시스템이 과부하에 이릅니다. 그런데 <b>캐시는 성능 항목이 아니라 인가 설계의 일부</b>입니다 — 사용자 A 권한으로 채운 캐시가 B에게 반환되면 그것이 인가 우회입니다. <b>캐시 키에 주체 권한 컨텍스트를 포함</b>하십시오.</p></div>
     <div class="card"><div class="ct">Observability</div><div class="ch">관측성 · trace 전파</div>
-      <p>Agent 답변 품질 저하의 원인이 L1인지 L2인지 L4인지 추적할 수단이 필요합니다. <b>trace context 전파 규격은 L3/L4 인터페이스 설계이므로 ① 과업이 정의</b>하고, 수집·분석 운영은 ③으로 넘깁니다.</p></div>
+      <p>Agent 답변 품질 저하의 원인이 L1인지 P-SEM인지 L4인지 추적할 수단이 필요합니다. <b>trace context 전파 규격은 L3/L4 인터페이스 설계이므로 ① 과업이 정의</b>하고, 수집·분석 운영은 ③으로 넘깁니다.</p></div>
     <div class="card"><div class="ct">Quota</div><div class="ch">쿼터 · 비용 귀속</div>
-      <p>레이트리밋은 남용 방지이지 <b>비용 귀속도 비상 정지도 아닙니다.</b> Agent별 월 호출·토큰 상한, 원천별 QPS 상한, 초과 시 동작(감속/차단), 비용 부담 조직을 정의합니다.</p></div>
+      <p>레이트리밋은 남용 방지이지 <b>비용 귀속도 비상 정지도 아닙니다.</b> Agent별 월 호출·토큰 상한, 원천별 QPS 상한, 초과 시 동작(감속/차단), 비용 부담 조직을 정의합니다. <b>집행 지점은 L3-N</b>입니다.</p></div>
     <div class="card"><div class="ct">Isolation</div><div class="ch">격리 · 비상 정지</div>
-      <p>서킷브레이커·백프레셔·degraded mode. 무엇보다 <b>“Agent 트래픽이 현장 조작원의 운영 화면을 밀어내지 않는다”</b>는 격리 보장 — OT 인접에서 이건 성능이 아니라 <b>안전 이슈</b>입니다. 그리고 <b>kill switch</b>: 차단 권한자 · 경로 · 목표 소요시간 · 해제 절차.</p></div>
+      <p>서킷브레이커·백프레셔·degraded mode. 무엇보다 <b>“Agent 트래픽이 현장 조작원의 운영 화면을 밀어내지 않는다”</b>는 격리 보장 — OT 인접에서 이건 성능이 아니라 <b>안전 이슈</b>입니다. 그리고 <b>kill switch</b>: 차단 권한자 · 경로 · 목표 소요시간 · 해제 절차. <b>집행 지점은 L3-N</b>입니다.</p></div>
     <div class="card"><div class="ct">Classification</div><div class="ch">데이터 분류</div>
-      <p>어떤 등급의 데이터가 어느 모델 컨텍스트까지 갈 수 있는지. 1.7 데이터 분류 등급 참조.</p></div>
+      <p>어떤 등급의 데이터가 어느 모델 컨텍스트까지 갈 수 있는지. 존 축의 <b>클라우드 반출 금지</b>가 곧 이 정책의 망 측면 표현입니다 — 1.7 데이터 분류 등급 참조.</p></div>
   </div>
 
 </section>
@@ -2112,8 +2149,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <thead><tr><th style="width:150px">신뢰 경계</th><th style="width:110px">발급 주체</th><th style="width:120px">aud (대상)</th><th style="width:130px">교환 방식</th><th>검증 주체 · 실패 시</th></tr></thead>
     <tbody>
       <tr><td>사용자 → Agent</td><td>전사 IdP</td><td>Agent</td><td>OAuth 2.1 + <b>PKCE 필수</b></td><td>Agent / 인증 거부</td></tr>
-      <tr><td>Agent → 오케스트레이터</td><td>IdP</td><td>오케스트레이터</td><td>RFC 8693 교환</td><td>오케스트레이터 / 호출 차단</td></tr>
-      <tr style="background:var(--signal-soft)"><td><b>오케스트레이터 → MCP Server</b></td><td>IdP</td><td><b>해당 MCP Server</b></td><td><b>RFC 8693 교환</b><br>+ RFC 8707 resource</td><td>MCP Server / <b>aud 불일치 시 거부</b></td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>오케스트레이터 → 도메인 Agent</b><br><span style="font-size:12px;color:var(--ink-3)">A2A 홉</span></td><td>IdP</td><td><b>피호출 도메인 Agent</b> <span class="pat">AGT-*</span></td><td><b>RFC 8693 교환</b></td><td>오케스트레이터 / 호출 차단</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>도메인 Agent → MCP Server</b><br><span style="font-size:12px;color:var(--ink-3)">오케스트레이터 직결 포함</span></td><td>IdP</td><td><b>해당 MCP Server</b></td><td><b>RFC 8693 교환</b><br>+ RFC 8707 resource</td><td>MCP Server / <b>aud 불일치 시 거부</b></td></tr>
       <tr><td>MCP Server → Gateway</td><td>IdP</td><td>Gateway</td><td>RFC 8693 교환</td><td>Gateway / 거부 + 감사</td></tr>
       <tr><td>Gateway → Legacy</td><td>Gateway</td><td>Legacy 시스템</td><td>시스템별 정책</td><td>Legacy / 권한 필터링</td></tr>
     </tbody>
@@ -2548,6 +2585,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <p class="note" style="margin-top:10px">한편 표준 거버넌스 연구는 <b>MCP·A2A 모두 권한 위임·책임 소재를 프로토콜 수준에서 충분히 표현하지 못한다</b>고 지적합니다. 프로토콜에 의존하지 말고 <b>조직 차원의 기준</b>을 별도로 세워야 하는 이유입니다.</p>
 
   <h3>도메인 Agent 구성안</h3>
+  <p class="note warn"><b>안전(SHE) Agent는 이번 판에 신설했습니다.</b> 1.9가 스마트플랜트 2.0을 <b>공정운전 · 설비관리 · SHE 3개 분야</b>로 규정하고 1.10의 AI 과제 13종 중 4건이 [SHE] 계열인데, 이전 구성안에는 안전 도메인만 없어 <b>소유 조직이 지정되지 않는 Agent</b>가 남았습니다. 다만 <b>주 데이터 원천은 W1 확인 사항</b>이며 사고관리 시스템이 확장 가이드 대상(1.9)이므로 <b>1차 범위는 문서 검색 계열로 한정</b>합니다.</p>
   <p class="lede">시스템 경계가 아니라 <b>업무 도메인 경계</b>로 나눕니다. 시스템은 바뀌지만 업무 도메인은 오래 가고, 도메인 담당 조직이 곧 Agent 소유 조직이 되어 R&amp;R이 자연스럽게 정해집니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:170px">Agent</th><th style="width:230px">담당 도메인</th><th style="width:150px">주 사용 시스템</th><th>Pattern</th></tr></thead>
@@ -2556,6 +2594,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td><b>공정 Agent</b></td><td>실시간 · 이력 공정값, 추이 · 편차</td><td><span class="sys p1">RTDB</span> <span class="sys">AMS</span></td><td><span class="pat">P-ANALYZE</span> <span class="pat">P-MONITOR</span></td></tr>
       <tr><td><b>생산 Agent</b></td><td>생산계획 · 실적 · 품질</td><td><span class="sys p1">OASIS</span></td><td><span class="pat">P-READ</span> <span class="pat">P-ANALYZE</span></td></tr>
       <tr><td><b>지식 Agent</b></td><td>기술문서 · 규정 · 과거 보고서</td><td>Knowledge Hub (②)</td><td><span class="pat">P-SEARCH</span></td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>안전(SHE) Agent</b></td><td>안전작업허가 · 사고이력 · MSDS · PSM 문서</td><td><span class="sys">OCEAN-H</span> 사고관리 · Knowledge Hub (②)</td><td><span class="pat">P-SEARCH</span> <span class="pat">P-MONITOR</span></td></tr>
       <tr style="background:var(--accent-soft)"><td><b>종합 분석 Agent</b><br><span style="font-size:12px;color:var(--ink-3)">오케스트레이터</span></td><td>횡단 질의 조합 · 판단</td><td>위 Agent들 (A2A)</td><td>—</td></tr>
     </tbody>
   </table></div>
@@ -2679,13 +2718,14 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <h3>허용 위임 그래프 — 깊이 제한의 한계</h3>
   <p class="lede">A3(최대 깊이 3)은 <b>무한 루프 방지책</b>일 뿐입니다. 깊이 2에서도 권한 상승은 가능합니다. <b>어느 Agent가 어느 Agent를 호출해도 되는지의 화이트리스트</b>가 별도로 필요합니다.</p>
   <div class="tw"><table>
-    <thead><tr><th style="width:150px">호출자 ＼ 피호출자</th><th class="c">종합 분석</th><th class="c">설비</th><th class="c">공정</th><th class="c">생산</th><th class="c">지식</th></tr></thead>
+    <thead><tr><th style="width:150px">호출자 ＼ 피호출자</th><th class="c">종합 분석</th><th class="c">설비</th><th class="c">공정</th><th class="c">생산</th><th class="c">지식</th><th>안전(SHE)</th></tr></thead>
     <tbody>
-      <tr><td><b>종합 분석</b> (오케스트레이터)</td><td class="c mk no">—</td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk best">허용</td></tr>
-      <tr><td><b>설비</b></td><td class="c mk no">금지</td><td class="c mk no">—</td><td class="c mk mid">조건부</td><td class="c mk no">금지</td><td class="c mk mid">조건부</td></tr>
-      <tr><td><b>공정</b></td><td class="c mk no">금지</td><td class="c mk mid">조건부</td><td class="c mk no">—</td><td class="c mk no">금지</td><td class="c mk no">금지</td></tr>
-      <tr><td><b>생산</b></td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk mid">조건부</td><td class="c mk no">—</td><td class="c mk no">금지</td></tr>
-      <tr><td><b>지식</b></td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">—</td></tr>
+      <tr><td><b>종합 분석</b> (오케스트레이터)</td><td class="c mk no">—</td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="c mk best">허용</td><td class="mk best">허용</td></tr>
+      <tr><td><b>설비</b></td><td class="c mk no">금지</td><td class="c mk no">—</td><td class="c mk mid">조건부</td><td class="c mk no">금지</td><td class="c mk mid">조건부</td><td>금지</td></tr>
+      <tr><td><b>공정</b></td><td class="c mk no">금지</td><td class="c mk mid">조건부</td><td class="c mk no">—</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="mk mid">조건부</td></tr>
+      <tr><td><b>생산</b></td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk mid">조건부</td><td class="c mk no">—</td><td class="c mk no">금지</td><td>금지</td></tr>
+      <tr><td><b>지식</b></td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">금지</td><td class="c mk no">—</td><td class="mk mid">조건부</td></tr>
+      <tr><td><b>안전(SHE)</b></td><td>금지</td><td class="mk mid">조건부</td><td class="mk mid">조건부</td><td>금지</td><td class="mk mid">조건부</td><td>—</td></tr>
     </tbody>
   </table></div>
   <p class="note" style="margin-top:14px">부가 제약 — <b>사이클 금지</b>(호출 체인에 동일 Agent 재등장 금지), <b>팬아웃 상한</b>(한 Agent가 동시 호출할 수 있는 피호출 Agent 수), 조건부는 <b>전파 가능 권한 범위</b>를 명시. 이 표가 없으면 Agent가 늘어날수록 위임 경로가 통제 불가능해집니다.</p>
@@ -4505,7 +4545,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="pl">Part 4</div>
   <h2>과업 간 인터페이스 및 협의</h2>
   <p class="pd">세 과업은 같은 기간에 같은 데이터를 다룹니다. <b>경계를 W1에 긋지 못하면 W6쯤 반드시 충돌</b>하고, 그때는 이미 늦습니다.</p>
-  <div class="pm"><span><b>인계 항목</b> 13건</span><span><b>합동 결정</b> 12건</span><span><b>가장 위험한 구간</b> W10–W13</span></div>
+  <div class="pm"><span><b>인계 항목</b> 13건</span><span><b>합동 결정</b> 13건</span><span><b>가장 위험한 구간</b> W10–W13</span></div>
 </div>
 
 <!-- 4.1 -->
@@ -4547,6 +4587,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr style="background:var(--crit-soft)"><td class="num">9</td><td><b>어휘 정합의 순환 의존 해소</b><br><span style="font-size:12px">②→① 통제어휘 W6 vs ①의 별칭사전 W9</span></td><td>①②</td><td class="c mk">W2</td><td><b>양방향 의존이다</b> — ②는 ①의 Tag 메타를 기다리고, ①은 ②의 통제어휘를 기다린다. 순환을 끊는 방법은 하나뿐 — <b>W2에 「명명 규칙과 정규화 규칙」만 먼저 공동 확정</b>(대소문자·공백·특수문자·한영 병기·약어 전개)하고, 사전의 <b>값</b>은 각자 채운 뒤 W9–10에 대조한다. 규칙 없이 각자 만들면 <b>사전 자체가 중복을 갖는다</b></td></tr>
       <tr style="background:var(--signal-soft)"><td class="num">10</td><td><b>공통 과업 3종의 수행 주체</b><br><span style="font-size:12px">개선기회 도출 · 추진과제 정의 · 로드맵</span></td><td>①②③</td><td class="c mk">W1</td><td>기획서의 <b>네 번째 묶음</b>이다. 세 과업 각각의 산출물이 아니라 <b>통합 산출물</b>이므로 주관·기여·통합 시점을 정하지 않으면 <b>W13에 아무도 안 쓴 상태로 발견</b>된다. 아래 「공통 과업」 절 참조</td></tr>
       <tr><td class="num">11</td><td><b>SP2.0 기존 40개 과제 소급 적용 여부</b></td><td>①③</td><td class="c mk">W1</td><td>신규 도구 명세·Agent 카드 표준을 <b>기존 40개에 소급하면 범위가 전혀 달라진다.</b> 본 과업은 <b>미소급</b>을 가정하며(③ 가정 5), 소급이 요구되면 <b>별도 과제로 분리</b>해야 한다</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="num">13</td><td><b>L3-N(도구 · Agent 게이트웨이) 조달 방식</b></td><td>①③ · 전사 IT</td><td class="c mk">W2 제기<br>W9 확정</td><td><b>신규 구축과 전사 Gateway의 MCP 지원 활용 중 택일</b>이 미정이면 kill switch와 Agent 쿼터의 <b>집행 지점이 정해지지 않아</b> 1.8 권한 전파 원칙이 집행 주체 없이 문서로만 남는다. 전사 Gateway 제품군이 도구 호출 인가를 지원하면 <b>신규 투자는 0에 수렴</b>하므로 W2에 제품 · 버전 확인이 선행 — 1.3 투자 귀속 L3-N 행</td></tr>
       <tr><td class="num">12</td><td><b>W13–14 마감 구간의 담당 지속</b></td><td>①②③</td><td class="c mk">W1</td><td>인력계획상 다수 인원의 종료일이 <b>11/30 = W13 첫날</b>이다. <b>최종보고 주간(W14)에 ②의 담당이 남지 않는다.</b> 계약·투입 조정 또는 겸임 지정을 <b>착수 시점에</b> 확정해야 한다 — 아래 5.1 참조</td></tr>
     </tbody>
   </table></div>
@@ -4557,7 +4598,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <ul>
         <li>협의 사항 <b>#1 · #2 · #3</b> 확정 (가장 시급한 3건)</li>
         <li>인터페이스 <b>13건</b>의 기한 상호 확인 — 특히 <b>2단 인계 3건(#1a/#1b · #4a/#4b · #5a/#5b)</b>의 초안 시점</li>
-        <li>협의 <b>#9(어휘 순환) · #10(공통 과업 주체) · #11(SP2.0 소급) · #12(W13–14 담당)</b> — 넷 다 W1에 정하지 않으면 되돌릴 수 없다</li>
+        <li>협의 <b>#9(어휘 순환) · #10(공통 과업 주체) · #11(SP2.0 소급) · #12(W13–14 담당) · #13(L3-N 조달)</b> — 넷 다 W1에 정하지 않으면 되돌릴 수 없다</li>
         <li>공동 소관 데이터 RACI 서면 합의</li>
         <li>현업 인터뷰 합동 계획 수립</li>
       </ul></div>
@@ -4772,6 +4813,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="num">4</td><td>검색 색인 (정비이력)</td><td>텍스트·벡터 색인 — CPU 서빙 가능 규모</td><td class="c mk best">소</td><td class="mk">P4 (W11)</td><td>임베딩 <b>생성</b>은 GPU가 유리하나 배치 1회성. <b>검색 서빙은 CPU로 충분</b>한 규모</td></tr>
       <tr style="background:var(--crit-soft)"><td class="num">5</td><td><b>LLM 추론 GPU</b></td><td>전사 AI 플랫폼 결정에 종속</td><td class="c mk no">대 — ③ 범위</td><td class="mk">전사 방침</td><td><b>데이터 분류 C1(극비)은 외부 SaaS 모델 금지</b>이므로 사내 온프렘 모델이 필요합니다. 이것이 최대 항목이나 <b>본 과업 범위 밖</b> — ①은 “어떤 등급 데이터가 어디까지 갈 수 있는가”라는 <b>요건만</b> 제시하고, 조달은 전사 AI 플랫폼(명장 AI 등) 결정을 따릅니다</td></tr>
       <tr><td class="num">6</td><td>데이터 카탈로그 · 메타 저장소</td><td>DB 인스턴스 1식</td><td class="c mk best">소</td><td class="mk">P3 (W9)</td><td>전사 카탈로그가 있으면 그것을 사용 (전사 협의 #7)</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="num">8</td><td><b>도구 · Agent 게이트웨이 (L3-N)</b></td><td>전사 GW 확장 시 0<br>신규 구축 시 컨테이너 2대</td><td class="c mk mid">조건부</td><td class="mk">P4 (W11)</td><td><b>전사 협의 #13 결과에 종속.</b> 전사 Gateway가 도구 호출 인가를 지원하면 신규 투자 0. 지원하지 않으면 kill switch · Agent 쿼터의 집행 지점을 신설해야 한다</td></tr>
       <tr><td class="num">7</td><td>감사 로그 저장소</td><td>append-only · 보존기간 × 호출량</td><td class="c mk mid">소~중</td><td class="mk">P5 (W12)</td><td><b>Agent는 사람보다 호출량이 자릿수 많습니다.</b> 보존기간을 먼저 정해야 규모가 나옴</td></tr>
     </tbody>
   </table></div>
@@ -4856,6 +4898,9 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="num">4</td><td>보안 심의 주체가 W1에 지정되고 기준서를 W2에 수령한다</td><td class="mk">W2</td><td>P5 완료 불가, 재작업</td></tr>
       <tr><td class="num">5</td><td>MP·스마트플랜트 2.0 자료와 “업무別 Data List”에 접근할 수 있다</td><td class="mk">W1</td><td>P1 모집단 부재 → 백지 발굴로 전환(공수 +2주)</td></tr>
       <tr><td class="num">6</td><td>현업 2명의 W10–W13 주 1일 참여가 확보된다</td><td class="mk">W1</td><td>도구 명세·별칭 검수 품질 보증 불가</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="num">7</td><td><b>전사 API Gateway가 MCP Server 등록·라우팅을 지원한다</b></td><td class="mk">W2</td><td><b>L3-N 신규 구축</b>이 필요해 인프라 항목이 늘고 경로 A의 지연 예산을 재산정해야 한다 — 1.3 전제 ⓑ · 협의 #13</td></tr>
+      <tr style="background:var(--crit-soft)"><td class="num">8</td><td><b>전사 IdP가 RFC 8693 토큰 교환을 지원한다</b></td><td class="mk">W2</td><td><b>1.3 홉 위상과 1.6 인가 스택 전체가 성립하지 않는다.</b> 대안은 Agent 고유 권한(Service Account)뿐이며 최소권한 위배로 보안 심의 통과가 어렵다 — 1.3 전제 ⓒ</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="num">9</td><td><b>AMS 원본이 IT 또는 DMZ 존에 있고 이벤트 브로커가 존재한다</b></td><td class="mk">W2</td><td><b>호출 경로 D(이벤트 구독)가 그림으로만 존재</b>하게 된다. 브로커 신설이 선행 과제 — 1.3 전제 ⓓ</td></tr>
     </tbody>
   </table></div>
   <p class="note" style="margin-top:14px"><b>제약</b> — ① 본 과업은 <b>설계·기준 수립</b>이며 시스템 개발·구축은 포함하지 않습니다 ② 수행 인력은 보안서약 및 지정 작업 환경을 준수합니다(PSM 사업장) ③ OT 존 직접 접근은 하지 않습니다.</p>
@@ -4905,7 +4950,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr style="background:var(--crit-soft)"><td class="mk">R5</td><td><b>쓰기(P-ACT) 범위 팽창</b></td><td>“Agent가 작업지시까지” → 승인·감사 설계로 일정 붕괴</td><td>1차 읽기 전용을 범위 기준선에 명문화. <b>OASIS를 지목해 명시</b></td></tr>
       <tr><td class="mk">R6</td><td>대상 시스템 확산</td><td>3종이 6~8종으로 늘어남</td><td>Phase 0에서 선정 기준 확정, 추가분은 확장 가이드로 이관</td></tr>
       <tr><td class="mk">R7</td><td>② Knowledge 과업과 경계 모호</td><td>같은 데이터를 두 과업이 중복 설계</td><td>Tag Meta는 ① 주관 · ②에 제공. <b>근무일지는 미합의 — W1 합동 킥오프에서 경로(①)/텍스트(②) 분할과 개인정보 판정 주체를 서면 합의</b> (Part 4 인터페이스 #3)</td></tr>
-      <tr style="background:var(--crit-soft)"><td class="mk">R8</td><td><b>IT/OT 경계 미정의</b></td><td>RTDB는 OT 인접 자산. Agent가 OT 존으로 세션을 여는 구조가 승인 없이 만들어짐 → 보안 심의 반려</td><td>1.3 존 배치도, “OT 인바운드 금지” 원칙. <b>W4 검증 대상을 DMZ 복제본으로 명시</b></td></tr>
+      <tr style="background:var(--crit-soft)"><td class="mk">R8</td><td><b>IT/OT 경계 미정의</b></td><td>RTDB는 OT 인접 자산. Agent가 OT 존으로 세션을 여는 구조가 승인 없이 만들어짐 → 보안 심의 반려</td><td>1.3 <b>존 4개와 도관</b> 표, “OT 인바운드 금지” 원칙. <b>W4 검증 대상을 DMZ 복제본으로 명시</b></td></tr>
 <tr style="background:var(--crit-soft)"><td class="mk">R9</td><td><b>시스템 간 조인 불가</b></td><td>시스템별로는 다 붙였는데 횡단 질문에 답 못 함. <b>가장 늦게 발견되고 복구 비용이 가장 큼</b></td><td>Phase 3-2 식별자 표준화, Phase 1에서 횡단 질의 비중 조기 측정</td></tr>
       <tr><td class="mk">R10</td><td>RTDB를 범용 REST로 붙이려 함</td><td>수백만 포인트 조회로 원천 부하 · 타임아웃</td><td>Phase 2-3에 <b>RTDB 대량 구간 조회 필수 포함</b>. 서버측 집계 기능 우선 확인</td></tr>
 <tr><td class="mk">R11</td><td><b>MCP 사양 개정 주기</b></td><td>평균 약 5개월 간격의 개정(최근 구간은 8개월). 채택 후 마이그레이션 비용 발생</td><td>채택 판단서에 <b>버전 고정 + 마이그레이션 비용 추정 + 유예 정책</b> 필수 포함</td></tr>
@@ -5028,7 +5073,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </div>
 
     <div class="slide">
-      <div class="slide-h"><span class="sn">P5</span><span class="st">연계 참조 아키텍처 — 5계층</span></div>
+      <div class="slide-h"><span class="sn">P5</span><span class="st">연계 참조 아키텍처 — 스택 · 평면 · 존</span></div>
       <div class="slide-lead">계층을 먼저 고정해야 각 결정이 어디에 속하는지 명확해짐. <b>위에서 설계하고 아래에서 구축</b></div>
       <div class="slide-b">
         <div class="layers">
@@ -5267,7 +5312,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
         <tr style="background:var(--signal-soft)"><th>데이터 분류 등급</th><td colspan="3"><b>C3</b> (근무일지·정비이력) — 반출 허용: 전사 사설까지 / 외부 SaaS: 가명처리 후. <b>런타임 강제 대상</b></td></tr>
         <tr style="background:var(--signal-soft)"><th>오류 노출 정책</th><td colspan="3">C3·C4 → <b>“권한 없음” 명시 반환</b> / C1·C2 → <b>“데이터 없음”과 구분 불가하게 반환</b> (A10). <b>감사 로그에는 구분해 기록</b></td></tr>
         <tr style="background:var(--signal-soft)"><th>정의 해시</th><td colspan="3"><span class="pat">________</span> — 등록 시 채번. <b>변경 시 재승인 필수</b> (rug pull 방지)</td></tr>
-        <tr><th>비기능</th><td colspan="3">응답 2초 이내 · 기본 50행/최대 200행 · 페이징 <span class="pat">next_cursor</span></td></tr>
+        <tr><th>비기능</th><td colspan="3">응답 <b>p95 ≤ 3초</b>(W4 실측 후 확정) · 기본 50행 / 최대 <b>200행 · 2MB</b> · 페이징 <span class="pat">next_cursor</span></td></tr>
         <tr><th>변경관리</th><td colspan="3">스키마 변경 시 30일 전 공지, 하위호환 1버전 유지</td></tr>
       </tbody>
     </table></div>
@@ -5334,7 +5379,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
   <div class="qa-cat">범위 · 기대수준</div>
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">MCP 도입으로 충분하지 않은가 — Legacy를 고쳐야 하는 이유</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at">MCP는 <b>배관이 아니라 어댑터</b>입니다. L4 도구 노출 규약이며, 그 아래 Legacy API(L1)와 의미 계층(L2)이 없으면 <b>감쌀 대상이 없습니다.</b> 태그가 무슨 뜻인지 모르는 상태에서 MCP를 얹으면 Agent는 오류를 내지 않고 <b>그럴듯한 틀린 답</b>을 냅니다. <span class="src">원칙 03 · 1.3</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">MCP는 <b>배관이 아니라 어댑터</b>입니다. L4 도구 노출 규약이며, 그 아래 Legacy API(L1)와 <b>의미 자산(P-SEM)</b>이 없으면 <b>감쌀 대상이 없습니다.</b> 태그가 무슨 뜻인지 모르는 상태에서 MCP를 얹으면 Agent는 오류를 내지 않고 <b>그럴듯한 틀린 답</b>을 냅니다. <span class="src">원칙 03 · 1.3</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">조회만 하면 뭐가 달라지나. 작업지시까지 자동화해야 효과가 크지 않나</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at">MP 정량 분석상 AI 적용 대상 101건 중 <b>대부분이 조회·분석 성격</b>입니다(운전지원 32건, 공정최적화 31건). 그리고 “작업지시를 Agent가”의 실제 니즈는 대개 <b>“작업지시 내는 데 필요한 정보 모으기가 번거롭다”</b>입니다 — <b>Human-in-the-loop 초안 생성</b>으로 체감 효익 대부분을 확보하면서 상태 변경 주체는 사람으로 남습니다. 완전 자동화는 <b>3단계 Gate(PSM 체계 개정)</b> 통과 후입니다. <span class="src">1.6 쓰기 제외 근거 6·7</span></div></div></div>

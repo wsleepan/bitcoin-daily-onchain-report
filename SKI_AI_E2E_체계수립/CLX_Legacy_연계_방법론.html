@@ -324,13 +324,13 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="np">Part 0 · 개요</div>
   <ol>
     <li><a href="#ov-map"><span class="n">0.1</span>과업 지형</a></li>
-    <li><a href="#ov-why"><span class="n">0.2</span>왜 지금인가</a></li>
+    <li><a href="#ov-why"><span class="n">0.2</span>추진 배경</a></li>
     <li><a href="#ov-road"><span class="n">0.3</span>로드맵 속 위치</a></li>
     <li><a href="#ov-common"><span class="n">0.4</span>공통 설계 원칙</a></li>
   </ol>
   <div class="np">Part 1 · ① Legacy 연계</div>
   <ol>
-    <li><a href="#q"><span class="n">1.1</span>여섯 개의 질문</a></li>
+    <li><a href="#q"><span class="n">1.1</span>핵심 논점 6개</a></li>
     <li><a href="#pr"><span class="n">1.2</span>7대 설계 원칙</a></li>
     <li><a href="#arch"><span class="n">1.3</span>참조 아키텍처</a></li>
     <li><a href="#ph"><span class="n">1.4</span>수행 절차 P0–P8</a></li>
@@ -344,22 +344,22 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="np">Part 2 · ② Knowledge</div>
   <ol>
     <li><a href="#k-proc"><span class="n">2.1</span>수행 프로세스</a></li>
-    <li><a href="#k-back"><span class="n">2.2</span>활용에서 역산</a></li>
+    <li><a href="#k-back"><span class="n">2.2</span>활용 역산 원칙</a></li>
     <li><a href="#k-onto"><span class="n">2.3</span>온톨로지 레벨 판정</a></li>
-    <li><a href="#k-meta"><span class="n">2.4</span>메타 자동화 원칙</a></li>
+    <li><a href="#k-meta"><span class="n">2.4</span>메타데이터 자동화</a></li>
     <li><a href="#k-out"><span class="n">2.5</span>산출물 · 리스크</a></li>
   </ol>
   <div class="np">Part 3 · ③ MLOps·AgentOps</div>
   <ol>
     <li><a href="#m-proc"><span class="n">3.1</span>수행 프로세스</a></li>
-    <li><a href="#m-diff"><span class="n">3.2</span>MLOps vs AgentOps</a></li>
+    <li><a href="#m-diff"><span class="n">3.2</span>MLOps · AgentOps 차이</a></li>
     <li><a href="#m-life"><span class="n">3.3</span>Agent 생애주기</a></li>
-    <li><a href="#m-miss"><span class="n">3.4</span>자주 빠지는 셋</a></li>
+    <li><a href="#m-miss"><span class="n">3.4</span>빈번한 누락 3종</a></li>
     <li><a href="#m-out"><span class="n">3.5</span>기대 산출물</a></li>
   </ol>
   <div class="np">Part 4 · 인터페이스</div>
   <ol>
-    <li><a href="#itf"><span class="n">4.1</span>인계 · 협의 사항</a></li>
+    <li><a href="#itf"><span class="n">4.1</span>인터페이스 · 협의</a></li>
   </ol>
   <div class="np">Part 5 · 수행 관리</div>
   <ol>
@@ -380,7 +380,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 0.1 -->
 <section id="ov-map">
-  <div class="sh"><span class="n">0.1</span><h2>과업 지형 — 세 과업은 무엇을 만드는가</h2></div>
+  <div class="sh"><span class="n">0.1</span><h2>과업 지형 — 세 과업의 산출물 구성</h2></div>
 <figure>
 <svg viewBox="0 0 940 524" role="img" aria-label="세 과업의 지형도. 맨 아래 Legacy 6종과 비정형 문서·암묵지 위에 ①이 연결 규칙과 식별자를, ②가 지식 구조를 얹고, 그 위에 ③의 운영 계층이 놓여 CLX Brain AI Agent가 업무를 수행한다. ①과 ②는 근무일지·정비이력·작업표준을 공동 소관으로 겹친다.">
 <defs>
@@ -465,7 +465,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 </svg>
 <figcaption><b>세 과업은 같은 자산 위에 얹히는 서로 다른 층이다</b> — 맨 아래 자산(정형 Legacy 6종 / 비정형 문서 · 암묵지)은 그대로 두고, <b>①은 그것이 나오게 하는 규칙</b>을, <b>②는 쌓이게 하는 구조</b>를, <b>③은 그것을 쓰는 Agent가 돌아가게 하는 운영 체계</b>를 만든다. 셋이 다 있어야 맨 위 한 줄이 성립한다. 가운데 노란 기둥은 ①과 ②가 같은 데이터를 보는 지점으로, 자산 층과 공급 층에 동시에 걸쳐 있다 — <b>W1에 분할 기준을 합의하지 못하면 이 기둥이 그대로 공백 또는 중복이 된다.</b> 주고받는 산출물의 목록과 기한은 Part 4에 있다.</figcaption>
 </figure>
-  <h3>세 과업의 관계 — 무엇을 만드는 과업인가</h3>
+  <h3>세 과업의 관계 및 산출물 성격</h3>
   <div class="tw"><table>
     <thead><tr><th style="width:130px">과업</th><th style="width:190px">Key Question</th><th style="width:150px">만드는 것</th><th>성격</th></tr></thead>
     <tbody>
@@ -550,7 +550,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 0.2 -->
 <section id="ov-why">
-  <div class="sh"><span class="n">0.2</span><h2>왜 지금인가</h2></div>
+  <div class="sh"><span class="n">0.2</span><h2>추진 배경</h2></div>
   <p class="lede">울산CLX는 2016년 스마트플랜트 도입 이래 <b>기간 시스템(OASIS·OCEAN-H)</b>을 구축했고, 2024년부터 <b>스마트플랜트 2.0 40개 과제</b>로 AI를 적용하고 있습니다. 즉 <b>“AI가 아직 없다”는 전제로 접근하면 안 됩니다.</b> 지금 없는 것은 AI가 아니라 <b>그것들이 공통으로 올라탈 기반</b>입니다.</p>
 <figure>
 <svg viewBox="0 0 940 496" role="img" aria-label="울산CLX 배경 수치와 영역별 AI 적용 비중. 생산기술 업무 259건 중 101건이 AI 적용 대상이며, 그중 63건이 운전지원과 공정최적화 두 영역에 몰려 있고 두 영역의 주 Legacy는 RTDB와 OCEAN-H다.">
@@ -669,7 +669,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 핵심 메시지 -->
 <line x1="20" y1="422" x2="920" y2="422" class="dg-ln" stroke-opacity=".3"/>
-<text x="20" y="442" class="dg-m">AI 적용 대상 101건은 어디에 의존하는가</text>
+<text x="20" y="442" class="dg-m">AI 적용 대상 101건의 의존 시스템</text>
 <rect x="20" y="450" width="374.2" height="24" rx="3" class="dg-hi"/>
 <rect x="394.2" y="450" width="225.8" height="24" rx="3" class="dg-fill"/>
 <text x="34" y="466" class="dg-acc">운전지원 + 공정최적화 63건 — 62%</text>
@@ -769,7 +769,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 0.4 -->
 <section id="ov-common">
   <div class="sh"><span class="n">0.4</span><h2>세 과업의 공통 설계 원칙</h2></div>
-  <h3>먼저 — 이 문서의 기호 규칙</h3>
+  <h3>이 문서의 기호 사용 규칙</h3>
   <p class="lede">세 과업을 한 문서에 담으면서 <b>같은 알파벳이 서로 다른 축에 쓰이는 지점</b>이 생겼습니다. 읽기 전에 이 표를 봐 두면 혼동이 없습니다. <b>표 안에서는 항상 앞뒤 문맥으로 구분되지만, 인용할 때는 축 이름을 함께 부르십시오.</b></p>
   <div class="tw"><table>
     <thead><tr><th style="width:110px">기호</th><th style="width:230px">쓰임 A</th><th style="width:230px">쓰임 B</th><th>구분하는 법</th></tr></thead>
@@ -791,7 +791,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
 </defs>
 
-<text x="16" y="40" class="dg-m">제약 — 왜 생기는가</text>
+<text x="16" y="40" class="dg-m">제약 — 발생 원인</text>
 <text x="224" y="40" class="dg-m">공통 원칙</text>
 <text x="496" y="40" class="dg-m">과업별 적용 · ● 채택 / ◌ 약함</text>
 
@@ -890,7 +890,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 01 -->
 <section id="q">
-  <div class="sh"><span class="n">1.1</span><h2>여섯 개의 질문</h2></div>
+  <div class="sh"><span class="n">1.1</span><h2>핵심 논점 6개</h2></div>
   <p class="lede">“AI와 Legacy를 어떻게 연결할 것인가”는 하나의 질문이 아닙니다. 섞어서 다루면 결론이 나오지 않습니다. 방법론은 이 여섯을 분리해 순서대로 답합니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:36px">#</th><th>질문</th><th style="width:104px">성격</th><th style="width:96px">담당</th></tr></thead>
@@ -916,25 +916,25 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="lede">체계가 사실상 백지에서 시작하므로 “무엇을 먼저 정하느냐”가 성패를 가릅니다. 아래 일곱이 이후 모든 Phase 순서의 근거입니다.</p>
   <div class="prin">
     <div class="prin-i"><div class="pi">01</div><div>
-      <h3>Action Pattern이 연계 요건을 결정한다</h3>
+      <h3>Action Pattern 기반 연계 요건 역산</h3>
       <p>연계 방식을 먼저 고르고 Agent를 맞추면 반드시 재작업이 발생합니다. <b>Agent 유형 → Action Pattern → 인터페이스 요건 → 연계 방식</b> 순으로 역산합니다.</p></div></div>
     <div class="prin-i"><div class="pi">02</div><div>
-      <h3>읽기와 쓰기는 완전히 다른 문제다</h3>
+      <h3>읽기와 쓰기의 분리</h3>
       <p>조회는 데이터 구조·검색성 문제이고, 쓰기는 권한·감사·롤백 문제입니다. 난이도가 자릿수 단위로 다릅니다. <b>1차 범위를 읽기 전용으로 고정</b>하지 않으면 보안·현업 검토에서 전체가 멈춥니다. <a href="#p4">→ 1.6에 상세 근거와 단계적 개방 경로</a></p></div></div>
     <div class="prin-i"><div class="pi">03</div><div>
-      <h3>MCP는 배관이 아니라 어댑터다</h3>
+      <h3>MCP의 성격 — 배관이 아닌 어댑터</h3>
       <p>이 과업 최대의 오해 지점입니다. MCP를 도입해도 Legacy가 Agent-ready가 되지 않습니다. MCP는 <b>L4 도구 노출 규약</b>이며, 그 아래 Legacy API와 의미 계층이 없으면 감쌀 대상이 없습니다.</p></div></div>
     <div class="prin-i"><div class="pi">04</div><div>
-      <h3>전사 방침에 종속하고, CLX는 적용 기준만 만든다</h3>
+      <h3>전사 방침 종속 · CLX 적용 기준 수립</h3>
       <p>CLX가 독자 연계 경로를 설계하면 전사 거버넌스와 충돌하고 중복 투자 지적을 받습니다. 산출물을 <b>(a) CLX 적용 기준</b>과 <b>(b) 전사 개선 요청</b> 2갈래로 분리합니다.</p></div></div>
     <div class="prin-i"><div class="pi">05</div><div>
-      <h3>진단은 시스템별이 아니라 공통 축으로</h3>
+      <h3>공통 축 기반 진단</h3>
       <p>시스템을 각각 진단하면 개별 개선 목록만 나오고 통합 로드맵이 나오지 않습니다. <b>Agent-Readiness 6축 R1~R6</b>(인터페이스 · 데이터 구조 · 의미 명확성 · 권한 세분성 · 관측·감사 · 변경관리)으로 평가하면 공통 과제와 특화 과제가 자동으로 갈립니다.</p></div></div>
     <div class="prin-i"><div class="pi">06</div><div>
-      <h3>대상 시스템은 하나의 방식으로 붙지 않는다</h3>
+      <h3>대상 시스템별 차등 연계</h3>
       <p>규모가 자릿수 단위로 다르고, 실시간성 요구가 다르고, 쓰기 수요가 다릅니다. “전부 REST로” 또는 “전부 MCP로” 통일하려는 시도가 <b>가장 흔한 실패 경로</b>입니다.</p></div></div>
     <div class="prin-i"><div class="pi">07</div><div>
-      <h3>통합의 실질은 API가 아니라 공통 식별자다</h3>
+      <h3>공통 식별자 중심 통합</h3>
       <p>개별 API를 아무리 잘 만들어도 <b>설비 · 시간 · 공정 · 오더</b> 4개 축의 식별자가 정합되지 않으면 횡단 질문에 답할 수 없습니다. 이것이 ① 과업의 숨은 핵심 산출물입니다.</p></div></div>
   </div>
 </section>
@@ -1477,7 +1477,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 06 -->
 <section id="p4">
-  <div class="sh"><span class="n">1.6</span><h2>연계 방식 선정과 MCP 판단</h2></div>
+  <div class="sh"><span class="n">1.6</span><h2>연계 방식 선정 및 MCP 채택 판단</h2></div>
 
   <h3>Action Pattern 정의</h3>
   <div class="tw"><table>
@@ -1492,25 +1492,25 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
 
 
-  <h3>왜 P-ACT(쓰기)를 1차 범위에서 제외하는가</h3>
+  <h3>P-ACT(쓰기)의 1차 범위 제외 근거</h3>
   <p class="lede">이 결정은 “일단 쉬운 것부터 하자”가 아닙니다. 조회와 쓰기는 <b>공학적으로 다른 문제</b>이고, 정유·석유화학 플랜트에서는 <b>법적으로도 다른 문제</b>입니다. 착수보고에서 반드시 설명을 요구받는 지점이므로 근거를 갖추고 가십시오.</p>
 
-  <h4>1 · 되돌릴 수 없다</h4>
+  <h4>1 · 비가역성</h4>
   <div class="stack">
     <p class="note">조회가 틀리면 사람이 읽고 판단해서 버리면 끝입니다. <b>쓰기가 틀리면 시스템 상태가 바뀌고, 플랜트에서는 물리적 결과로 이어질 수 있습니다.</b> 작업오더 하나가 잘못 나가면 정비반이 움직이고, 운전 조건이 바뀝니다. 조회 오류의 비용과 쓰기 오류의 비용은 같은 단위로 비교할 수 없습니다.</p>
   </div>
 
-  <h4>2 · LLM은 확률적이고, 쓰기에서 그 특성은 “다른 행동”이 된다</h4>
+  <h4>2 · LLM의 확률적 특성 — 쓰기에서의 발현</h4>
   <div class="stack">
     <p class="note">같은 입력에 다른 출력이 나오는 것이 LLM의 본질입니다. <b>조회에서 이 특성은 “같은 답의 다른 표현”</b>이지만, <b>쓰기에서는 “다른 행동”</b>입니다. 재현 불가능한 행동을 하는 주체를 운영 시스템에 직접 연결하려면, 그것을 감싸는 결정론적 통제 장치(승인·검증·제한)를 먼저 만들어야 합니다. 그 장치가 곧 이 과업 이후의 별도 설계 대상입니다.</p>
   </div>
 
-  <h4>3 · 책임 소재가 정리되지 않았다</h4>
+  <h4>3 · 책임 소재 미정립</h4>
   <div class="stack">
     <p class="note">Agent가 낸 작업지시로 사고가 나면 누구의 책임인가 — 이 질문에 답이 없는 상태로 쓰기를 열 수 없습니다. 특히 <b>PSM(공정안전관리) 체계에서 작업 허가·변경관리는 승인 주체와 절차가 규정으로 정해져 있습니다.</b> Agent를 그 절차에 어떻게 편입시킬지는 기술 설계가 아니라 <b>안전관리 체계의 개정</b> 문제이며, 약 3개월(14주) 과업이 단독으로 결정할 수 있는 범위가 아닙니다.</p>
   </div>
 
-  <h4>4 · 감사 · 롤백 요건이 자릿수 단위로 다르다</h4>
+  <h4>4 · 감사 · 롤백 요건의 규모 차이</h4>
   <div class="tw"><table>
     <thead><tr><th style="width:110px">요건</th><th style="width:250px">조회 (P-READ ~ P-MONITOR)</th><th>쓰기 (P-ACT)</th></tr></thead>
     <tbody>
@@ -1522,18 +1522,18 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h4>5 · 일정 산술 — 쓰기를 넣으면 약 3개월(14주)에 끝나지 않는다</h4>
+  <h4>5 · 일정 산술 — 쓰기 포함 시 기간 초과</h4>
   <div class="stack">
     <p class="note warn">쓰기를 범위에 넣으면 Phase 5(권한)가 최소 2배로 늘고, <b>보안·안전 심의가 임계 경로에 들어옵니다.</b> 심의는 우리가 일정을 통제할 수 없는 활동입니다. 결과적으로 <b>읽기 쪽 산출물까지 함께 늦어집니다</b> — 쓰기를 얻으려다 아무것도 못 얻는 구조입니다.</p>
   </div>
 
-  <h4>6 · 그런데 쓰기 수요의 상당 부분은 읽기로 해소된다</h4>
+  <h4>6 · 쓰기 수요의 읽기 대체 가능성</h4>
   <div class="thesis">
     “작업지시를 Agent가 냈으면 좋겠다”의 실제 니즈는 대개 <strong>“작업지시를 내는 데 필요한 정보를 모으는 게 번거롭다”</strong> 입니다. 정보 수집·정리·초안 작성을 Agent가 하고 <strong>사람이 확인 후 제출</strong>하면, 체감 효익의 대부분이 나오면서 시스템 상태 변경 주체는 사람으로 남습니다.
   </div>
   <p class="note" style="margin-top:14px">이것이 <b>Human-in-the-loop 초안 생성</b> 패턴이며, 1차 범위 안에서 가능합니다. 착수보고에서 쓰기 요구가 나오면 <b>“제외한다”가 아니라 “이렇게 대신 한다”로 답하십시오.</b> 요구를 거절하는 것이 아니라 재구성하는 것입니다.</p>
 
-  <h4>7 · 단계적 개방 경로 — 금지가 아니라 순서</h4>
+  <h4>7 · 단계적 개방 경로 — 금지가 아닌 순서</h4>
   <p class="lede">범위 제외는 영구 배제가 아닙니다. <b>언제, 어떤 조건이 갖춰지면 여는지</b>를 함께 제시해야 합의가 됩니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:58px">단계</th><th style="width:190px">범위</th><th style="width:190px">예시</th><th>진입 조건 (Gate)</th></tr></thead>
@@ -1609,7 +1609,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <figcaption><b>“쓰기를 안 한다”가 아니라 “언제 어떤 조건에서 연다”</b> — 착수보고에서 쓰기 요구가 나오면 거절이 아니라 이 그림으로 답합니다. 1단계(초안 생성)만으로 체감 효익의 대부분이 나오며, 시스템 상태 변경 주체는 사람으로 남습니다. <b>Gate 3은 기술 문제가 아니라 PSM 안전관리 체계 개정</b>이라 약 3개월(14주) 과업이 단독으로 결정할 수 없습니다.</figcaption>
 </figure>
 
-  <h4>대응 스크립트 — 착수보고에서 쓰기 요구가 나올 때</h4>
+  <h4>대응 스크립트 — 착수보고 쓰기 요구 시</h4>
   <div class="tw"><table>
     <thead><tr><th style="width:260px">현업 · 경영층 발언</th><th>대응</th></tr></thead>
     <tbody>
@@ -1737,11 +1737,11 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 </figure>
 
 
-  <h3>판단 트리를 이렇게 설계한 이유</h3>
+  <h3>판단 트리의 설계 근거</h3>
   <p class="lede"><b>핵심 네 질문(Q1~Q4)</b>의 <b>내용</b>과 <b>순서</b> 모두 근거가 있습니다. <b>Q0(망 경계)와 Q5(도구 무결성)는 아래 「6단 트리로 확장」 소절에서 따로 다룹니다</b> — 이 둘은 선택지를 가르는 질문이 아니라 판정의 <b>전제 조건(Q0)</b>과 <b>사후 조건(Q5)</b>이므로, 이 소절과 뒤따르는 「조사 비용」·「탈락 지점」·「CLX 적용 예상 판정」 세 표는 Q1~Q4만을 대상으로 합니다. 트리를 그대로 쓰기 전에 왜 이렇게 생겼는지 알아야, 현장에서 예외 상황을 만났을 때 판단할 수 있습니다.</p>
 
   <div class="tw"><table>
-    <thead><tr><th style="width:44px">질문</th><th style="width:220px">무엇을 묻는가</th><th>왜 이 질문인가</th></tr></thead>
+    <thead><tr><th style="width:44px">질문</th><th style="width:220px">확인 사항</th><th>질문의 근거</th></tr></thead>
     <tbody>
       <tr><td class="mk">Q1</td><td><b>도구가 5개 이상이고 늘어나는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 규모와 증가 추세</span></td><td>MCP의 실익은 <b>도구 발견(discovery)과 자기기술(self-description)</b>에 있습니다. 도구가 1~2개면 그 설명을 Agent 프롬프트에 직접 넣는 편이 더 싸고 빠릅니다. MCP Server 운영 비용(배포·인증·모니터링)이 편익을 초과합니다.<br><b>“늘어나는가”가 더 중요합니다.</b> 도구 집합이 정적이면 하드코딩이 낫고, 계속 늘어난다면 <b>Agent 재개발 없이 도구만 추가</b>하는 구조의 이익이 복리로 쌓입니다.</td></tr>
       <tr><td class="mk">Q2</td><td><b>Agent가 스스로 도구를 고르는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 판단의 필요성</span></td><td>호출 경로가 고정돼 있다면 그것은 Agent가 아니라 <b>파이프라인</b>입니다. 이 경우 MCP의 동적 선택 능력은 쓰이지 않고 <b>비결정성만 추가</b>됩니다 — 예측 가능해야 할 것을 예측 불가능하게 만드는 역효과입니다.<br>즉 <b>MCP는 판단이 필요한 곳에만 씁니다.</b></td></tr>
@@ -1754,9 +1754,9 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="lede">원래 4단 트리는 <b>“MCP가 유용한가 · 안전하게 쓸 수 있는가”</b> 만 물었습니다. 보안 검토 결과 두 축이 빠져 있었습니다 — <b>앞에 망·법적 경계</b>, <b>뒤에 도구 정의 무결성</b>.</p>
   <p class="note warn" style="margin-top:14px"><b>Q1의 “5”는 대리변수이지 기준이 아닙니다.</b> 실제 결정 변수는 <span class="pat">도구 집합의 변경 빈도 × 소비 Agent 수</span> 입니다. 도구 3개를 Agent 20개가 공유하면 MCP가 명백히 유리한데 단순 개수 기준으로는 탈락합니다. <b>Q1에서 탈락시키기 전에 Q2를 먼저 확인</b>하는 예외를 두십시오 — 값싼 질문이 틀린 답을 내면 절약이 아니라 손실입니다.</p>
 
-  <h4>트리로 판정할 수 없는 5가지 — 예외 처리</h4>
+  <h4>트리 판정 불가 항목 5종 — 예외 처리</h4>
   <div class="tw"><table>
-    <thead><tr><th style="width:180px">케이스</th><th style="width:250px">왜 트리가 못 잡는가</th><th>처리</th></tr></thead>
+    <thead><tr><th style="width:180px">케이스</th><th style="width:250px">트리 판정 불가 사유</th><th>처리</th></tr></thead>
     <tbody>
       <tr><td>① 쓰기 (P-ACT)</td><td>1차 범위 밖이라 트리 진입 자체가 없음</td><td>개방 2~3단계 시 <b>쓰기용 별도 트리</b>(승인·롤백·4-eyes 축)</td></tr>
       <tr><td>② 이벤트·스트리밍 <span class="sys">AMS</span></td><td>요청–응답 모델이 아님</td><td><b>Q0 이전 분기</b>: “요청–응답 모델인가?” No면 이벤트 경로</td></tr>
@@ -1766,7 +1766,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h4>왜 이 순서인가 — 조사 비용이 낮은 순서로 탈락시킨다</h4>
+  <h4>질문 순서의 근거 — 조사 비용 오름차순</h4>
   <div class="tw"><table>
     <thead><tr><th style="width:44px">질문</th><th style="width:200px">답을 얻는 방법</th><th style="width:120px">조사 비용</th><th>가용 시점</th></tr></thead>
     <tbody>
@@ -1778,7 +1778,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note" style="margin-top:14px"><b>값싼 탈락을 먼저 배치하는 것이 트리 설계의 원리입니다.</b> Q1에서 걸리는 영역은 실측을 하지 않아도 되고, Q4까지 가야 하는 영역만 Phase 5 결과를 기다립니다. 순서를 바꾸면 불필요한 조사에 공수가 나갑니다.</p>
 
-  <h4>흔한 오답 두 가지 — 트리는 양쪽을 모두 막는다</h4>
+  <h4>빈번한 오판 2종 — 트리의 양방향 차단</h4>
   <div class="two">
     <div class="box" style="border-color:var(--crit)"><div class="bt">오답 A · “표준이니까 전부 MCP로”</div>
       <ul>
@@ -1794,7 +1794,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       </ul></div>
   </div>
 
-  <h4>“MCP 미채택”이 곧 “REST”는 아니다</h4>
+  <h4>“MCP 미채택”과 “REST”의 구분</h4>
   <p class="lede">탈락한 질문에 따라 대안이 다릅니다. 이것을 구분하지 않으면 모든 미채택 영역을 REST로 밀어넣게 됩니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:90px">탈락 지점</th><th style="width:190px">의미</th><th style="width:160px">대안</th><th>CLX 해당 영역</th></tr></thead>
@@ -1807,7 +1807,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h4>재판정 조건 — 이 판단은 영구적이지 않다</h4>
+  <h4>재판정 조건 — 판단의 유효 기간</h4>
   <div class="tw"><table>
     <thead><tr><th style="width:230px">변화</th><th>재판정 대상</th></tr></thead>
     <tbody>
@@ -1835,7 +1835,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 
 
-  <h3>MCP는 무엇을 사고 무엇을 만드는가 — Build vs Buy</h3>
+  <h3>MCP 조달 구분 — Build vs Buy</h3>
   <div class="thesis">
     <strong>MCP는 오픈 프로토콜 사양이지 제품이 아닙니다.</strong> 라이선스를 사오는 것이 아니라, 공식 SDK로 <strong>우리 Legacy에 맞는 어댑터를 직접 만드는</strong> 것이 기본입니다. “MCP 솔루션 도입”이라는 표현 자체가 성립하지 않습니다.
   </div>
@@ -1907,7 +1907,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h4>“그래서 무엇을 하면 되나” — 구축 순서</h4>
+  <h4>구축 순서</h4>
   <div class="tw"><table>
     <thead><tr><th style="width:44px">순서</th><th style="width:230px">작업</th><th style="width:130px">MCP 필요 여부</th><th>비고</th></tr></thead>
     <tbody>
@@ -2038,7 +2038,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <h3>전사 Gateway 요건 — 2갈래 분리</h3>
   <p class="lede">Agent 연계는 기존 시스템 간 연계에 없던 요구를 만듭니다. 전사 표준이 이를 담고 있지 않을 가능성이 높습니다.</p>
   <div class="tw"><table>
-    <thead><tr><th style="width:36px">#</th><th style="width:200px">전사 협의 · 개선 요청</th><th>왜 필요한가</th><th style="width:92px">유형</th></tr></thead>
+    <thead><tr><th style="width:36px">#</th><th style="width:200px">전사 협의 · 개선 요청</th><th>필요 사유</th><th style="width:92px">유형</th></tr></thead>
     <tbody>
       <tr><td class="num">1</td><td><b>Agent 신원 체계</b> 정의</td><td>Agent가 권한 주체가 됨. <b>사람 네임스페이스와 분리된 Agent 식별자 + 소유자 연결 필수</b> (사번 직접 발급은 감사·최소권한과 충돌 — 1.8 참조)</td><td>표준 신설</td></tr>
       <tr><td class="num">2</td><td><b>토큰 교환(RFC 8693) 기반 위임 표준</b></td><td>Agent가 사용자 대신 호출. 현행 표준에 없을 가능성</td><td>표준 신설</td></tr>
@@ -2070,7 +2070,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="thesis">API는 Agent를 <strong>연결</strong>하지만, 메타데이터는 Agent를 <strong>정확하게</strong> 만듭니다.</div>
   <p class="lede" style="margin-top:18px">전통적 연계에서 메타데이터는 “있으면 좋은 것”이었습니다. 호출하는 쪽이 사람이 만든 프로그램이었고, 개발자가 사양서를 읽고 의미를 코드에 박아 넣었기 때문입니다. Agent는 <b>런타임에 데이터의 의미를 스스로 해석</b>하고, 근거가 없으면 그럴듯하게 지어냅니다. 그래서 메타데이터는 <b>정확성 요건</b>으로 승격됩니다. 이것이 이 과업이 “API 개발 프로젝트”가 아닌 이유입니다.</p>
 
-  <h3>AI Readable 요건 — D1~D5와 신설 D6</h3>
+  <h3>AI Readable 요건 — D1~D5 및 신설 D6</h3>
   <div class="tw"><table>
     <thead><tr><th style="width:38px">#</th><th style="width:112px">요건</th><th>정의</th><th style="width:190px">미충족 시 증상</th></tr></thead>
     <tbody>
@@ -2137,7 +2137,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <line x1="20" y1="284" x2="780" y2="284" class="dg-ln" stroke-opacity=".2"/>
 <text x="20" y="306" class="dg-sig">C1이 금지 열에 걸리므로 사내 온프렘 모델이 필요 — 이것이 GPU 소요의 근거이자, 조달이 전사 플랫폼에 종속되는 이유</text>
 </svg>
-<figcaption><b>이 표 하나가 네 개의 보안 반려 사유를 동시에 막습니다</b> — 반출 통제·협력사 격리·오류 노출 정책·개인정보 판정이 모두 이 등급 체계를 근거로 분기합니다. 도구 명세서(T4)에 도구별 <b>데이터 분류 등급</b>과 <b>반출 허용 여부</b> 필드를 두어 런타임에 강제합니다.</figcaption>
+<figcaption><b>이 표 하나가 네 개의 보안 심의 반려 사유를 동시에 막습니다</b> — 반출 통제·협력사 격리·오류 노출 정책·개인정보 판정이 모두 이 등급 체계를 근거로 분기합니다. 도구 명세서(T4)에 도구별 <b>데이터 분류 등급</b>과 <b>반출 허용 여부</b> 필드를 두어 런타임에 강제합니다.</figcaption>
 </figure>
 
   <h4>등급 × 모델 배치 허용 매트릭스 (CLX 잠정 기준)</h4>
@@ -2169,7 +2169,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note" style="margin-top:14px">T6 개선과제 정의서의 <b>Gap 근거</b> 란은 <span class="pat">R축 점수 + D요건</span> 병기로 작성합니다. 예: <span class="pat">DA-01 | R3=1, R2=2 / D1·D2 미충족</span></p>
 
-  <h3>DA-01 상세 — 태그 사전은 전수 구축하지 않는다</h3>
+  <h3>DA-01 상세 — 태그 사전의 3단 커버리지</h3>
   <div class="thesis" style="border-left:4px solid var(--crit)">
     태그 사전을 <strong>전수 구축하려는 시도가 이 과업의 가장 확실한 실패 경로</strong>입니다. 약 3개월(14주)에 불가능하며, 최우선 과제로 걸어놓고 방법이 없으면 착수보고에서 “안 될 일을 1순위로 잡았다”는 평가를 받습니다.
   </div>
@@ -2186,7 +2186,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   구축 수단: ① 태그 명명 규칙 역공학(<span class="pat">TI</span>=Temperature Indicator 등 패턴 파싱) ② <b>DCS/제어 시스템 설정 정보</b>에 이미 있는 태그–루프–설비 관계 활용 ③ P&amp;ID 도면 대조 ④ 현업 검증.</p>
   <p class="note crit" style="margin-top:10px"><b>DA-02(설비 별칭 사전)의 난이도를 “중” → “고”로 정정합니다.</b> 설비 60만 기 전제에서 자유서술 텍스트 기반 별칭 수집이 태그보다 쉬울 근거가 없습니다. DA-02도 동일한 <b>3단 커버리지(핵심 설비 전수 / 규칙 파생 / 잔여 계량)</b> 로 재정의합니다.</p>
 
-  <h3>D5 상세 — 미정제 20%를 어떻게 찾는가</h3>
+  <h3>D5 상세 — 미정제 20%의 식별 방법</h3>
   <p class="lede">“정제율 80% 이상”이라는 수치 위에 D5 요건과 DA-06이 서 있습니다. <b>출처(OCEAN-H 구축 완료보고)와 “정제”의 조작적 정의를 먼저 확보</b>하지 않으면 착수보고에서 근거를 요구받습니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:44px">단계</th><th style="width:260px">활동</th><th style="width:180px">산출</th><th class="c" style="width:70px">주차</th></tr></thead>
@@ -2300,7 +2300,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <figcaption><b>개별 API를 아무리 잘 만들어도 답이 나오지 않는다</b> — 세 시스템 조회는 각각 성공하지만, 타원으로 표시한 <b>세 개의 매핑</b>(별칭 사전 · 설비↔태그 · 시간축 변환)이 없으면 결과를 결합할 수 없다. 이것이 원칙 07이 “통합의 실질은 API가 아니라 공통 식별자”라고 말하는 이유이며, DA-01·02·04가 최우선 과제인 근거다.</figcaption>
 </figure>
 
-  <h3>검증 시나리오 — 이 표를 Phase 3의 검증 도구로 사용</h3>
+  <h3>검증 시나리오 — Phase 3의 검증 도구</h3>
   <p class="lede">“3호기 압축기 지난달 트립, 원인이 뭐고 생산에 얼마나 영향 있었나?” — 체크가 하나라도 비면 그 매핑이 개선과제입니다.</p>
   <div class="tw"><table>
     <thead><tr><th>단계</th><th style="width:200px">필요 매핑</th><th class="c" style="width:60px">확인</th></tr></thead>
@@ -2345,7 +2345,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note crit" style="margin-top:14px">지금 설계하지 않으면 2년 뒤 <b>“Agent 40개가 각자 Legacy에 직접 붙어 있고 아무도 전체를 모르는 상태”</b>가 됩니다. 이는 정확히 <b>OCEAN-H 구축 전 15종 시스템이 난립하던 상황의 재현</b>입니다. 조직에 그 학습이 남아 있으므로 이 비유가 가장 잘 통합니다.</p>
 
-  <h3>MCP와 A2A는 경쟁이 아니다</h3>
+  <h3>MCP와 A2A의 관계 — 경쟁이 아닌 층위 분리</h3>
   <div class="tw"><table>
     <thead><tr><th style="width:110px"></th><th>MCP (Model Context Protocol)</th><th>A2A (Agent2Agent)</th></tr></thead>
     <tbody>
@@ -2452,7 +2452,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note warn" style="margin-top:14px"><b>A4가 실무에서 가장 자주 빠집니다.</b> 권한으로 필터링된 결과를 그대로 반환하면 사용자는 “데이터가 없다”고 이해합니다. 안전사고 원인 분석에서 이는 치명적입니다.</p>
 
-  <h3>Agent 신원과 자격증명 — 사람 사번을 쓰지 않는다</h3>
+  <h3>Agent 신원과 자격증명 — 사람 사번과의 분리</h3>
   <p class="lede">SKT 사례를 참조하되 <b>그대로 쓰면 안 됩니다.</b> 비인간 주체에 사람 사번을 발급하면 네 가지가 동시에 깨집니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:200px">사번 직접 발급 시 문제</th><th>충돌하는 원칙</th></tr></thead>
@@ -2490,7 +2490,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note warn" style="margin-top:14px"><b>“협력사 사용자에게 Agent를 제공할 것인가”를 Phase 0 범위 결정 항목으로 승격</b>합니다. 현재는 W1 자료 요청 목록에만 있어, 답이 늦게 오면 Phase 5 전체가 재작업입니다. → 리스크 <span class="pat">R12</span></p>
 
-  <h3>허용 위임 그래프 — 깊이 제한은 접근 통제가 아니다</h3>
+  <h3>허용 위임 그래프 — 깊이 제한의 한계</h3>
   <p class="lede">A3(최대 깊이 3)은 <b>무한 루프 방지책</b>일 뿐입니다. 깊이 2에서도 권한 상승은 가능합니다. <b>어느 Agent가 어느 Agent를 호출해도 되는지의 화이트리스트</b>가 별도로 필요합니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:150px">호출자 ＼ 피호출자</th><th class="c">종합 분석</th><th class="c">설비</th><th class="c">공정</th><th class="c">생산</th><th class="c">지식</th></tr></thead>
@@ -2515,7 +2515,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="mk">A10</td><td><b>등급별 존재 사실 노출 정책</b></td><td>A4(권한 밖 명시)는 <b>그 자체가 정보 누출 채널</b>(존재 오라클). 등급별로 분기 — 아래 표 참조</td><td>동일 주체의 반복 실패 조회 탐지(열거 공격)</td></tr>
     </tbody>
   </table></div>
-  <h4>A4와 A10의 충돌 조정 — 오류 노출 정책</h4>
+  <h4>A4 · A10 충돌 조정 — 오류 노출 정책</h4>
   <p class="lede">1.6은 <b>“권한 없음과 데이터 없음을 구분하지 않는 것이 가장 위험한 설계 결함”</b>이라 했습니다. <b>안전 관점에서는 옳지만 보안 관점에서는 정확히 반대</b>입니다 — 설비ID·오더번호를 순회하며 두 응답의 차이로 <b>미공개 자산의 존재를 확인</b>할 수 있습니다(열거 공격). 두 원칙이 충돌하므로 <b>등급으로 분기</b>합니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:150px">데이터 등급</th><th style="width:230px">오류 응답</th><th>사유</th></tr></thead>
@@ -2576,7 +2576,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h3>울산CLX 규모 — 왜 이 과업이 어려운가</h3>
+  <h3>울산CLX 규모 — 과업 난이도의 근거</h3>
   <div class="cards">
     <div class="card"><div class="ct">Site</div><div class="ch">250만 평 · 설비 60만 기</div>
       <p>이 규모에서 <b>“어느 설비인지 특정하는 것” 자체가 난제</b>입니다. “3호기 압축기”의 후보가 수십 개일 수 있습니다.</p></div>
@@ -2613,7 +2613,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note" style="margin-top:14px">음영 표시한 <b>공정 기술관리</b> 2개 Process Group이 AI 적용 비중 최상위이고, 필요 Legacy가 <span class="sys p1">RTDB</span> <span class="sys p1">AMS</span> <span class="sys p1">OCEAN-H</span> 에 집중됩니다. <b>① 과업의 무게중심은 여기입니다.</b></p>
 
-  <h3>디지털화 성숙도 5단계 — 이미 존재하는 축</h3>
+  <h3>디지털화 성숙도 5단계 — 기존 평가 축</h3>
   <p class="lede">MP는 Activity 단위로 아래 5단계 진단을 이미 수행했습니다. <b>Agent-Readiness 6축 진단(Phase 2)은 이 축을 대체하지 말고 접속시켜야 합니다.</b></p>
   <div class="mat">
     <div><span class="ml">L1</span><span class="mn">수작업</span></div>
@@ -2915,7 +2915,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 2.2 -->
 <section id="k-back">
-  <div class="sh"><span class="n">2.2</span><h2>활용에서 역산한다 — ②의 핵심 원칙</h2></div>
+  <div class="sh"><span class="n">2.2</span><h2>활용 역산 — ②의 설계 원칙</h2></div>
   <p class="lede">지식 구조화는 목적을 고정하지 않으면 <b>무한히 확장되어 끝나지 않습니다.</b> 그래서 현업의 <b>실제 질의 30~50건을 원문 그대로 수집</b>하는 것이 K1의 필수 산출물이며, 이 목록 하나가 이후 네 곳의 공통 근거가 됩니다.</p>
 <figure>
 <svg viewBox="0 0 940 424" role="img" aria-label="현업 실제 질의 30~50건에서 역산해 구조·메타 요건을 도출하는 사슬과, 그 질의 목록 하나가 Ontology 범위·구조화 대상·LLM 데이터 요건·Hub 요건 네 곳의 공통 근거가 되는 구조. 아래에는 반대 방향으로 갈 때의 실패 경로를 대비해 놓았다.">
@@ -3026,7 +3026,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <figcaption><b>질의 목록 한 건이 네 산출물의 공통 근거다</b> — 위 사슬은 활용에서 역산하는 순서(질의 → 유형 → 시나리오 → 필요 지식 → 구조·메타 요건)이고, 아래로 뻗은 선은 그 목록이 <b>Ontology 범위 · 구조화 대상 · LLM 데이터 요건 · Hub 요건 네 곳에 동시에 걸리는 지점</b>이다. 그래서 K1의 질의 30건은 조사 산출물이 아니라 <b>이후 모든 설계의 검증 기준</b>이다. 맨 아래가 이 원칙을 버렸을 때의 경로로, 차이는 화살표의 방향 하나뿐이다 — <b>목적 없이 구조화하면 끝나지 않는다.</b></figcaption>
 </figure>
   <div class="tw" style="margin-top:18px"><table>
-    <thead><tr><th style="width:190px">질의 목록이 근거가 되는 곳</th><th>어떻게 쓰이는가</th></tr></thead>
+    <thead><tr><th style="width:190px">질의 목록이 근거가 되는 곳</th><th>활용 방식</th></tr></thead>
     <tbody>
       <tr><td><b>Ontology 범위</b></td><td>질의를 표현하는 데 필요한 분류축·메타·관계만 정의. 표현에 안 쓰이는 Entity·Relation은 <b>삭제</b></td></tr>
       <tr><td><b>구조화 대상</b></td><td>질의에 등장하는 문서유형부터 착수. 질의에 안 걸리는 지식은 이번 범위 밖</td></tr>
@@ -3039,13 +3039,13 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 2.3 -->
 <section id="k-onto">
-  <div class="sh"><span class="n">2.3</span><h2>온톨로지는 필요한가 — 레벨 판정</h2></div>
-  <h3>먼저 물어야 할 것 — 온톨로지가 필요한가</h3>
+  <div class="sh"><span class="n">2.3</span><h2>온톨로지 적용 수준 판정</h2></div>
+  <h3>문제 재정의 — 필요 여부가 아닌 적용 수준</h3>
   <div class="thesis">
     <strong>“온톨로지가 필요한가”는 잘못된 질문입니다.</strong> 온톨로지는 능력의 사다리이고, 물어야 할 것은 <strong>“어느 레벨까지 필요한가”</strong> 입니다. 레벨을 정하지 않고 착수하면 이름은 온톨로지인데 내용은 데이터 사전이거나, 반대로 약 3개월(14주)에 끝나지 않는 형식 모델을 시도하게 됩니다.
   </div>
 
-  <h4>LLM이 계산을 바꿨다</h4>
+  <h4>LLM 등장에 따른 판단 기준 변화</h4>
   <p class="lede">온톨로지의 전통적 가치는 넷이었습니다 — ① 개념 관계 명시 ② <b>추론</b> ③ 질의 확장 ④ 이질 스키마 통합. 이 중 <b>①의 일반 상식 부분</b>은 LLM이 이미 갖고 있습니다. “압축기는 회전기기”, “트립은 이상현상” 정도는 온톨로지에 넣지 않아도 모델이 압니다.</p>
   <p class="lede" style="margin-top:10px"><b>다만 “LLM이 ②(추론)까지 대신한다”고는 말하지 않습니다.</b> LLM은 확률적 연상을 하지 논리적 함의를 보장하지 않습니다 — 건전성·완전성 보장이 없고, 비결정적이며, 감사와 재현이 되지 않습니다. PSM 대상 설비나 사고 조사처럼 <b>“왜 그 답이 나왔는지”를 규정상 재현해야 하는 업무에서 LLM의 추론은 근거로 채택될 수 없습니다.</b> 본 과업은 LLM 추론을 근거로 삼지 않으며, Agent의 답변은 <b>항상 사실 자산에 대한 결정론적 조회로 환원</b>됩니다. L0~L3에 투자하는 이유가 바로 이것입니다.</p>
   <p class="lede" style="margin-top:10px">따라서 L4를 뒤로 미루는 근거는 <b>“LLM이 추론을 대신하니까”(공급 측)가 아니라 “CLX의 질의에 추론 수요가 낮으니까”(수요 측)</b>입니다. 정황 증거는 이미 있습니다 — MP 정량 분석의 <b>AI 적용 후보 101건 중 운전지원 32건 + 공정최적화 31건 = 63건(62%)이 조회·분석 성격</b>입니다. 공급 측 주장은 반박당하지만 수요 측 주장은 데이터로 다툽니다.</p>
@@ -3073,7 +3073,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note" style="margin-top:10px"><b>이 표가 있어야 하는 이유</b> — “온톨로지를 L3까지 했으니 AI-ready는 끝났다”는 오해가 검수에서 반드시 나옵니다. 의미 축이 끝나도 <b>조회 단위·신뢰 표시·반출 통제가 비면 Agent는 여전히 못 씁니다.</b></p>
 
-  <h4>레벨 판정 — CLX는 어디까지 필요한가</h4>
+  <h4>레벨 판정 — CLX의 목표 수준</h4>
   <p class="lede">이 사다리는 임의로 만든 것이 아니라 <b>Ontology Spectrum</b>(Lassila &amp; McGuinness 2001, Obrst — 통제어휘 → 용어집·시소러스 → 분류체계 → 개념모델/ER → 논리 이론)을 <b>능력 기준으로 재배열</b>한 것입니다. 학술 스펙트럼과 달리 L0(데이터 사전)을 맨 아래 둔 것은 <b>“무엇을 만들 수 있는가”가 아니라 “없으면 Agent가 틀린 답을 하는가”</b>를 기준으로 삼았기 때문입니다. 사다리라는 은유가 “아래 레벨 없이 위 레벨 없다”를 함의하는데, <b>L4→L5만은 예외</b>입니다(아래 L5 행 참조).</p>
   <div class="tw"><table>
     <thead><tr><th style="width:52px">레벨</th><th style="width:170px">내용</th><th style="width:110px">CLX 필요성</th><th>판정 근거</th></tr></thead>
@@ -3088,7 +3088,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h4>L4를 지금 하지 않는 근거 네 가지</h4>
+  <h4>L4 유보 근거 4종</h4>
   <div class="two">
     <div class="box"><div class="bt">① 추론 수요가 실증되지 않았다</div>
       <ul><li>수집할 질의 30~50건 중 <b>추론이 필요한 비율을 아직 모른다</b>. MP의 101건 분포는 <b>62%가 조회·분석</b>임을 시사한다</li>
@@ -3104,7 +3104,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <div class="box"><div class="bt">③ 한계 효용이 낮다</div>
       <ul><li>질의 응답률 기준으로 <b>L4의 기여도가 L0~L2보다 낮다</b>. 답을 못 하는 이유의 대부분은 추론을 못 해서가 아니라 <b>대상을 특정하지 못해서</b>다</li>
       <li>약 3개월(14주)에 L4까지 시도하면 L0~L2가 부실해지고, <b>부실한 L0~L2 위의 L4는 무용</b>하다</li>
-      <li class="warn-li">일정 논거만 쓰지 마십시오 — “그럼 기간을 늘리자”로 되받힙니다. <b>기간이 늘어도 순서는 같다</b>가 방어선입니다</li></ul></div>
+      <li class="warn-li">일정 논거만 쓰지 마십시오 — “그럼 기간을 늘리자”로 반론에 직면합니다. <b>기간이 늘어도 순서는 같다</b>가 방어선입니다</li></ul></div>
     <div class="box"><div class="bt">④ L5는 L4를 거치지 않는다</div>
       <ul><li>속성 그래프·GraphRAG는 <b>OWL 없이 L3 + 인스턴스로 성립</b>한다</li>
       <li>따라서 “나중에 LKM·GraphRAG를 하려면 지금 L4를 해야 한다”는 <b>사실이 아니다</b></li>
@@ -3112,7 +3112,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </div>
   <p class="note crit" style="margin-top:14px"><b>“매핑 테이블의 한계”를 L4의 근거로 쓰지 마십시오.</b> 매핑 테이블이 실제로 부딪히는 한계는 넷 — ⓐ <b>시간 의존 매핑</b>(설비 개조·이설로 관계에 유효기간이 생김) ⓑ <b>부분·불확실 매핑</b>(1:1이 아닌 별칭) ⓒ <b>조건부 매핑 규칙</b>(공장마다 다름) ⓓ <b>유지 주체 부재</b>. <b>이 넷 중 어느 것도 OWL 추론이 해결하지 못합니다.</b> 오히려 OWL의 개방세계 가정과 고유명 가정 부재는 ⓑ를 악화시킵니다. 해법은 L4가 아니라 <b>①의 정준 식별자(허브-스포크) 유지와 유효기간 필드</b>입니다.</p>
 
-  <h4>L4로 가는 길은 막지 않는다</h4>
+  <h4>L4 승격 경로의 확보</h4>
   <div class="tw"><table>
     <thead><tr><th style="width:200px">지금 지킬 것</th><th>이유</th></tr></thead>
     <tbody>
@@ -3127,7 +3127,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td>추론이 필요했던 질의를 <b>별도 기록</b></td><td>L4 필요성의 실증 근거가 축적됨 — <b>재판정 트리거</b></td></tr>
     </tbody>
   </table></div>
-  <h4>재판정 조건 — 숫자 하나가 아니라 판정 규칙으로</h4>
+  <h4>재판정 조건 — 단일 임계가 아닌 판정 규칙</h4>
   <p class="lede"><b>“추론 요구 20%”처럼 단일 임계를 쓰면 반드시 무너집니다.</b> 근거를 대지 못하고, 표본 30~50건에서 20%와 30%는 통계적으로 구분되지 않으며(n=30일 때 비율의 95% 신뢰구간은 대략 ±14%p), 무엇보다 <b>“추론”을 누가 어떻게 판정하는지</b>가 없기 때문입니다. 아래 규칙으로 대체합니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:44px">유형</th><th style="width:210px">질의 성격</th><th style="width:150px">L3 수단으로 해결?</th><th>계수 대상</th></tr></thead>
@@ -3146,7 +3146,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="note warn" style="margin-top:12px"><b>재판정 조건에서 뺀 것</b> — 기존 초안의 “계층·집합 질의 상시화”와 “시스템 6종 초과”는 <b>L4 트리거가 아닙니다.</b> 전자는 재귀 CTE로 풀리고, 후자는 매핑 관리 문제이므로 해법이 <b>①의 정준 식별자(허브-스포크) 유지</b>이지 형식 온톨로지가 아닙니다. 후자는 “<b>①의 정준 식별자 유지 체계가 무너져 별칭 정합이 불가능해질 때</b>”라는 <b>MDM 리스크</b>로 옮겨 기술합니다.</p>
   <p class="note" style="margin-top:12px"><b>더 나은 상위 지표</b> — K2 완료 기준이 “질의 80% <b>표현 가능</b>”인데, 표현 가능성은 정답률이 아닙니다. golden query set 기반 <b>end-to-end 정답률 + 근거 추적률</b>을 두고, <b>정답률 미달의 원인이 (d)(e) 유형에 집중될 때</b>를 재판정 트리거로 연결하면 훨씬 방어적입니다.</p>
 
-  <h4>①과 중복하지 않기 — L3는 이미 만들어지고 있다</h4>
+  <h4>①과의 중복 방지 — L3의 기존 산출 활용</h4>
   <p class="lede">이것이 이 절에서 가장 실무적인 지점입니다. <b>①의 횡단 식별자 4축이 경량 Entity-Relation의 「인스턴스 층」을 제공합니다.</b></p>
   <p class="note warn" style="margin-top:12px"><b>“4축 = 경량 ER”이라고 쓰면 반박당합니다.</b> 매핑표와 Relation은 네 가지가 다르고, 넷 다 실무에서 즉시 문제가 됩니다 — ⓐ <b>외연 vs 내포</b>(매핑표는 사실의 나열, Relation은 도메인·레인지·카디널리티까지 포함) ⓑ <b>관계 타입 부재</b>(태그↔설비는 <b>측정/제어/알람/계산</b> 4종인데 매핑표 한 장은 구분하지 못한다 — 문서 스스로 LKM에서 SP·OP·PV를 구분하라고 한 것이 그 증거) ⓒ <b>전이성·방향성</b>(“공정-[구성]-설비”는 전이적인데 매핑표는 전이성을 표현하지 못해 롤업 규칙을 별도 코딩하게 된다) ⓓ <b>시간 유효성</b>. <b>따라서 ②의 역할은 “재사용”이 아니라 그 위에 관계 타입·카디널리티·유효기간을 얹는 것</b>입니다.</p>
   <p class="note crit" style="margin-top:12px"><b>ⓓ 시간 유효성이 실무에서 가장 크게 터집니다.</b> 매핑표는 통상 <b>현재 상태</b>를 담습니다. “3호기 압축기의 2023년 정비 이력”을 조회할 때 그 사이 개조·이설·ID 승계가 있었다면, <span class="pat">valid_from</span>/<span class="pat">valid_to</span>가 없는 매핑표는 <b>오류 없이 틀린 답</b>을 냅니다. LKM의 상황–증상–조치는 본질적으로 <b>과거 시점 조인</b>이므로 이 결함은 LKM의 정확성을 직접 훼손합니다. <b>①의 4축 산출물 명세에 다음 세 필드를 필수로 넣으십시오</b> — ⓐ 관계 타입 코드 ⓑ <span class="pat">valid_from</span>·<span class="pat">valid_to</span> ⓒ 카디널리티·매핑 신뢰도. 그리고 이 세 필드를 <b>Part 4 인터페이스 #1의 인계 필수 필드</b>로 올립니다.</p>
@@ -3164,10 +3164,10 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note crit" style="margin-top:14px"><b>②가 설비·공정 Entity를 독자적으로 정의하면 ①의 식별자 표준과 어긋난 두 번째 모델이 생깁니다.</b> 원칙: <b>물리 자산(설비·공정·태그·시간·오더)의 Entity·Relation은 ①이 정의하고 ②는 참조</b>하며, <b>②는 그 위에 지식 객체를 얹는 것</b>으로 역할을 나눕니다. → Part 4 협의 사항</p>
 
-  <h4>빌려올 표준은 두 계열이다 — 지식·문서 축과 물리자산·정비 축</h4>
+  <h4>차용 표준 2계열 — 지식·문서 축과 물리자산·정비 축</h4>
   <p class="lede">②의 4대 원칙 중 “표준은 빌려오고 CLX 특화만 신규”가 가장 자주 어겨집니다. 현재 인용 표준이 <b>Dublin Core · SKOS · ISO 30401뿐</b>인데, 이것들은 <b>문서·지식 자산용</b>이고 <b>설비·태그·정비이력에는 맞지 않습니다.</b> 착수보고에서 설비·신뢰성 담당이 “ISO 14224는 검토했나”라고 물으면 답이 없습니다. 계열을 나눠 명시하십시오.</p>
   <div class="tw"><table>
-    <thead><tr><th style="width:120px">계열</th><th style="width:200px">빌려올 표준</th><th>무엇을 주는가 · 왜 이것인가</th></tr></thead>
+    <thead><tr><th style="width:120px">계열</th><th style="width:200px">빌려올 표준</th><th>제공 내용 및 선정 사유</th></tr></thead>
     <tbody>
       <tr><td class="mk" rowspan="3">지식 · 문서 축</td><td><b>Dublin Core</b></td><td>문서 메타 15요소 기본형 — 공통 필수 메타의 베이스라인</td></tr>
       <tr><td><b>SKOS</b></td><td>대표어·동의어·상하위(<span class="pat">broader/narrower/related</span>) 표현 방식. <b>검색 실패의 실질적 해결이 대부분 이 시소러스 계층에서 일어난다</b> — 온톨로지 가치 ③(질의 확장)이 여기에 배정된다</td></tr>
@@ -3181,7 +3181,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="note warn" style="margin-top:14px"><b>따라서 L2(다면 분류체계)에 물리자산 축 세 가지를 반드시 넣으십시오</b> — <b>설비 유형 계층 · 고장 모드 · 조치 유형</b>. 이것이 없으면 LKM의 유사 사례 검색이 성립하지 않습니다. “같은 설비”로 검색하면 사례 수가 확보되지 않고, <b>“같은 설비 유형 · 같은 고장 모드”</b>로 검색해야 하기 때문입니다. 세 축 모두 ISO 14224가 이미 제공하므로 <b>신규 설계가 아니라 매핑 작업</b>입니다.</p>
   <p class="note" style="margin-top:12px"><b>규모 감각</b> — “Entity 10~15 · Relation 10”이 빈약해 보인다는 지적이 나올 수 있습니다. 참고로 산업 표준 정비 참조 온톨로지 <b><span class="pat">iof-maint</span>의 코어는 클래스 20개 · 관계 2개</b>입니다. <b>형식 온톨로지조차 작게 시작합니다.</b></p>
 
-  <h4>판정 절차 — 방법론에 넣을 것</h4>
+  <h4>판정 절차</h4>
   <div class="tw"><table>
     <thead><tr><th style="width:44px">순서</th><th style="width:220px">활동</th><th class="c" style="width:66px">시점</th><th>산출</th></tr></thead>
     <tbody>
@@ -3195,24 +3195,24 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="note warn" style="margin-top:14px"><b>2번이 핵심입니다.</b> “온톨로지를 어느 수준까지 할까”를 <b>토론으로 정하지 말고 질의 분포로 판정</b>하십시오. (d)(e) 유형이 거의 없으면 L3에서 멈추는 것이 명백하고, <b>고위험 업무에서 반복 출현하면서 L3 수단 실패가 기록되면</b> L4 검토가 정당합니다. 숫자는 판단을 대신하는 것이 아니라 <b>재논의를 여는 트리거</b>입니다. <b>근거 없이 정하면 나중에 반드시 재논쟁이 벌어집니다.</b></p>
 
 
-  <h4>LKM은 온톨로지 없이 성립하는가 — 성립한다, 단 세 가지 조건에서</h4>
+  <h4>LKM의 성립 조건 — 온톨로지 없이 가능, 단 3개 요건</h4>
   <p class="lede">MP 2단계의 LKM(상황–증상–조치 → Vector DB → 생산 Agentic AI)에서 <b>병목은 추론이 아니라 정합성(joinability)</b>입니다. 필요한 것은 설비ID · 알람↔태그 · 태그↔설비 · 시간축 = <b>정확히 L0~L3</b>입니다. 다만 Vector DB화 이후 세 가지가 더 필요하고, 현재 방법론에 <b>모두 빠져 있습니다.</b></p>
   <div class="tw"><table>
-    <thead><tr><th style="width:44px">#</th><th style="width:180px">빠진 것</th><th style="width:110px">확인 시점</th><th>없으면 무슨 일이 생기는가</th></tr></thead>
+    <thead><tr><th style="width:44px">#</th><th style="width:180px">빠진 것</th><th style="width:110px">확인 시점</th><th>부재 시 영향</th></tr></thead>
     <tbody>
       <tr style="background:var(--crit-soft)"><td class="mk">1</td><td><b>사례(case) 단위 정의</b><br><span style="font-size:12px;color:var(--ink-3)">알람 1건? 트립 1회? 교대 1회?</span></td><td class="c mk">W3</td><td>경계 규칙이 없으면 <b>청킹 단위가 정해지지 않는다.</b> Part 4 인터페이스 #7의 “청킹·색인 단위가 어긋나면 재작업”이 바로 이 문제이며, ③의 RAG 파이프라인 요건과 직결된다</td></tr>
       <tr style="background:var(--crit-soft)"><td class="mk">2</td><td><b>유사 사례 검색의 축</b><br><span style="font-size:12px;color:var(--ink-3)">설비 유형 계층 + 고장 모드</span></td><td class="c mk">W4</td><td>“같은 설비”로만 검색하면 <b>사례 수가 확보되지 않는다.</b> L2에 이 두 축이 없으면 LKM은 검색이 되는데 결과가 비는 상태가 된다 — ISO 14224가 제공</td></tr>
-      <tr style="background:var(--crit-soft)"><td class="mk">3</td><td><b>조치 유효성 라벨</b><br><span style="font-size:12px;color:var(--ink-3)">그 조치가 효과가 있었는가</span></td><td class="c mk">W3</td><td>없으면 사례 검색이 <b>나쁜 선례를 추천</b>한다. 근무일지에 이 라벨이 있을 가능성은 낮으므로 <b>W3 현황조사의 확인 항목</b>으로 올려야 한다 — 없으면 회고 라벨링 방안이 필요</td></tr>
+      <tr style="background:var(--crit-soft)"><td class="mk">3</td><td><b>조치 유효성 라벨</b><br><span style="font-size:12px;color:var(--ink-3)">조치의 효과 여부</span></td><td class="c mk">W3</td><td>없으면 사례 검색이 <b>나쁜 선례를 추천</b>한다. 근무일지에 이 라벨이 있을 가능성은 낮으므로 <b>W3 현황조사의 확인 항목</b>으로 올려야 한다 — 없으면 회고 라벨링 방안이 필요</td></tr>
     </tbody>
   </table></div>
   <p class="note crit" style="margin-top:14px"><b>결론 — LKM은 L4 없이 성립하지만 L2 없이는 성립하지 않습니다.</b> 그리고 그 L2는 문서 분류축(문서유형·생애주기·보안등급)이 아니라 <b>물리자산 축(설비 유형·고장 모드·조치 유형)</b>입니다. 현재 2.3의 L2 서술이 문서 축 중심이라 이 요구가 보이지 않는 것이 <b>온톨로지 판단에서 가장 중요한 누락</b>입니다.</p>
 
-  <h4>어휘 자체의 거버넌스 — 값이 아니라 축의 변경관리</h4>
+  <h4>어휘 거버넌스 — 값이 아닌 분류축의 변경관리</h4>
   <p class="lede">2.4는 메타 <b>값</b>의 입력 부담을 다루지만, <b>분류축·관계 정의 자체</b>의 변경 절차는 어디에도 없습니다. <b>온톨로지 실패의 가장 흔한 실제 원인</b>이 여기입니다 — 만든 사람이 떠나고 축이 굳어 현실과 어긋납니다. 다음 넷을 K5(운영·확산) 산출물에 명시하십시오 — ① <b>축·관계 정의의 소유 조직</b> ② <b>추가·변경·폐기 신청 절차와 승인자</b> ③ <b>버저닝·하위호환 규칙</b>(폐기 시 <span class="pat">deprecated</span> 표시 후 유예) ④ <b>연 1회 정합성 재검토</b>. ①의 R6 변경관리와 같은 형식으로 맞추면 ①③과 운영 체계를 공유할 수 있습니다.</p>
   <p class="note warn" style="margin-top:12px"><b>언어 문제도 L1의 실제 난이도입니다</b> — 설비 60만 기의 별칭에는 한영 혼용, 약어, 현장 호칭, 표기 흔들림(공백·하이픈·전각)이 섞여 있고, ①의 DA-02 난이도를 “고”로 만든 것이 이것입니다. <b>다국어 표기 정책과 정규화 규칙(대소문자·공백·특수문자·한영 병기)</b>을 통제어휘 산출물의 필수 항목으로 두십시오. 규칙 없이 사전을 만들면 <b>사전 자체가 중복을 갖습니다.</b></p>
 
   <h3>Ontology 수준 정의 — W1 프레임(K0-a) · W4 레벨 확정(K0-b)</h3>
-  <p class="lede">이 과업 최대의 리스크는 <b>용어가 주는 기대와 실제 산출물 수준의 괴리</b>입니다. 형식 온톨로지를 기대한 이해관계자가 있으면 중간보고에서 반드시 터집니다. <b>W1에 배제 항목(In/Out의 Out 열)을 먼저 못박고 시작</b>하십시오. 다만 <b>목표 레벨 자체는 W4</b>입니다 — 판정 근거인 질의 분포가 W3에 나오기 때문이며, W1에 레벨까지 정하면 이 절이 금지한 “토론으로 정하기”가 됩니다. <b>배제는 근거 없이 정할 수 있고, 채택은 근거가 있어야 합니다.</b></p>
+  <p class="lede">이 과업 최대의 리스크는 <b>용어가 주는 기대와 실제 산출물 수준의 괴리</b>입니다. 형식 온톨로지를 기대한 이해관계자가 있으면 중간보고에서 반드시 표면화됩니다. <b>W1에 배제 항목(In/Out의 Out 열)을 먼저 못박고 시작</b>하십시오. 다만 <b>목표 레벨 자체는 W4</b>입니다 — 판정 근거인 질의 분포가 W3에 나오기 때문이며, W1에 레벨까지 정하면 이 절이 금지한 “토론으로 정하기”가 됩니다. <b>배제는 근거 없이 정할 수 있고, 채택은 근거가 있어야 합니다.</b></p>
 <figure>
 <svg viewBox="0 0 940 430" role="img" aria-label="본 과업의 Ontology 수준 정의. 왼쪽은 범위 내인 다면 분류체계·메타데이터 표준·통제어휘·경량 Entity-Relation, 오른쪽은 범위 외인 형식 온톨로지 추론 규칙·Triple Store 구축·전사 용어 통합이며, 가운데 굵은 점선이 W1(배제 항목)과 W4(목표 레벨)의 서면 합의 대상이다. 관계 모델에는 경량 Entity-Relation과 제약·검증 규칙(L3.5)이 포함된다.">
 <text x="14" y="24" class="dg-m">본 과업의 「Ontology」 = 메타데이터 표준 중심의 실용적 지식 모델</text>
@@ -3271,14 +3271,14 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="32" y="396" class="dg-sig">W1(K0-a) 오른쪽 「범위 외」 3항목을 서면 확정 · W4(K0-b) 왼쪽 목표 레벨을 질의 분포 근거로 확정</text>
 <text x="32" y="412" class="dg-s">합의 없이 진행하면 W7 중간보고에서 기대수준이 충돌한다(리스크 KR1 — ①의 R1과 다른 번호다). 그 시점의 재작업 대상은 표준 모델 전체다.</text>
 </svg>
-<figcaption><b>이 과업 최대의 리스크는 설계 난이도가 아니라 “Ontology”라는 단어다</b> — 형식 온톨로지를 기대한 이해관계자와 메타데이터 표준을 만드는 수행팀이 같은 단어를 쓰면 W7까지 충돌이 드러나지 않는다. 굵은 점선 왼쪽만 약 3개월(14주)에 만들며, <b>오른쪽 세 항목은 못 하는 것이 아니라 이번에 하지 않기로 정한 것</b>이다. 그 구분을 <b>W1에 서면으로 남기는 것</b>이 K0의 유일한 실질 산출물이다.</figcaption>
+<figcaption><b>이 과업 최대의 리스크는 설계 난이도가 아니라 “Ontology”라는 단어다</b> — 형식 온톨로지를 기대한 이해관계자와 메타데이터 표준을 만드는 수행팀이 같은 단어를 쓰면 W7 시점까지 충돌이 드러나지 않는다. 굵은 점선 왼쪽만 약 3개월(14주)에 만들며, <b>오른쪽 세 항목은 못 하는 것이 아니라 이번에 하지 않기로 정한 것</b>이다. 그 구분을 <b>W1에 서면으로 남기는 것</b>이 K0의 유일한 실질 산출물이다.</figcaption>
 </figure>
   <p class="note crit" style="margin-top:16px">①의 <b>“MCP는 배관이 아니라 어댑터”</b> 합의와 정확히 같은 성격의 합의입니다. 두 과업 모두 <b>기술 용어가 만든 과잉 기대를 W1에 정리하지 못하면 이후 설계가 “불필요한 일”로 취급</b>됩니다. 합동 킥오프에서 나란히 다루는 것이 효율적입니다.</p>
 </section>
 
 <!-- 2.4 -->
 <section id="k-meta">
-  <div class="sh"><span class="n">2.4</span><h2>사람이 입력하는 메타는 실패한다</h2></div>
+  <div class="sh"><span class="n">2.4</span><h2>메타데이터 자동화 — 수기 입력의 한계</h2></div>
   <p class="lede">메타데이터 표준의 성패는 <b>항목 설계가 아니라 입력 부담</b>에서 갈립니다. 아무리 잘 설계해도 현업이 매번 손으로 채워야 하면 6개월 안에 사문화됩니다.</p>
 <figure>
 <svg viewBox="0 0 940 470" role="img" aria-label="메타데이터 값이 채워지는 세 경로 비교. 시스템 자동과 양식 내재화는 사용자 부담이 거의 없어 정착하지만 수기 입력은 사문화되며, 필수 메타의 자동·양식내재 비율 60%가 판정선이고 수기로 남은 필수 항목에는 세 가지 처분만 있다.">
@@ -3289,7 +3289,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <text x="20" y="24" class="dg-m">원칙 4 · 사람이 입력하는 메타는 실패한다 — 메타 값 1건이 채워지는 경로</text>
 <text x="20" y="52" class="dg-s">입력 경로</text>
-<text x="190" y="52" class="dg-s">무엇이 값을 채우는가</text>
+<text x="190" y="52" class="dg-s">값의 입력 경로</text>
 <text x="632" y="52" class="dg-s">사용자 추가 부담</text>
 <text x="792" y="52" class="dg-s">결과</text>
 <line x1="20" y1="60" x2="920" y2="60" class="dg-ln" stroke-opacity=".3"/>
@@ -3572,7 +3572,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="mk">M0</td><td>착수 · 입력 확보</td><td class="c mk">W1</td><td><b>전사 MLOps TF 산출물 · Agent/Asset 관리체계 문서 확보</b><br>①·②와 경계 합의 (아래 협의 사항)</td></tr>
       <tr style="background:var(--accent-soft)"><td class="mk">M1</td><td><b>MLOps 현황 · Gap 분석</b></td><td class="c mk">W1–5</td><td>3원(전사 현황 / CLX 현황 / Best Practice) 대비 <b>Gap이 관리영역·프로세스·R&amp;R 축으로 분해</b>됨<br>CLX 모델·Agent 현황 목록 확보 (SP2.0 40개 과제 기준)</td></tr>
       <tr><td class="mk">M2</td><td>MLOps 사용자 요건 · 개선과제</td><td class="c mk">W4–6</td><td>요건이 <b>CLX 자체 개선</b> / <b>전사 공통·협의</b> 로 이분<br>개선과제가 Gap으로 역추적 가능</td></tr>
-      <tr><td class="mk">M3</td><td>AgentOps 외부 BP · 추진방향</td><td class="c mk">W6–8</td><td>Agent 운영의 <b>관리 범위 확정</b> — 무엇을 AgentOps가 책임지는가<br>①의 Agent 카드·도구 카탈로그와 <b>중복 없음</b> 확인</td></tr>
+      <tr><td class="mk">M3</td><td>AgentOps 외부 BP · 추진방향</td><td class="c mk">W6–8</td><td>Agent 운영의 <b>관리 범위 확정</b> — AgentOps의 책임 범위<br>①의 Agent 카드·도구 카탈로그와 <b>중복 없음</b> 확인</td></tr>
       <tr><td class="mk">M4</td><td>AgentOps 방향성 · 요건 정의</td><td class="c mk">W8–10</td><td>Agent 등록·배포·버전·평가·회수 <b>생애주기 전 단계</b> 요건<br>운영 주체 및 R&amp;R 협의 사항 도출</td></tr>
       <tr><td class="mk">M5</td><td>운영 · 모니터링 기준 · 대응체계</td><td class="c mk">W9–13</td><td>품질 저하·오작동 <b>탐지 지표와 임계</b><br><b>비상 정지(kill switch) 절차</b> — 차단 권한자 · 경로 · 목표 소요시간 · 해제 절차. <b>차단 단위를 3단(Agent 단위 / 도구 단위 / 전체)으로 분리</b><br><b>Agent 평가셋</b> — 배포 전 통과 기준 및 배포 후 정기 실행. 규모 — <b>W14까지 확보 가능한 소재는 ②의 질의 30~50건 + ①의 대표 횡단 질의 5건 = 35~55건뿐</b>이다. 따라서 본 과업의 산출은 <b>「평가셋 설계 규격 + 초기 시드 50~80쌍」</b>이며, <b>300~500쌍은 운영 이관 후 목표치</b>로 명시한다(질의 1건에서 정상·경계·거부 3변형을 파생하는 확장 규칙 포함). <b>과업 기간 내 300~500쌍은 소재상 불가능하므로 그렇게 적으면 미달로 마감된다.</b> 소재는 <b>②의 K1 질의 원문 목록(인터페이스 #9, W4)</b>과 <b>①의 대표 횡단 질의(인터페이스 #10, W4)</b>로 받는다. ②의 K3B 산출물 #5·#6은 <b>축적 로드맵</b>이지 질의 원문이 아니므로 시드 소재가 될 수 없다.<br><b>점수 하락이 곧 롤백 트리거</b></td></tr>
       <tr style="background:var(--signal-soft)"><td class="mk">M6</td><td><b>통합 · 보고 · 이관</b> <span style="font-size:12px">(신설)</span></td><td class="c mk">W13–14</td><td><b>기대 산출물 4종 제출 및 이관.</b> 기존 간트가 W13에 끝나 <b>①②의 W14 최종보고와 어긋나 있었다</b><br>전사 MLOps TF·DT 추진실로 운영 요건 이관, ①의 Lineage 확정본(#5b, W13) 반영 확인</td></tr>
@@ -3585,7 +3585,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 3.2 -->
 <section id="m-diff">
-  <div class="sh"><span class="n">3.2</span><h2>MLOps와 AgentOps는 무엇이 다른가</h2></div>
+  <div class="sh"><span class="n">3.2</span><h2>MLOps와 AgentOps의 관리 대상 차이</h2></div>
   <p class="lede">둘을 하나로 묶어 다루면 요건이 뭉개집니다. CLX에는 <b>예측 모델</b>(설비 고장예측 등)과 <b>Agent</b>(공정 Trouble 대응 지원 AI 등)가 함께 있으므로 <b>둘 다 필요하고, 관리 대상이 다릅니다.</b></p>
 <figure>
 <svg viewBox="0 0 940 512" role="img" aria-label="MLOps와 AgentOps의 관리 대상 차이를 다섯 개 축으로 비교하고, 두 체계가 공유하는 공통 기반을 아래에 표시한다.">
@@ -3680,7 +3680,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 3.3 -->
 <section id="m-life">
-  <div class="sh"><span class="n">3.3</span><h2>Agent 생애주기 — ①이 정의하고 ③이 운영한다</h2></div>
+  <div class="sh"><span class="n">3.3</span><h2>Agent 생애주기 — ①의 정의와 ③의 운영</h2></div>
   <p class="lede">경계 원칙은 <b>“①은 어떤 규칙으로 연결되는가, ③은 그것을 어떻게 돌리고 지키는가”</b> 입니다. 아래 생애주기에서 ①의 산출물이 각 단계에 어떻게 투입되는지 보면 경계가 분명해집니다.</p>
 <figure>
 <svg viewBox="0 0 940 366" role="img" aria-label="Agent 생애주기 7단계에서 ①이 만든 규격과 ③이 수행하는 운영 행위를 위아래로 나눠 표시하고, 기획 이후부터 ③의 운영 대상이 됨을 보인다.">
@@ -3834,7 +3834,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 3.4 -->
 <section id="m-miss">
-  <div class="sh"><span class="n">3.4</span><h2>③에서 자주 빠지는 세 가지</h2></div>
+  <div class="sh"><span class="n">3.4</span><h2>③의 빈번한 누락 항목 3종</h2></div>
   <p class="lede">운영 체계를 설계할 때 <b>기능 요건은 잘 나오는데 사고 대응 수단이 빠지는</b> 경우가 많습니다. 아래 셋은 각각 구체적인 사고를 막는 장치입니다.</p>
 <figure>
 <svg viewBox="0 0 940 444" role="img" aria-label="③에서 자주 빠지는 세 가지 장치와 각 장치가 막는 실패를 나란히 보인다. 모델 기록은 재현 불가를, kill switch는 정지 불능을, 평가셋은 방치를 막는다.">
@@ -3924,7 +3924,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <thead><tr><th style="width:180px">빠지는 것</th><th style="width:250px">막으려는 사고</th><th>연결되는 ① 산출물</th></tr></thead>
     <tbody>
       <tr style="background:var(--crit-soft)"><td><b>모델ID·버전·프롬프트 해시 기록</b></td><td>같은 질문에 답이 달라지는 주된 원인은 <b>모델 교체</b>. 당시 모델을 재현할 수 없으면 <b>사고 조사와 책임 규명이 불가능</b></td><td>감사 로그 스키마 (①이 규격 정의)</td></tr>
-      <tr style="background:var(--crit-soft)"><td><b>비상 정지 (kill switch)</b></td><td>Agent 오작동·원천 과부하 시 <b>누가 어떤 경로로 몇 분 안에 끊는가.</b> 레이트리밋은 남용 방지이지 kill switch가 아님</td><td>L3 횡단 관심사 — 격리·서킷 요건</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>비상 정지 (kill switch)</b></td><td>Agent 오작동·원천 과부하 시 <b>차단 권한자 · 경로 · 목표 소요시간.</b> 레이트리밋은 남용 방지이지 kill switch가 아님</td><td>L3 횡단 관심사 — 격리·서킷 요건</td></tr>
       <tr style="background:var(--crit-soft)"><td><b>Agent 평가셋</b></td><td>“잘 되고 있는지” 판정 수단이 없으면 <b>운영이 아니라 방치</b>. 본 과업 산출은 <b>설계 규격 + 시드 50~80쌍</b>이며 300~500쌍은 <b>운영 이관 후 목표</b> (3.1 M5 · MR5)</td><td>②의 <b>K1 질의 원문 목록(인터페이스 #9)</b>과 ①의 <b>대표 횡단 질의(#10)</b> — 둘 다 <b>W4 인계</b></td></tr>
     </tbody>
   </table></div>
@@ -3959,7 +3959,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h3>가정 — 틀리면 ③의 결론이 바뀐다</h3>
+  <h3>가정 — ③ 결론의 전제 조건</h3>
   <div class="tw"><table>
     <thead><tr><th style="width:44px">#</th><th style="width:260px">가정</th><th>틀렸을 때</th></tr></thead>
     <tbody>
@@ -3983,11 +3983,11 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 4.1 -->
 <section id="itf">
-  <div class="sh"><span class="n">4.1</span><h2>인터페이스 · 협의 사항</h2></div>
-  <h3>인터페이스 — 무엇을 언제 주고받는가</h3>
+  <div class="sh"><span class="n">4.1</span><h2>과업 간 인터페이스 및 협의 사항</h2></div>
+  <h3>인터페이스 — 인계 항목과 시점</h3>
   <p class="lede">아래 <b>13건</b>이 실제로 넘겨야 하는 산출물입니다(#1·#4·#5는 일정 정합을 위해 <b>2단으로 분할</b>했습니다 — 받는 쪽 Phase가 끝난 뒤 도착하는 인계는 인계가 아니기 때문입니다). 각 항목에 <b>기한이 있는 이유</b>는, 받는 쪽 Phase의 입력이기 때문입니다.</p>
   <div class="tw"><table>
-    <thead><tr><th style="width:36px">#</th><th style="width:70px">방향</th><th style="width:210px">인계 항목</th><th class="c" style="width:60px">시점</th><th>받는 쪽에서 무엇이 되는가 · 늦으면</th></tr></thead>
+    <thead><tr><th style="width:36px">#</th><th style="width:70px">방향</th><th style="width:210px">인계 항목</th><th class="c" style="width:60px">시점</th><th>수령 측 활용 및 지연 시 영향</th></tr></thead>
     <tbody>
       <tr style="background:var(--accent-soft)"><td class="num">1a</td><td class="mk">① → ②</td><td><b>Tag · 설비 · 공정 — 스키마 층</b><br><span style="font-size:12px">Entity 명칭 · 키 구조 · <b>관계 타입 목록</b></span></td><td class="c mk">W4</td><td><b>분할 인계의 앞단.</b> ②의 K2(W5 종료)가 필요한 것은 값이 아니라 <b>스키마</b>뿐이다. 이것을 W9에 두면 “①이 만드는 것을 재사용한다”는 2.3의 원칙이 <b>일정상 불가능</b>해진다 — K2가 이미 끝난 뒤 도착하기 때문. <b>W4 시점의 인계물은 확정 스키마가 아니라 「Entity 명칭 · 키 구조 · <b>관계 타입 후보 목록</b>」의 잠정판이다</b> — ①의 P3-2(횡단 식별자 표준화)가 W5–W8이고 표준 확정 마일스톤이 W8이기 때문이다. ②는 <b>바뀔 수 있음을 전제로 받고</b>, 차이는 <b>K2R(W9–10)에서 100% 처분 결정</b>한다. <b>시차 자체를 없애는 방법은 없으며, 이 2단 구조는 시차를 관리하는 방식이지 해소하는 방식이 아니다</b></td></tr>
       <tr style="background:var(--accent-soft)"><td class="num">1b</td><td class="mk">① → ②</td><td><b>Tag · 설비 · 공정 Meta — 데이터 층</b><br><span style="font-size:12px">값 · 매핑 인스턴스 · <span class="pat">valid_from/valid_to</span> · 매핑 신뢰도</span></td><td class="c mk">W9</td><td>K2 산출물의 <b>정합 검증 입력.</b> W9~W10에 <b>K2R 재정합 게이트</b>를 두어 W4 잠정 스키마와 실제 값의 차이를 반영한다. 게이트 없이 넘기면 어긋남이 W13에 발견된다</td></tr>
@@ -4005,9 +4005,9 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h3>협의 사항 — 합동으로 결정해야 하는 것</h3>
+  <h3>협의 사항 — 합동 결정 대상</h3>
   <div class="tw"><table>
-    <thead><tr><th style="width:36px">#</th><th style="width:200px">협의 사항</th><th style="width:110px">참여</th><th class="c" style="width:60px">시점</th><th>합의하지 못하면</th></tr></thead>
+    <thead><tr><th style="width:36px">#</th><th style="width:200px">협의 사항</th><th style="width:110px">참여</th><th class="c" style="width:60px">시점</th><th>미합의 시 영향</th></tr></thead>
     <tbody>
       <tr style="background:var(--crit-soft)"><td class="num">1</td><td><b>현업 인터뷰 합동 실시</b><br><span style="font-size:12px">①의 횡단 질의 + ②의 지식 질의</span></td><td>①②</td><td class="c mk">W1</td><td><b>같은 현업이 두 번 불려 나옴.</b> 협조 피로가 W4 실측 입회에 그대로 전이 — 합동하면 인터뷰 1회로 양쪽 근거 확보</td></tr>
       <tr style="background:var(--crit-soft)"><td class="num">2</td><td><b>공동 소관 데이터 분할</b><br><span style="font-size:12px">근무일지 · 정비이력 · 작업표준</span></td><td>①②</td><td class="c mk">W1</td><td>중복 설계 또는 <b>양쪽 다 안 하는 공백</b>. 개인정보 판정 주체도 여기서 정함</td></tr>
@@ -4016,7 +4016,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="num">5</td><td><b>메타데이터 카탈로그 통합</b></td><td>①②③</td><td class="c mk">W6</td><td>①의 데이터 사전, ②의 지식 메타, ③의 모델 메타가 <b>세 개의 카탈로그</b>로 난립</td></tr>
       <tr><td class="num">6</td><td><b>데이터 분류 등급 체계 단일화</b></td><td>①②③</td><td class="c mk">W4</td><td>같은 데이터에 세 과업이 다른 등급을 부여 → 보안 심의에서 전부 반려</td></tr>
       <tr><td class="num">7</td><td>전사 협의 항목 통합 제기</td><td>①②③</td><td class="c mk">W11</td><td>세 과업이 각각 전사에 요청 → 우선순위 없이 흩어짐. <b>통합해 한 번에 올려야 힘이 실림</b></td></tr>
-      <tr><td class="num">8</td><td>현업 참여 일정 조정</td><td>①②③</td><td class="c mk">W1<br>월간</td><td>W10–13에 세 과업이 동시에 현업을 요구 → 아무도 제대로 못 받음. <b>W1 산출물로 「통합 현업 캘린더」를 만든다</b> — 과업별 요청 건수·대상 조직·소요 시간을 한 장에 합산. ②③의 현업 M/D가 산정되지 않은 상태라 이 표부터 만들어야 조정이 가능하다</td></tr>
+      <tr><td class="num">8</td><td>현업 참여 일정 조정</td><td>①②③</td><td class="c mk">W1<br>월간</td><td>W10–13에 세 과업이 동시에 현업을 요구 → 어느 과업도 충분한 협조를 확보하지 못함. <b>W1 산출물로 「통합 현업 캘린더」를 만든다</b> — 과업별 요청 건수·대상 조직·소요 시간을 한 장에 합산. ②③의 현업 M/D가 산정되지 않은 상태라 이 표부터 만들어야 조정이 가능하다</td></tr>
       <tr style="background:var(--crit-soft)"><td class="num">9</td><td><b>어휘 정합의 순환 의존 해소</b><br><span style="font-size:12px">②→① 통제어휘 W6 vs ①의 별칭사전 W9</span></td><td>①②</td><td class="c mk">W2</td><td><b>양방향 의존이다</b> — ②는 ①의 Tag 메타를 기다리고, ①은 ②의 통제어휘를 기다린다. 순환을 끊는 방법은 하나뿐 — <b>W2에 「명명 규칙과 정규화 규칙」만 먼저 공동 확정</b>(대소문자·공백·특수문자·한영 병기·약어 전개)하고, 사전의 <b>값</b>은 각자 채운 뒤 W9–10에 대조한다. 규칙 없이 각자 만들면 <b>사전 자체가 중복을 갖는다</b></td></tr>
       <tr style="background:var(--signal-soft)"><td class="num">10</td><td><b>공통 과업 3종의 수행 주체</b><br><span style="font-size:12px">개선기회 도출 · 추진과제 정의 · 로드맵</span></td><td>①②③</td><td class="c mk">W1</td><td>기획서의 <b>네 번째 묶음</b>이다. 세 과업 각각의 산출물이 아니라 <b>통합 산출물</b>이므로 주관·기여·통합 시점을 정하지 않으면 <b>W13에 아무도 안 쓴 상태로 발견</b>된다. 아래 「공통 과업」 절 참조</td></tr>
       <tr><td class="num">11</td><td><b>SP2.0 기존 40개 과제 소급 적용 여부</b></td><td>①③</td><td class="c mk">W1</td><td>신규 도구 명세·Agent 카드 표준을 <b>기존 40개에 소급하면 범위가 전혀 달라진다.</b> 본 과업은 <b>미소급</b>을 가정하며(③ 가정 5), 소급이 요구되면 <b>별도 과제로 분리</b>해야 한다</td></tr>
@@ -4044,15 +4044,15 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </div>
   <p class="note crit" style="margin-top:14px"><b>가장 위험한 구간은 W10–W13입니다.</b> ①은 도구 명세 작성, ②는 Hub 요건 정의, ③은 운영 기준 수립을 동시에 하면서 <b>세 과업이 모두 같은 현업을 필요로 합니다.</b> 이 구간의 현업 일정을 W1에 통합 예약하지 않으면, 세 과업이 나란히 품질 저하를 겪습니다.</p>
 
-  <h3>세 과업이 함께 실패하는 경로</h3>
+  <h3>세 과업의 공통 실패 경로</h3>
   <div class="tw"><table>
     <thead><tr><th style="width:200px">실패 모습</th><th style="width:250px">발생 경로</th><th>예방</th></tr></thead>
     <tbody>
-      <tr><td><b>사전이 세 개 생긴다</b></td><td>①이 코드·태그 사전, ②가 통제어휘, ③이 모델 메타를 각자 구축</td><td>협의 #5 — 카탈로그 통합, W6</td></tr>
-      <tr><td><b>등급이 세 개 생긴다</b></td><td>같은 근무일지를 ①은 C3, ②는 C2로 분류</td><td>협의 #6 — 등급 체계 단일화, W4</td></tr>
-      <tr><td><b>현업이 지친다</b></td><td>W2–3 인터뷰 2회 + W10–13 검수 3건 요청</td><td>협의 #1·#8 — 합동 인터뷰, 일정 통합</td></tr>
-      <tr><td><b>전사가 안 받아준다</b></td><td>세 과업이 각각 전사 표준 신설을 요청</td><td>협의 #7 — W11 통합 제기</td></tr>
-      <tr style="background:var(--crit-soft)"><td><b>아무도 안 한 영역이 남는다</b></td><td>근무일지 텍스트를 ①은 “② 소관”, ②는 “①이 경로를 안 줬다”</td><td>협의 #2 — W1 서면 분할 · RACI</td></tr>
+      <tr><td><b>사전 3종 난립</b></td><td>①이 코드·태그 사전, ②가 통제어휘, ③이 모델 메타를 각자 구축</td><td>협의 #5 — 카탈로그 통합, W6</td></tr>
+      <tr><td><b>등급 체계 3종 난립</b></td><td>같은 근무일지를 ①은 C3, ②는 C2로 분류</td><td>협의 #6 — 등급 체계 단일화, W4</td></tr>
+      <tr><td><b>현업 협조 피로 누적</b></td><td>W2–3 인터뷰 2회 + W10–13 검수 3건 요청</td><td>협의 #1·#8 — 합동 인터뷰, 일정 통합</td></tr>
+      <tr><td><b>전사 수용 실패</b></td><td>세 과업이 각각 전사 표준 신설을 요청</td><td>협의 #7 — W11 통합 제기</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>소관 공백 영역 발생</b></td><td>근무일지 텍스트를 ①은 “② 소관”, ②는 “①이 경로를 안 줬다”</td><td>협의 #2 — W1 서면 분할 · RACI</td></tr>
     </tbody>
   </table></div>
 </section>
@@ -4067,12 +4067,12 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 11 -->
 <section id="plan">
   <div class="sh"><span class="n">5.1</span><h2>산출물 · 수행 조직 · 거버넌스</h2></div>
-  <p class="lede">방법론이 아무리 정교해도 <b>누가 · 며칠 · 무엇을 · 어떤 기준으로 검수하는가</b>가 없으면 착수 승인이 나지 않습니다. 이 절이 수행계획서의 골격입니다.</p>
+  <p class="lede">방법론이 아무리 정교해도 <b>검수 주체 · 소요 · 대상 · 기준</b>가 없으면 착수 승인이 나지 않습니다. 이 절이 수행계획서의 골격입니다.</p>
 
   <h3>기대 산출물 명세 — ① 12종</h3>
   <p class="lede">기획서의 <b>6개 과업 항목</b>이 각 2종씩 <b>12종 산출물</b>로 전개됩니다. <b>“내년에 이걸로 무엇을 하나”</b> 열이 이 표의 핵심입니다 — 이 열이 비면 12종 전부 “또 문서”라는 평가를 피할 수 없습니다.</p>
   <div class="tw"><table>
-    <thead><tr><th style="width:32px">#</th><th style="width:210px">산출물</th><th class="c" style="width:52px">Phase</th><th class="c" style="width:52px">제출</th><th style="width:110px">검수 주체</th><th>내년에 이걸로 무엇을 하나</th></tr></thead>
+    <thead><tr><th style="width:32px">#</th><th style="width:210px">산출물</th><th class="c" style="width:52px">Phase</th><th class="c" style="width:52px">제출</th><th style="width:110px">검수 주체</th><th>차년도 활용 방안</th></tr></thead>
     <tbody>
       <tr><td class="num">1</td><td>CLX Brain AI Agent 유형 정의 · Action Pattern</td><td class="c mk">P1</td><td class="c mk">W3</td><td>DT 추진실</td><td>신규 Agent 기획 시 유형·패턴 판정</td></tr>
       <tr><td class="num">2</td><td>Agent 유형별 요구사항 정의 (수요–시스템 매트릭스)</td><td class="c mk">P1</td><td class="c mk">W3</td><td>DT 추진실</td><td>신규 과제의 Legacy 영향 사전 판정</td></tr>
@@ -4127,12 +4127,12 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note warn" style="margin-top:14px"><b>이 3종 때문에 W13–W14 담당 공백이 치명적입니다.</b> 세 과업이 각자의 산출물을 내고 종료해도 <b>공통 3종은 W14까지 살아 있어야</b> 합니다. 아래 「인력계획과 일정의 정합」을 보십시오.</p>
 
-  <h3>인력계획과 일정의 정합 — 착수 전에 풀어야 할 것</h3>
+  <h3>인력계획과 일정의 정합 — 착수 전 조정 사항</h3>
   <div class="thesis">
     <strong>기획서의 인력계획과 본 방법론의 일정이 맞지 않습니다.</strong> 다수 인원의 투입 종료일이 <strong>11/30 = W13 첫날</strong>이고, ② 담당 매니저의 합류는 <strong>09/21 = W3</strong>입니다. 그대로 두면 <strong>W14 최종보고 주간에 ② 담당이 남지 않고</strong>, <strong>W1 범위합의 워크숍에 ② 매니저가 없습니다.</strong> 방법론 문제가 아니라 계약·투입 조정 문제이므로 <strong>착수 전에</strong> 결정해야 합니다.
   </div>
   <div class="tw" style="margin-top:18px"><table>
-    <thead><tr><th style="width:180px">충돌</th><th style="width:220px">무엇이 깨지는가</th><th>처리 방안 (택일 — W1 확정)</th></tr></thead>
+    <thead><tr><th style="width:180px">충돌</th><th style="width:220px">영향</th><th>처리 방안 (택일 — W1 확정)</th></tr></thead>
     <tbody>
       <tr style="background:var(--crit-soft)"><td><b>투입 종료 11/30<br>vs 최종보고 W14</b></td><td>W13–14의 <b>②의 K5(통합·보고·이관), ③의 M6, 공통 과업 #3(로드맵)</b>에 담당이 없다. 세 개가 모두 마감 산출물이다</td><td>㉠ 해당 인원의 투입을 <b>12/13까지 연장</b> — 가장 단순<br>㉡ <b>W14 전용 마감 인력을 별도 배정</b>(PM + 각 과업 1명)<br>㉢ ②③의 산출물 제출을 <b>W12로 앞당기고</b> W13–14는 통합·보고만 — <b>K4·M5의 기간이 각각 1주씩 줄어드는 대가</b>를 감수<br><b>㉠을 권고합니다.</b> ㉢은 품질 저하가 K4(Hub 구축 방안)에 집중되는데, 이것이 차년도 투자 의사결정의 근거 문서다</td></tr>
       <tr style="background:var(--crit-soft)"><td><b>② 매니저 09/21 합류<br>vs K0 워크숍 W1</b></td><td>K0의 유일한 실질 산출물인 <b>「Ontology In/Out 서면 합의」</b>를 담당자 없이 하게 된다. 이 합의가 KR1의 유일한 방어선이다</td><td>㉠ <b>K0 워크숍을 W3으로 이동</b> — K1(W1–3)과 병행 가능하므로 일정 손실이 거의 없다. <b>권고</b><br>㉡ PM이 대리 진행하고 W3에 재확인 — 재확인이 실질적으로 재협상이 되면 2주를 잃는다<br>㉢ 합류를 앞당김 — 통제 밖</td></tr>
@@ -4141,7 +4141,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note crit" style="margin-top:14px"><b>착수보고에서 먼저 꺼내십시오.</b> 이 셋은 수행팀이 스스로 해결할 수 없고, W7 중간보고에 발견되면 이미 조정 불가입니다. <b>“인력계획을 봤더니 세 지점이 일정과 맞지 않아 착수 전 조정을 요청드립니다”</b>가 신뢰를 얻는 방식입니다.</p>
 
-  <h3>내부 투입 계획 — 누가, 언제, 며칠</h3>
+  <h3>내부 투입 계획 — 역할별 · 주차별 산정</h3>
   <p class="lede">착수보고에서 가장 먼저 나오는 질문입니다. 아래는 <b>고객(CLX·전사) 측 투입</b> 산정이며, 수행사 팀 구성은 별도 제시합니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:160px">역할</th><th style="width:100px">소속</th><th class="num">W1</th><th class="num">W2–3</th><th class="num">W4–6</th><th class="num">W7–9</th><th class="num">W10–13</th><th class="num">W14</th><th class="num" style="width:66px">계 M/D</th><th>주 활동</th></tr></thead>
@@ -4173,7 +4173,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="thesis">
     <strong>이 과업의 결론은 대형 하드웨어 투자로 이어지지 않습니다.</strong> MCP Server는 경량이고 Gateway는 기존 자산입니다. 실제 소요는 <strong>① RTDB DMZ 복제본 스토리지</strong>와 <strong>② 사내 LLM 추론 GPU</strong> 둘이며, ②는 전사 AI 플랫폼 결정에 종속됩니다.
   </div>
-  <p class="lede" style="margin-top:18px">본 과업은 하드웨어를 구매하는 과업이 아니라 <b>요건을 산출하는 과업</b>입니다. 다만 착수보고에서 “그래서 뭐가 필요하냐”는 반드시 나오므로 개략 규모와 <b>확정 시점</b>을 제시합니다.</p>
+  <p class="lede" style="margin-top:18px">본 과업은 하드웨어를 구매하는 과업이 아니라 <b>요건을 산출하는 과업</b>입니다. 다만 착수보고에서 필요 자원에 대한 질의는 반드시 나오므로 개략 규모와 <b>확정 시점</b>을 제시합니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:44px">#</th><th style="width:170px">항목</th><th style="width:180px">개략 규모</th><th class="c" style="width:96px">신규 투자</th><th style="width:100px">확정 시점</th><th>비고</th></tr></thead>
     <tbody>
@@ -4187,12 +4187,12 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h4>규모 산정을 위해 W2–W4에 확인할 수치</h4>
+  <h4>규모 산정을 위한 W2–W4 확인 수치</h4>
   <div class="tw"><table>
-    <thead><tr><th style="width:44px">#</th><th style="width:240px">확인 항목</th><th>무엇을 결정하는가</th></tr></thead>
+    <thead><tr><th style="width:44px">#</th><th style="width:240px">확인 항목</th><th>결정 대상</th></tr></thead>
     <tbody>
-      <tr><td class="num">1</td><td><b>RTDB 태그 총수 · 샘플링 주기 · 현재 보존 정책</b></td><td>복제본 스토리지 규모, DA-01 태그 사전 범위</td></tr>
-      <tr><td class="num">2</td><td><b>DMZ 복제본이 이미 존재하는가</b></td><td>있으면 항목 2·3의 신규 투자가 0이 됨 — <b>가장 큰 변수</b></td></tr>
+      <tr><td class="num">1</td><td><b>RTDB 태그 총수 · 샘플링 주기 · 보존 정책</b></td><td>복제본 스토리지 규모, DA-01 태그 사전 범위</td></tr>
+      <tr><td class="num">2</td><td><b>DMZ 복제본 존재 여부</b></td><td>있으면 항목 2·3의 신규 투자가 0이 됨 — <b>가장 큰 변수</b></td></tr>
       <tr><td class="num">3</td><td>Agent가 실제 필요로 하는 태그 수 · 해상도</td><td>“전량 복제”가 아니라 “필요분만”의 실제 크기</td></tr>
       <tr><td class="num">4</td><td>OCEAN-H 정비이력 건수 · 텍스트 평균 길이</td><td>색인 규모, 임베딩 배치 소요</td></tr>
       <tr><td class="num">5</td><td>사내 컨테이너 플랫폼 여유 자원</td><td>MCP Server 호스팅에 신규 서버가 필요한지</td></tr>
@@ -4278,12 +4278,12 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="tw" style="margin-top:16px"><table>
     <thead><tr><th style="width:180px">실패 모습</th><th style="width:250px">조기 경보 지표</th><th class="c" style="width:56px">시점</th><th>발동 시 조치</th></tr></thead>
     <tbody>
-      <tr><td>진단만 하고 끝남</td><td>실제 호출 검증 3건 중 1건 이하 수행</td><td class="c mk">W6</td><td>대상 3종으로 축소, 나머지는 문헌 진단으로 격하</td></tr>
+      <tr><td>진단 단계에서 종료</td><td>실제 호출 검증 3건 중 1건 이하 수행</td><td class="c mk">W6</td><td>대상 3종으로 축소, 나머지는 문헌 진단으로 격하</td></tr>
       <tr style="background:var(--crit-soft)"><td><b>태그 사전 착수 불가</b></td><td>RTDB 태그 총수·명명규칙 문서 미확보</td><td class="c mk">W4</td><td>DA-01을 <b>T-A만</b>으로 재정의, 범위 축소 <b>서면 CR</b></td></tr>
       <tr style="background:var(--crit-soft)"><td><b>횡단 조인 불성립</b></td><td>대표 질의 5건 중 2건 이하 통과</td><td class="c mk">W8</td><td>P4 착수 연기, P3에 2주 재배정(전체 2주 지연 수용)</td></tr>
-      <tr><td>문서만 남음</td><td>T6에 공수·비용 기입 과제 5건 미만</td><td class="c mk">W12</td><td>P8을 “상위 5건 상세 견적”으로 집중, 나머지 목록화</td></tr>
-      <tr><td>현업 참여 없음</td><td>현업 작성 도구 명세 0건</td><td class="c mk">W7</td><td>컨설턴트 초안 → 현업 30분 검수 방식으로 전환</td></tr>
-      <tr><td>보안 반려</td><td>W7 중간보고에 보안 사전검토 결과 없음</td><td class="c mk">W7</td><td>Steering 즉시 에스컬레이션</td></tr>
+      <tr><td>문서화에 그침</td><td>T6에 공수·비용 기입 과제 5건 미만</td><td class="c mk">W12</td><td>P8을 “상위 5건 상세 견적”으로 집중, 나머지 목록화</td></tr>
+      <tr><td>현업 참여 미확보</td><td>현업 작성 도구 명세 0건</td><td class="c mk">W7</td><td>컨설턴트 초안 → 현업 30분 검수 방식으로 전환</td></tr>
+      <tr><td>보안 심의 반려</td><td>W7 중간보고에 보안 사전검토 결과 없음</td><td class="c mk">W7</td><td>Steering 즉시 에스컬레이션</td></tr>
       <tr style="background:var(--signal-soft)"><td colspan="4"><b>② Knowledge — 조기 경보</b></td></tr>
       <tr><td><b>Ontology 범위 프레임 미합의</b></td><td>W1에 <b>K0-a(배제 3항목) 서명이 없음</b></td><td class="c mk">W1</td><td>K1 착수를 미루지 말되 <b>Steering 안건으로 즉시 상정</b></td></tr>
       <tr><td><b>Ontology 목표 레벨 미확정</b></td><td>W4에 <b>K0-b(목표 레벨) 서명이 없음</b></td><td class="c mk">W4</td><td><b>KR1 발동.</b> K2 설계가 근거 없이 진행되므로 W5 산출물의 검수 기준이 사라진다</td></tr>
@@ -4295,7 +4295,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td>현황 목록 부실</td><td>W3까지 SP2.0 모델 목록에서 <b>담당자 식별 50% 미만</b></td><td class="c mk">W3</td><td>MR2 발동 — 표본 규칙(상위 10 + 유형별 5)으로 전환, M1 완료기준을 수치로 재정의</td></tr>
       <tr><td>중복 제언</td><td>M2 개선과제 중 <b>“전사 공통” 분류가 70% 초과</b></td><td class="c mk">W6</td><td>③의 부가가치가 사라진 상태다. <b>CLX 자체 실행 가능 과제를 최소 5건 확보</b>할 때까지 M3 착수 보류</td></tr>
       <tr style="background:var(--crit-soft)"><td colspan="4"><b>④ 공통 과업 — 조기 경보</b></td></tr>
-      <tr><td><b>공통 3종 미착수</b></td><td>W8까지 개선기회 도출 <b>착수 기록 없음</b></td><td class="c mk">W8</td><td>가장 조용히 실패하는 항목이다. <b>주관이 PM으로 지정되었는지부터 확인</b>(협의 #10). 미지정이면 Steering 즉시 상정 — W10을 넘기면 로드맵을 만들 시간이 없다</td></tr>
+      <tr><td><b>공통 3종 미착수</b></td><td>W8까지 개선기회 도출 <b>착수 기록 없음</b></td><td class="c mk">W8</td><td>가장 늦게 발견되는 실패 유형이다. <b>주관이 PM으로 지정되었는지부터 확인</b>(협의 #10). 미지정이면 Steering 즉시 상정 — W10을 넘기면 로드맵을 만들 시간이 없다</td></tr>
     </tbody>
   </table></div>
   <p class="note" style="margin-top:14px"><b>완료 판단기준 미달은 “완료로 인정하지 않는다”가 아니라 “범위를 줄이고 진행한다”로 처리</b>합니다. 미달을 이유로 다음 Phase를 막으면 약 3개월(14주) 안에 아무것도 끝나지 않습니다. 축소는 반드시 <b>서면 CR</b>로 기록합니다.</p>
@@ -4307,7 +4307,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <section id="risk">
   <div class="sh"><span class="n">5.2</span><h2>리스크 · 착수 준비</h2></div>
   <div class="tw"><table>
-    <thead><tr><th style="width:42px">#</th><th style="width:190px">리스크</th><th>왜 위험한가</th><th style="width:220px">대응</th></tr></thead>
+    <thead><tr><th style="width:42px">#</th><th style="width:190px">리스크</th><th>위험 요인</th><th style="width:220px">대응</th></tr></thead>
     <tbody>
       <tr style="background:var(--crit-soft)"><td class="mk">R1</td><td><b>MCP를 “배관”으로 오해</b></td><td>MCP만 얹으면 된다는 기대 → Legacy 고도화 과제가 부정됨</td><td>계층 모델을 착수보고에 명시, MCP 판단을 Phase 4로 명문화</td></tr>
       <tr><td class="mk">R2</td><td>Legacy 소유 조직 협조 미확보</td><td>시스템별 담당이 각각 다름. 진단 자체가 불가</td><td>착수 전 시스템별 담당자 지정 및 일정 확보</td></tr>
@@ -4316,7 +4316,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr style="background:var(--crit-soft)"><td class="mk">R5</td><td><b>쓰기(P-ACT) 범위 팽창</b></td><td>“Agent가 작업지시까지” → 승인·감사 설계로 일정 붕괴</td><td>1차 읽기 전용을 범위 기준선에 명문화. <b>OASIS를 지목해 명시</b></td></tr>
       <tr><td class="mk">R6</td><td>대상 시스템 확산</td><td>3종이 6~8종으로 늘어남</td><td>Phase 0에서 선정 기준 확정, 추가분은 확장 가이드로 이관</td></tr>
       <tr><td class="mk">R7</td><td>② Knowledge 과업과 경계 모호</td><td>같은 데이터를 두 과업이 중복 설계</td><td>Tag Meta는 ① 주관 · ②에 제공. <b>근무일지는 미합의 — W1 합동 킥오프에서 경로(①)/텍스트(②) 분할과 개인정보 판정 주체를 서면 합의</b> (Part 4 인터페이스 #3)</td></tr>
-      <tr style="background:var(--crit-soft)"><td class="mk">R8</td><td><b>IT/OT 경계 미정의</b></td><td>RTDB는 OT 인접 자산. Agent가 OT 존으로 세션을 여는 구조가 승인 없이 만들어짐 → 보안 반려</td><td>1.3 존 배치도, “OT 인바운드 금지” 원칙. <b>W4 검증 대상을 DMZ 복제본으로 명시</b></td></tr>
+      <tr style="background:var(--crit-soft)"><td class="mk">R8</td><td><b>IT/OT 경계 미정의</b></td><td>RTDB는 OT 인접 자산. Agent가 OT 존으로 세션을 여는 구조가 승인 없이 만들어짐 → 보안 심의 반려</td><td>1.3 존 배치도, “OT 인바운드 금지” 원칙. <b>W4 검증 대상을 DMZ 복제본으로 명시</b></td></tr>
 <tr style="background:var(--crit-soft)"><td class="mk">R9</td><td><b>시스템 간 조인 불가</b></td><td>시스템별로는 다 붙였는데 횡단 질문에 답 못 함. <b>가장 늦게 발견되고 가장 비쌈</b></td><td>Phase 3-2 식별자 표준화, Phase 1에서 횡단 질의 비중 조기 측정</td></tr>
       <tr><td class="mk">R10</td><td>RTDB를 범용 REST로 붙이려 함</td><td>수백만 포인트 조회로 원천 부하 · 타임아웃</td><td>Phase 2-3에 <b>RTDB 대량 구간 조회 필수 포함</b>. 서버측 집계 기능 우선 확인</td></tr>
 <tr><td class="mk">R11</td><td><b>MCP 사양 개정 주기</b></td><td>평균 약 5개월 간격의 개정(최근 구간은 8개월). 채택 후 마이그레이션 비용 발생</td><td>채택 판단서에 <b>버전 고정 + 마이그레이션 비용 추정 + 유예 정책</b> 필수 포함</td></tr>
@@ -4328,7 +4328,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
   <h3>착수 시 확보할 내부 자료 — 우선순위</h3>
   <div class="tw"><table>
-    <thead><tr><th style="width:36px">#</th><th style="width:270px">자료</th><th>왜 필요한가</th></tr></thead>
+    <thead><tr><th style="width:36px">#</th><th style="width:270px">자료</th><th>필요 사유</th></tr></thead>
     <tbody>
       <tr><td class="num">1</td><td><b>OCEAN-H 구축 프로젝트 산출물</b><br><span style="font-size:12px;color:var(--ink-3)">데이터 정제 방법론, 마스터 정비 기준, 15종 통합 목록</span></td><td><b>Phase 2·3 공수를 상당 부분 단축 가능.</b> 이미 만든 것을 다시 만들지 않기 위함 <span style="font-size:12px;color:var(--ink-3)">(단축 폭은 산출물 확인 후 산정)</span></td></tr>
       <tr><td class="num">2</td><td><b>업무別 Data List</b></td><td>AI 과제 MP상 울산CLX가 제공하기로 된 산출물. 존재하면 Phase 1 인벤토리 대폭 단축</td></tr>
@@ -4340,7 +4340,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
 
-  <h3>착수 즉시 확인할 5가지</h3>
+  <h3>착수 즉시 확인 항목 5종</h3>
   <div class="tw"><table>
     <thead><tr><th style="width:36px">#</th><th style="width:300px">확인 사항</th><th>영향</th></tr></thead>
     <tbody>
@@ -4871,13 +4871,13 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
   <div class="qa-cat">수행 관리 · 일정</div>
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">인력계획을 보면 다수 인원이 11/30에 끝나는데, 12/13 최종보고는 누가 하나</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at"><b>저희가 먼저 짚어야 하는 문제입니다.</b> 11/30은 <b>W13 첫날</b>이고, W13–14에는 ②의 K5(통합·보고·이관), ③의 M6, 그리고 <b>공통 과업 #3(추진 로드맵)</b>이 남아 있습니다. 셋 다 마감 산출물입니다. 세 가지 처리 방안이 있고 <b>㉠ 해당 인원의 투입을 12/13까지 연장</b>을 권고합니다. ㉢(산출물을 W12로 앞당기고 W13–14는 보고만)은 품질 저하가 <b>K4 Hub 구축 방안</b>에 집중되는데, 그것이 차년도 투자 의사결정의 근거 문서입니다. <b>착수 전 조정 사항</b>으로 올립니다. <span class="src">5.1 인력계획과 일정의 정합</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>수행팀이 먼저 제기해야 할 사항입니다.</b> 11/30은 <b>W13 첫날</b>이고, W13–14에는 ②의 K5(통합·보고·이관), ③의 M6, 그리고 <b>공통 과업 #3(추진 로드맵)</b>이 남아 있습니다. 셋 다 마감 산출물입니다. 세 가지 처리 방안이 있고 <b>㉠ 해당 인원의 투입을 12/13까지 연장</b>을 권고합니다. ㉢(산출물을 W12로 앞당기고 W13–14는 보고만)은 품질 저하가 <b>K4 Hub 구축 방안</b>에 집중되는데, 그것이 차년도 투자 의사결정의 근거 문서입니다. <b>착수 전 조정 사항</b>으로 올립니다. <span class="src">5.1 인력계획과 일정의 정합</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">② 담당 매니저 합류가 9/21인데, W1 범위 합의 워크숍은 누가 하나</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at">K0의 유일한 실질 산출물이 <b>「Ontology In/Out 서면 합의」</b>이고, 그것이 KR1(기대수준 불일치)의 유일한 방어선입니다. 담당자 없이 하면 W3에 재협상이 되어 2주를 잃습니다. <b>K0 워크숍을 W3으로 옮길 것을 권고</b>합니다 — K1(W1–3 현황 진단)과 병행 가능하므로 일정 손실이 사실상 없습니다. <span class="src">5.1 인력계획과 일정의 정합</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">개선기회 도출 · 추진과제 정의 · 로드맵은 누가 만드나</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at"><b>①②③ 어느 과업의 산출물도 아닙니다 — 그래서 가장 조용히 실패하는 항목입니다.</b> 세 과업의 결과를 합쳐 만드는 <b>공통 산출물 3종</b>이므로 <b>PM 주관 · ①②③ 기여</b>로 두고, <b>W7 중간보고 직후에 착수</b>합니다(세 과업의 진단이 그때 모두 나와 있는 유일한 시점). 개선기회 W10 → 추진과제 W12 → 로드맵 W14 순이며, <b>W10을 넘기면 로드맵을 만들 시간이 없습니다.</b> W8까지 착수 기록이 없으면 조기경보를 발동합니다. <span class="src">5.1 ④ 공통 과업</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>①②③ 어느 과업의 산출물도 아닙니다 — 그래서 가장 늦게 발견되는 실패 유형입니다.</b> 세 과업의 결과를 합쳐 만드는 <b>공통 산출물 3종</b>이므로 <b>PM 주관 · ①②③ 기여</b>로 두고, <b>W7 중간보고 직후에 착수</b>합니다(세 과업의 진단이 그때 모두 나와 있는 유일한 시점). 개선기회 W10 → 추진과제 W12 → 로드맵 W14 순이며, <b>W10을 넘기면 로드맵을 만들 시간이 없습니다.</b> W8까지 착수 기록이 없으면 조기경보를 발동합니다. <span class="src">5.1 ④ 공통 과업</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">Agent 평가셋 300~500쌍을 이 기간에 만들 수 있나</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at"><b>만들 수 없습니다. 그래서 산출물을 다시 정의했습니다.</b> 과업 기간에 확보 가능한 소재는 <b>②의 질의 30~50건 + ①의 대표 횡단 질의 5건 = 35~55건</b>뿐입니다. 본 과업의 산출은 <b>「평가셋 설계 규격 + 초기 시드 50~80쌍」</b>(질의 1건에서 정상·경계·거부 3변형을 파생하는 확장 규칙 포함)이고, <b>300~500쌍은 운영 이관 후 목표치</b>로 분리했습니다. 그대로 적어 두면 <b>미달로 마감</b>됩니다. <span class="src">3.1 M5 판단기준 · MR5</span></div></div></div>

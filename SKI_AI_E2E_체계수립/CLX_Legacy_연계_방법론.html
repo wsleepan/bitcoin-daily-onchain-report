@@ -961,7 +961,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <tbody>
       <tr><td class="mk">R1~R6</td><td><b>Agent-Readiness 진단 6축</b><br><span style="font-size:12px">인터페이스·데이터구조·의미명확성·권한세분성·관측감사·변경관리 (1.2 · 1.7 · T1)</span></td><td><b>① 리스크 번호</b><br><span style="font-size:12px">R1~R14 (5.2)</span></td><td>진단축은 <b>1.2·1.7·템플릿</b>에만, 리스크는 <b>5.2와 리스크 표</b>에만 나온다. 인용 시 “<b>진단 R3</b>” / “<b>리스크 R3</b>”로 부를 것</td></tr>
       <tr><td class="mk">M1~M3</td><td><b>메타데이터 3계층</b><br><span style="font-size:12px">기술·업무·운영 메타 (1.7)</span></td><td><b>③ 수행 Phase</b><br><span style="font-size:12px">M0~M6 (Part 3)</span></td><td>메타 계층은 <b>1.7과 ①의 산출물</b>에만, Phase는 <b>Part 3</b>에만. 인용 시 “<b>메타 M2</b>” / “<b>Phase M2</b>”</td></tr>
-      <tr><td class="mk">Q1~Q6</td><td><b>1.1 핵심 논점 6개</b></td><td><b>MCP 판단 트리</b><br><span style="font-size:12px">Q0~Q5 (1.6)</span></td><td>1.6 안의 Q는 전부 판단 트리</td></tr>
+      <tr><td class="mk">Q1~Q6</td><td colspan="2"><b>1.1 핵심 논점 6개</b> — 문서 전체에서 단일 쓰임</td><td>MCP 채택 판단 트리는 <b><span class="pat">G0~G5</span>(판단 게이트)</b>로 분리했다(1.6). 이전 판에서 두 축이 같은 Q를 쓰던 충돌은 해소되었으며, <b>Q가 나오면 언제나 1.1의 논점</b>이다</td></tr>
       <tr><td class="mk">L1~L6</td><td><b>1.3 아키텍처 L1~L6</b><br><span style="font-size:12px">L1a·L1b · L3-N·L3-S · L4 · L5 · L6</span></td><td><b>2.3 온톨로지 레벨</b><br><span style="font-size:12px">L0~L5</span></td><td>Part 1의 L은 아키텍처 계층, <b>Part 2의 L은 온톨로지 레벨</b>. <b>L 축은 넷이다</b> — ① 아키텍처 ② 온톨로지(L0~L5) ③ <b>Purdue(L0~L5 · L3.5)</b> ④ MP 디지털화 성숙도. <b>“L0이 나오면 온톨로지”는 성립하지 않는다</b> — 1.3 존 표에 Purdue L0–L3가 나온다. 성숙도 축은 <b><span class="pat">MP-L1~L5</span></b>로 접두 분리하고, 나머지는 인용 시 축 이름을 병기한다</td></tr>
       <tr><td class="mk">T1~T6 / T04</td><td><b>① 실무 템플릿 T1~T6</b><br><span style="font-size:12px">T4 = 도구 명세서 (5.4)</span></td><td><b>② 템플릿 T01~T12</b><br><span style="font-size:12px">별도 문서 세트</span></td><td>본 문서의 <b>T는 ①의 것</b>이다. ②의 템플릿은 두 자리(T01~T12)이며 별도 세트로 관리한다</td></tr>
       <tr><td class="mk">P 축</td><td><b>Phase P0~P8</b> <span style="font-size:12px">(1.4 · 1.5)</span> / <b>Action Pattern P-READ~P-ACT</b></td><td><b>참조 평면 P-SEM · P-OPS</b> <span style="font-size:12px">(1.3)</span> / 연계 패턴 P1~P4 <span style="font-size:12px">(1.8)</span> / 착수보고 장표 P1~P11 <span style="font-size:12px">(5.3)</span></td><td><b>하이픈 뒤가 단어면</b> Action Pattern 또는 참조 평면, <b>숫자면</b> Phase다. 1.8의 연계 패턴은 <b>「패턴 P2」</b>, 5.3의 장표는 <b>「장표 P4」</b>로 접두어를 붙여 인용한다</td></tr>
@@ -1094,12 +1094,135 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <p class="note">Q3만 논의하면 반드시 막힙니다. <b>Q1이 없으면 선정 기준이 없고, Q2가 없으면 무엇을 고쳐야 하는지 모르며, Q4가 없으면 보안 승인을 못 받습니다.</b></p>
     <p class="note warn"><b>Q6은 가장 늦게 발견되고 가장 비싼 문제입니다.</b> 시스템별로 잘 붙여놓고도 “3호기 압축기 트립이 생산에 얼마나 영향 줬나” 같은 횡단 질문에 답하지 못합니다. 현업이 실제로 궁금해하는 것은 대부분 횡단 질문입니다.</p>
   </div>
+  <h3>논점별 수행 방법론 — 추적표</h3>
+  <div class="thesis">논점은 세워 두는 것이 아니라 <strong>절차로 내려가야 합니다.</strong> 아래 세 표는 Q1~Q6 각각이 <strong>어느 절의 어떤 수단으로 수행되고, 몇 주차에 어떤 수치로 완료 판정을 받으며, 어느 산출물로 남는지</strong>를 한 행으로 추적합니다.</div>
+  <p class="lede" style="margin-top:18px">표를 나눈 것은 열이 많아서가 아니라 <b>읽는 시점이 다르기 때문</b>입니다. 표 A는 “무엇을 어디서 하는가”이므로 착수 전에 읽고, 표 B는 “언제 끝났다고 말할 수 있는가”이므로 검수 때 읽습니다. 표 C는 반대 방향으로, 뒤의 각 절이 어느 논점에 답하는지를 되짚는 색인입니다. <b>행이 끊기는 자리가 곧 방법론의 구멍</b>이며, 끊긴 자리는 덮지 않고 아래 「추적이 끊기는 지점」에 그대로 적었습니다.</p>
+
+  <h4>표 A · 수행 방법과 방법론 소재</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:60px">논점</th><th>수행 방법 — 핵심 수단</th><th style="width:204px">방법론 위치</th><th class="c" style="width:100px">Phase · 주차</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mk">Q1<br><span style="font-size:12px;color:var(--ink-3)">수요 정의</span></td>
+        <td>① AI 과제 MP의 구성 기술 <b>13종</b>과 스마트플랜트 2.0 <b>40개 과제</b>를 모집단으로 고정하고 Legacy 요구를 역산합니다 — 발굴이 아니라 번역입니다<br>② Agent 유형을 <b>26개 Process Hierarchy에 앵커링</b>한 뒤 <span class="pat">P-READ</span>~<span class="pat">P-ACT</span> 5종 패턴으로 분해하고, 패턴마다 응답시간·데이터량을 붙입니다</td>
+        <td><a href="#biz">1.10 Phase 1 방법론 조정</a> <b>주답</b><br><a href="#p4">1.6 Action Pattern 정의</a> 부분<br><a href="#ph">1.4 P1 완료 판단기준</a></td>
+        <td class="c mk">P1<br>W1–W3</td>
+      </tr>
+      <tr>
+        <td class="mk">Q2<br><span style="font-size:12px;color:var(--ink-3)">현황 진단</span></td>
+        <td>① 시스템별 개별 진단이 아니라 <b>Agent-Readiness 6축(진단 R1~R6) 단일 축</b>으로 6종을 병렬 진단하고, 판정 근거에 문·인·실을 병기합니다<br>② 1순위 3종은 문헌이 아니라 <b>실호출</b>로 검증하며, 그중 <b>W4 RTDB 대량 구간 조회 실측</b>이 단일 최대 검증입니다</td>
+        <td><a href="#sys">1.9 진단 대상 6종 · 예상 취약축</a><br><a href="#itv">1.11 6축 × 근거 유형 프레임</a><br><a href="#data">1.7 R축↔D축 매핑</a> · <a href="#ph">1.4 P2</a><br><span style="font-size:12px;color:var(--ink-3)">척도는 5.4 T1</span></td>
+        <td class="c mk">P2<br>W3–W6</td>
+      </tr>
+      <tr>
+        <td class="mk">Q3<br><span style="font-size:12px;color:var(--ink-3)">연계 설계</span></td>
+        <td>① 패턴별 <b>적합성 매트릭스</b>로 후보 방식을 좁힌 뒤 <b>MCP 채택 판단 게이트 <span class="pat">G0~G5</span></b>를 통과시켜 채택·조건부·배제를 판정합니다<br>② 판정을 <b>Build vs Buy</b>와 하드웨어 소요까지 내려 쓰고, 산출을 <b>(a) CLX 적용기준 / (b) 전사 협의사항</b> 2갈래로 가릅니다</td>
+        <td><a href="#p4">1.6 전 절</a> <b>주답</b><br><a href="#arch">1.3 호출 경로 4종 · 호출 규칙</a> 부분<br><a href="#ph">1.4 P4</a></td>
+        <td class="c mk best">P4<br>W6–W11</td>
+      </tr>
+      <tr>
+        <td class="mk">Q4<br><span style="font-size:12px;color:var(--ink-3)">권한 설계</span></td>
+        <td>① 신뢰 경계마다 인가 방식을 지정합니다 — <b>RFC 8693 토큰 교환</b>을 기본으로 두고 Service Account는 예외로 한정합니다<br>② <b>주체 유형 × 데이터 등급 매트릭스</b>와 <b>허용 위임 그래프</b>로 연쇄 호출의 권한 전파를 규정하고, 결과 필터링을 요건으로 못박습니다</td>
+        <td><a href="#a2a">1.8 권한 전파 · 신원 · 위임 그래프</a> <b>주답</b><br><a href="#p4">1.6 Agent 인가 표준 스택</a> 부분<br><a href="#data">1.7 D6 등급 · 반출 통제</a> 부분<br><a href="#arch">1.3 존 4개와 도관</a> 부분</td>
+        <td class="c mk">P5<br>W7–W12</td>
+      </tr>
+      <tr style="background:var(--crit-soft)">
+        <td class="mk">Q5<br><span style="font-size:12px;color:var(--ink-3)">변경 관리</span></td>
+        <td>① 관리 대상 구성요소를 식별하고 <b>대표 변경 시나리오 3건</b>의 영향 경로를 End-to-End로 작성합니다<br>② Agent 감사 로그 스키마와 Agent 카드를 변경 추적의 최소 단위로 씁니다<br><b>이 두 수단을 절차로 펼친 전용 절이 Part 1에 없습니다</b> — 아래 「추적이 끊기는 지점」 첫째 항</td>
+        <td><span class="mk no">주답 절 없음</span><br><a href="#ph">1.4 P6</a> 완료기준만<br><a href="#a2a">1.8 감사 로그 · Agent 카드</a> 부분<br><a href="#itv">1.11 진단 R6 질문</a> 부분</td>
+        <td class="c mk">P6<br>W9–W13</td>
+      </tr>
+      <tr style="background:var(--signal-soft)">
+        <td class="mk">Q6<br><span style="font-size:12px;color:var(--ink-3)">횡단 조인</span></td>
+        <td>① 설비 · 시간 · 공정/유닛 · 오더 <b>4축의 기준 원천을 확정</b>하고 매핑표를 만듭니다 — 통합의 실질은 API가 아니라 식별자입니다<br>② 대표 횡단 질의 5건을 <b>검증 시나리오 체크리스트</b>에 통과시키고, 통과한 흐름을 P4에서 End-to-End 호출 흐름도로 옮깁니다</td>
+        <td><a href="#data">1.7 횡단 식별자 4축 · 검증 시나리오</a> <b>주답</b><br><a href="#biz">1.10 LKM</a> 부분<br><a href="#pr">1.2 원칙 07</a> 부분<br><a href="#ph">1.4 P3 · P4</a></td>
+        <td class="c mk">P3<br>W4–W9<br><span style="font-size:12px;color:var(--ink-3)">3-2 식별자 W5–W8<br>→ P4 W6–W11</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>「주답」과 「부분」을 가르는 기준</b> — 그 절만 읽고 해당 논점의 수행 절차를 재현할 수 있으면 주답이고, 판단 재료나 좌표만 제공하면 부분입니다. <a href="#arch">1.3</a>과 <a href="#pr">1.2</a>는 어느 논점의 주답도 아니며, 여섯 논점 전부가 공유하는 <b>공통 기반</b>입니다.</p>
+
+  <h4>표 B · 완료 판단기준 · 산출물 · 근거 확보 · 리스크</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:60px">논점</th><th>완료 판단기준 <span style="font-weight:400;text-transform:none;letter-spacing:0">(1.4 · 5.1)</span></th><th style="width:168px">산출물 · 템플릿</th><th style="width:158px">인터뷰</th><th style="width:172px">주요 리스크</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="mk">Q1</td>
+        <td>Agent 유형 <b>5~8종 수렴</b>(10종 초과 시 재분류) · MP 13종 <b>「미정」 0건</b> · SP2.0 <b>대표 10건 표본</b> 분류 · <b>대표 횡단 질의 5건 선정</b> · 전 유형에 응답시간·데이터량 정량 요건 기재</td>
+        <td>산출물 <b>1</b> CLX Agent 수요 정의서<br><b>W3</b> · 검수 DT 추진실<br><span class="pat">T2</span> 수요–시스템 매트릭스</td>
+        <td><span class="pat">IV-07</span> <span class="pat">IV-08</span> 질의 원문 채록<br><span class="pat">IV-09</span> 모집단 확정<br><span class="pat">IV-13</span> 질의 부족분 보충</td>
+        <td>리스크 <b>R5</b> 쓰기(P-ACT) 범위 팽창<br>가정 5 — MP·SP2.0 자료 접근<br><span style="font-size:12px;color:var(--ink-3)">미충족 시 백지 발굴 전환 · 공수 +2주</span></td>
+      </tr>
+      <tr>
+        <td class="mk">Q2</td>
+        <td><b>6종 × 6축 36칸 전부</b>에 점수와 판정 근거 · 1순위 3종 <b>실호출 검증 각 1건 이상</b> · P1 요건 <b>100% Gap 판정</b> · <b>인터뷰 단독 근거 30% 이하</b></td>
+        <td>산출물 <b>2</b> 진단 및 Gap 분석서<br><b>W6</b> · 검수 각 시스템 운영 + DT 추진실<br><span class="pat">T1</span> 6축 진단표(1~5 척도)</td>
+        <td><span class="pat">IV-01</span> 문헌 소재 확정<br><span class="pat">IV-04</span> <span class="pat">IV-05</span> <span class="pat">IV-06</span> 1차<br><span class="pat">IV-11</span> 2차 · <span class="pat">IV-12</span> 2순위 3종<br><span class="pat">IV-16</span> 실측 결과 판독</td>
+        <td>리스크 <b>R2</b> 소유 조직 협조 미확보 · <b>R6</b> 대상 시스템 확산<br>가정 3 — RTDB DMZ 복제본 제공(W3)</td>
+      </tr>
+      <tr>
+        <td class="mk">Q3</td>
+        <td><b>P-READ~P-MONITOR 4개 패턴</b> 연계 방식 확정 · <b>MCP 채택 판단 완료</b>(조건부면 조건 명시) · (a)/(b) <b>章 분리</b> · 부록A가 협의 #7 제기 문서로 <b>단독 성립</b></td>
+        <td>산출물 <b>4</b> 연계 구조 설계서<br><b>W11</b> · 검수 IT 아키텍처 · 전사 IT<br><span class="pat">T4</span> 도구 명세서</td>
+        <td><span class="pat">IV-03</span> Gateway·IdP 보유(W2)<br><span class="pat">IV-10</span> 방침 맥락과 제약<br><span class="pat">IV-19</span> 채택 판단 검증(W9)</td>
+        <td>리스크 <b>R1</b> MCP 배관 오해 · <b>R3</b> 전사 Gateway 미확정 · <b>R10</b> RTDB 범용 REST · <b>R11</b> MCP 사양 개정</td>
+      </tr>
+      <tr>
+        <td class="mk">Q4</td>
+        <td>1차 범위 <b>4개 패턴 전부</b>에 권한 모델 지정 · <b>결과 필터링 요건 명시</b> · 연쇄 호출 권한 전파 규칙 정의 · <b>보안 사전검토 의견 100% 처분</b>(반영 또는 미반영 사유 기록)</td>
+        <td>산출물 <b>5</b> 권한관리 요건 및 고도화 방안<br><b>W12</b> · 검수 정보보호<br><span class="pat">T5</span> Agent 카드 부분</td>
+        <td><span class="pat">IV-02</span> 심의 주체 · 소요일수<br><span class="pat">IV-14</span> 등급 · 반출 · 격리(W4)<br><span class="pat">IV-17</span> 사전검토 의견 수령<br><span class="pat">IV-20</span> 심의 전 최종 검토</td>
+        <td>리스크 <b>R4</b> 권한 위임 설계 누락 · <b>R12</b> 협력사 3주체 모델 미정 · <b>R14</b> 프롬프트 인젝션 · <b>R8</b> IT/OT 경계<br>가정 8 — 전사 IdP의 RFC 8693 지원</td>
+      </tr>
+      <tr style="background:var(--crit-soft)">
+        <td class="mk">Q5</td>
+        <td>대표 변경 시나리오 <b>3건</b>의 영향 경로 End-to-End · ③ MLOps·AgentOps 과업과 역할 경계 <b>서면 합의</b><br><span style="font-size:12px;color:var(--ink-3)">완료기준 첫 줄 「관리 대상 구성요소 빠짐없이 식별」은 수치가 아니어서, 이 상태로는 완료 판정이 서지 않습니다</span></td>
+        <td>산출물 <b>6</b> 章1 Lineage 및 변경관리 요건<br><b>W13 확정</b> · 합본 W14 · 검수 DT 추진실<br><span class="mk no">전용 템플릿 없음</span></td>
+        <td><span class="pat">IV-11</span> 변경 통보 경로 부분<br><span class="pat">IV-18</span> Agent 카탈로그 운영 주체<br><span class="mk no">Q5 전용 인터뷰 없음</span></td>
+        <td><span class="mk no">5.2 리스크 표에 대응 항목 없음</span><br>Part 4 인계 #5b(→③)의 기한이 章1 W13 확정에 걸려 있습니다</td>
+      </tr>
+      <tr style="background:var(--signal-soft)">
+        <td class="mk">Q6</td>
+        <td>대표 횡단 질의 5건이 <b>1개 공장·유닛 한정 범위에서 조인 성립 실증</b> · <b>4개 축 전부</b> 기준 원천 지정과 사유 · Before/After <b>3건</b> · 태그 사전 <b>T-A 전수 200~500개</b> + T-B 샘플 100개 정확도 측정 · P4에서 <b>5건 End-to-End 호출 흐름도</b></td>
+        <td>산출물 <b>3</b> 데이터·메타 표준 및 설계 가이드 <b>W9</b><br>산출물 <b>4</b> 章1 흐름도 <b>W11</b><br><span class="pat">T3</span> 횡단 식별자 매핑표 <b>최우선</b></td>
+        <td><span class="pat">IV-07</span> <span class="pat">IV-08</span> 횡단 판정 · 현장 호칭<br><span class="pat">IV-15</span> 설비 마스터 중복 판정(W5)<br><span class="pat">IV-05</span> <span class="pat">IV-06</span> 기준 원천</td>
+        <td>리스크 <b>R9</b> 시스템 간 조인 불가 — 복구 비용 최대 · <b>R13</b> 현업 메타 공수<br>조기 경보 — W8에 5건 중 2건 이하 통과 시 P4 착수 연기</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>표기</b> — 「리스크 R5」는 5.2 리스크 번호이고, 표 A의 「진단 R1~R6」은 Agent-Readiness 진단 축입니다. 0.5 기호 규칙에 따라 <b>축 이름을 반드시 병기</b>합니다. 산출물 번호는 <a href="#plan">5.1 「기대 산출물 명세 — ① 최종 6종」</a>, 인터뷰 번호는 <a href="#itv">1.11 인터뷰 지도</a>, 템플릿 번호는 <a href="#tmpl">5.4 실무 템플릿</a>, 리스크 번호는 <a href="#risk">5.2</a>의 것입니다.</p>
+
+  <h4>표 C · 절별 대응 논점 — 역방향 색인</h4>
+  <div class="tw"><table>
+    <thead><tr><th style="width:190px">절</th><th style="width:230px">대응 논점</th><th>절의 역할</th></tr></thead>
+    <tbody>
+      <tr><td><a href="#pr">1.2 7대 설계 원칙</a></td><td>Q1~Q6 <b>공통 기반</b><br><span style="font-size:12px;color:var(--ink-3)">원칙 07 → Q6 부분</span></td><td>여섯 논점을 <b>어떤 순서로 답할지</b>의 근거. 원칙 01·02가 Q1·Q3의 순서를, 원칙 05가 Q2의 축을, 원칙 07이 Q6의 존재 이유를 세웁니다</td></tr>
+      <tr><td><a href="#arch">1.3 참조 아키텍처</a></td><td>Q3 · Q4 · Q6 <b>공통 좌표</b></td><td>결정이 어느 계층·평면·존에 속하고 <b>누가 판정하는지</b>를 고정합니다. 단독으로는 어느 논점도 종결하지 않습니다</td></tr>
+      <tr><td><a href="#ph">1.4 Phase 0–8 수행 절차</a></td><td>Q1~Q6 <b>전부</b><br><span style="font-size:12px;color:var(--ink-3)">Q1→P1 · Q2→P2 · Q6→P3·P4 · Q3→P4 · Q4→P5 · Q5→P6</span></td><td>논점이 <b>완료 판단기준으로 바뀌는 자리</b>. 표 B의 수치 대부분이 여기서 나옵니다</td></tr>
+      <tr><td><a href="#wbs">1.5 주차별 WBS</a></td><td>Q1~Q6 <b>시간 축</b></td><td>논점 간 <b>선후 제약</b>을 봅니다. 임계 경로가 Q1→Q2→Q6→Q3 순으로 지나가므로 Q1 1주 지연은 전 논점 1주 지연입니다</td></tr>
+      <tr style="background:var(--accent-soft)"><td><a href="#p4">1.6 연계 방식 · MCP 판단</a></td><td><b>Q3 주답</b> · Q4 부분 · Q1 부분</td><td>Q3의 절차 전체(패턴 정의 → 적합성 → 판단 트리 → 조달). Agent 인가 표준 스택은 <b>서술은 여기, 산출물 귀속은 5(Q4)</b>입니다</td></tr>
+      <tr style="background:var(--accent-soft)"><td><a href="#data">1.7 데이터 구조 · 메타데이터</a></td><td><b>Q6 주답</b> · Q2 부분 · Q4 부분</td><td>횡단 식별자 4축과 검증 시나리오가 Q6의 실물 절차. R축↔D축 매핑이 Q2의 진단 결과를 요건으로 번역합니다</td></tr>
+      <tr style="background:var(--accent-soft)"><td><a href="#a2a">1.8 Agent 간 연계 구조</a></td><td><b>Q4 주답</b> · Q5 부분</td><td>권한 전파·신원·위임 그래프가 Q4의 실물. 감사 로그 스키마와 Agent 카드는 Q5가 관리해야 할 <b>대상의 목록</b>을 제공합니다</td></tr>
+      <tr><td><a href="#sys">1.9 대상 시스템</a></td><td>Q2 부분 · Q6 부분</td><td>진단 대상 6종과 예상 취약축을 고정해 Q2의 <b>모집단</b>을 확정합니다. 설비 마스터 중복(OCEAN-H↔TDMS)은 Q6의 선행 판정입니다</td></tr>
+      <tr><td><a href="#biz">1.10 생산기술 업무 구조</a></td><td><b>Q1 주답</b> · Q6 부분</td><td>Phase 1의 모집단과 역산 절차. LKM 절이 Q6의 <b>수요 측 근거</b>입니다</td></tr>
+      <tr><td><a href="#itv">1.11 인터뷰 계획</a></td><td>Q1~Q6 <b>근거 확보 수단</b><br><span style="font-size:12px;color:var(--ink-3)">Q2 진단 프레임은 사실상 이 절에 있음</span></td><td>각 논점의 답을 <b>사람에게서 받아오는 배분표</b>. 표 B의 인터뷰 열이 이 절의 인터뷰 지도와 1:1입니다</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>추적이 끊기는 지점 — 세 자리</h4>
+  <p class="lede">위 세 표를 채우는 과정에서 <b>논점 축과 절 축이 맞지 않는 자리가 세 곳</b> 드러났습니다. 착수보고에서 질문이 나올 자리이므로 먼저 적습니다.</p>
+  <div class="stack" style="margin-top:14px">
+    <p class="note crit"><b>첫째 — Q5(변경 관리)에는 주답하는 절이 없습니다.</b> Q5의 방법론은 <a href="#ph">1.4 P6</a>의 완료기준 3줄과 <a href="#a2a">1.8</a>의 감사 로그·Agent 카드에 흩어져 있을 뿐이고, 전용 절도 전용 템플릿도 전용 인터뷰도 없으며 <b><a href="#risk">5.2</a> 리스크 표에도 대응 항목이 없습니다.</b> 완료기준 첫 줄 「관리 대상 구성요소 빠짐없이 식별」은 수치가 아니어서 그대로는 완료 판정이 서지 않습니다. Q5의 산출물(6권 章1)은 <b>W13 확정</b>이고 그 발췌가 ③으로 넘어가는 인계 #5b이므로, 근거가 가장 얇은 논점이 <b>가장 늦은 마감</b>을 갖는 구조입니다. 처분은 두 갈래입니다 — <b>(가)</b> Q5의 절차를 1.8 뒤에 한 절로 신설하고 완료기준을 「관리 대상 구성요소 <b>7종 전부</b> 식별(데이터셋·API·도구 정의·프롬프트·모델·Agent 카드·권한 정책)」처럼 수치로 다시 씁니다. <b>(나)</b> 신설하지 않는다면 Q5를 논점에서 내리고 P6를 ③ 과업의 AgentOps 범위로 이관하는 것이 정직합니다. <b>W1 착수보고에서 (가)/(나) 중 하나를 받아야 합니다.</b></p>
+    <p class="note warn"><b>둘째 — Q4의 방법론이 두 Phase에 걸쳐 서술되어 있습니다.</b> 1.1 표는 Q4를 Phase 5로 두었으나, 인가 스택의 실질(<a href="#p4">1.6 Agent 인가 표준 스택 · 신뢰 경계와 프롬프트 인젝션 통제</a>)은 <b>P4(W6–W11) 구간의 절</b>에 있고 산출물 귀속만 5(P5 · W12)입니다. 이것은 오류가 아니라 <b>설계상 불가피한 겹침</b>입니다 — 연계 방식을 정하지 않으면 신뢰 경계가 몇 개인지 정해지지 않기 때문입니다. 다만 겹침을 적어 두지 않으면 W11 설계 승인 게이트에서 “권한은 P5인데 왜 지금 판단하느냐”가 나옵니다. <a href="#ph">1.4 P4</a>의 완료기준 「Phase 5 권한 모델과 상충 없음(교차 확인 회의)」이 이 겹침을 흡수하는 장치이며, <b>그 회의를 W9에 1회로 고정</b>하는 것이 처분입니다.</p>
+    <p class="note"><b>셋째 — Q2의 진단 척도가 Part 1 밖에 있습니다.</b> 6축의 이름은 <a href="#pr">1.2 원칙 05</a>에, 근거 유형 프레임은 <a href="#itv">1.11</a>에 있으나, <b>1~5점 척도의 판정 기준은 <a href="#tmpl">5.4 T1</a>(진단표)에만</b> 있습니다. 실무자는 템플릿을 따르므로 동작에는 지장이 없지만, Part 1만 읽는 검토자에게는 “6축으로 진단한다”는 선언만 보입니다. 처분은 1.9 도입부에서 <b>T1을 명시적으로 지시</b>하는 한 줄이면 충분하며, 척도를 Part 1에 복제하지는 않습니다 — 같은 수치를 두 곳에 두면 어긋납니다.</p>
+  </div>
 </section>
 
 
 <!-- 02 -->
 <section id="pr">
   <div class="sh"><span class="n">1.2</span><h2>7대 설계 원칙</h2></div>
+  <p class="note"><b>대응 논점</b> — Q1~Q6 <b>공통 기반</b>. 원칙 01·02 → Q1·Q3의 순서 · 원칙 05 → Q2의 진단 축 · 원칙 07 → Q6의 존재 이유 <a href="#q">→ 1.1 표 C</a></p>
   <p class="lede">체계가 사실상 백지에서 시작하므로 “무엇을 먼저 정하느냐”가 성패를 가릅니다. 아래 일곱이 이후 모든 Phase 순서의 근거입니다.</p>
   <div class="prin">
     <div class="prin-i"><div class="pi">01</div><div>
@@ -1130,6 +1253,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 03 -->
 <section id="arch">
   <div class="sh"><span class="n">1.3</span><h2>참조 아키텍처 — 실행 스택 · 참조 평면 · 존</h2></div>
+  <p class="note"><b>대응 논점</b> — Q3 · Q4 · Q6의 <b>공통 좌표</b>. 단독으로는 어느 논점도 종결하지 않음 <a href="#q">→ 1.1 표 C</a></p>
   <p class="lede">연계 설계의 혼선 대부분은 서로 다른 축의 문제를 같은 자리에서 논쟁하기 때문에 생깁니다. 축을 먼저 고정하면 각 결정이 어디에 속하는지, 그리고 <b>누가 판정하는지</b>가 함께 정해집니다.</p>
 
   <h3>축 구성 — 기능 계층 하나로 답하지 못하는 질문</h3>
@@ -1563,7 +1687,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <thead><tr><th style="width:130px">경로</th><th style="width:210px">통과 계층</th><th style="width:190px">CLX 적용 · 1.6 판정</th><th>스킵 계층과 사유</th></tr></thead>
     <tbody>
       <tr style="background:var(--accent-soft)"><td><b>A</b> MCP 도구</td><td><span class="pat">L5→L4→L3-S→L1a</span></td><td><span class="sys p1">OCEAN-H</span> 설비·정비이력 탐색<br><b style="color:var(--accent)">MCP 채택 유력</b></td><td>—</td></tr>
-      <tr><td><b>B</b> Gateway 직결</td><td><span class="pat">L5→L3-S→L1a</span></td><td><span class="sys">OASIS</span> 실적·계획 조회<br>조건부 — Gateway 우선</td><td><b>L4 미채택</b> — 판단 트리 Q4(권한 위임) 보류 영역</td></tr>
+      <tr><td><b>B</b> Gateway 직결</td><td><span class="pat">L5→L3-S→L1a</span></td><td><span class="sys">OASIS</span> 실적·계획 조회<br>조건부 — Gateway 우선</td><td><b>L4 미채택</b> — 판단 트리 G4(권한 위임) 보류 영역</td></tr>
       <tr><td><b>C</b> 파생 조회</td><td><span class="pat">L5→L3-S→L1b</span></td><td><span class="sys p1">RTDB</span> 대량 집계<br>MCP 부적합 — 집계 API + 복제</td><td><b>L1a 직접 접근 금지</b> — 존 규칙(OT 인바운드 금지)에 따라 복제본만 대상</td></tr>
       <tr><td><b>D</b> 이벤트 구독</td><td><span class="pat">L1a→L1b→L3-N→L5</span><br><span style="font-size:12px;color:var(--signal)">역방향 push</span></td><td><span class="sys">AMS</span> 실시간 알람<br>이벤트 구독</td><td><b>요청–응답 모델 아님.</b> L4·L3-S를 통과하지 않으며 L3-N의 이벤트 도관을 경유</td></tr>
       <tr><td class="mk no">경로 없음</td><td>—</td><td><span class="sys">OASIS</span> 쓰기(작업지시 등)<br>1차 범위 밖</td><td><b>의도적 미정의.</b> P-ACT 경로를 그리지 않는 것이 1.6 쓰기 제외 판단의 아키텍처 표현입니다</td></tr>
@@ -1684,6 +1808,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 04 -->
 <section id="ph">
   <div class="sh"><span class="n">1.4</span><h2>Phase 0–8 수행 절차</h2></div>
+  <p class="note"><b>대응 논점</b> — Q1~Q6 <b>전부</b>. 논점이 완료 판단기준으로 바뀌는 자리 (Q1→P1 · Q2→P2 · Q6→P3·P4 · Q3→P4 · Q4→P5 · Q5→P6) <a href="#q">→ 1.1 표 B</a></p>
   <p class="lede">기획서의 3단계 흐름(현황 분석 → To-be 방향성 → 실행과제)을 유지하되 실행 가능한 Phase로 분해했습니다. 완료 판단기준은 정성 합의가 아니라 <b>수치</b>로 정의합니다.</p>
 
 <figure>
@@ -1915,6 +2040,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 05 -->
 <section id="wbs">
   <div class="sh"><span class="n">1.5</span><h2>주차별 WBS</h2></div>
+  <p class="note"><b>대응 논점</b> — Q1~Q6의 <b>시간 축</b>. 임계 경로가 Q1 → Q2 → Q6 → Q3 순으로 지나감 <a href="#q">→ 1.1 표 A</a></p>
   <p class="lede">9/7 착수 기준 14주. <b>임계 경로</b>는 <span class="mk">P0 → P1 Action Pattern → P2 Gap(RTDB 실측) → <b>P3-2 식별자</b> → P4 연계 설계 → P7 → P8</span> 이며, P1이 1주 지연되면 전 과업이 1주 밀립니다.</p>
   <div class="tw"><table class="gantt">
     <thead><tr><th style="text-align:left;padding-left:11px">Phase</th>
@@ -2038,6 +2164,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 06 -->
 <section id="p4">
   <div class="sh"><span class="n">1.6</span><h2>연계 방식 선정 및 MCP 채택 판단</h2></div>
+  <p class="note"><b>대응 논점</b> — <b>Q3 주답</b> · Q4 부분(Agent 인가 표준 스택) · Q1 부분(Action Pattern 정의) <a href="#q">→ 1.1 표 A</a></p>
 
   <h3>Action Pattern 정의</h3>
   <div class="tw"><table>
@@ -2211,9 +2338,9 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="note" style="margin-top:10px"><b>P-MONITOR에 필요한 알람 전처리</b> — 정유 플랜트 알람은 ISA-18.2 / EEMUA 191 관리 대상입니다. 트립 직전 수백 건이 초당 쏟아지는 <b>알람 홍수(flood)</b> 구간에서 Agent가 무엇을 하는지가 설계돼야 하며, 이는 안전 이슈입니다. AMS 연계 요건에 <b>우선순위 필터 · 중복(chattering) 억제 · flood 판정 · shelved 알람 제외</b>를 포함하십시오.</p>
 
   <h3>MCP 채택 판단 트리</h3>
-  <p class="lede">Q0(망·법적 경계)부터 Q5(도구 정의 무결성)까지 <b>6단</b>입니다. 앞의 넷은 “MCP가 유용한가”를, 뒤의 둘은 “안전하게 쓸 수 있는가”를 묻습니다.</p>
+  <p class="lede">G0(망·법적 경계)부터 G5(도구 정의 무결성)까지 <b>6단</b>입니다. 앞의 넷은 “MCP가 유용한가”를, 뒤의 둘은 “안전하게 쓸 수 있는가”를 묻습니다.</p>
 <figure>
-<svg viewBox="0 0 940 560" role="img" aria-label="MCP 채택 판단 6단 트리. Q0 망 경계부터 Q5 도구 무결성까지 통과해야 채택하며, 각 탈락 지점마다 다른 대안으로 빠지고 CLX 시스템별로 착지 지점이 다르다.">
+<svg viewBox="0 0 940 560" role="img" aria-label="MCP 채택 판단 6단 트리. G0 망 경계부터 G5 도구 무결성까지 통과해야 채택하며, 각 탈락 지점마다 다른 대안으로 빠지고 CLX 시스템별로 착지 지점이 다르다.">
 <defs>
   <marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
     <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
@@ -2224,7 +2351,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- Q rows -->
 <rect x="20" y="40" width="330" height="46" rx="4" class="dg-fill"/>
-<text x="34" y="60" class="dg-tb">Q0 · 망 · 법적 경계를 통과할 수 있는가</text>
+<text x="34" y="60" class="dg-tb">G0 · 망 · 법적 경계를 통과할 수 있는가</text>
 <text x="34" y="77" class="dg-s">OT 존 / 협력사 / 국외</text>
 <path d="M350 63 L470 63" class="dg-ln" marker-end="url(#ar4)"/>
 <text x="356" y="57" class="dg-s">No</text>
@@ -2236,7 +2363,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <path d="M185 86 L185 108" class="dg-ln" marker-end="url(#ar4)"/><text x="192" y="102" class="dg-s">Yes</text>
 <rect x="20" y="112" width="330" height="46" rx="4" class="dg-fill"/>
-<text x="34" y="132" class="dg-tb">Q1 · 도구가 5개 이상이고 늘어나는가</text>
+<text x="34" y="132" class="dg-tb">G1 · 도구가 5개 이상이고 늘어나는가</text>
 <text x="34" y="149" class="dg-s">보정: 도구 수 × 소비 Agent 수 × 변경 빈도</text>
 <path d="M350 135 L470 135" class="dg-ln" marker-end="url(#ar4)"/><text x="356" y="129" class="dg-s">No</text>
 <rect x="474" y="114" width="230" height="42" rx="4" class="dg-box"/>
@@ -2245,7 +2372,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <path d="M185 158 L185 180" class="dg-ln" marker-end="url(#ar4)"/><text x="192" y="174" class="dg-s">Yes</text>
 <rect x="20" y="184" width="330" height="46" rx="4" class="dg-fill"/>
-<text x="34" y="204" class="dg-tb">Q2 · Agent가 도구를 스스로 골라야 하는가</text>
+<text x="34" y="204" class="dg-tb">G2 · Agent가 도구를 스스로 골라야 하는가</text>
 <text x="34" y="221" class="dg-s">미충족 시 Agent가 아닌 파이프라인</text>
 <path d="M350 207 L470 207" class="dg-ln" marker-end="url(#ar4)"/><text x="356" y="201" class="dg-s">No</text>
 <rect x="474" y="186" width="230" height="42" rx="4" class="dg-box"/>
@@ -2254,7 +2381,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <path d="M185 230 L185 252" class="dg-ln" marker-end="url(#ar4)"/><text x="192" y="246" class="dg-s">Yes</text>
 <rect x="20" y="256" width="330" height="46" rx="4" class="dg-fill"/>
-<text x="34" y="276" class="dg-tb">Q3 · 집계값 또는 참조로 설계할 수 있는가</text>
+<text x="34" y="276" class="dg-tb">G3 · 집계값 또는 참조로 설계할 수 있는가</text>
 <text x="34" y="293" class="dg-s">원시 대량 반환은 어떤 프로토콜로도 불가</text>
 <path d="M350 279 L470 279" class="dg-ln" marker-end="url(#ar4)"/><text x="356" y="273" class="dg-s">No</text>
 <rect x="474" y="258" width="230" height="42" rx="4" class="dg-warn"/>
@@ -2264,7 +2391,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <path d="M185 302 L185 324" class="dg-ln" marker-end="url(#ar4)"/><text x="192" y="318" class="dg-s">Yes</text>
 <rect x="20" y="328" width="330" height="46" rx="4" class="dg-fill"/>
-<text x="34" y="348" class="dg-tb">Q4 · 권한 위임(토큰 교환)을 설계할 수 있는가</text>
+<text x="34" y="348" class="dg-tb">G4 · 권한 위임(토큰 교환)을 설계할 수 있는가</text>
 <text x="34" y="365" class="dg-s">여기부터는 “유용한가”가 아니라 “안전한가”</text>
 <path d="M350 351 L470 351" class="dg-ln" marker-end="url(#ar4)"/><text x="356" y="345" class="dg-s">No</text>
 <rect x="474" y="330" width="230" height="42" rx="4" class="dg-warn"/>
@@ -2275,7 +2402,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <path d="M185 374 L185 396" class="dg-ln" marker-end="url(#ar4)"/><text x="192" y="390" class="dg-s">Yes</text>
 <rect x="20" y="400" width="330" height="46" rx="4" class="dg-fill"/>
-<text x="34" y="420" class="dg-tb">Q5 · 도구 정의의 무결성·변경 통제가 가능한가</text>
+<text x="34" y="420" class="dg-tb">G5 · 도구 정의의 무결성·변경 통제가 가능한가</text>
 <text x="34" y="437" class="dg-s">tool poisoning · rug pull · line jumping</text>
 <path d="M350 423 L470 423" class="dg-ln" marker-end="url(#ar4)"/><text x="356" y="417" class="dg-s">No</text>
 <rect x="474" y="402" width="230" height="42" rx="4" class="dg-crit"/>
@@ -2298,19 +2425,19 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 
   <h3>판단 트리의 설계 근거</h3>
-  <p class="lede"><b>핵심 네 질문(Q1~Q4)</b>의 <b>내용</b>과 <b>순서</b> 모두 근거가 있습니다. <b>Q0(망 경계)와 Q5(도구 무결성)는 아래 「6단 트리로 확장」 소절에서 따로 다룹니다</b> — 이 둘은 선택지를 가르는 질문이 아니라 판정의 <b>전제 조건(Q0)</b>과 <b>사후 조건(Q5)</b>이므로, 이 소절과 뒤따르는 「조사 비용」·「탈락 지점」·「CLX 적용 예상 판정」 세 표는 Q1~Q4만을 대상으로 합니다. 트리를 그대로 쓰기 전에 왜 이렇게 생겼는지 알아야, 현장에서 예외 상황을 만났을 때 판단할 수 있습니다.</p>
+  <p class="lede"><b>핵심 네 질문(G1~G4)</b>의 <b>내용</b>과 <b>순서</b> 모두 근거가 있습니다. <b>G0(망 경계)와 G5(도구 무결성)는 아래 「6단 트리로 확장」 소절에서 따로 다룹니다</b> — 이 둘은 선택지를 가르는 질문이 아니라 판정의 <b>전제 조건(G0)</b>과 <b>사후 조건(G5)</b>이므로, 이 소절과 뒤따르는 「조사 비용」·「탈락 지점」·「CLX 적용 예상 판정」 세 표는 G1~Q4만을 대상으로 합니다. 트리를 그대로 쓰기 전에 왜 이렇게 생겼는지 알아야, 현장에서 예외 상황을 만났을 때 판단할 수 있습니다.</p>
 
   <div class="tw"><table>
     <thead><tr><th style="width:44px">질문</th><th style="width:220px">확인 사항</th><th>질문의 근거</th></tr></thead>
     <tbody>
-      <tr><td class="mk">Q1</td><td><b>도구가 5개 이상이고 늘어나는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 규모와 증가 추세</span></td><td>MCP의 실익은 <b>도구 발견(discovery)과 자기기술(self-description)</b>에 있습니다. 도구가 1~2개면 그 설명을 Agent 프롬프트에 직접 넣는 편이 더 싸고 빠릅니다. MCP Server 운영 비용(배포·인증·모니터링)이 편익을 초과합니다.<br><b>“늘어나는가”가 더 중요합니다.</b> 도구 집합이 정적이면 하드코딩이 낫고, 계속 늘어난다면 <b>Agent 재개발 없이 도구만 추가</b>하는 구조의 이익이 복리로 쌓입니다.</td></tr>
-      <tr><td class="mk">Q2</td><td><b>Agent가 스스로 도구를 고르는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 판단의 필요성</span></td><td>호출 경로가 고정돼 있다면 그것은 Agent가 아니라 <b>파이프라인</b>입니다. 이 경우 MCP의 동적 선택 능력은 쓰이지 않고 <b>비결정성만 추가</b>됩니다 — 예측 가능해야 할 것을 예측 불가능하게 만드는 역효과입니다.<br>즉 <b>MCP는 판단이 필요한 곳에만 씁니다.</b></td></tr>
-      <tr><td class="mk">Q3</td><td><b>집계·참조로 설계 가능한가</b><br><span style="font-size:12px;color:var(--ink-3)">= 물리적 한계</span></td><td>MCP는 도구 결과를 <b>Agent 컨텍스트로 되돌리는</b> 구조입니다. RTDB 태그 1개월치는 수백만 포인트로, 컨텍스트 초과·비용 폭증·응답 지연이 동시에 발생합니다.<br>큰 데이터는 컨텍스트가 아니라 <b>저장소에서 저장소로</b> 흘러야 합니다(배치 복제 후 집계 반환). 이것은 MCP 설계의 결함이 아니라 <b>LLM 컨텍스트의 물리적 한계</b>이며, 어떤 프로토콜을 써도 같습니다.</td></tr>
-      <tr style="background:var(--signal-soft)"><td class="mk">Q4</td><td><b>권한 위임 설계가 가능한가</b><br><span style="font-size:12px;color:var(--ink-3)">= 안전성</span></td><td>MCP Server는 Agent와 Legacy 사이에 <b>또 하나의 신원 경계</b>를 만듭니다. 여기서 사용자 컨텍스트가 끊기면 MCP Server가 자기 권한으로 조회하게 되고, 그 즉시 <b>최소권한 위배 + 결과 필터링 불가</b> 상태가 됩니다.<br>Q1~Q3는 “MCP가 <b>유용한가</b>”를 묻고, <b>Q4는 “MCP를 <b>안전하게 쓸 수 있는가</b>”</b>를 묻습니다. 유용해도 안전하지 않으면 채택할 수 없으므로, 여기서 걸리면 <b>보류</b>입니다.</td></tr>
+      <tr><td class="mk">G1</td><td><b>도구가 5개 이상이고 늘어나는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 규모와 증가 추세</span></td><td>MCP의 실익은 <b>도구 발견(discovery)과 자기기술(self-description)</b>에 있습니다. 도구가 1~2개면 그 설명을 Agent 프롬프트에 직접 넣는 편이 더 싸고 빠릅니다. MCP Server 운영 비용(배포·인증·모니터링)이 편익을 초과합니다.<br><b>“늘어나는가”가 더 중요합니다.</b> 도구 집합이 정적이면 하드코딩이 낫고, 계속 늘어난다면 <b>Agent 재개발 없이 도구만 추가</b>하는 구조의 이익이 복리로 쌓입니다.</td></tr>
+      <tr><td class="mk">G2</td><td><b>Agent가 스스로 도구를 고르는가</b><br><span style="font-size:12px;color:var(--ink-3)">= 판단의 필요성</span></td><td>호출 경로가 고정돼 있다면 그것은 Agent가 아니라 <b>파이프라인</b>입니다. 이 경우 MCP의 동적 선택 능력은 쓰이지 않고 <b>비결정성만 추가</b>됩니다 — 예측 가능해야 할 것을 예측 불가능하게 만드는 역효과입니다.<br>즉 <b>MCP는 판단이 필요한 곳에만 씁니다.</b></td></tr>
+      <tr><td class="mk">G3</td><td><b>집계·참조로 설계 가능한가</b><br><span style="font-size:12px;color:var(--ink-3)">= 물리적 한계</span></td><td>MCP는 도구 결과를 <b>Agent 컨텍스트로 되돌리는</b> 구조입니다. RTDB 태그 1개월치는 수백만 포인트로, 컨텍스트 초과·비용 폭증·응답 지연이 동시에 발생합니다.<br>큰 데이터는 컨텍스트가 아니라 <b>저장소에서 저장소로</b> 흘러야 합니다(배치 복제 후 집계 반환). 이것은 MCP 설계의 결함이 아니라 <b>LLM 컨텍스트의 물리적 한계</b>이며, 어떤 프로토콜을 써도 같습니다.</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="mk">G4</td><td><b>권한 위임 설계가 가능한가</b><br><span style="font-size:12px;color:var(--ink-3)">= 안전성</span></td><td>MCP Server는 Agent와 Legacy 사이에 <b>또 하나의 신원 경계</b>를 만듭니다. 여기서 사용자 컨텍스트가 끊기면 MCP Server가 자기 권한으로 조회하게 되고, 그 즉시 <b>최소권한 위배 + 결과 필터링 불가</b> 상태가 됩니다.<br>G1~Q3는 “MCP가 <b>유용한가</b>”를 묻고, <b>Q4는 “MCP를 <b>안전하게 쓸 수 있는가</b>”</b>를 묻습니다. 유용해도 안전하지 않으면 채택할 수 없으므로, 여기서 걸리면 <b>보류</b>입니다.</td></tr>
     </tbody>
   </table></div>
 
-  <h4>6단 트리로 확장 — Q0(경계)와 Q5(무결성)</h4>
+  <h4>6단 트리로 확장 — G0(경계)와 G5(무결성)</h4>
   <p class="lede">원래 4단 트리는 <b>“MCP가 유용한가 · 안전하게 쓸 수 있는가”</b> 만 물었습니다. 보안 검토 결과 두 축이 빠져 있었습니다 — <b>앞에 망·법적 경계</b>, <b>뒤에 도구 정의 무결성</b>.</p>
   <p class="note warn" style="margin-top:14px"><b>Q1의 “5”는 대리변수이지 기준이 아닙니다.</b> 실제 결정 변수는 <span class="pat">도구 집합의 변경 빈도 × 소비 Agent 수</span> 입니다. 도구 3개를 Agent 20개가 공유하면 MCP가 명백히 유리한데 단순 개수 기준으로는 탈락합니다. <b>Q1에서 탈락시키기 전에 Q2를 먼저 확인</b>하는 예외를 두십시오 — 값싼 질문이 틀린 답을 내면 절약이 아니라 손실입니다.</p>
 
@@ -2319,7 +2446,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <thead><tr><th style="width:180px">케이스</th><th style="width:250px">트리 판정 불가 사유</th><th>처리</th></tr></thead>
     <tbody>
       <tr><td>① 쓰기 (P-ACT)</td><td>1차 범위 밖이라 트리 진입 자체가 없음</td><td>개방 2~3단계 시 <b>쓰기용 별도 트리</b>(승인·롤백·4-eyes 축)</td></tr>
-      <tr><td>② 이벤트·스트리밍 <span class="sys">AMS</span></td><td>요청–응답 모델이 아님</td><td><b>Q0 이전 분기</b>: “요청–응답 모델인가?” No면 이벤트 경로</td></tr>
+      <tr><td>② 이벤트·스트리밍 <span class="sys">AMS</span></td><td>요청–응답 모델이 아님</td><td><b>G0 이전 분기</b>: “요청–응답 모델인가?” No면 이벤트 경로</td></tr>
       <tr><td>③ 외부·협력사 소유 시스템</td><td>주체가 사내 사용자가 아니라 Q4가 성립 안 함</td><td>주체 유형 축 적용 (1.8 주체×등급 매트릭스)</td></tr>
       <tr><td>④ ② Knowledge Hub (비정형)</td><td>도구 수·데이터 크기 축으로 측정 불가</td><td><b>② 과업 판정 기준으로 이관</b></td></tr>
       <tr><td>⑤ 원천이 OT망</td><td>망 경계 통과 가능성이 판정에 없었음</td><td><b>Q0에서 처리</b> (신설 사유)</td></tr>
@@ -2330,10 +2457,10 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="tw"><table>
     <thead><tr><th style="width:44px">질문</th><th style="width:200px">답을 얻는 방법</th><th style="width:120px">조사 비용</th><th>가용 시점</th></tr></thead>
     <tbody>
-      <tr><td class="mk">Q1</td><td>도구 후보 목록을 세어봄</td><td><b>낮음</b> — 문서만으로 가능</td><td>Phase 1 직후</td></tr>
-      <tr><td class="mk">Q2</td><td>Action Pattern · 시나리오 분석</td><td>중간</td><td>Phase 1 완료 후</td></tr>
-      <tr><td class="mk">Q3</td><td><b>실제 호출 실측</b></td><td>높음 — 환경·협조 필요</td><td>Phase 2 검증 후</td></tr>
-      <tr><td class="mk">Q4</td><td>권한 모델 확정</td><td><b>가장 높음</b> — 보안 심의 포함</td><td>Phase 5 진행 중</td></tr>
+      <tr><td class="mk">G1</td><td>도구 후보 목록을 세어봄</td><td><b>낮음</b> — 문서만으로 가능</td><td>Phase 1 직후</td></tr>
+      <tr><td class="mk">G2</td><td>Action Pattern · 시나리오 분석</td><td>중간</td><td>Phase 1 완료 후</td></tr>
+      <tr><td class="mk">G3</td><td><b>실제 호출 실측</b></td><td>높음 — 환경·협조 필요</td><td>Phase 2 검증 후</td></tr>
+      <tr><td class="mk">G4</td><td>권한 모델 확정</td><td><b>가장 높음</b> — 보안 심의 포함</td><td>Phase 5 진행 중</td></tr>
     </tbody>
   </table></div>
   <p class="note" style="margin-top:14px"><b>값싼 탈락을 먼저 배치하는 것이 트리 설계의 원리입니다.</b> Q1에서 걸리는 영역은 실측을 하지 않아도 되고, Q4까지 가야 하는 영역만 Phase 5 결과를 기다립니다. 순서를 바꾸면 불필요한 조사에 공수가 나갑니다.</p>
@@ -2348,7 +2475,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       </ul></div>
     <div class="box" style="border-color:var(--crit)"><div class="bt">오답 B · “미성숙하니 쓰지 말자”</div>
       <ul>
-        <li><b>Q1·Q2를 통과하는 영역에서 손해</b> — 도구 설명을 프롬프트로 관리하게 되어 도구 추가마다 Agent 수정</li>
+        <li><b>G1·Q2를 통과하는 영역에서 손해</b> — 도구 설명을 프롬프트로 관리하게 되어 도구 추가마다 Agent 수정</li>
         <li>OCEAN-H 탐색 계열이 정확히 여기 해당</li>
         <li>결과: 확장성 상실 · 유지보수 분산</li>
       </ul></div>
@@ -2359,10 +2486,10 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="tw"><table>
     <thead><tr><th style="width:90px">탈락 지점</th><th style="width:190px">의미</th><th style="width:160px">대안</th><th>CLX 해당 영역</th></tr></thead>
     <tbody>
-      <tr><td class="mk">Q1 탈락</td><td>도구가 적고 정적</td><td><b>REST 직접 호출</b></td><td>단순 조회 API</td></tr>
-      <tr><td class="mk">Q2 탈락</td><td>호출 경로가 고정</td><td><b>고정 파이프라인</b> (Agent 아님)</td><td>정기 리포트 생성</td></tr>
-      <tr><td class="mk">Q3 탈락</td><td>데이터가 큼</td><td><b>배치 복제 + 집계 API</b></td><td><span class="sys p1">RTDB</span> 대량 집계</td></tr>
-      <tr><td class="mk">Q4 보류</td><td>권한 위임 미확정</td><td><b>Gateway 경유 REST</b>로 시작, Phase 5 후 재판정</td><td><span class="sys p1">OASIS</span></td></tr>
+      <tr><td class="mk">G1 탈락</td><td>도구가 적고 정적</td><td><b>REST 직접 호출</b></td><td>단순 조회 API</td></tr>
+      <tr><td class="mk">G2 탈락</td><td>호출 경로가 고정</td><td><b>고정 파이프라인</b> (Agent 아님)</td><td>정기 리포트 생성</td></tr>
+      <tr><td class="mk">G3 탈락</td><td>데이터가 큼</td><td><b>배치 복제 + 집계 API</b></td><td><span class="sys p1">RTDB</span> 대량 집계</td></tr>
+      <tr><td class="mk">G4 보류</td><td>권한 위임 미확정</td><td><b>Gateway 경유 REST</b>로 시작, Phase 5 후 재판정</td><td><span class="sys p1">OASIS</span></td></tr>
       <tr><td class="mk">해당 없음</td><td>요청–응답 모델 자체가 부적합</td><td><b>이벤트 구독</b></td><td><span class="sys p1">AMS</span> 실시간 알람</td></tr>
     </tbody>
   </table></div>
@@ -2371,16 +2498,16 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="tw"><table>
     <thead><tr><th style="width:230px">변화</th><th>재판정 대상</th></tr></thead>
     <tbody>
-      <tr><td>도구 수가 5개를 넘어감</td><td>Q1 탈락 영역 → 재평가</td></tr>
-      <tr><td>Phase 5에서 권한 위임(RFC 8693 Token Exchange · 벤더에 따라 OBO) 지원 확인</td><td><b>Q4 보류 영역 (OASIS) → 채택 재검토</b></td></tr>
-      <tr><td>RTDB 집계 API 신설로 반환 크기 축소</td><td>Q3 탈락 영역 → 부분 재검토</td></tr>
+      <tr><td>도구 수가 5개를 넘어감</td><td>G1 탈락 영역 → 재평가</td></tr>
+      <tr><td>Phase 5에서 권한 위임(RFC 8693 Token Exchange · 벤더에 따라 OBO) 지원 확인</td><td><b>G4 보류 영역 (OASIS) → 채택 재검토</b></td></tr>
+      <tr><td>RTDB 집계 API 신설로 반환 크기 축소</td><td>G3 탈락 영역 → 부분 재검토</td></tr>
       <tr><td>전사 AI 플랫폼(명장 AI 등)이 MCP를 표준으로 채택</td><td><b>전 영역 — 전사 방침 종속 원칙(원칙 04)에 따라 재정렬</b></td></tr>
     </tbody>
   </table></div>
 
   <h3>CLX 적용 예상 판정</h3>
   <div class="tw"><table>
-    <thead><tr><th style="width:200px">영역</th><th class="c" style="width:52px">Q1</th><th class="c" style="width:52px">Q2</th><th class="c" style="width:52px">Q3</th><th class="c" style="width:66px">Q4</th><th>판정</th></tr></thead>
+    <thead><tr><th style="width:200px">영역</th><th class="c" style="width:52px">G1</th><th class="c" style="width:52px">G2</th><th class="c" style="width:52px">G3</th><th class="c" style="width:66px">G4</th><th>판정</th></tr></thead>
     <tbody>
       <tr><td><b>OCEAN-H</b> 설비·정비이력 탐색</td><td class="c">Yes</td><td class="c"><b>Yes</b></td><td class="c">Yes</td><td class="c">검증</td><td><b style="color:var(--accent)">★ MCP 채택 유력</b></td></tr>
       <tr><td><b>OASIS</b> 실적·계획 조회</td><td class="c">Yes</td><td class="c">부분</td><td class="c">Yes</td><td class="c">위임 필수</td><td>조건부 — Gateway 우선, MCP는 2단계</td></tr>
@@ -2597,7 +2724,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td><b>공급망</b></td><td>외부 커뮤니티 MCP Server 도입</td><td>개발·서명·배포 주체 명시, <b>외부 커뮤니티 서버 사용 금지 원칙</b></td></tr>
     </tbody>
   </table></div>
-  <p class="note warn" style="margin-top:14px">OWASP는 tool poisoning을 <b>MCP03(Critical)</b> 로 분류하고, 2026-06 NSA/DoD 합동 권고도 tool poisoning · rug pull · cross-server trust exploitation을 우선 위협으로 지목했습니다. 이 통제가 판단 트리 <b>Q5</b>의 근거입니다.</p>
+  <p class="note warn" style="margin-top:14px">OWASP는 tool poisoning을 <b>MCP03(Critical)</b> 로 분류하고, 2026-06 NSA/DoD 합동 권고도 tool poisoning · rug pull · cross-server trust exploitation을 우선 위협으로 지목했습니다. 이 통제가 판단 트리 <b>G5</b>의 근거입니다.</p>
 
   <h3>전사 Gateway 요건 — 2갈래 분리</h3>
   <p class="lede">Agent 연계는 기존 시스템 간 연계에 없던 요구를 만듭니다. 전사 표준이 이를 담고 있지 않을 가능성이 높습니다.</p>
@@ -2631,6 +2758,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 07 -->
 <section id="data">
   <div class="sh"><span class="n">1.7</span><h2>데이터 구조 · 메타데이터 관리</h2></div>
+  <p class="note"><b>대응 논점</b> — <b>Q6 주답</b>(횡단 식별자 4축 · 검증 시나리오) · Q2 부분(R축↔D축 매핑) · Q4 부분(D6 등급·반출 통제) <a href="#q">→ 1.1 표 A</a></p>
   <div class="thesis">API는 Agent를 <strong>연결</strong>하지만, 메타데이터는 Agent를 <strong>정확하게</strong> 만듭니다.</div>
   <p class="lede" style="margin-top:18px">전통적 연계에서 메타데이터는 “있으면 좋은 것”이었습니다. 호출하는 쪽이 사람이 만든 프로그램이었고, 개발자가 사양서를 읽고 의미를 코드에 박아 넣었기 때문입니다. Agent는 <b>런타임에 데이터의 의미를 스스로 해석</b>하고, 근거가 없으면 그럴듯하게 지어냅니다. 그래서 메타데이터는 <b>정확성 요건</b>으로 승격됩니다. 이것이 이 과업이 “API 개발 프로젝트”가 아닌 이유입니다.</p>
 
@@ -2898,6 +3026,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 08 -->
 <section id="a2a">
   <div class="sh"><span class="n">1.8</span><h2>Agent 간 연계 구조</h2></div>
+  <p class="note"><b>대응 논점</b> — <b>Q4 주답</b>(권한 전파 · 신원 · 위임 그래프) · Q5 부분(감사 로그 스키마 · Agent 카드) <a href="#q">→ 1.1 표 A</a></p>
   <p class="lede">기획서의 “AI Agent 연계 구조”는 통상 Agent–Legacy 연계로만 해석됩니다. 그러나 그룹 방향이 <b>‘1인 1에이전트’</b>이고 울산CLX에 스마트플랜트 2.0 과제 40여 개가 이미 돌아갑니다. <b>Agent 수가 늘면 문제의 성격이 바뀝니다.</b></p>
   <div class="tw"><table>
     <thead><tr><th style="width:110px">Agent 수</th><th style="width:250px">지배적 문제</th><th>필요 설계</th></tr></thead>
@@ -3128,6 +3257,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 09 -->
 <section id="sys">
   <div class="sh"><span class="n">1.9</span><h2>대상 시스템</h2></div>
+  <p class="note"><b>대응 논점</b> — Q2 부분(진단 모집단 6종) · Q6 부분(설비 마스터 중복 판정). 진단 척도는 <a href="#tmpl">5.4 T1</a>을 따름 <a href="#q">→ 1.1 표 C</a></p>
   <p class="lede">기존 CLX AI 과제 MP 반영으로 대상이 3종에서 8종 이상으로 확장되었습니다. 두 축을 구분합니다 — <b>업무 수요 집중</b>(AI 과제 볼륨 기준)은 <span class="sys p1">RTDB</span> <span class="sys p1">AMS</span> <span class="sys p1">OCEAN-H</span>, <b>설계 대상 1순위</b>(진단·설계 우선순위)는 <span class="sys p1">RTDB</span> <span class="sys p1">OCEAN-H</span> <span class="sys p1">OASIS</span> 입니다.
   <b>진단 대상은 6종</b>(RTDB · OCEAN-H · OASIS · AMS · PMS · TDMS)으로 확정하며, DCS는 RTDB 경유 간접, 투자관리·Teams·사고관리·교육포탈은 <b>확장 가이드 적용 대상</b>입니다 — 이것이 R6(대상 확산) 대응의 실체입니다.</p>
   <div class="tw"><table>
@@ -3162,6 +3292,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 10 -->
 <section id="biz">
   <div class="sh"><span class="n">1.10</span><h2>생산기술 업무 구조 — Phase 1의 모집단</h2></div>
+  <p class="note"><b>대응 논점</b> — <b>Q1 주답</b>(Phase 1 모집단과 역산 절차) · Q6 부분(LKM) <a href="#q">→ 1.1 표 A</a></p>
   <p class="lede">기존 CLX AI 과제 MP에 생산기술 업무가 <b>26개 Process</b>로 이미 구조화되어 있고, <b>디지털화 성숙도 5단계</b> 진단과 <b>AI 과제 13종</b>이 정의돼 있습니다. Phase 1은 백지에서 발굴하는 작업이 아니라 <b>이 구조를 Legacy 요구로 번역하는 작업</b>입니다.</p>
 
   <h3>업무 Hierarchy — Level 1~4</h3>
@@ -3333,6 +3464,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 1.11 -->
 <section id="itv">
   <div class="sh"><span class="n">1.11</span><h2>인터뷰 계획</h2></div>
+  <p class="note"><b>대응 논점</b> — Q1~Q6의 <b>근거 확보 수단</b>. Q2의 진단 프레임(6축 × 근거 유형)은 사실상 이 절에 있음 <a href="#q">→ 1.1 표 B</a></p>
   <div class="thesis">인터뷰는 <strong>모르는 것을 묻는 자리가 아니라, 문헌으로 확보한 사실의 빈칸을 메우고 어긋남을 확인하는 자리</strong>입니다. 그리고 <strong>모든 확인이 인터뷰일 필요는 없습니다</strong> — 30분이면 끝날 사실 확인에 90분을 쓰면, 정작 90분이 필요한 질문에 쓸 시간이 남지 않습니다.</div>
   <p class="lede" style="margin-top:18px">이 과업은 착수 3주 안에 <b>수요(P1)와 공급(P2)을 동시에 확정</b>해야 하고, 그 근거의 상당 부분이 사람의 머릿속에 있습니다. 그런데 5.1 투입 계획상 인터뷰가 가능한 W1–W3 구간의 배정은 <b>역할당 0.5~2 M/D</b>뿐입니다. 인터뷰는 무제한 자원이 아니라 <b>배급 자원</b>이며, 이 절은 그 배분표입니다. 본 절은 <b>① 과업만</b>을 다루고, ②③과 겹치는 지점은 합동 운영 항목에서만 언급합니다.</p>
   <p class="note"><b>표기</b> — 인터뷰 식별자는 <span class="pat">IV-01</span>~<span class="pat">IV-20</span>을 쓰며 0.5 기호 규칙에 <b>등재되어 있습니다</b>. 근거의 출처는 <b>문</b>(문헌) · <b>인</b>(인터뷰) · <b>실</b>(실측)로 표기합니다 — 기존 R·M·L·Q·T 축과 충돌하지 않는 표기를 고른 것입니다. 표의 <b>산출물 번호</b>는 5.1 「기대 산출물 명세 — ① 최종 6종」의 번호입니다.</p>
@@ -5277,7 +5409,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <tr><td class="mk">R11</td><td><b>MCP 사양 개정 주기</b></td><td>평균 약 5개월 간격의 개정(최근 구간은 8개월). 채택 후 마이그레이션 비용 발생</td><td>채택 판단서에 <b>버전 고정 + 마이그레이션 비용 추정 + 유예 정책</b> 필수 포함</td></tr>
 <tr><td class="mk">R12</td><td><b>협력사 3주체 모델 미정</b></td><td>“협력사에 Agent를 제공하는가”가 늦게 결정되면 P5 전체 재작업</td><td>Phase 0 <b>범위 결정 항목</b>으로 승격. 1.8 주체×등급 매트릭스</td></tr>
 <tr><td class="mk">R13</td><td>현업 메타(M2) 작성 공수 미확보</td><td>“여기에 공수를 집중”이라 한 핵심 산출물이 컨설턴트 단독 작업으로 왜곡</td><td>5.1 투입 계획 — W10–13 현업 2명 주 1일 사전 확보</td></tr>
-<tr><td class="mk">R14</td><td>프롬프트 인젝션 · 도구 오염</td><td>협력사 입력 텍스트 한 줄로 Agent 도구 선택 조작 (OWASP MCP03)</td><td>1.6 신뢰 등급 · 도구 정의 서명·해시 고정 · 판단 트리 Q5</td></tr>
+<tr><td class="mk">R14</td><td>프롬프트 인젝션 · 도구 오염</td><td>협력사 입력 텍스트 한 줄로 Agent 도구 선택 조작 (OWASP MCP03)</td><td>1.6 신뢰 등급 · 도구 정의 서명·해시 고정 · 판단 트리 G5</td></tr>
     </tbody>
   </table></div>
 
@@ -5796,7 +5928,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <div class="qa-a"><span class="am">A</span><div class="at"><b>데이터 분류 등급 × 모델 배치 허용 매트릭스</b>로 통제합니다. 공정 운전조건·촉매 사양·수율은 <b>C1(극비)</b>이며 <b>외부 SaaS 모델 금지</b>, 전사 사설 모델도 학습 재사용 금지·로그 사내 보관 조건부입니다. 전사 정책 확정 전까지 <b>CLX 잠정 기준(보수적)을 적용</b>하고 확정 시 대체합니다 — “전사 정책 대기”로 두지 않습니다. <span class="src">1.7 D6</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">협력사가 입력한 정비이력이 Agent에 들어가는데 문제없나</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at"><b>가장 위험한 지점으로 보고 별도 통제를 넣었습니다.</b> 협력사 입력은 <b>신뢰 등급 최저</b>로 분류해 ① 구분자·역할 태깅으로 <b>데이터 영역 격리</b> ② <b>지시문 패턴 탐지</b> ③ <b>지시 해석 금지</b>를 적용합니다. 도구 설명 자체도 프롬프트이므로 <b>정의 서명·해시 고정과 변경 시 재승인</b>(rug pull 방어)을 두고, 이를 판단 트리 <b>Q5</b>로 반영했습니다. <span class="src">1.6 신뢰 경계와 인젝션 통제</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>가장 위험한 지점으로 보고 별도 통제를 넣었습니다.</b> 협력사 입력은 <b>신뢰 등급 최저</b>로 분류해 ① 구분자·역할 태깅으로 <b>데이터 영역 격리</b> ② <b>지시문 패턴 탐지</b> ③ <b>지시 해석 금지</b>를 적용합니다. 도구 설명 자체도 프롬프트이므로 <b>정의 서명·해시 고정과 변경 시 재승인</b>(rug pull 방어)을 두고, 이를 판단 게이트 <b>G5</b>로 반영했습니다. <span class="src">1.6 신뢰 경계와 인젝션 통제</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">Agent에 사번을 주면 되는 것 아닌가 (SKT처럼)</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at">신원 체계는 참조하되 <b>사람 사번을 그대로 발급하면 안 됩니다.</b> ① 사람 권한 체계를 상속해 최소권한 심의가 흐려지고(A1 충돌) ② <b>감사로그에서 사람 행위와 Agent 행위를 구분할 수 없습니다</b>(A5 충돌) ③ 소유자 퇴사 시 orphan 권한이 남습니다.<br>

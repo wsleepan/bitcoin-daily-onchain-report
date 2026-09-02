@@ -46,6 +46,7 @@ python .claude/tools/mail/send_mail.py \
 - `--file` 첨부. **여러 번 지정 가능**
 - `--to` 수신자(쉼표로 여러 명), `--cc` 참조
 - `--body` 본문 / `--body-file` 본문을 파일에서 읽기(긴 본문일 때 권장)
+- `--body-html` **HTML 본문 파일.** 평문과 함께 `multipart/alternative` 로 나간다
 - `--dry-run` 보내지 않고 출력만
 - `--test` 발신 계정 본인에게만. 제목에 `[테스트]` 가 붙는다
 - `--status` 설정·경로 확인
@@ -78,6 +79,28 @@ python .claude/tools/mail/send_mail.py \
 버전을 거듭 보낼 때는 제목에 차수를 넣는다 — `[프로젝트] 보고서 - 수정본 (3차)`.
 
 본문이 길거나 따옴표·줄바꿈이 많으면 `--body-file` 을 쓴다. 셸 따옴표 문제를 피할 수 있다.
+
+### HTML 본문
+
+`--body-html` 로 HTML 본문을 보낼 수 있다. **`--body-file` 과 함께 쓰는 것이 정석**이다 —
+HTML 을 읽는 클라이언트는 HTML 을, 평문만 읽는 클라이언트는 평문을 본다.
+
+```bash
+python .claude/tools/mail/send_mail.py \
+  --file "보고서.html" \
+  --body-file "메일본문.txt" \
+  --body-html "메일본문.html" \
+  --to someone@example.com --subject "..."
+```
+
+`--body-file` 없이 `--body-html` 만 주면 HTML 에서 평문을 자동 추출하지만,
+표 구조가 줄바꿈으로 풀려 읽기 나빠진다. 손으로 쓴 평문본이 있으면 그것을 쓴다.
+
+**HTML 본문을 `--body-file` 에 넣지 말 것.** 평문으로 나가서 수신자에게 태그가 그대로 보인다.
+
+메일용 HTML 은 문서용 HTML 과 규칙이 다르다 — 스타일은 전부 인라인, 레이아웃은
+`<table>`, 폭은 680px 내외, 외부 CSS·웹폰트·배경이미지·flex·grid 금지.
+다수 메일 클라이언트가 `<style>` 블록과 외부 리소스를 걷어낸다.
 
 ## 발송 전 확인
 

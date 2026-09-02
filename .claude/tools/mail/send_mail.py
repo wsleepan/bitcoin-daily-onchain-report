@@ -68,6 +68,28 @@ def sha256(p):
     return h.hexdigest()
 
 
+def html_to_text(html):
+    """HTML 본문에서 평문 대체본을 만든다. 평문만 보는 클라이언트를 위한 것이지
+    렌더링 재현이 목적이 아니다 — 문단 경계만 살리고 태그를 걷어낸다."""
+    import html as _h
+    import re as _re
+    t = _re.sub(r"(?is)<(script|style|head)[^>]*>.*?</\1>", "", html)
+    t = _re.sub(r"(?i)<br\s*/?>", "\n", t)
+    t = _re.sub(r"(?i)</(p|div|tr|li|h[1-6]|table)>", "\n", t)
+    t = _re.sub(r"(?s)<[^>]+>", "", t)
+    t = _h.unescape(t)
+    lines = [ln.strip() for ln in t.splitlines()]
+    out, blank = [], False
+    for ln in lines:                       # 빈 줄이 연달아 나오지 않게 정리
+        if ln:
+            out.append(ln)
+            blank = False
+        elif not blank:
+            out.append("")
+            blank = True
+    return "\n".join(out).strip() + "\n"
+
+
 def project_log():
     """프로젝트 쪽 기록 위치. 관행적인 경로가 있으면 거기에, 없으면 작업 폴더에."""
     cwd = pathlib.Path.cwd()
@@ -114,6 +136,9 @@ def main():
     ap.add_argument("--subject", help="제목")
     ap.add_argument("--body", help="본문")
     ap.add_argument("--body-file", dest="body_file", help="본문을 읽어올 파일")
+    ap.add_argument("--body-html", dest="body_html",
+                    help="HTML 본문 파일. 평문 본문과 함께 multipart/alternative 로 보낸다. "
+                         "평문이 없으면 HTML 에서 자동 추출한다")
     ap.add_argument("--dry-run", action="store_true", help="보내지 않고 출력만")
     ap.add_argument("--test", action="store_true", help="발신 계정 본인에게만")
     ap.add_argument("--force-recipient", action="store_true",
@@ -164,11 +189,22 @@ def main():
 
     digests = [(f, sha256(f)) for f in files]
 
+    # HTML 본문 (선택)
+    html = None
+    if a.body_html:
+        hp = pathlib.Path(a.body_html)
+        if not hp.is_file():
+            sys.exit("[중단] HTML 본문 파일이 없다: %s" % hp)
+        html = hp.read_text(encoding="utf-8")
+
     # 본문
     if a.body_file:
         body = pathlib.Path(a.body_file).read_text(encoding="utf-8")
     elif a.body:
         body = a.body
+    elif html:
+        # 평문 대체본을 HTML 에서 뽑는다. 평문만 보는 클라이언트를 위한 것이다.
+        body = html_to_text(html)
     elif files:
         lines = ["첨부와 같이 보내드립니다.", ""]
         for f, d in digests:
@@ -193,6 +229,9 @@ def main():
         msg["Cc"] = a.cc
     msg["Subject"] = subject
     msg.set_content(body)
+    if html:
+        # multipart/alternative — 평문을 못 읽는 클라이언트가 없도록 둘 다 싣는다
+        msg.add_alternative(html, subtype="html")
     for f, _ in digests:
         ctype, _enc = mimetypes.guess_type(f.name)
         maintype, subtype = (ctype or "application/octet-stream").split("/", 1)

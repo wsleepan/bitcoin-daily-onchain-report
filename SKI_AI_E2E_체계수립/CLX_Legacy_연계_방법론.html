@@ -5151,7 +5151,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="sh"><span class="n">3.1</span><h2>수행 프로세스</h2></div>
   <p class="lede">③은 ①·②와 성격이 다릅니다. <b>새로 설계하는 것이 아니라</b> 전사 현황 · CLX 현황 · Best Practice 세 원천을 <b>같은 축으로 대비해 Gap을 재고</b> 보완 방향을 제시하는 것이 본질입니다. 그래서 <b>입력 자료 확보가 곧 과업의 성패</b>입니다.</p>
 <figure>
-<svg viewBox="0 0 940 546" role="img" aria-label="③ MLOps·AgentOps 과업의 M0~M6 14주 진행과, 3원 입력을 맞대어 Gap을 재고 요건과 운영 기준을 내는 진단형 논리 구조.">
+<svg viewBox="0 0 940 588" role="img" aria-label="③ MLOps·AgentOps 과업의 M0~M6 14주 진행과, 3원 입력을 맞대어 Gap을 재고 요건과 운영 기준을 내는 진단형 논리 구조. 상단 간트의 세로 점선 일곱 줄이 ①③ 사이 인계 여덟 건의 시점이며, 하향 삼각은 ①→③ 상향 삼각은 ③→①이고 W9에는 두 줄이 반대 방향으로 마주 선다.">
 <defs>
   <marker id="ar-m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
@@ -5202,6 +5202,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <path d="M548 270 L548 56" class="dg-dash" stroke="var(--signal)"/>
 <path d="M756 270 L756 56" class="dg-dash" stroke="var(--accent)"/>
 <path d="M808 270 L808 56" class="dg-dash" stroke="var(--accent)"/>
+<path d="M644 270 L644 56" class="dg-dash" stroke="var(--accent)"/>
+<path d="M660 270 L660 56" class="dg-dash" stroke="var(--signal)"/>
 
 <!-- M0 -->
 <text x="14" y="75" class="dg-m">M0</text>
@@ -5240,18 +5242,28 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <rect x="834" y="240" width="104" height="22" rx="3" class="dg-warn"/>
 <text x="886" y="256" class="dg-sig" text-anchor="middle">산출물 4종 이관</text>
 
-<!-- handoff markers -->
-<polygon points="600,284 606,274 594,274" fill="var(--accent)"/>
-<text x="600" y="300" class="dg-acc" text-anchor="middle">①→③ 도구 명세 — 초안 W8 (#4a)</text>
-<polygon points="860,284 866,274 854,274" fill="var(--accent)"/>
-<text x="860" y="318" class="dg-acc" text-anchor="middle">①→③ Lineage 요건 W13 (#5b-확)</text>
+<!-- handoff markers — 하향 삼각 = ①→③ (accent) · 상향 삼각 = ③→① (signal) -->
 <polygon points="548,274 554,284 542,284" fill="var(--signal)"/>
-<text x="548" y="300" class="dg-sig" text-anchor="middle">③→① 모델 배치 제약 · W7 (전사 방침 조회)</text>
+<polygon points="600,284 606,274 594,274" fill="var(--accent)"/>
+<polygon points="644,284 650,274 638,274" fill="var(--accent)"/>
+<polygon points="660,274 666,284 654,284" fill="var(--signal)"/>
 <polygon points="756,284 762,274 750,274" fill="var(--accent)"/>
-<text x="756" y="300" class="dg-acc" text-anchor="middle">①→③ 도구 명세 · Agent 카드 — 확정 W11 (#4b)</text>
 <polygon points="808,284 814,274 802,274" fill="var(--accent)"/>
-<text x="808" y="318" class="dg-acc" text-anchor="middle">①→③ 감사 로그 규격 W12 (#5a-확)</text>
+<polygon points="860,284 866,274 854,274" fill="var(--accent)"/>
 
+<!-- 인계 라벨 1단 -->
+<text x="577" y="300" class="dg-sig" text-anchor="end">③→① 모델 배치 제약 W7 (#6)</text>
+<text x="930" y="300" class="dg-acc" text-anchor="end">①→③ 감사 로그 규격 W12(<tspan font-weight="700">#5a-확</tspan>) · Lineage 초안(<tspan font-weight="700">#5b-초</tspan>)</text>
+<!-- 인계 라벨 2단 -->
+<text x="629" y="318" class="dg-acc" text-anchor="end">①→③ 도구 명세 — 초안 W8 (#4a)</text>
+<text x="645" y="318" class="dg-acc">①→③ 도구 명세 · Agent 카드 — 확정 W11 (#4b)</text>
+<!-- 인계 라벨 3단 -->
+<text x="644" y="336" class="dg-acc" text-anchor="end">①→③ 감사 로그 · trace 규격 — 초안 W9 (<tspan font-weight="700">#5a-초</tspan>)</text>
+<text x="930" y="336" class="dg-acc" text-anchor="end">①→③ Lineage 요건 W13 (#5b-확)</text>
+<!-- 인계 라벨 4단 -->
+<text x="658" y="354" class="dg-sig" text-anchor="middle">③→① Agent 자산 저장소 · 모델 레지스트리 소재 W9 (<tspan font-weight="700">#11</tspan>)</text>
+
+<g transform="translate(0,42)">
 <line x1="14" y1="336" x2="926" y2="336" class="dg-ln" stroke-opacity=".25"/>
 <text x="14" y="356" class="dg-tb">③의 논리 — 신규 설계가 아닌 현황 측정</text>
 
@@ -5300,6 +5312,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <path d="M790 482 L790 496" class="dg-ln" marker-end="url(#ar-m1)"/>
 <rect x="250" y="500" width="640" height="32" rx="4" class="dg-box"/>
 <text x="570" y="520" class="dg-sig" text-anchor="middle">출력 = 방향성 · 요건 · 운영 주체 R&amp;R 협의 사항 — 전사 합의 전에는 확정 불가</text>
+</g>
 </svg>
 <figcaption><b>③은 없는 것을 만드는 과업이 아니라 있는 것을 재는 과업이다</b> — 전사 현황·CLX 현황·외부 Best Practice 3원을 맞대어 <b>Gap을 관리영역·프로세스·R&amp;R 3축으로 분해</b>하고, 그 Gap마다 1:1로 역추적되는 보완 요건을 내고, 마지막에 운영 기준과 대응체계로 굳힌다. 앞의 절반(M1·M2)은 이미 돌고 있는 MLOps를 진단하는 구간이고, 뒤의 절반(M3~M5)은 아직 없는 AgentOps를 정의하는 구간이다. <b>점선 일곱 줄이 ①③ 사이의 인계 시점</b>이며 실제 인계는 여덟 건이다 — W9에 두 줄이 마주 서고(①→③ #5a-초 · ③→① #11), W12의 한 줄이 #5a-확와 #5b-초를 함께 나른다. <b>주의 — W11 인계는 M4(W8–W10)가 끝난 뒤에 도착한다.</b> “늦으면”이 아니라 <b>일정상 확정된 사실</b>이므로, M4의 도구·Agent 등록 요건은 ①의 P5 중간 산출(W8 초안)로 <b>잠정 확정</b>하고 W11 확정본을 M5에서 반영하는 <b>2단 구조</b>로 짜야 한다. Part 4 인터페이스 #4a·#4b가 그 2단화다. <b>감사 로그·trace 규격도 같은 이유로 2단이다</b>(#5a-초 W9 · #5a-확 W12) — M5는 W9에 시작하는데 확정본이 다섯 주 중 네 주째에 오므로, 앞단이 없으면 M5가 자체 규격을 만들고 W12에 되돌린다. Lineage도 2단이며(#5b-초 W12 · #5b-확 W13), 확정본이 ③ 인력 7명의 계약 종료일에 도착하므로 실질 인계는 W12에서 끝난다. <b>③이 내보내는 세 건(#6 W7 · #11 W9 · ②로 가는 #7 W11)은 M3 · M4 · M5의 완료 판단기준에 행으로 올렸다.</b></figcaption>
 </figure>

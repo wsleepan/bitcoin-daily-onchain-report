@@ -471,88 +471,183 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <section id="ov-map">
   <div class="sh"><span class="n">0.2</span><h2>과업 지형 — 세 과업의 산출물 구성</h2></div>
 <figure>
-<svg viewBox="0 0 940 524" role="img" aria-label="세 과업의 지형도. 맨 아래 Legacy 6종과 비정형 문서·암묵지 위에 ①이 연결 규칙과 식별자를, ②가 지식 구조를 얹고, 그 위에 ③의 운영 계층이 놓여 CLX Brain AI Agent가 업무를 수행한다. ①과 ②는 근무일지·정비이력·작업표준을 공동 소관으로 겹친다.">
+<svg viewBox="0 0 940 796" role="img" aria-label="현업 질의 한 건에서 출발해 세 과업이 무엇을 만들고 무엇을 주고받는지 보이는 과업 지형도. 대표 횡단 질의에 답하려면 대상 특정과 데이터 접근, 원인 근거의 구조화, 답변 신뢰와 지속 운영이 모두 필요하며 각각 ①②③이 담당한다. 세 열에 Phase별 주요 활동과 기간을 두고, 아래에 인계 네 건을 시점과 함께 표시하며, 맨 아래에 산출물 27종과 차년도 실행 범위의 경계를 둔다.">
 <defs>
-  <marker id="ar-f1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="ar-tsk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
     <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
-  <marker id="ar-f1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+  <marker id="ar-tsk-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
     <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+  <marker id="ar-tsk-w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--signal)"/></marker>
 </defs>
 
-<text x="14" y="60" class="dg-m">목적</text>
-<text x="14" y="160" class="dg-m">운영</text>
-<text x="14" y="292" class="dg-m">공급</text>
-<text x="14" y="458" class="dg-m">자산</text>
+<!-- ===== 출발점 — 현업 질의 ===== -->
+<rect x="20" y="16" width="900" height="48" rx="6" class="dg-fill"/>
+<text x="36" y="45" class="dg-tb">“3호기 압축기 지난달 트립, 원인이 뭐고 생산에 얼마나 영향 있었나?”</text>
+<text x="904" y="45" class="dg-m" text-anchor="end">이 한 문장에 답할 수 있는 상태 = 본 과업의 목표</text>
 
-<!-- 목적 -->
-<rect x="232" y="24" width="536" height="64" rx="6" class="dg-hi"/>
-<text x="500" y="50" class="dg-tb" text-anchor="middle">CLX Brain AI Agent의 업무 수행 계층</text>
-<text x="500" y="72" class="dg-s" text-anchor="middle">생산기술 업무 259건 중 101건(39%)이 AI 수행·지원 대상 — 목적은 이것 하나다</text>
-<path d="M500 118 L500 92" class="dg-ln-a" marker-end="url(#ar-f1a)"/>
+<path d="M470 64 L470 76" class="dg-ln"/>
+<path d="M153 76 L799 76" class="dg-ln"/>
+<path d="M153 76 L153 86" class="dg-ln" marker-end="url(#ar-tsk)"/>
+<path d="M482 76 L482 86" class="dg-ln" marker-end="url(#ar-tsk)"/>
+<path d="M799 76 L799 86" class="dg-ln" marker-end="url(#ar-tsk)"/>
 
-<!-- ③ 운영 계층 -->
-<rect x="76" y="120" width="848" height="72" rx="6" class="dg-fill"/>
-<text x="94" y="146" class="dg-tb">③ MLOps · AgentOps — Agent 가 돌아가게</text>
-<text x="94" y="166" class="dg-s">등록 · 배포 · 버전 · 평가 · 회수 · 관측 · 비상 정지(kill switch)</text>
-<text x="94" y="184" class="dg-m">진단형 — 전사 MLOps TF · Best Practice 대비 Gap</text>
-<text x="908" y="156" class="dg-s" text-anchor="end">①의 도구 명세 · Agent 카드 · Lineage 요건이</text>
-<text x="908" y="176" class="dg-s" text-anchor="end">③의 운영 대상 범위</text>
+<!-- ===== 답하려면 필요한 것 — 본 과업이 만들어야 할 것 ===== -->
+<rect x="20" y="92" width="266" height="68" rx="5" class="dg-warn"/>
+<text x="34" y="112" class="dg-sig">대상 특정 · 데이터 접근</text>
+<text x="34" y="131" class="dg-s">“3호기 압축기” → 설비ID · 태그 · 시간축</text>
+<text x="34" y="149" class="dg-s">연계 방식 · 접근 권한 · 감사 로그</text>
 
-<path d="M244 226 L244 196" class="dg-ln-a" marker-end="url(#ar-f1a)"/>
-<text x="254" y="217" class="dg-acc">도구 · 식별자 · 권한</text>
-<path d="M756 226 L756 196" class="dg-ln" marker-end="url(#ar-f1)"/>
-<text x="766" y="217" class="dg-s">지식 · RAG 입력</text>
+<rect x="366" y="92" width="232" height="68" rx="5" class="dg-warn"/>
+<text x="380" y="112" class="dg-sig">원인 근거</text>
+<text x="380" y="131" class="dg-s">근무일지 · 정비이력 · 작업표준</text>
+<text x="380" y="149" class="dg-s">구조화 · 메타 · 검색 가능 상태</text>
 
-<!-- ① 공급 -->
-<rect x="76" y="228" width="336" height="120" rx="6" class="dg-hi"/>
-<text x="94" y="256" class="dg-acc">① Legacy 연계 — 데이터가 나오게</text>
-<text x="94" y="278" class="dg-t">연결 규칙 · 횡단 식별자 · 권한 · 도구 명세</text>
-<text x="94" y="298" class="dg-s">진단형 + 설계형 — 있는 것을 재고, 없는 것을 정의</text>
-<text x="94" y="324" class="dg-m">① 과업 정의 — 안전한 Legacy 데이터 활용 기반</text>
+<rect x="678" y="92" width="242" height="68" rx="5" class="dg-warn"/>
+<text x="692" y="112" class="dg-sig">답변 신뢰 · 지속 운영</text>
+<text x="692" y="131" class="dg-s">평가셋 · 근거 추적 · 비상 정지</text>
+<text x="692" y="149" class="dg-s">모델 · 프롬프트 버전 기록</text>
 
-<!-- ② 공급 -->
-<rect x="588" y="228" width="336" height="120" rx="6" class="dg-fill"/>
-<text x="606" y="256" class="dg-tb">② Knowledge — 지식이 쌓이게</text>
-<text x="606" y="278" class="dg-t">지식 표준 모델 · 온톨로지 · Knowledge Hub</text>
-<text x="606" y="298" class="dg-s">설계형 — 없는 체계를 만듦</text>
-<text x="606" y="324" class="dg-m">② 과업 정의 — 산재 지식의 AI 활용 형태 전환</text>
+<path d="M153 160 L153 170" class="dg-ln" marker-end="url(#ar-tsk)"/>
+<path d="M482 160 L482 170" class="dg-ln" marker-end="url(#ar-tsk)"/>
+<path d="M799 160 L799 170" class="dg-ln" marker-end="url(#ar-tsk)"/>
 
-<!-- 공동 소관 -->
-<rect x="432" y="228" width="136" height="282" rx="6" class="dg-warn"/>
-<text x="500" y="254" class="dg-sig" text-anchor="middle">공동 소관</text>
-<text x="500" y="272" class="dg-s" text-anchor="middle">① ↔ ②</text>
-<text x="500" y="304" class="dg-t" text-anchor="middle">근무일지</text>
-<text x="500" y="320" class="dg-m" text-anchor="middle">OCEAN-H</text>
-<text x="500" y="350" class="dg-t" text-anchor="middle">정비이력</text>
-<text x="500" y="366" class="dg-s" text-anchor="middle">조치내용 텍스트</text>
-<text x="500" y="396" class="dg-t" text-anchor="middle">작업표준</text>
-<text x="500" y="428" class="dg-m" text-anchor="middle">W1 분할 기준</text>
-<text x="500" y="444" class="dg-m" text-anchor="middle">합의 필수</text>
-<text x="500" y="472" class="dg-sig" text-anchor="middle">여기만 합의하면</text>
-<text x="500" y="488" class="dg-sig" text-anchor="middle">충돌 소멸</text>
+<!-- ===== 과업 헤더 ===== -->
+<rect x="20" y="176" width="266" height="82" rx="6" class="dg-hi"/>
+<text x="34" y="198" class="dg-acc">① Legacy 연계 체계 설계</text>
+<text x="34" y="217" class="dg-m">산출물 12종 · P0–P8 · 진단형 + 설계형</text>
+<text x="34" y="236" class="dg-s">재료 — RTDB · OCEAN-H · OASIS</text>
+<text x="34" y="251" class="dg-s">AMS · PMS · TDMS · DCS는 RTDB 경유</text>
 
-<path d="M244 400 L244 352" class="dg-ln" marker-end="url(#ar-f1)"/>
-<text x="254" y="380" class="dg-s">진단 · 설계 대상</text>
-<path d="M756 400 L756 352" class="dg-ln" marker-end="url(#ar-f1)"/>
-<text x="766" y="380" class="dg-s">구조화 대상</text>
+<rect x="366" y="176" width="232" height="82" rx="6" class="dg-fill"/>
+<text x="380" y="198" class="dg-tb">② Enterprise Knowledge</text>
+<text x="380" y="217" class="dg-m">산출물 8종 · K0–K5 · 설계형</text>
+<text x="380" y="236" class="dg-s">재료 — 작업표준 · 기술문서 · P&amp;ID</text>
+<text x="380" y="251" class="dg-s">근무일지 · 암묵지 (아직 미축적)</text>
 
-<!-- 자산 -->
-<rect x="76" y="400" width="336" height="110" rx="5" class="dg-box"/>
-<text x="94" y="424" class="dg-m">정형 Legacy — 진단 대상 6종</text>
-<text x="94" y="450" class="dg-tb">RTDB · OCEAN-H · OASIS</text>
-<text x="94" y="472" class="dg-tb">AMS · PMS · TDMS</text>
-<text x="94" y="494" class="dg-s">DCS는 RTDB 경유 간접 · 그 외는 확장 가이드 적용</text>
+<rect x="678" y="176" width="242" height="82" rx="6" class="dg-fill"/>
+<text x="692" y="198" class="dg-tb">③ MLOps · AgentOps 고도화</text>
+<text x="692" y="217" class="dg-m">산출물 4종 · M0–M6 · 진단형</text>
+<text x="692" y="236" class="dg-s">재료 — 전사 MLOps TF 산출물</text>
+<text x="692" y="251" class="dg-s">CLX 현황(SP2.0 40개) · 외부 BP</text>
 
-<rect x="588" y="400" width="336" height="110" rx="5" class="dg-box"/>
-<text x="606" y="424" class="dg-m">비정형 · 미축적</text>
-<text x="606" y="450" class="dg-tb">작업표준 · 기술문서 · P&amp;ID</text>
-<text x="606" y="472" class="dg-tb">암묵지 — 상황별 운전 노하우</text>
-<text x="606" y="494" class="dg-s">S/U · S/D 노하우는 아직 어느 시스템에도 없음</text>
+<!-- ===== ① 주요 활동 ===== -->
+<rect x="28" y="266" width="250" height="44" rx="4" class="dg-box"/>
+<text x="40" y="285" class="dg-t">P1  Agent 현황 · 유형 분석</text>
+<text x="266" y="285" class="dg-m" text-anchor="end">W1–W3</text>
+<text x="40" y="302" class="dg-s">Action Pattern · 대표 횡단 질의 5건</text>
 
-<line x1="412" y1="455" x2="432" y2="455" class="dg-dash"/>
-<line x1="568" y1="455" x2="588" y2="455" class="dg-dash"/>
+<rect x="28" y="318" width="250" height="44" rx="4" class="dg-box"/>
+<text x="40" y="337" class="dg-t">P2  Agent-Readiness 진단</text>
+<text x="266" y="337" class="dg-m" text-anchor="end">W3–W6</text>
+<text x="40" y="354" class="dg-s">R1~R6 6축 히트맵 · Gap 분석서</text>
+
+<rect x="28" y="370" width="250" height="44" rx="4" class="dg-hi"/>
+<text x="40" y="389" class="dg-acc">P3  데이터 · 메타 · 식별자</text>
+<text x="266" y="389" class="dg-m" text-anchor="end">W4–W9</text>
+<text x="40" y="406" class="dg-s">별칭 사전 · 설비↔태그 매핑 · 시간축 변환</text>
+
+<rect x="28" y="422" width="250" height="44" rx="4" class="dg-hi"/>
+<text x="40" y="441" class="dg-acc">P4  연계 구조 · 적용 기준</text>
+<text x="266" y="441" class="dg-m" text-anchor="end">W6–W11</text>
+<text x="40" y="458" class="dg-s">MCP 채택 판단서 · 도구 정의 기준서</text>
+
+<rect x="28" y="474" width="250" height="44" rx="4" class="dg-box"/>
+<text x="40" y="493" class="dg-t">P5  권한 관리체계 · 도구 명세</text>
+<text x="266" y="493" class="dg-m" text-anchor="end">W7–W12</text>
+<text x="40" y="510" class="dg-s">Agent 카드 양식 · 감사 로그 · trace 규격</text>
+
+<rect x="28" y="526" width="250" height="26" rx="4" class="dg-box"/>
+<text x="40" y="543" class="dg-m">P0 착수 · P6 Lineage · P7 목표 · P8 실행과제</text>
+
+<!-- ===== ② 주요 활동 ===== -->
+<rect x="374" y="266" width="216" height="44" rx="4" class="dg-box"/>
+<text x="386" y="285" class="dg-t">K1  지식 현황 진단</text>
+<text x="578" y="285" class="dg-m" text-anchor="end">W1–3</text>
+<text x="386" y="302" class="dg-s">현업 실제 질의 30건 이상 원문 수집</text>
+
+<rect x="374" y="318" width="216" height="44" rx="4" class="dg-box"/>
+<text x="386" y="337" class="dg-t">K2  지식 표준 모델 설계</text>
+<text x="578" y="337" class="dg-m" text-anchor="end">W2–5</text>
+<text x="386" y="354" class="dg-s">분류축 · 메타 표준 · 통제어휘 사전</text>
+
+<rect x="374" y="370" width="216" height="44" rx="4" class="dg-box"/>
+<text x="386" y="389" class="dg-t">K3  지식 구조화 · 축적</text>
+<text x="578" y="389" class="dg-m" text-anchor="end">W5–9</text>
+<text x="386" y="406" class="dg-s">대표 3종 구조 표준 · 파일럿 50건</text>
+
+<rect x="374" y="422" width="216" height="44" rx="4" class="dg-warn"/>
+<text x="386" y="441" class="dg-sig">K2R  Entity 재정합 게이트</text>
+<text x="578" y="441" class="dg-m" text-anchor="end">W9–10</text>
+<text x="386" y="458" class="dg-s">①의 실물 메타 대조 · 차이 100% 처분</text>
+
+<rect x="374" y="474" width="216" height="44" rx="4" class="dg-box"/>
+<text x="386" y="493" class="dg-t">K4  Knowledge Hub</text>
+<text x="578" y="493" class="dg-m" text-anchor="end">W9–13</text>
+<text x="386" y="510" class="dg-s">사용자 요건 · 3개 대안 평가 · 권고</text>
+
+<rect x="374" y="526" width="216" height="26" rx="4" class="dg-box"/>
+<text x="386" y="543" class="dg-m">K0 목표 레벨 · K3B LLM · K5 이관</text>
+
+<!-- ===== ③ 주요 활동 ===== -->
+<rect x="686" y="266" width="226" height="44" rx="4" class="dg-box"/>
+<text x="698" y="285" class="dg-t">M1  MLOps Gap 분석</text>
+<text x="900" y="285" class="dg-m" text-anchor="end">W1–5</text>
+<text x="698" y="302" class="dg-s">전사 · CLX · Best Practice 3원 비교</text>
+
+<rect x="686" y="318" width="226" height="44" rx="4" class="dg-box"/>
+<text x="698" y="337" class="dg-t">M2  사용자 요건 · 개선과제</text>
+<text x="900" y="337" class="dg-m" text-anchor="end">W4–6</text>
+<text x="698" y="354" class="dg-s">CLX 자체 개선 / 전사 공통 이분</text>
+
+<rect x="686" y="370" width="226" height="44" rx="4" class="dg-box"/>
+<text x="698" y="389" class="dg-t">M3  AgentOps 외부 BP</text>
+<text x="900" y="389" class="dg-m" text-anchor="end">W6–8</text>
+<text x="698" y="406" class="dg-s">운영 관리 범위 확정 · ①과 중복 없음</text>
+
+<rect x="686" y="422" width="226" height="44" rx="4" class="dg-box"/>
+<text x="698" y="441" class="dg-t">M4  AgentOps 요건 정의</text>
+<text x="900" y="441" class="dg-m" text-anchor="end">W8–10</text>
+<text x="698" y="458" class="dg-s">등록 · 배포 · 버전 · 평가 · 회수 전 단계</text>
+
+<rect x="686" y="474" width="226" height="44" rx="4" class="dg-box"/>
+<text x="698" y="493" class="dg-t">M5  운영 기준 · 대응체계</text>
+<text x="900" y="493" class="dg-m" text-anchor="end">W9–13</text>
+<text x="698" y="510" class="dg-s">탐지 임계 · kill switch · 평가셋</text>
+
+<rect x="686" y="526" width="226" height="26" rx="4" class="dg-box"/>
+<text x="698" y="543" class="dg-m">M0 입력 확보 · M6 통합 · 이관</text>
+
+<!-- ===== 인계 — 주요 4건 ===== -->
+<path d="M252 552 L252 578 L500 578 L500 560" class="dg-ln-a" marker-end="url(#ar-tsk-a)"/>
+<text x="258" y="570" class="dg-acc">#1a  W4 · Entity 스키마 · 키 구조 (잠정)</text>
+
+<path d="M560 552 L560 610 L754 610 L754 560" class="dg-ln-w" marker-end="url(#ar-tsk-w)"/>
+<text x="566" y="602" class="dg-sig">#9  W4 · 질의 원문 30~50건 — 평가셋 시드</text>
+
+<path d="M186 552 L186 642 L793 642 L793 560" class="dg-ln-a" marker-end="url(#ar-tsk-a)"/>
+<text x="192" y="634" class="dg-acc">#4a  W8 · 도구 명세 · Agent 카드 초안 → ③ M4 입력</text>
+
+<path d="M120 552 L120 674 L832 674 L832 560" class="dg-ln-a" marker-end="url(#ar-tsk-a)"/>
+<text x="126" y="666" class="dg-acc">#5b  W13 · Lineage 요건 · 변경관리 → ③은 W12 초안으로 M5 선행</text>
+
+<!-- ===== 종착점과 범위 경계 ===== -->
+<line x1="20" y1="700" x2="920" y2="700" class="dg-ln" stroke-opacity=".25"/>
+
+<text x="20" y="716" class="dg-acc">본 과업의 종착 — 표준 · 기준 · 로드맵까지</text>
+<text x="20" y="734" class="dg-tb">산출물 27종 = ① 12종 · ② 8종 · ③ 4종 · ④ 공통 3종</text>
+<rect x="20" y="740" width="580" height="44" rx="5" class="dg-warn"/>
+<text x="34" y="758" class="dg-sig">④ 공통 3종 — 어느 과업의 산출물도 아님 · PM 주관</text>
+<text x="34" y="775" class="dg-s">개선기회 W10 → 추진 과제 W12 → 추진 로드맵 W14</text>
+
+<line x1="616" y1="702" x2="616" y2="788" class="dg-zone"/>
+
+<text x="634" y="716" class="dg-m">차년도 실행 범위 — 본 과업 범위 외</text>
+<text x="634" y="738" class="dg-s">사전(태그 · 별칭 · 코드) 전량 구축</text>
+<text x="634" y="758" class="dg-s">시스템 상세 설계 · 구현 · Hub 실제 구축</text>
+<text x="634" y="778" class="dg-s">형식 온톨로지(OWL) · Triple Store</text>
 </svg>
-<figcaption><b>세 과업은 같은 자산 위에 얹히는 서로 다른 층이다</b> — 맨 아래 자산(정형 Legacy 6종 / 비정형 문서 · 암묵지)은 그대로 두고, <b>①은 그것이 나오게 하는 규칙</b>을, <b>②는 쌓이게 하는 구조</b>를, <b>③은 그것을 쓰는 Agent가 돌아가게 하는 운영 체계</b>를 만든다. 셋이 다 있어야 맨 위 한 줄이 성립한다. 가운데 노란 기둥은 ①과 ②가 같은 데이터를 보는 지점으로, 자산 층과 공급 층에 동시에 걸쳐 있다 — <b>W1에 분할 기준을 합의하지 못하면 이 기둥이 그대로 공백 또는 중복이 된다.</b> 주고받는 산출물의 목록과 기한은 Part 4에 있다.</figcaption>
+<figcaption><b>세 과업은 한 문장의 질의에 답하기 위해 각자 다른 조각을 만든다</b> — 맨 위 질의에 답하려면 <b>대상 특정과 데이터 접근(①)</b>, <b>원인 근거가 되는 문서의 구조화(②)</b>, <b>답변 신뢰와 지속 운영(③)</b>이 동시에 성립해야 하고, 하나만 빠져도 답이 나오지 않는다. 가운데 세 열이 그것을 만드는 실제 작업이며, 각 Phase의 주차가 14주 안에서 어느 시점에 무엇을 하는지다. 아래 화살표 넷은 한 과업의 산출이 다른 과업의 입력이 되는 지점으로, <b>받는 쪽 Phase가 끝난 뒤 도착하면 인계가 아니라 통보가 된다</b> — 그래서 #1a·#4a는 초안과 확정본으로 2단 분할되어 있다. 맨 아래가 본 과업의 종착점이다. 27종은 <b>표준 · 기준 · 로드맵까지</b>이며, 사전의 전량 구축과 시스템 구현은 굵은 점선 오른쪽, 즉 차년도 실행 범위다. 인계 13건 전부와 합동 결정 12건은 Part 4에 있다.</figcaption>
 </figure>
   <h3>세 과업의 관계 및 산출물 성격</h3>
   <div class="tw"><table>

@@ -1144,7 +1144,197 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="note" style="margin-top:14px"><b>계층 번호 L1~L5는 재부여하지 않습니다.</b> 본 문서 15곳 이상이 이 번호를 참조하고 있어, 번호를 다시 매기면 인용이 전부 끊깁니다. 확장은 <b>추가(L6)와 분할(L1a/L1b · L3-N/L3-S)</b>로만 수행하며, 기존 L2(의미 계층)는 번호를 없애는 대신 <b>참조 평면 P-SEM으로 이관</b>합니다. L 기호가 네 축에서 쓰이므로 인용 시 축 이름을 병기하십시오 — 0.5 기호 규칙 참조.</p>
 
   <h3>축 1 · 실행 스택 — 계층별 담당과 비담당</h3>
-  <!-- FIGURE: 계층 스택 — L6부터 L1a/L1b까지 7개 계층을 위에서 아래로 쌓고, 오른쪽에 P-SEM·P-OPS 두 평면을 스택 옆(호출 홉 밖)에 세로로 붙인다. L4에 MCP 위치를 별표로 표시하고, L3를 N/S 두 칸으로 가른다. -->
+  <figure>
+<svg viewBox="0 0 940 672" role="img" aria-label="L6부터 L1b까지의 실행 스택 옆에 P-SEM 의미 자산과 P-OPS 운영 평면이 참조 대상으로 놓이고, 네 개의 호출 경로가 스택 오른쪽 레일로 겹쳐진다. 네 경로 모두 L3를 경유하지만 B와 C는 L4를 건너뛰고 D는 L1a에서 L5로 거슬러 올라가는 역방향 push이며, 두 참조 평면은 어느 경로에도 홉으로 나타나지 않는다.">
+<defs>
+  <marker id="ar-ra1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+  <marker id="ar-ra1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)"/></marker>
+  <marker id="ar-ra1w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--signal)"/></marker>
+  <marker id="ar-ra1d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--ink-4)"/></marker>
+</defs>
+
+<text x="20" y="22" class="dg-m">실행 스택 · 참조 평면 · 호출 경로 4종</text>
+
+<!-- legend : 호출 경로 4종 -->
+<line x1="20" y1="41" x2="40" y2="41" class="dg-ln-a"/>
+<circle cx="52" cy="41" r="10" class="dg-hi"/>
+<text x="52" y="46" class="dg-tb" text-anchor="middle">A</text>
+<text x="66" y="46" class="dg-t">MCP 도구 — OCEAN-H 탐색</text>
+<line x1="228" y1="41" x2="248" y2="41" class="dg-ln"/>
+<circle cx="260" cy="41" r="10" class="dg-box"/>
+<text x="260" y="46" class="dg-tb" text-anchor="middle">B</text>
+<text x="274" y="46" class="dg-t">Gateway 직결 — OASIS 조회</text>
+<line x1="452" y1="41" x2="472" y2="41" class="dg-ln" stroke-dasharray="7 4"/>
+<circle cx="484" cy="41" r="10" class="dg-fill"/>
+<text x="484" y="46" class="dg-tb" text-anchor="middle">C</text>
+<text x="498" y="46" class="dg-t">파생 조회 — RTDB 대량 집계</text>
+<line x1="676" y1="41" x2="696" y2="41" class="dg-ln-w"/>
+<circle cx="708" cy="41" r="10" class="dg-warn"/>
+<text x="708" y="46" class="dg-tb" text-anchor="middle">D</text>
+<text x="722" y="46" class="dg-t">이벤트 구독 — AMS 역방향 push</text>
+
+<!-- ================= 참조 평면 : P-OPS ================= -->
+<rect x="20" y="124" width="84" height="452" rx="5" class="dg-fill"/>
+<text x="62" y="146" class="dg-m" text-anchor="middle">P-OPS</text>
+<text x="62" y="164" class="dg-tb" text-anchor="middle">운영 평면</text>
+<text x="62" y="182" class="dg-s" text-anchor="middle">전 계층 관통</text>
+<line x1="30" y1="194" x2="94" y2="194" class="dg-ln" stroke-opacity=".3"/>
+<text x="62" y="214" class="dg-s" text-anchor="middle">권한 캐시</text>
+<text x="62" y="236" class="dg-s" text-anchor="middle">관측 · 추적</text>
+<text x="62" y="258" class="dg-s" text-anchor="middle">쿼터 · 격리</text>
+<text x="62" y="280" class="dg-s" text-anchor="middle">데이터 분류</text>
+<text x="62" y="302" class="dg-s" text-anchor="middle">가드레일 정책</text>
+<text x="62" y="324" class="dg-s" text-anchor="middle">감사 로그</text>
+<text x="62" y="346" class="dg-s" text-anchor="middle">카탈로그</text>
+<text x="62" y="400" class="dg-sig" text-anchor="middle">호출 홉 아님</text>
+<text x="62" y="418" class="dg-s" text-anchor="middle">참조 대상</text>
+
+<!-- ================= 참조 평면 : P-SEM ================= -->
+<rect x="112" y="248" width="92" height="328" rx="5" class="dg-warn"/>
+<text x="158" y="270" class="dg-m" text-anchor="middle">P-SEM</text>
+<text x="158" y="288" class="dg-tb" text-anchor="middle">의미 자산</text>
+<text x="158" y="306" class="dg-s" text-anchor="middle">구 L2</text>
+<line x1="126" y1="316" x2="190" y2="316" class="dg-ln" stroke-opacity=".3"/>
+<text x="158" y="336" class="dg-s" text-anchor="middle">데이터 사전</text>
+<text x="158" y="354" class="dg-s" text-anchor="middle">코드 사전</text>
+<text x="158" y="372" class="dg-s" text-anchor="middle">별칭 사전</text>
+<text x="158" y="390" class="dg-s" text-anchor="middle">태그 매핑</text>
+<text x="158" y="408" class="dg-s" text-anchor="middle">식별자 4축</text>
+<text x="158" y="426" class="dg-s" text-anchor="middle">시간축 변환</text>
+<text x="158" y="466" class="dg-sig" text-anchor="middle">경로 A~D 에</text>
+<text x="158" y="484" class="dg-sig" text-anchor="middle">나타나지 않음</text>
+<text x="158" y="510" class="dg-s" text-anchor="middle">설계시 자산</text>
+
+<!-- 참조선 : L4 · L1a → P-SEM -->
+<path d="M270 284 L204 284" class="dg-dash" marker-end="url(#ar-ra1d)"/>
+<text x="237" y="278" class="dg-s" text-anchor="middle">별칭 해석</text>
+<path d="M270 484 L204 484" class="dg-dash" marker-end="url(#ar-ra1d)"/>
+<text x="237" y="478" class="dg-s" text-anchor="middle">태그 매핑</text>
+
+<!-- ================= 실행 스택 ================= -->
+<!-- L6 : 본 과업 범위 밖 -->
+<rect x="270" y="64" width="380" height="44" rx="5" class="dg-fill" stroke-dasharray="7 4"/>
+<text x="282" y="84" class="dg-m">L6</text>
+<text x="312" y="84" class="dg-tb">Agent 런타임 · 모델 서빙</text>
+<text x="282" y="100" class="dg-s">명장 AI · Azure GenAI · LLM 추론 · 세션 · 메모리</text>
+<rect x="496" y="70" width="142" height="32" rx="3" class="dg-box" stroke-dasharray="4 3"/>
+<text x="567" y="84" class="dg-s" text-anchor="middle">③ 전사 AI 플랫폼 범위</text>
+<text x="567" y="98" class="dg-s" text-anchor="middle">① 은 요건만 제시</text>
+<line x1="330" y1="108" x2="330" y2="124" class="dg-dash"/>
+<text x="340" y="120" class="dg-s">L5 실행 기반</text>
+
+<!-- L5 : Agent 계층 (팬아웃) -->
+<rect x="270" y="124" width="380" height="108" rx="5" class="dg-box"/>
+<text x="282" y="144" class="dg-m">L5</text>
+<text x="310" y="144" class="dg-tb">Agent 계층</text>
+<rect x="390" y="130" width="180" height="36" rx="4" class="dg-hi"/>
+<text x="480" y="146" class="dg-tb" text-anchor="middle">오케스트레이터</text>
+<text x="480" y="160" class="dg-s" text-anchor="middle">종합분석 Agent</text>
+<path d="M480 166 L316 186" class="dg-dash" marker-end="url(#ar-ra1d)"/>
+<path d="M480 166 L388 186" class="dg-dash" marker-end="url(#ar-ra1d)"/>
+<path d="M480 166 L460 186" class="dg-dash" marker-end="url(#ar-ra1d)"/>
+<path d="M480 166 L532 186" class="dg-dash" marker-end="url(#ar-ra1d)"/>
+<path d="M480 166 L604 186" class="dg-dash" marker-end="url(#ar-ra1d)"/>
+<text x="282" y="178" class="dg-m">A2A</text>
+<rect x="282" y="186" width="68" height="28" rx="3" class="dg-box"/>
+<text x="316" y="204" class="dg-s" text-anchor="middle">설비</text>
+<rect x="354" y="186" width="68" height="28" rx="3" class="dg-box"/>
+<text x="388" y="204" class="dg-s" text-anchor="middle">공정</text>
+<rect x="426" y="186" width="68" height="28" rx="3" class="dg-box"/>
+<text x="460" y="204" class="dg-s" text-anchor="middle">생산</text>
+<rect x="498" y="186" width="68" height="28" rx="3" class="dg-box"/>
+<text x="532" y="204" class="dg-s" text-anchor="middle">지식</text>
+<rect x="570" y="186" width="68" height="28" rx="3" class="dg-box"/>
+<text x="604" y="204" class="dg-s" text-anchor="middle">안전(SHE)</text>
+<text x="282" y="226" class="dg-s">도메인 Agent 6종 = 위 5종 + 종합분석(오케스트레이터 겸임)</text>
+
+<!-- L4 : 도구 노출 -->
+<rect x="270" y="248" width="380" height="72" rx="5" class="dg-box"/>
+<text x="282" y="268" class="dg-m">L4</text>
+<text x="312" y="268" class="dg-tb">도구 노출</text>
+<text x="382" y="268" class="dg-s">MCP Tools · Resources · Prompts</text>
+<text x="282" y="286" class="dg-s">도구 카탈로그 · 스키마 · 정의 해시 서명</text>
+<rect x="282" y="294" width="356" height="22" rx="3" class="dg-warn"/>
+<text x="290" y="309" class="dg-t">MCP = L4 후보 기술 · 영역별 채택은 1.6 판단 트리로 판정</text>
+
+<!-- L3-N : 통제 북측 -->
+<rect x="270" y="336" width="380" height="48" rx="5" class="dg-box"/>
+<text x="282" y="356" class="dg-m">L3-N</text>
+<text x="320" y="356" class="dg-tb">통제 · 북측 — 도구 · Agent 게이트웨이</text>
+<text x="282" y="374" class="dg-s">도구 호출 인가 · Agent 쿼터 · 오호출 감사 · kill switch</text>
+<text x="638" y="356" class="dg-sig" text-anchor="end">이벤트 도관</text>
+
+<!-- L3-S : 통제 남측 -->
+<rect x="270" y="392" width="380" height="48" rx="5" class="dg-box"/>
+<text x="282" y="412" class="dg-m">L3-S</text>
+<text x="320" y="412" class="dg-tb">통제 · 남측 — 전사 API Gateway</text>
+<text x="282" y="430" class="dg-s">인증 · 인가 · 토큰 교환(RFC 8693) · 지연 예산 ≤ 300ms</text>
+
+<!-- L1a : 원천 -->
+<rect x="270" y="456" width="380" height="56" rx="5" class="dg-box"/>
+<text x="282" y="476" class="dg-m">L1A</text>
+<text x="320" y="476" class="dg-tb">원천 시스템</text>
+<text x="638" y="476" class="dg-s" text-anchor="end">QPS 상한 W4 실측</text>
+<text x="282" y="496" class="dg-s">RTDB · OCEAN-H · OASIS · AMS · PMS · TDMS</text>
+
+<!-- L1b : 파생 -->
+<rect x="270" y="520" width="380" height="56" rx="5" class="dg-box"/>
+<text x="282" y="540" class="dg-m">L1B</text>
+<text x="320" y="540" class="dg-tb">파생 저장소</text>
+<text x="638" y="540" class="dg-s" text-anchor="end">복제 지연 ≤ 5분</text>
+<text x="282" y="560" class="dg-s">RTDB DMZ 복제본 · 검색/벡터 색인 · 이벤트 브로커</text>
+
+<!-- ================= 호출 경로 오버레이 ================= -->
+<line x1="654" y1="284" x2="906" y2="284" class="dg-ln" stroke-opacity=".22" stroke-dasharray="2 4"/>
+<line x1="654" y1="360" x2="906" y2="360" class="dg-ln" stroke-opacity=".22" stroke-dasharray="2 4"/>
+<line x1="654" y1="416" x2="906" y2="416" class="dg-ln" stroke-opacity=".22" stroke-dasharray="2 4"/>
+<line x1="654" y1="484" x2="906" y2="484" class="dg-ln" stroke-opacity=".22" stroke-dasharray="2 4"/>
+<line x1="654" y1="548" x2="906" y2="548" class="dg-ln" stroke-opacity=".22" stroke-dasharray="2 4"/>
+<line x1="650" y1="218" x2="810" y2="218" class="dg-ln" stroke-opacity=".45"/>
+
+<!-- 경로 A : L5 → L4 → L3-S → L1a -->
+<path d="M690 218 L690 347 A 13 13 0 0 1 690 373 L690 484 L650 484" class="dg-ln-a" marker-end="url(#ar-ra1a)"/>
+<circle cx="690" cy="284" r="5" class="dg-hi"/>
+<circle cx="690" cy="416" r="5" class="dg-hi"/>
+<!-- 경로 B : L5 → L3-S → L1a (L4 스킵) -->
+<path d="M750 218 L750 271 A 13 13 0 0 1 750 297 L750 347 A 13 13 0 0 1 750 373 L750 496 L650 496" class="dg-ln" marker-end="url(#ar-ra1)"/>
+<circle cx="750" cy="416" r="5" class="dg-box"/>
+<!-- 경로 C : L5 → L3-S → L1b (L4 · L1a 스킵) -->
+<path d="M810 218 L810 271 A 13 13 0 0 1 810 297 L810 347 A 13 13 0 0 1 810 373 L810 471 A 13 13 0 0 1 810 497 L810 548 L650 548" class="dg-ln" stroke-dasharray="7 4" marker-end="url(#ar-ra1)"/>
+<circle cx="810" cy="416" r="5" class="dg-fill"/>
+<!-- 경로 D : L1a → L1b → L3-N → L5 (역방향 push) -->
+<path d="M856 484 L856 543" class="dg-ln-w" marker-end="url(#ar-ra1w)"/>
+<path d="M856 548 L884 548 L884 429 A 13 13 0 0 0 884 403 L884 297 A 13 13 0 0 0 884 271 L884 140 L650 140" class="dg-ln-w" marker-end="url(#ar-ra1w)"/>
+<path d="M884 250 L884 226" class="dg-ln-w" marker-end="url(#ar-ra1w)"/>
+<circle cx="856" cy="484" r="5" class="dg-warn"/>
+<circle cx="856" cy="548" r="5" class="dg-warn"/>
+<circle cx="884" cy="360" r="5" class="dg-warn"/>
+<text x="846" y="516" class="dg-s" text-anchor="end">적재</text>
+<text x="870" y="196" class="dg-sig" text-anchor="end">구독 push</text>
+
+<circle cx="690" cy="218" r="10" class="dg-hi"/>
+<text x="690" y="223" class="dg-tb" text-anchor="middle">A</text>
+<circle cx="750" cy="218" r="10" class="dg-box"/>
+<text x="750" y="223" class="dg-tb" text-anchor="middle">B</text>
+<circle cx="810" cy="218" r="10" class="dg-fill"/>
+<text x="810" y="223" class="dg-tb" text-anchor="middle">C</text>
+<circle cx="884" cy="168" r="10" class="dg-warn"/>
+<text x="884" y="173" class="dg-tb" text-anchor="middle">D</text>
+
+<!-- ================= 호출 규칙 ================= -->
+<rect x="20" y="592" width="900" height="64" rx="5" class="dg-fill"/>
+<text x="32" y="614" class="dg-t">① L5→L4→L3→L1 순방향 기본 · P-SEM · P-OPS 는 참조 대상</text>
+<text x="32" y="638" class="dg-t">② L4 스킵 허용 (경로 B · C) —</text>
+<text x="228" y="638" class="dg-cr">L3 스킵 금지</text>
+<text x="470" y="614" class="dg-t">③ 역방향은 이벤트 경로에 한정 · L3-N 이벤트 도관 경유</text>
+<text x="470" y="638" class="dg-t">④ 동일 계층 호출은 L5 에서만 · A2A 위임 깊이 3 · 사이클 금지</text>
+</svg>
+<figcaption><b>계층은 고정이고, 그 위를 지나는 경로가 네 갈래다.</b> A·B·C·D 는 모두 L3 를 경유하지만 B·C 는 L4 를 건너뛰고(반원 표시), D 만 L1a→L1b→L3-N→L5 로 거슬러 오르는 push 다. L4 는 계층 이름이고 MCP 는 그 자리에 놓일 후보이므로, 영역별 채택은 1.6 판단 트리가 정한다. <b>P-SEM 과 P-OPS 는 네 경로 어디에도 홉으로 나타나지 않는다</b> — 호출 그림에 보이지 않는 것이 P-SEM 이 과소평가되는 이유이며, 비용의 대부분은 거기와 L1 에 있다. L6 는 ③ 전사 AI 플랫폼 범위이므로 ① 은 요건만 제시한다.</figcaption>
+</figure>
   <div class="tw"><table>
     <thead><tr><th style="width:74px">계층</th><th style="width:150px">명칭</th><th style="width:300px">담당</th><th>하지 않는 것</th></tr></thead>
     <tbody>
@@ -1204,7 +1394,152 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
   <h3>축 3 · 존 4개와 도관</h3>
   <p class="lede">위 스택은 <b>기능 축</b>입니다. 여기에 <b>망 경계</b>를 겹쳐야 설계가 완성됩니다. 1순위 대상인 <span class="sys p1">RTDB</span> 는 DCS 연동 히스토리안으로 <b>OT 인접 자산</b>이고, <span class="sys">OASIS</span> <span class="sys">OCEAN-H</span> 는 IT 자산입니다. 이 둘을 원천 계층 하나로 묶어 그리면 망 설계에서 되돌리기 어려운 실수가 발생합니다.</p>
-  <!-- FIGURE: 존 배치 — 외부·클라우드 / IT / 산업 DMZ / OT 4개 존을 가로 띠로 쌓고, 앞 절의 7개 계층 구성요소를 각 존에 배치한다. 도관마다 세션 개시 방향을 화살표로 표시하고, OT→DMZ만 위쪽 방향임을 보인다. Agent→OT 직접 접근과 C1 데이터의 클라우드 반출은 금지 표시. -->
+  <figure>
+<svg viewBox="0 0 940 748" role="img" aria-label="외부 클라우드, IT, 산업 DMZ, OT 네 개 존의 배치와 도관. IT는 DMZ로 세션을 개시할 수 있고 DMZ는 OT로 개시할 수 없으며 OT와 DMZ에서 IT로 올라오는 것은 push뿐이다. Agent 런타임이 클라우드에 있어 프롬프트 컨텍스트가 IT와 클라우드 경계를 넘으며 그 지점에 D6 등급 게이트가 서고, 배치 방식이 미확정인 동안 C1과 C2의 기본값은 금지다.">
+<defs>
+  <marker id="ar-zn1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
+  <marker id="ar-zn1w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--signal)"/></marker>
+  <marker id="ar-zn1c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0 L10 5 L0 10 z" fill="var(--crit)"/></marker>
+</defs>
+
+<text x="20" y="34" class="dg-m">존 4개 · 도관 개시 방향 · SL-T</text>
+<line x1="430" y1="30" x2="454" y2="30" class="dg-ln" marker-end="url(#ar-zn1)"/>
+<text x="460" y="34" class="dg-s">요청–응답 · 개시측 → 대상</text>
+<line x1="600" y1="30" x2="624" y2="30" class="dg-ln-w" marker-end="url(#ar-zn1w)"/>
+<text x="630" y="34" class="dg-s">push · 역방향</text>
+<line x1="720" y1="30" x2="744" y2="30" class="dg-ln-c" stroke-dasharray="6 4"/>
+<text x="750" y="34" class="dg-s">금지 도관</text>
+
+<!-- ============ 존 경계 ============ -->
+<line x1="20" y1="190" x2="920" y2="190" class="dg-zone"/>
+<line x1="20" y1="418" x2="920" y2="418" class="dg-zone"/>
+<line x1="20" y1="584" x2="920" y2="584" class="dg-zone"/>
+
+<!-- ============ 존 1 : 외부 · 클라우드 ============ -->
+<text x="20" y="66" class="dg-tb">외부 · 클라우드</text>
+<text x="20" y="84" class="dg-m">PURDUE —</text>
+<text x="20" y="100" class="dg-m">SL-T 2</text>
+
+<rect x="200" y="62" width="270" height="84" rx="5" class="dg-fill" stroke-dasharray="7 4"/>
+<text x="212" y="84" class="dg-tb">L6 Agent 런타임 · 모델 서빙</text>
+<text x="212" y="104" class="dg-s">명장 AI · Azure GenAI · LLM 추론</text>
+<text x="212" y="124" class="dg-s">③ 전사 AI 플랫폼 범위 — ① 은 요건만 제시</text>
+
+<rect x="500" y="62" width="408" height="42" rx="4" class="dg-warn"/>
+<text x="512" y="82" class="dg-tb">전사 사설 모델 배치</text>
+<text x="512" y="98" class="dg-s">C1 조건부 — 학습 재사용 금지 · 로그 사내 보관</text>
+<rect x="500" y="110" width="408" height="42" rx="4" class="dg-crit"/>
+<text x="512" y="130" class="dg-tb">외부 SaaS 모델 배치</text>
+<text x="512" y="146" class="dg-cr">C1 · C2 반출 금지 — 이 경로는 성립하지 않는다</text>
+<path d="M470 82 L500 82" class="dg-ln-w" marker-end="url(#ar-zn1w)"/>
+<path d="M470 130 L500 130" class="dg-ln-c" marker-end="url(#ar-zn1c)"/>
+
+<!-- ============ 경계 도관 : IT → 클라우드 · D6 게이트 ============ -->
+<rect x="200" y="170" width="270" height="42" rx="4" class="dg-warn"/>
+<text x="212" y="188" class="dg-tb">D6 등급 게이트 — 반출 판정</text>
+<text x="212" y="204" class="dg-cr">배치 방식 미확정 시 C1 · C2 기본값 금지</text>
+<path d="M280 168 L280 146" class="dg-ln" marker-end="url(#ar-zn1)"/>
+<path d="M280 232 L280 212" class="dg-ln" marker-end="url(#ar-zn1)"/>
+<text x="290" y="224" class="dg-s">프롬프트 · 응답 컨텍스트</text>
+<text x="486" y="182" class="dg-s">IT → 클라우드 단방향 개시</text>
+<text x="486" y="200" class="dg-s">역방향 개시 없음</text>
+
+<!-- ============ 존 2 : IT ============ -->
+<text x="20" y="240" class="dg-tb">IT</text>
+<text x="20" y="258" class="dg-m">PURDUE L4/L5</text>
+<text x="20" y="274" class="dg-m">SL-T 2</text>
+
+<rect x="200" y="232" width="200" height="56" rx="4" class="dg-fill"/>
+<text x="212" y="254" class="dg-tb">L5 Agent 계층</text>
+<text x="212" y="274" class="dg-s">오케스트레이터 + 도메인 6종</text>
+<rect x="416" y="232" width="154" height="56" rx="4" class="dg-box"/>
+<text x="428" y="254" class="dg-tb">L4 MCP Server</text>
+<text x="428" y="274" class="dg-s">도구 어댑터</text>
+<rect x="586" y="232" width="154" height="56" rx="4" class="dg-box"/>
+<text x="598" y="254" class="dg-tb">L3-S API Gateway</text>
+<text x="598" y="274" class="dg-s">인증 · 인가 · 토큰 교환</text>
+<rect x="756" y="232" width="152" height="56" rx="4" class="dg-box"/>
+<text x="768" y="254" class="dg-tb">L3-N 게이트웨이</text>
+<text x="768" y="274" class="dg-s">이벤트 도관 → L5 전달</text>
+
+<text x="200" y="306" class="dg-m">L1A — IT 존 원천 시스템</text>
+<rect x="200" y="312" width="150" height="52" rx="4" class="dg-box"/>
+<text x="275" y="336" class="dg-tb" text-anchor="middle">OCEAN-H</text>
+<text x="275" y="354" class="dg-s" text-anchor="middle">설비관리 통합 플랫폼</text>
+<rect x="366" y="312" width="150" height="52" rx="4" class="dg-box"/>
+<text x="441" y="336" class="dg-tb" text-anchor="middle">OASIS</text>
+<text x="441" y="354" class="dg-s" text-anchor="middle">생산관리 플랫폼</text>
+<rect x="532" y="312" width="150" height="52" rx="4" class="dg-box"/>
+<text x="607" y="336" class="dg-tb" text-anchor="middle">PMS · TDMS</text>
+<text x="607" y="354" class="dg-s" text-anchor="middle">공정성과 · 기술문서</text>
+<text x="200" y="384" class="dg-acc">경로 A · B 는 IT 존 안에서 완결 — 존 경계를 넘지 않는다</text>
+
+<!-- ============ 도관 : IT → DMZ (경로 C) ============ -->
+<path d="M696 288 L696 444 L370 444 L370 478" class="dg-ln" marker-end="url(#ar-zn1)"/>
+<text x="390" y="436" class="dg-t">IT → DMZ 개시 · HTTPS 집계 API (경로 C)</text>
+
+<!-- ============ 도관 : DMZ → IT push (경로 D) ============ -->
+<path d="M780 478 L780 288" class="dg-ln-w" marker-end="url(#ar-zn1w)"/>
+<text x="792" y="360" class="dg-sig">DMZ → IT push</text>
+<text x="792" y="378" class="dg-s">이벤트 구독 · 경로 D</text>
+
+<!-- ============ 존 3 : 산업 DMZ ============ -->
+<text x="20" y="470" class="dg-tb">산업 DMZ</text>
+<text x="20" y="488" class="dg-m">PURDUE L3.5</text>
+<text x="20" y="504" class="dg-m">SL-T 3</text>
+<text x="250" y="470" class="dg-m">L1B — 파생 저장소</text>
+
+<rect x="250" y="478" width="240" height="72" rx="4" class="dg-warn"/>
+<text x="262" y="500" class="dg-tb">RTDB 복제본</text>
+<text x="262" y="520" class="dg-s">구간 집계 API · 복제 지연 ≤ 5분</text>
+<text x="262" y="540" class="dg-sig">존재 여부 확인 필요 (R8)</text>
+<rect x="560" y="478" width="240" height="72" rx="4" class="dg-warn"/>
+<text x="572" y="500" class="dg-tb">AMS 이벤트 브로커</text>
+<text x="572" y="520" class="dg-s">L1b 구독 관리 · 정합성 시각 반환</text>
+<text x="572" y="540" class="dg-sig">신설 대상</text>
+
+<!-- ============ 금지 도관 : DMZ → OT 세션 개시 ============ -->
+<text x="866" y="578" class="dg-cr" text-anchor="end">DMZ → OT 세션 개시 금지</text>
+<path d="M880 566 L880 592" class="dg-ln-c" stroke-dasharray="6 4"/>
+<line x1="872" y1="596" x2="888" y2="612" class="dg-ln-c"/>
+<line x1="888" y1="596" x2="872" y2="612" class="dg-ln-c"/>
+
+<!-- ============ 도관 : OT → DMZ push ============ -->
+<path d="M370 646 L370 550" class="dg-ln-w" marker-end="url(#ar-zn1w)"/>
+<text x="382" y="604" class="dg-sig">OT → DMZ push · 단방향 복제</text>
+<text x="382" y="622" class="dg-s">다이오드 채택 시 프로토콜 브레이크</text>
+<path d="M680 646 L680 550" class="dg-ln-w" marker-end="url(#ar-zn1w)"/>
+<text x="694" y="610" class="dg-sig">OT → DMZ push · AMS 알람</text>
+
+<!-- ============ 금지 도관 : L5 Agent → OT ============ -->
+<path d="M215 288 L215 300 L176 300 L176 684 L300 684" class="dg-ln-c" stroke-dasharray="6 4" marker-end="url(#ar-zn1c)"/>
+<line x1="168" y1="576" x2="184" y2="592" class="dg-ln-c"/>
+<line x1="184" y1="576" x2="168" y2="592" class="dg-ln-c"/>
+<text x="190" y="660" class="dg-cr">L5 Agent →</text>
+<text x="190" y="676" class="dg-cr">OT 인바운드 금지</text>
+
+<!-- ============ 존 4 : OT ============ -->
+<text x="20" y="650" class="dg-tb">OT</text>
+<text x="20" y="668" class="dg-m">PURDUE L0–L3</text>
+<text x="20" y="684" class="dg-m">SL-T 3~4</text>
+<text x="200" y="638" class="dg-m">L1A — OT 존 원천</text>
+
+<rect x="300" y="646" width="140" height="72" rx="4" class="dg-fill"/>
+<text x="370" y="676" class="dg-tb" text-anchor="middle">RTDB 원본</text>
+<text x="370" y="696" class="dg-s" text-anchor="middle">SP / OP / PV</text>
+<rect x="460" y="646" width="130" height="72" rx="4" class="dg-fill"/>
+<text x="525" y="682" class="dg-tb" text-anchor="middle">DCS · 계장</text>
+<rect x="610" y="646" width="140" height="72" rx="4" class="dg-fill"/>
+<text x="680" y="676" class="dg-tb" text-anchor="middle">AMS 원본</text>
+<text x="680" y="696" class="dg-s" text-anchor="middle">설비 상태 · 알람</text>
+<path d="M460 682 L440 682" class="dg-ln" marker-end="url(#ar-zn1)"/>
+<text x="450" y="638" class="dg-s" text-anchor="middle">실시간 태그</text>
+</svg>
+<figcaption><b>존 경계는 무엇이 어디에 있는지가 아니라 누가 세션을 여는지로 정의된다.</b> IT 는 DMZ 로 개시할 수 있고 DMZ 는 OT 로 개시할 수 없으며, OT 와 DMZ 에서 IT 로 올라오는 것은 push 뿐이다. AMS 알람은 OT 원본에서 DMZ 브로커를 거쳐 L3-N 으로 밀려 올라가고, RTDB 는 단방향 복제본까지만 조회된다. <b>Agent 런타임이 클라우드에 있으므로 프롬프트 컨텍스트가 IT–클라우드 경계를 넘으며, 그 지점에 D6 등급 게이트가 선다</b> — 모델 배치 방식이 미확정인 동안 C1 · C2 의 기본값은 금지다.</figcaption>
+</figure>
   <div class="tw"><table>
     <thead><tr><th style="width:118px">존 <span style="font-weight:400;font-size:12px">(IEC 62443)</span></th><th class="c" style="width:96px">Purdue · SL-T</th><th style="width:250px">배치 컴포넌트</th><th>허용 도관 — 개시 방향 · 성격</th></tr></thead>
     <tbody>

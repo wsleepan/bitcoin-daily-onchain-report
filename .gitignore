@@ -1,1 +1,5 @@
 .env
+
+# 메일 자격증명은 리포 밖(~/.claude/mail/config.json)에 둔다 — 실수 방지용
+**/mail/config.json
+메일발송_이력.md

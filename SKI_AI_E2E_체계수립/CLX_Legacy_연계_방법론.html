@@ -1,7 +1,7 @@
 <title>CLX AI E-to-E 운영체계 방법론</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+KR:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400;600&amp;display=swap">
 <style>
 :root{
   --ink:#12191c; --ink-2:#33454a; --ink-3:#5f7378; --ink-4:#8ba0a3;
@@ -456,7 +456,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <rect x="588" y="400" width="336" height="110" rx="5" class="dg-box"/>
 <text x="606" y="424" class="dg-m">비정형 · 미축적</text>
-<text x="606" y="450" class="dg-tb">작업표준 · 기술문서 · P&ID</text>
+<text x="606" y="450" class="dg-tb">작업표준 · 기술문서 · P&amp;ID</text>
 <text x="606" y="472" class="dg-tb">암묵지 — 상황별 운전 노하우</text>
 <text x="606" y="494" class="dg-s">S/U · S/D 노하우는 아직 어느 시스템에도 없음</text>
 
@@ -506,7 +506,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <path d="M230 178 L400 120 L636 92" class="dg-ln-a" marker-end="url(#ar12a)"/>
 <rect x="332" y="86" width="212" height="42" rx="4" class="dg-hi"/>
 <text x="438" y="104" class="dg-acc" text-anchor="middle">Tag · 설비 · 공정 Meta</text>
-<text x="438" y="120" class="dg-s" text-anchor="middle">온톨로지 Entity 정의의 입력 · W9</text>
+<text x="438" y="120" class="dg-s" text-anchor="middle">스키마 층 W4(#1a) · 데이터 층 W9(#1b)</text>
 
 <!-- ② → ① -->
 <path d="M636 122 L400 168 L234 200" class="dg-ln" marker-end="url(#ar12)"/>
@@ -517,8 +517,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- ① → ③ -->
 <path d="M230 242 L400 300 L636 322" class="dg-ln-a" marker-end="url(#ar12a)"/>
 <rect x="332" y="284" width="212" height="42" rx="4" class="dg-hi"/>
-<text x="438" y="302" class="dg-acc" text-anchor="middle">도구 명세 · Agent 카드 · W11</text>
-<text x="438" y="318" class="dg-s" text-anchor="middle">Lineage 요건 · 감사 규격 · W12</text>
+<text x="438" y="302" class="dg-acc" text-anchor="middle">도구 명세 · Agent 카드 — 초안 W8(#4a) · 확정 W11(#4b)</text>
+<text x="438" y="318" class="dg-s" text-anchor="middle">감사 로그 · trace 규격 W12(#5a) · Lineage W13(#5b)</text>
 
 <!-- ③ → ① -->
 <path d="M636 352 L400 348 L234 262" class="dg-ln" marker-end="url(#ar12)"/>
@@ -539,7 +539,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="130" y="361" class="dg-s" text-anchor="middle">정비이력 조치내용</text>
 <text x="130" y="377" class="dg-s" text-anchor="middle">작업표준</text>
 <path d="M130 296 L130 276" class="dg-ln-w" marker-end="url(#ar12)"/>
-<path d="M230 330 L300 330 L300 96 L632 96" class="dg-dash"/>
+<path d="M230 330 L300 330 L300 70 L632 70" class="dg-dash"/>
 <text x="240" y="410" class="dg-sig">W1 분할 기준 합의 필수 — 개인정보 판정 주체 포함</text>
 </svg>
 <figcaption><b>①이 두 과업의 공급자다</b> — Tag·설비·공정 메타는 ②의 온톨로지 입력이 되고, 도구 명세·Agent 카드·Lineage 요건은 ③의 운영 대상이 된다. 반대 방향으로는 ②의 용어 사전이 ①의 코드 사전과 정합해야 하고, ③의 플랫폼 제약이 ①의 아키텍처를 제한한다. <b>노란 박스는 세 과업이 같은 데이터를 보는 지점</b>으로, 여기만 W1에 합의하면 대부분의 충돌이 사라진다.</figcaption>
@@ -679,7 +679,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 </svg>
 <figcaption><b>수요는 이미 정해져 있고, 한 곳에 몰려 있다</b> — 발굴할 것이 아니라 역산할 대상이 이미 존재한다(구성 기술 13종 · 스마트플랜트 2.0 40개 과제). 그 수요를 업무 단위로 세면 259건 중 101건(39%)이고, 그중 <b>63건이 운전지원(32)과 공정최적화(31) 두 영역에 있으며 이 둘의 주 Legacy가 RTDB와 OCEAN-H다.</b> 막대는 값에 비례하며 연한 막대가 대상 업무, 진한 막대가 AI 수행·지원 건수다. 설비 60만 기·정제 80%라는 규모 수치가 왜 <b>“어느 설비인지 특정하는 것”</b>이 난제인지를 설명한다.</figcaption>
 </figure>
-  <p class="note warn" style="margin-top:16px"><b>과제가 늘수록 기반의 부재가 비싸집니다.</b> AI 과제 13종 + 스마트플랜트 2.0 40개 = 53개 과제가 각자 설비 별칭·태그 매핑·권한 연계를 따로 만들면, 2년 뒤 <b>“Agent 40개가 각자 Legacy에 붙어 있고 아무도 전체를 모르는 상태”</b>가 됩니다 — 이는 정확히 OCEAN-H 구축 전 <b>15종 시스템이 난립하던 상황의 재현</b>입니다.</p>
+  <p class="note warn" style="margin-top:16px"><b>과제가 늘수록 기반의 부재가 비싸집니다.</b> AI 과제 13종과 스마트플랜트 2.0 40개(중복 여부는 W1 확인 사항 — 서로소면 53개, 부분집합이면 40개다. 어느 쪽이든 “과제 수 × 개별 연계”라는 구조는 같다)가 각자 설비 별칭·태그 매핑·권한 연계를 따로 만들면, 2년 뒤 <b>“Agent 40개가 각자 Legacy에 붙어 있고 아무도 전체를 모르는 상태”</b>가 됩니다 — 이는 정확히 OCEAN-H 구축 전 <b>15종 시스템이 난립하던 상황의 재현</b>입니다.</p>
 </section>
 
 <!-- 0.3 -->
@@ -844,7 +844,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <circle cx="506" cy="294" r="9" class="dg-dash"/><text x="506" y="298" class="dg-s" text-anchor="middle">②</text>
 <text x="524" y="298" class="dg-s">부분 — K1 지식 진단에 품질 4지표를 동일 적용</text>
 <circle cx="506" cy="318" r="9" class="dg-hi"/><text x="506" y="322" class="dg-acc" text-anchor="middle">③</text>
-<text x="524" y="322" class="dg-t">3원 비교(전사 · CLX · BP) → 관리영역 · 프로세스 · R&R 축</text>
+<text x="524" y="322" class="dg-t">3원 비교(전사 · CLX · BP) → 관리영역 · 프로세스 · R&amp;R 축</text>
 
 <!-- R4 -->
 <rect x="16" y="344" width="180" height="84" rx="5" class="dg-fill"/>
@@ -1032,7 +1032,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <path d="M180 408 L180 440" class="dg-ln" marker-end="url(#ar)"/>
 <path d="M340 408 L340 440" class="dg-ln" marker-end="url(#ar)"/>
 <path d="M500 408 L500 440" class="dg-ln" marker-end="url(#ar)"/>
-<path d="M620 408 L620 425 L790 425 L790 500" class="dg-ln" marker-end="url(#ar)"/>
+<path d="M620 408 L620 425 L790 425 L790 526" class="dg-ln" marker-end="url(#ar)"/>
 
 <!-- L1 IT -->
 <text x="20" y="472" class="dg-m">L1</text>
@@ -1061,8 +1061,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- zone boundary: OT -->
 <line x1="20" y1="602" x2="920" y2="602" class="dg-zone"/>
-<rect x="60" y="592" width="440" height="20" rx="3" fill="var(--surface)"/>
-<text x="70" y="607" class="dg-m" fill="var(--crit)">OT 존 · PURDUE L0–L3 — AGENT 인바운드 세션 금지</text>
+<rect x="230" y="592" width="452" height="20" rx="3" fill="var(--surface)"/>
+<text x="240" y="607" class="dg-m" fill="var(--crit)">OT 존 · PURDUE L0–L3 — AGENT 인바운드 세션 금지</text>
 
 <!-- OT boxes -->
 <rect x="620" y="620" width="140" height="50" rx="4" class="dg-fill"/>
@@ -1072,7 +1072,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="852" y="649" class="dg-tb" text-anchor="middle">DCS</text>
 <path d="M782 645 L766 645" class="dg-ln" marker-end="url(#ar)"/>
 <path d="M690 618 L690 586" class="dg-ln-w" marker-end="url(#arw)"/>
-<text x="470" y="640" class="dg-sig">단방향 복제 (필요 시 데이터 다이오드)</text>
+<text x="596" y="640" class="dg-sig" text-anchor="end">단방향 복제 (필요 시 데이터 다이오드)</text>
 <path d="M600 636 L682 636" class="dg-ln-w" stroke-dasharray="4 3"/>
 
 <!-- prohibited arrow -->
@@ -1127,7 +1127,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="lede">기획서의 3단계 흐름(현황 분석 → To-be 방향성 → 실행과제)을 유지하되 실행 가능한 Phase로 분해했습니다. 완료 판단기준은 정성 합의가 아니라 <b>수치</b>로 정의합니다.</p>
 
 <figure>
-<svg viewBox="0 0 960 520" role="img" aria-label="9월 착수부터 12월 최종보고까지 14주 업무 진행 프로세스. 의사결정 게이트, 수행 활동, 고객 참여 구간, 산출물 제출 시점을 네 개의 레인으로 나눠 표시한다.">
+<svg viewBox="0 0 940 520" role="img" aria-label="9월 착수부터 12월 최종보고까지 14주 업무 진행 프로세스. 의사결정 게이트, 수행 활동, 고객 참여 구간, 산출물 제출 시점을 네 개의 레인으로 나눠 표시한다.">
 <defs>
   <marker id="ar7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
@@ -1135,76 +1135,76 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- month + week header -->
 <text x="14" y="30" class="dg-m">월</text>
-<line x1="120" y1="14" x2="120" y2="500" class="dg-ln" stroke-opacity=".18"/>
-<line x1="348" y1="14" x2="348" y2="500" class="dg-ln" stroke-opacity=".18"/>
-<line x1="576" y1="14" x2="576" y2="500" class="dg-ln" stroke-opacity=".18"/>
-<line x1="804" y1="14" x2="804" y2="500" class="dg-ln" stroke-opacity=".18"/>
-<text x="234" y="30" class="dg-s" text-anchor="middle">9월</text>
-<text x="462" y="30" class="dg-s" text-anchor="middle">10월</text>
-<text x="690" y="30" class="dg-s" text-anchor="middle">11월</text>
-<text x="880" y="30" class="dg-s" text-anchor="middle">12월</text>
+<line x1="100.0" y1="14" x2="100.0" y2="500" class="dg-ln" stroke-opacity=".18"/>
+<line x1="328.0" y1="14" x2="328.0" y2="500" class="dg-ln" stroke-opacity=".18"/>
+<line x1="556.0" y1="14" x2="556.0" y2="500" class="dg-ln" stroke-opacity=".18"/>
+<line x1="784.0" y1="14" x2="784.0" y2="500" class="dg-ln" stroke-opacity=".18"/>
+<text x="214.0" y="30" class="dg-s" text-anchor="middle">9월</text>
+<text x="442.0" y="30" class="dg-s" text-anchor="middle">10월</text>
+<text x="670.0" y="30" class="dg-s" text-anchor="middle">11월</text>
+<text x="860.0" y="30" class="dg-s" text-anchor="middle">12월</text>
 <text x="14" y="52" class="dg-m">주</text>
-<text x="148" y="52" class="dg-m" text-anchor="middle">W1</text><text x="205" y="52" class="dg-m" text-anchor="middle">W2</text>
-<text x="262" y="52" class="dg-m" text-anchor="middle">W3</text><text x="319" y="52" class="dg-m" text-anchor="middle">W4</text>
-<text x="376" y="52" class="dg-m" text-anchor="middle">W5</text><text x="433" y="52" class="dg-m" text-anchor="middle">W6</text>
-<text x="490" y="52" class="dg-m" text-anchor="middle">W7</text><text x="547" y="52" class="dg-m" text-anchor="middle">W8</text>
-<text x="604" y="52" class="dg-m" text-anchor="middle">W9</text><text x="661" y="52" class="dg-m" text-anchor="middle">W10</text>
-<text x="718" y="52" class="dg-m" text-anchor="middle">W11</text><text x="775" y="52" class="dg-m" text-anchor="middle">W12</text>
-<text x="832" y="52" class="dg-m" text-anchor="middle">W13</text><text x="889" y="52" class="dg-m" text-anchor="middle">W14</text>
-<line x1="120" y1="60" x2="920" y2="60" class="dg-ln" stroke-opacity=".3"/>
+<text x="128.0" y="52" class="dg-m" text-anchor="middle">W1</text><text x="185.0" y="52" class="dg-m" text-anchor="middle">W2</text>
+<text x="242.0" y="52" class="dg-m" text-anchor="middle">W3</text><text x="299.0" y="52" class="dg-m" text-anchor="middle">W4</text>
+<text x="356.0" y="52" class="dg-m" text-anchor="middle">W5</text><text x="413.0" y="52" class="dg-m" text-anchor="middle">W6</text>
+<text x="470.0" y="52" class="dg-m" text-anchor="middle">W7</text><text x="527.0" y="52" class="dg-m" text-anchor="middle">W8</text>
+<text x="584.0" y="52" class="dg-m" text-anchor="middle">W9</text><text x="641.0" y="52" class="dg-m" text-anchor="middle">W10</text>
+<text x="698.0" y="52" class="dg-m" text-anchor="middle">W11</text><text x="755.0" y="52" class="dg-m" text-anchor="middle">W12</text>
+<text x="812.0" y="52" class="dg-m" text-anchor="middle">W13</text><text x="869.0" y="52" class="dg-m" text-anchor="middle">W14</text>
+<line x1="100.0" y1="60" x2="900.0" y2="60" class="dg-ln" stroke-opacity=".3"/>
 
 <!-- LANE: gates -->
 <text x="14" y="86" class="dg-tb">의사결정</text>
 <text x="14" y="101" class="dg-s">게이트</text>
-<rect x="120" y="70" width="800" height="52" rx="4" class="dg-fill" fill-opacity=".4" stroke="none"/>
-<polygon points="148,78 158,90 148,102 138,90" fill="var(--signal)"/>
-<text x="148" y="117" class="dg-sig" text-anchor="middle">범위 합의 3건</text>
-<polygon points="433,78 443,90 433,102 423,90" fill="var(--signal)"/>
-<text x="433" y="117" class="dg-sig" text-anchor="middle">대상 확정</text>
-<polygon points="490,78 500,90 490,102 480,90" fill="var(--accent)"/>
-<text x="490" y="117" class="dg-acc" text-anchor="middle">중간보고</text>
-<polygon points="547,78 557,90 547,102 537,90" fill="var(--signal)"/>
-<text x="547" y="117" class="dg-sig" text-anchor="middle">식별자 표준</text>
-<polygon points="661,78 671,90 661,102 651,90" fill="var(--signal)"/>
-<text x="661" y="117" class="dg-sig" text-anchor="middle">MCP 판단</text>
-<polygon points="718,78 728,90 718,102 708,90" fill="var(--accent)"/>
-<text x="718" y="117" class="dg-acc" text-anchor="middle">설계 승인</text>
-<polygon points="889,78 899,90 889,102 879,90" fill="var(--accent)"/>
-<text x="889" y="117" class="dg-acc" text-anchor="middle">최종보고</text>
-<line x1="120" y1="128" x2="920" y2="128" class="dg-ln" stroke-opacity=".18"/>
+<rect x="100.0" y="70" width="800" height="52" rx="4" class="dg-fill" fill-opacity=".4" stroke="none"/>
+<polygon points="128.0,78 138.0,90 128.0,102 118.0,90" fill="var(--signal)"/>
+<text x="128.0" y="117" class="dg-sig" text-anchor="middle">범위 합의 3건</text>
+<polygon points="413.0,78 423.0,90 413.0,102 403.0,90" fill="var(--signal)"/>
+<text x="413.0" y="117" class="dg-sig" text-anchor="middle">대상 확정</text>
+<polygon points="470.0,78 480.0,90 470.0,102 460.0,90" fill="var(--accent)"/>
+<text x="470.0" y="117" class="dg-acc" text-anchor="middle">중간보고</text>
+<polygon points="527.0,78 537.0,90 527.0,102 517.0,90" fill="var(--signal)"/>
+<text x="527.0" y="117" class="dg-sig" text-anchor="middle">식별자 표준</text>
+<polygon points="641.0,78 651.0,90 641.0,102 631.0,90" fill="var(--signal)"/>
+<text x="641.0" y="117" class="dg-sig" text-anchor="middle">MCP 판단</text>
+<polygon points="698.0,78 708.0,90 698.0,102 688.0,90" fill="var(--accent)"/>
+<text x="698.0" y="117" class="dg-acc" text-anchor="middle">설계 승인</text>
+<polygon points="869.0,78 879.0,90 869.0,102 859.0,90" fill="var(--accent)"/>
+<text x="869.0" y="117" class="dg-acc" text-anchor="middle">최종보고</text>
+<line x1="100.0" y1="128" x2="900.0" y2="128" class="dg-ln" stroke-opacity=".18"/>
 
 <!-- LANE: 수행 활동 -->
 <text x="14" y="152" class="dg-tb">수행 활동</text>
-<rect x="122" y="136" width="54" height="26" rx="3" class="dg-hi"/><text x="149" y="153" class="dg-acc" text-anchor="middle">P0</text>
-<rect x="122" y="166" width="168" height="26" rx="3" class="dg-hi"/><text x="206" y="183" class="dg-acc" text-anchor="middle">P1 수요 확정 · Action Pattern</text>
-<rect x="236" y="196" width="225" height="26" rx="3" class="dg-hi"/><text x="348" y="213" class="dg-acc" text-anchor="middle">P2 Readiness 진단 · RTDB 실측</text>
-<rect x="293" y="226" width="339" height="26" rx="3" class="dg-fill"/><text x="462" y="243" class="dg-t" text-anchor="middle">P3 데이터 · 메타 &nbsp;/&nbsp; 3-2 횡단 식별자</text>
-<rect x="407" y="256" width="339" height="26" rx="3" class="dg-hi"/><text x="576" y="273" class="dg-acc" text-anchor="middle">P4 연계 구조 · 적용 기준 · MCP 판단</text>
-<rect x="464" y="286" width="339" height="26" rx="3" class="dg-fill"/><text x="633" y="303" class="dg-t" text-anchor="middle">P5 권한 관리체계</text>
-<rect x="578" y="316" width="282" height="26" rx="3" class="dg-fill"/><text x="719" y="333" class="dg-t" text-anchor="middle">P6 Lineage · 변경관리</text>
-<rect x="635" y="346" width="225" height="26" rx="3" class="dg-fill"/><text x="747" y="363" class="dg-t" text-anchor="middle">P7 목표구조 · 로드맵</text>
-<rect x="749" y="376" width="168" height="26" rx="3" class="dg-fill"/><text x="833" y="393" class="dg-t" text-anchor="middle">P8 실행과제 · 통합</text>
-<line x1="120" y1="410" x2="920" y2="410" class="dg-ln" stroke-opacity=".18"/>
+<rect x="102.0" y="136" width="54" height="26" rx="3" class="dg-hi"/><text x="129.0" y="153" class="dg-acc" text-anchor="middle">P0</text>
+<rect x="102.0" y="166" width="168" height="26" rx="3" class="dg-hi"/><text x="186.0" y="183" class="dg-acc" text-anchor="middle">P1 수요 확정 · Action Pattern</text>
+<rect x="216.0" y="196" width="225" height="26" rx="3" class="dg-hi"/><text x="328.0" y="213" class="dg-acc" text-anchor="middle">P2 Readiness 진단 · RTDB 실측</text>
+<rect x="273.0" y="226" width="339" height="26" rx="3" class="dg-fill"/><text x="442.0" y="243" class="dg-t" text-anchor="middle">P3 데이터 · 메타 &nbsp;/&nbsp; 3-2 횡단 식별자</text>
+<rect x="387.0" y="256" width="339" height="26" rx="3" class="dg-hi"/><text x="556.0" y="273" class="dg-acc" text-anchor="middle">P4 연계 구조 · 적용 기준 · MCP 판단</text>
+<rect x="444.0" y="286" width="339" height="26" rx="3" class="dg-fill"/><text x="613.0" y="303" class="dg-t" text-anchor="middle">P5 권한 관리체계</text>
+<rect x="558.0" y="316" width="282" height="26" rx="3" class="dg-fill"/><text x="699.0" y="333" class="dg-t" text-anchor="middle">P6 Lineage · 변경관리</text>
+<rect x="615.0" y="346" width="225" height="26" rx="3" class="dg-fill"/><text x="727.0" y="363" class="dg-t" text-anchor="middle">P7 목표구조 · 로드맵</text>
+<rect x="729.0" y="376" width="168" height="26" rx="3" class="dg-fill"/><text x="813.0" y="393" class="dg-t" text-anchor="middle">P8 실행과제 · 통합</text>
+<line x1="100.0" y1="410" x2="900.0" y2="410" class="dg-ln" stroke-opacity=".18"/>
 
 <!-- LANE: 고객 참여 -->
 <text x="14" y="434" class="dg-tb">고객 참여</text>
 <text x="14" y="449" class="dg-s">≈66 M/D</text>
-<rect x="179" y="418" width="111" height="22" rx="11" class="dg-warn"/><text x="234" y="433" class="dg-sig" text-anchor="middle">시스템 인터뷰</text>
-<rect x="293" y="418" width="111" height="22" rx="11" class="dg-warn"/><text x="348" y="433" class="dg-sig" text-anchor="middle">실측 입회</text>
-<rect x="635" y="418" width="225" height="22" rx="11" class="dg-warn"/><text x="747" y="433" class="dg-sig" text-anchor="middle">현업 도구 설명 작성 · 별칭 검수 (최대 부하)</text>
-<rect x="122" y="444" width="54" height="20" rx="10" class="dg-box"/><text x="149" y="458" class="dg-s" text-anchor="middle">보안 지정</text>
-<rect x="635" y="444" width="168" height="20" rx="10" class="dg-box"/><text x="719" y="458" class="dg-s" text-anchor="middle">보안 사전검토</text>
-<line x1="120" y1="472" x2="920" y2="472" class="dg-ln" stroke-opacity=".18"/>
+<rect x="159.0" y="418" width="111" height="22" rx="11" class="dg-warn"/><text x="214.0" y="433" class="dg-sig" text-anchor="middle">시스템 인터뷰</text>
+<rect x="273.0" y="418" width="168" height="22" rx="11" class="dg-warn"/><text x="328.0" y="433" class="dg-sig" text-anchor="middle">실측 입회</text>
+<rect x="615.0" y="418" width="225" height="22" rx="11" class="dg-warn"/><text x="727.0" y="433" class="dg-sig" text-anchor="middle">현업 도구 설명 작성 · 별칭 검수 (최대 부하)</text>
+<rect x="102.0" y="444" width="54" height="20" rx="10" class="dg-box"/><text x="129.0" y="458" class="dg-s" text-anchor="middle">보안 지정</text>
+<rect x="615.0" y="444" width="168" height="20" rx="10" class="dg-box"/><text x="699.0" y="458" class="dg-s" text-anchor="middle">보안 사전검토</text>
+<line x1="100.0" y1="472" x2="900.0" y2="472" class="dg-ln" stroke-opacity=".18"/>
 
 <!-- LANE: 산출물 -->
 <text x="14" y="496" class="dg-tb">산출물</text>
-<circle cx="262" cy="491" r="5" fill="currentColor"/><text x="262" y="512" class="dg-s" text-anchor="middle">①②</text>
-<circle cx="433" cy="491" r="5" fill="currentColor"/><text x="433" y="512" class="dg-s" text-anchor="middle">③④</text>
-<circle cx="604" cy="491" r="5" fill="currentColor"/><text x="604" y="512" class="dg-s" text-anchor="middle">⑤⑥</text>
-<circle cx="718" cy="491" r="5" fill="currentColor"/><text x="718" y="512" class="dg-s" text-anchor="middle">⑦⑧</text>
-<circle cx="775" cy="491" r="5" fill="currentColor"/><text x="775" y="512" class="dg-s" text-anchor="middle">⑨⑩</text>
-<circle cx="832" cy="491" r="5" fill="currentColor"/><text x="832" y="512" class="dg-s" text-anchor="middle">⑪</text>
-<circle cx="889" cy="491" r="6" fill="var(--accent)"/><text x="889" y="512" class="dg-acc" text-anchor="middle">⑫</text>
+<circle cx="242.0" cy="491" r="5" fill="currentColor"/><text x="242.0" y="512" class="dg-s" text-anchor="middle">①②</text>
+<circle cx="413.0" cy="491" r="5" fill="currentColor"/><text x="413.0" y="512" class="dg-s" text-anchor="middle">③④</text>
+<circle cx="584.0" cy="491" r="5" fill="currentColor"/><text x="584.0" y="512" class="dg-s" text-anchor="middle">⑤⑥</text>
+<circle cx="698.0" cy="491" r="5" fill="currentColor"/><text x="698.0" y="512" class="dg-s" text-anchor="middle">⑦⑧</text>
+<circle cx="755.0" cy="491" r="5" fill="currentColor"/><text x="755.0" y="512" class="dg-s" text-anchor="middle">⑨⑩</text>
+<circle cx="812.0" cy="491" r="5" fill="currentColor"/><text x="812.0" y="512" class="dg-s" text-anchor="middle">⑪</text>
+<circle cx="869.0" cy="491" r="6" fill="var(--accent)"/><text x="869.0" y="512" class="dg-acc" text-anchor="middle">⑫</text>
 </svg>
 <figcaption><b>14주 진행을 한 장으로</b> — 위에서부터 <b>의사결정 게이트 / 수행 활동 / 고객 참여 / 산출물 제출</b> 네 레인이다. 강조된 막대가 임계 경로이며, 고객 참여는 세 구간(W2–3 인터뷰, W4–6 실측 입회, <b>W10–13 도구 설명·검수</b>)에 몰린다. 산출물 원 안의 번호는 5.1 12종 명세의 번호다. 게이트에서 결론이 나지 않으면 다음 레인이 진행되지 않는다.</figcaption>
 </figure>
@@ -1623,7 +1623,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <h3>적합성 매트릭스</h3>
   <p class="lede">패턴별 지배 요건에 따라 판정합니다. <b>하나로 통일할 필요가 없습니다</b> — 갈리는 것이 정상입니다.</p>
   <div class="tw"><table>
-    <thead><tr><th style="width:118px">Pattern</th><th class="c">MCP</th><th class="c">REST</th><th class="c">GraphQL</th><th class="c">이벤트</th><th class="c">배치·복제</th><th>판정 근거</th></tr></thead>
+    <thead><tr><th style="width:118px">Pattern</th><th class="c">MCP</th><th class="c">REST</th><th class="c">GraphQL <span style="font-size:11px;font-weight:400;color:var(--crit)">(본 과업 후보 제외 — 아래 주)</span></th><th class="c">이벤트</th><th class="c">배치·복제</th><th>판정 근거</th></tr></thead>
     <tbody>
       <tr><td><span class="pat">P-READ</span></td><td class="c mk">○</td><td class="c mk best">◎</td><td class="c mk">○</td><td class="c mk no">×</td><td class="c mk mid">△</td><td>정형 조회는 Gateway 통합이 성숙한 REST가 최적</td></tr>
       <tr><td><span class="pat">P-SEARCH</span></td><td class="c mk best">◎</td><td class="c mk mid">△</td><td class="c mk">○</td><td class="c mk no">×</td><td class="c mk">○</td><td><b>어떤 도구를 쓸지 Agent가 판단</b>해야 함 → MCP 실익 최대</td></tr>
@@ -1812,7 +1812,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <thead><tr><th style="width:230px">변화</th><th>재판정 대상</th></tr></thead>
     <tbody>
       <tr><td>도구 수가 5개를 넘어감</td><td>Q1 탈락 영역 → 재평가</td></tr>
-      <tr><td>Phase 5에서 권한 위임(OBO) 지원 확인</td><td><b>Q4 보류 영역 (OASIS) → 채택 재검토</b></td></tr>
+      <tr><td>Phase 5에서 권한 위임(RFC 8693 Token Exchange · 벤더에 따라 OBO) 지원 확인</td><td><b>Q4 보류 영역 (OASIS) → 채택 재검토</b></td></tr>
       <tr><td>RTDB 집계 API 신설로 반환 크기 축소</td><td>Q3 탈락 영역 → 부분 재검토</td></tr>
       <tr><td>전사 AI 플랫폼(명장 AI 등)이 MCP를 표준으로 채택</td><td><b>전 영역 — 전사 방침 종속 원칙(원칙 04)에 따라 재정렬</b></td></tr>
     </tbody>
@@ -1842,7 +1842,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="lede" style="margin-top:18px">그렇다고 전부 자체 개발도 아닙니다. <b>세 층위로 나누면 사는 것과 만드는 것이 갈립니다.</b></p>
 
 <figure>
-<svg viewBox="0 0 940 400" role="img" aria-label="MCP 관련 구성요소를 자체 개발 영역, 기존 자산 확장 영역, 상용 검토 영역으로 나눈 그림. MCP Server 어댑터는 자체 개발이고 게이트웨이·레지스트리는 기존 전사 자산 확장이며 관측·평가 도구가 상용 검토 대상이다.">
+<svg viewBox="0 0 940 400" role="img" aria-label="MCP 관련 구성요소를 자체 개발 영역, 기존 자산 확장 영역, 상용 검토 영역으로 나눈 그림. MCP Server 어댑터는 자체 개발이고 MCP Server 어댑터는 자체 개발, 게이트웨이는 기존 전사 자산 확장, 도구 레지스트리·관측·평가는 상용 검토이며, 맨 아래 Legacy API와 의미 계층이 비용의 대부분이며 관측·평가 도구가 상용 검토 대상이다.">
 <defs>
   <marker id="ar8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
     <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
@@ -2070,7 +2070,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="thesis">API는 Agent를 <strong>연결</strong>하지만, 메타데이터는 Agent를 <strong>정확하게</strong> 만듭니다.</div>
   <p class="lede" style="margin-top:18px">전통적 연계에서 메타데이터는 “있으면 좋은 것”이었습니다. 호출하는 쪽이 사람이 만든 프로그램이었고, 개발자가 사양서를 읽고 의미를 코드에 박아 넣었기 때문입니다. Agent는 <b>런타임에 데이터의 의미를 스스로 해석</b>하고, 근거가 없으면 그럴듯하게 지어냅니다. 그래서 메타데이터는 <b>정확성 요건</b>으로 승격됩니다. 이것이 이 과업이 “API 개발 프로젝트”가 아닌 이유입니다.</p>
 
-  <h3>AI Readable 요건 D1~D6</h3>
+  <h3>AI Readable 요건 — D1~D5와 신설 D6</h3>
   <div class="tw"><table>
     <thead><tr><th style="width:38px">#</th><th style="width:112px">요건</th><th>정의</th><th style="width:190px">미충족 시 증상</th></tr></thead>
     <tbody>
@@ -2100,7 +2100,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="200" y="62" class="dg-tb" text-anchor="middle">사내 온프렘</text>
 <text x="380" y="62" class="dg-tb" text-anchor="middle">전사 사설</text>
 <text x="560" y="62" class="dg-tb" text-anchor="middle">외부 SaaS</text>
-<text x="680" y="62" class="dg-s">CLX 예시</text>
+<text x="660" y="62" class="dg-s">CLX 예시</text>
 <line x1="20" y1="72" x2="780" y2="72" class="dg-ln" stroke-opacity=".3"/>
 
 <!-- C1 -->
@@ -2267,7 +2267,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="266" y="222" class="dg-sig" text-anchor="middle">설비↔태그 매핑</text>
 <text x="266" y="238" class="dg-s" text-anchor="middle">DA-01 · 최우선</text>
 <path d="M362 226 L336 226" class="dg-ln" marker-end="url(#ar2)"/>
-<path d="M437 196 L437 226 L366 226" class="dg-ln" fill="none"/>
+<path d="M437 200 L437 226 L366 226" class="dg-ln" fill="none"/>
 <path d="M200 226 L170 226 L170 260" class="dg-ln" marker-end="url(#ar2)"/>
 <rect x="80" y="266" width="180" height="52" rx="4" class="dg-fill"/>
 <text x="170" y="287" class="dg-tb" text-anchor="middle">RTDB (DMZ 복제본)</text>
@@ -2285,8 +2285,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- join -->
 <path d="M260 292 L340 292" class="dg-ln" marker-end="url(#ar2)"/>
-<path d="M560 314 L470 314 L470 300" class="dg-ln" marker-end="url(#ar2)"/>
-<path d="M724 136 L800 136 L800 292 L470 292" class="dg-ln" marker-end="url(#ar2)"/>
+<path d="M560 314 L472 314" class="dg-ln" marker-end="url(#ar2)"/>
+<path d="M724 136 L860 136 L860 262 L470 262 L470 268" class="dg-ln" marker-end="url(#ar2)"/>
 <rect x="344" y="270" width="124" height="48" rx="4" class="dg-hi"/>
 <text x="406" y="291" class="dg-acc" text-anchor="middle">결합 · 인과 추론</text>
 <text x="406" y="307" class="dg-s" text-anchor="middle">종합 분석 Agent</text>
@@ -2358,7 +2358,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   </table></div>
   <p class="note" style="margin-top:14px"><b>A2A 유보의 근거는 &ldquo;표준이 미성숙해서&rdquo;가 아닙니다.</b> A2A는 2025.04 공개 &rarr; 2025.06 Linux Foundation 이관(벤더 중립 거버넌스) &rarr; <b>2026.03 v1.0 확정</b>으로, JWS(RFC 7515) + JCS(RFC 8785) 기반 서명 Agent Card까지 형식화된 단계입니다. 유보의 실제 근거는 <b>CLX 내 Agent 수가 아직 편익 임계(약 10개)에 못 미쳐 A2A의 이점이 발생하지 않고, 전사 AI 플랫폼 방침이 미확정</b>이라는 것입니다. 그래서 <b>구조만 열어둡니다.</b></p>
 <p class="note warn" style="margin-top:10px"><b>지금 무료로 사는 옵션</b> &mdash; T5 Agent 카드의 필드명을 <b>A2A v1.0 Agent Card 스키마</b>(<span class="pat">name / description / url / skills / securitySchemes / signatures</span>)에 정렬해두면 나중에 A2A 전환 비용이 거의 0이 됩니다.</p>
-<p class="note crit" style="margin-top:10px"><b>MCP는 약 8개월 주기로 breaking change를 포함해 개정됩니다.</b> 본 과업은 W9~10에 채택을 판단하고 그 위에 차년도 구축을 얹으므로, <b>MCP 채택 판단서에 「채택 사양 버전 고정 + 상위 버전 마이그레이션 비용 추정 + 유예 정책」을 필수 항목으로 포함</b>합니다. <span class="pat">R11</span></p>
+<p class="note crit" style="margin-top:10px"><b>MCP는 2024-11-05 이후 4차례 개정됐고 평균 간격은 약 5개월</b>입니다(2024-11-05 → 2025-03-26 → 2025-06-18 → 2025-11-25 → 2026-07-28). 최근 개정은 launch 이후 최대 규모였습니다. <b>간격이 일정하지 않으므로 “다음 개정 시점”을 가정하지 않습니다.</b> 본 과업은 W9~10에 채택을 판단하고 그 위에 차년도 구축을 얹으므로, <b>MCP 채택 판단서에 「채택 사양 버전 고정 + 상위 버전 마이그레이션 비용 추정 + 유예 정책」을 필수 항목으로 포함</b>합니다. <span class="pat">R11</span></p>
 <p class="note" style="margin-top:10px">한편 표준 거버넌스 연구는 <b>MCP·A2A 모두 권한 위임·책임 소재를 프로토콜 수준에서 충분히 표현하지 못한다</b>고 지적합니다. 프로토콜에 의존하지 말고 <b>조직 차원의 기준</b>을 별도로 세워야 하는 이유입니다.</p>
 
   <h3>도메인 Agent 구성안</h3>
@@ -2550,7 +2550,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <h3>Agent 카드 — 필수 항목</h3>
   <p class="lede">가장 중요한 항목은 <b>“할 수 없는 것”</b>입니다. 오케스트레이터가 어느 Agent에 위임할지 판단하는 근거이며, 이것이 없으면 잘못된 Agent에 위임하고 그 Agent는 <b>모른다고 하지 않고 추측해서 답합니다.</b></p>
   <div class="cards">
-    <div class="card"><div class="ct">Identity</div><div class="ch">신원 · 소유</div><p>Agent ID, 소유 조직, 사번 기반 신원, 담당 도메인</p></div>
+    <div class="card"><div class="ct">Identity</div><div class="ch">신원 · 소유</div><p>Agent ID(<span class="pat">AGT-*</span>), 소유 조직, <b>소유자 사번</b>, 담당 도메인 — <b>Agent 신원은 사람 사번과 분리</b></p></div>
     <div class="card"><div class="ct">Capability</div><div class="ch">할 수 있는 것 / 없는 것</div><p>위임 판단의 근거. 없으면 오위임 발생</p></div>
     <div class="card"><div class="ct">Contract</div><div class="ch">입출력 계약</div><p>사용자 컨텍스트 필수, 응답에 <b>근거(Provenance)</b> 동반 — 출처 · 조회시각 · <b>정제 상태</b> · 신뢰도 · 미확보 범위</p></div>
     <div class="card"><div class="ct">Failure</div><div class="ch">실패 시</div><p>부분 결과 + 실패 범위 명시. <b>추정 금지.</b> “불충분”을 반환할 수 있어야 함</p></div>
@@ -2585,6 +2585,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <div class="card"><div class="ct">Data Quality</div><div class="ch">정제 완료 80%</div>
       <p>양날의 검입니다. 진단 부담은 줄지만 <b>남은 20%가 어디인지</b>가 Agent 신뢰성을 좌우합니다.</p></div>
     <div class="card"><div class="ct">Smart Plant 2.0</div><div class="ch">40개 과제 · 연 100억 절감</div>
+      <p class="note crit" style="margin:8px 0 0 0;font-size:12px"><b>연 100억은 SP2.0 40개 과제의 기대효과이며 본 과업의 효익이 아니다.</b> 본 과업의 효익은 “101건 중 63건이 성립하기 위한 조건”으로 표현한다 — 5.3 P11</p>
       <p>공정운전 · 설비관리 · SHE 3개 분야. <b>“Agent가 아직 없다”는 전제로 접근하면 안 됩니다.</b></p></div>
   </div>
   <p class="note" style="margin-top:16px"><b>설비 고장예측 과제를 Phase 1의 대표 사례로 삼으십시오.</b> OCEAN-H와 RTDB를 동시에 필요로 하므로 횡단 식별자 문제가 즉시 드러나고, 이미 추진 중이라 담당자와 실제 데이터가 존재합니다. 가장 설득력 있는 근거 사례가 됩니다.</p>
@@ -2775,7 +2776,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="note warn"><b>Part 2는 요약입니다.</b> ② 과업의 <b>실물 방법론</b>은 별도 문서 세트로 존재하며, 본 절은 ①③과의 인터페이스를 보이기 위한 <b>골격 수준</b>입니다. 실제 수행 시에는 아래를 함께 보십시오 — <span class="pat">02_Knowledge_체계설계/01_수행방법론_절차서.md</span>(K1의 1-1~1-6, K2의 2-1~2-7 등 <b>활동 단위 절차</b>), <span class="pat">02_WBS_주차별.md</span>, <span class="pat">템플릿/T01~T12</span>. <b>본 절의 완료 판단기준과 절차서의 활동 목록이 어긋나면 절차서가 우선</b>합니다.</p>
   <p class="lede">①이 “있는 것을 재는” 진단으로 시작하는 반면, ②는 <b>없는 체계를 만드는</b> 일이라 원칙 수립이 먼저입니다. 다만 <b>진단(K1)이 원칙(K2)보다 앞</b>인 것은 같습니다 — 근거 없이 표준을 만들면 검증할 수단이 없기 때문입니다.</p>
 <figure>
-<svg viewBox="0 0 940 480" role="img" aria-label="② Enterprise Knowledge 과업의 K0부터 K5까지 14주 수행 프로세스. 각 Phase 막대와 그 오른쪽에 수치로 된 완료 판단기준을 나란히 놓고, W3에 확보되는 질의 목록이 이후 모든 설계의 근거임을 세로선으로 표시한다.">
+<svg viewBox="0 0 940 524" role="img" aria-label="② Enterprise Knowledge 과업의 K0부터 K5까지의 14주 수행 프로세스와 W9–10 K2R 재정합 게이트. 각 Phase 막대와 그 오른쪽에 수치로 된 완료 판단기준을 나란히 놓고, W3에 확보되는 질의 목록이 이후 모든 설계의 근거임을 세로선으로 표시한다.">
 <defs>
   <marker id="ar-k1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
@@ -2785,8 +2786,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- 월 · 주 헤더 -->
 <text x="14" y="30" class="dg-m">월</text>
-<line x1="250" y1="14" x2="250" y2="436" class="dg-ln" stroke-opacity=".18"/>
-<line x1="430" y1="14" x2="430" y2="436" class="dg-ln" stroke-opacity=".18"/>
+<line x1="250" y1="14" x2="250" y2="480" class="dg-ln" stroke-opacity=".18"/>
+<line x1="430" y1="14" x2="430" y2="480" class="dg-ln" stroke-opacity=".18"/>
 <line x1="610" y1="14" x2="610" y2="436" class="dg-ln" stroke-opacity=".18"/>
 <text x="160" y="30" class="dg-s" text-anchor="middle">9월</text>
 <text x="340" y="30" class="dg-s" text-anchor="middle">10월</text>
@@ -2842,9 +2843,11 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="714" y="232" class="dg-sig">자동추출·양식내재 ≥ 60%</text>
 <text x="714" y="246" class="dg-sig">2인 독립 태깅 불일치 ≤ 10%</text>
 <text x="714" y="260" class="dg-s">질의 목록 80% 이상 표현 가능</text>
-<path d="M430 242 L302 242" class="dg-ln-w" stroke-dasharray="5 4" marker-end="url(#ar-k1w)"/>
-<text x="436" y="238" class="dg-s">① Tag·설비·공정 Meta 인계 W9</text>
-<text x="436" y="252" class="dg-s">K2 종료(W5) 이후 도착 — 인터페이스 #1</text>
+<path d="M205 196 L205 226" class="dg-ln-a" stroke-dasharray="5 4" marker-end="url(#ar-k1)"/>
+<text x="215" y="196" class="dg-acc">#1a 스키마 층 W4 — Entity 명칭·키·관계 타입 (잠정)</text>
+<path d="M430 242 L430 405" class="dg-ln-w" stroke-dasharray="5 4" marker-end="url(#ar-k1w)"/>
+<text x="436" y="238" class="dg-s">#1b 데이터 층 W9 — 값 · 매핑 · 유효기간</text>
+<text x="436" y="252" class="dg-s">K2 종료(W5) 이후 도착 → 아래 K2R 게이트에서 재정합</text>
 
 <!-- K3 -->
 <text x="14" y="291" class="dg-m">K3</text>
@@ -2867,26 +2870,34 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="714" y="370" class="dg-s">요건마다 수용기준 명시</text>
 <text x="714" y="384" class="dg-s">3개 대안 동일 기준 평가·권고 사유</text>
 
+<!-- K2R (신설) -->
+<text x="14" y="423" class="dg-m">K2R</text>
+<rect x="430" y="405" width="90" height="26" rx="3" class="dg-warn"/>
+<text x="475" y="423" class="dg-sig" text-anchor="middle">Entity 재정합</text>
+<text x="714" y="414" class="dg-sig">차이 항목 100% 처분 결정</text>
+<text x="714" y="428" class="dg-s">W9 실물 메타(#1b)와 W4 잠정 스키마(#1a)를 대조</text>
+
 <!-- K5 -->
-<text x="14" y="423" class="dg-m">K5</text>
-<rect x="610" y="405" width="90" height="26" rx="3" class="dg-fill"/>
-<text x="655" y="423" class="dg-t" text-anchor="middle">통합 · 보고</text>
-<text x="714" y="414" class="dg-s">기대산출물 8종 제출 · 이관</text>
+<text x="14" y="467" class="dg-m">K5</text>
+<rect x="610" y="449" width="90" height="26" rx="3" class="dg-fill"/>
+<text x="655" y="467" class="dg-t" text-anchor="middle">통합 · 보고</text>
+<text x="714" y="458" class="dg-s">기대산출물 8종 제출 · 이관</text>
 
 <!-- 질의 목록 기준선 -->
 <circle cx="205" cy="211" r="4" fill="var(--signal)"/>
-<path d="M205 211 L205 434" class="dg-ln-w" stroke-dasharray="5 4"/>
-<line x1="14" y1="438" x2="920" y2="438" class="dg-ln" stroke-opacity=".2"/>
-<text x="210" y="456" class="dg-sig">W3 질의 목록 30건 — 이 선 오른쪽의 설계는 전부 이 목록을 근거로 한다</text>
+<path d="M205 211 L205 478" class="dg-ln-w" stroke-dasharray="5 4"/>
+<line x1="14" y1="482" x2="920" y2="482" class="dg-ln" stroke-opacity=".2"/>
+<text x="210" y="500" class="dg-sig">W3 질의 목록 30건 — 이 선 오른쪽의 설계는 전부 이 목록을 근거로 한다</text>
 </svg>
-<figcaption><b>Phase는 합의가 아니라 수치로 통과한다</b> — 오른쪽 열이 각 Phase의 완료 판단기준이고, 충족되지 않으면 다음 Phase로 넘어가지 않는다(지연 시 범위를 줄이되 기준은 낮추지 않는다). 세로 점선은 <b>W3에 확보되는 질의 목록 30건</b>으로, K2·K3·K3B·K4가 모두 이 목록을 근거로 삼기 때문에 여기가 늦으면 뒤가 전부 임의 설계가 된다. K3B만 K3과 병렬이며, <b>①의 Tag·설비·공정 Meta는 W9에 오는데 K2는 W5에 끝난다</b> — 인터페이스 #1을 앞당기지 못하면 Entity 정의는 잠정치로 확정된다.</figcaption>
+<figcaption><b>Phase는 합의가 아니라 수치로 통과한다</b> — 오른쪽 열이 각 Phase의 완료 판단기준이고, 충족되지 않으면 다음 Phase로 넘어가지 않는다(지연 시 범위를 줄이되 기준은 낮추지 않는다). 세로 점선은 <b>W3에 확보되는 질의 목록 30건</b>으로, K2·K3·K3B·K4가 모두 이 목록을 근거로 삼기 때문에 여기가 늦으면 뒤가 전부 임의 설계가 된다. K3B만 K3과 병렬이며, <b>①의 Tag·설비·공정 Meta는 W9에 오는데 K2는 W5에 끝난다</b> — 그래서 #1a(W4 잠정 스키마) → #1b(W9 실물 값) → K2R(W9–10 재정합)의 3단으로 처리한다.</figcaption>
 </figure>
   <h3>② Enterprise Knowledge 관리 체계 설계 — 방법론 골격</h3>
   <p class="lede">성격이 <b>설계형</b>이라 ①과 접근이 다릅니다. ①은 “있는 것을 재는” 진단이 앞서지만, ②는 <b>없는 체계를 만드는</b> 일이라 원칙 수립이 먼저입니다.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:52px">Phase</th><th style="width:200px">과업</th><th class="c" style="width:80px">기간</th><th>완료 판단기준 (핵심)</th></tr></thead>
     <tbody>
-      <tr><td class="mk">K0</td><td>착수 · 정렬</td><td class="c mk">W1</td><td><b>“Ontology” 수준 정의를 In/Out 표로 서면 합의</b> — 형식 온톨로지(OWL) 구현은 범위 외임을 명문화</td></tr>
+      <tr><td class="mk">K0-a</td><td>착수 · <b>범위 프레임 합의</b></td><td class="c mk">W1</td><td><b>배제 항목만 서면 확인</b> — 형식 온톨로지(OWL) 구현 · Triple Store 구축 · 전사 용어 통합은 범위 외.<br><span style="font-size:12px">근거가 필요 없는 합의다. 질의 분포는 W3에 나오므로 <b>W1에 목표 레벨까지 정하면 “토론으로 정하기”가 된다</b></span></td></tr>
+      <tr style="background:var(--signal-soft)"><td class="mk">K0-b</td><td><b>목표 레벨 확정</b></td><td class="c mk">W4</td><td><b>W3 질의 분포를 근거로 L0~L3.5 목표 레벨과 In/Out 표를 서면 합의.</b> 이것이 KR1의 실질 방어선<br><span style="font-size:12px">② 매니저 합류(9/21 = W3)와도 정합한다</span></td></tr>
       <tr style="background:var(--accent-soft)"><td class="mk">K1</td><td><b>지식 현황 진단</b></td><td class="c mk">W1–3</td><td><b>현업의 실제 질의 30건 이상 원문 수집</b> — 이 목록이 이후 모든 설계의 근거<br>대표 문서유형 3~5종 선정 (활용빈도 × AI 활용가치 × 구조화 용이성)</td></tr>
       <tr><td class="mk">K2</td><td>지식 표준 모델 설계</td><td class="c mk">W2–5</td><td>필수 메타 중 <b>자동추출·양식내재 60% 이상</b><br>2인 독립 태깅 시 <b>판정 불일치 10% 이하</b><br>질의 목록의 80% 이상이 설계된 분류·메타로 표현 가능<br><b>사용자 추가 입력 시간 30초/건 이하</b> (2.4 기준과 일치)</td></tr>
       <tr><td class="mk">K3</td><td>지식 구조화 · 축적 방안</td><td class="c mk">W5–9</td><td>대표 유형 3종 구조 표준 확정 + <b>파일럿 50건 전환</b><br>품질 4지표(완전성·정확성·최신성·일관성) 측정치 확보</td></tr>
@@ -3109,7 +3120,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td>관계를 <b>표가 아니라 삼항(주어–관계–목적어)</b> 형태로 기술</td><td>Triple로 그대로 변환됨</td></tr>
       <tr style="background:var(--signal-soft)"><td><b>술어(관계 타입) 통제 사전</b>을 별도 관리</td><td>“삼항으로 쓰라”만 있으면 삼항이 자유서술이 된다. 태그↔설비만 해도 <b>측정 / 제어 / 알람 / 계산</b> 4종이며, 설비↔설비는 <b>구성 / 설치 / 대체</b>다. 관계 타입 목록을 통제하지 않으면 나중에 술어 정규화에 전량 재작업</td></tr>
       <tr style="background:var(--signal-soft)"><td><b>동일성(identity) 정책 3단 구분</b><br><span style="font-size:12px">동일 개체 / 동일 개념 / 유사 표현</span></td><td>세 가지를 한 칸에 “같음”으로 적으면 승격 시 <span class="pat">owl:sameAs</span> 남용이 되고 <b>별칭을 전량 재판정</b>해야 한다. 지금 컬럼 하나 늘리는 비용으로 끝난다</td></tr>
-      <tr><td>식별자에 <b>안정적 URI 체계를 지금 발급</b>하고 버저닝 정책을 정한다</td><td>“부여 가능성 확보”는 지침이 아니다. <b>나중에 붙이면 전량 재작업</b>이다. 네임스페이스·발급 규칙·버전 표기까지 W5에 확정</td></tr>
+      <tr><td>식별자에 <b>안정적 URI 체계를 지금 발급</b>하고 버저닝 정책을 정한다</td><td>“부여 가능성 확보”는 지침이 아니다. <b>나중에 붙이면 전량 재작업</b>이다. 다만 <b>발급 주체는 ①</b>이다 — 물리 자산의 식별자는 ①이 정의하고 ②는 참조한다는 원칙(아래) 때문이다. <b>②는 W5에 「URI 요구사항」</b>(네임스페이스 분리 필요성 · 버저닝 표기 · 재사용 금지)<b>만 ①에 제출</b>하고, 실제 URI 체계는 <b>①이 W8에 확정</b>한다</td></tr>
       <tr style="background:var(--signal-soft)"><td><b>식별자 재사용 금지</b> — 설비 폐기·개조 시 ID를 다른 개체에 다시 쓰지 않는다</td><td>ID를 재사용하면 <b>과거 이력 조회가 조용히 오염</b>된다. 오류가 나지 않으므로 발견되지 않는다</td></tr>
       <tr style="background:var(--signal-soft)"><td><b>제약을 표로 미리 써 둔다</b><br><span style="font-size:12px">필수 필드 · 카디널리티 · 값 도메인 · 참조 무결성</span></td><td>L3.5 검증에 지금 쓰이고, <b>L4에서 그대로 공리가 된다.</b> 승격 시 규칙을 처음부터 다시 발굴하지 않아도 된다</td></tr>
       <tr style="background:var(--signal-soft)"><td><b>도메인 표준 정렬</b> — ISO 14224 · CFIHOS · IEC 81346 / ISA-95</td><td>자체 어휘로 만들어 두면 승격 시 재작업이 확정된다. 아래 「빌려올 표준」 참조</td></tr>
@@ -3129,7 +3140,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
   <p class="note crit" style="margin-top:14px"><b>재판정은 다음 세 조건을 모두 만족할 때 엽니다.</b><br>
-  ① <b>(d)+(e) 유형이 업무가치 가중 기준 15% 이상</b> — 건수 비율이 아니라 가중입니다. 사고 조사처럼 최고 리스크 업무의 질의 2건이 일상 조회 20건보다 무겁습니다.<br>
+  ① <b>(d)(e) 유형이 최고 리스크 업무(사고 조사·PSM 대상 설비)에 반복 출현</b> — <b>비율 임계를 두지 않습니다.</b> 표본 30~50건에서는 어떤 단일 비율도 ±14%p 안에서 구분되지 않으므로, 20%를 버리고 15%를 세우면 같은 오류를 반복하는 것입니다. ①은 재판정을 <b>여는 신호</b>일 뿐이고, 재판정의 <b>성립 요건은 ②와 ③</b>입니다.<br>
   ② <b>2인 독립 판정의 불일치율 ≤ 10%</b> — 2.4의 메타 태깅에 이미 쓰는 장치를 질의 능력 분류에도 그대로 적용합니다. 이것이 없으면 임계값은 판정자의 성향일 뿐입니다.<br>
   ③ <b>L3 수단으로 표현하려는 실제 시도가 실패했음이 기록됨</b> — “추론이 필요하다”는 의견이 아니라 <b>“SQL·재귀 CTE·벡터 검색으로 못 풀었다”는 실증</b>이어야 합니다. 이 조건 하나가 재판정 논쟁의 90%를 없앱니다.</p>
   <p class="note warn" style="margin-top:12px"><b>재판정 조건에서 뺀 것</b> — 기존 초안의 “계층·집합 질의 상시화”와 “시스템 6종 초과”는 <b>L4 트리거가 아닙니다.</b> 전자는 재귀 CTE로 풀리고, 후자는 매핑 관리 문제이므로 해법이 <b>①의 정준 식별자(허브-스포크) 유지</b>이지 형식 온톨로지가 아닙니다. 후자는 “<b>①의 정준 식별자 유지 체계가 무너져 별칭 정합이 불가능해질 때</b>”라는 <b>MDM 리스크</b>로 옮겨 기술합니다.</p>
@@ -3177,11 +3188,11 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="mk">1</td><td>질의 30~50건 수집 (K1)</td><td class="c mk">W3</td><td>질의 원문 목록</td></tr>
       <tr style="background:var(--accent-soft)"><td class="mk">2</td><td><b>질의별 필요 능력 판정</b><br><span style="font-size:12px">사실조회 / 조인 / 계층확장 / 추론</span></td><td class="c mk">W3</td><td><b>능력 요구 분포 — 이것이 레벨을 결정</b></td></tr>
       <tr><td class="mk">3</td><td>목표 레벨 확정 및 In/Out 명문화</td><td class="c mk">W4</td><td>Ontology 범위 정의서 (<b>서면 합의</b>)</td></tr>
-      <tr><td class="mk">4</td><td>①의 식별자 표준과 Entity 중복 제거</td><td class="c mk">W5</td><td>①② 공동 Entity 목록</td></tr>
+      <tr><td class="mk">4</td><td>①의 식별자 표준과 Entity 중복 제거</td><td class="c mk">W9~10<br><span style="font-size:12px">K2R 게이트</span></td><td>①② 공동 Entity 목록.<br><span style="font-size:12px">①의 식별자 표준 확정이 <b>W8</b>이므로 W5에는 대조할 대상이 없다</span></td></tr>
       <tr><td class="mk">5</td><td>L4 승격 조건 기록 체계 가동</td><td class="c mk">W5~</td><td>추론 요구 질의 누적 기록</td></tr>
     </tbody>
   </table></div>
-  <p class="note warn" style="margin-top:14px"><b>2번이 핵심입니다.</b> “온톨로지를 어느 수준까지 할까”를 <b>토론으로 정하지 말고 질의 분포로 판정</b>하십시오. (d)(e) 유형이 5%면 L3에서 멈추는 것이 명백하고, <b>가중 15%를 넘으면서 L3 수단 실패가 기록되면</b> L4 검토가 정당합니다. 숫자는 판단을 대신하는 것이 아니라 <b>재논의를 여는 트리거</b>입니다. <b>근거 없이 정하면 나중에 반드시 재논쟁이 벌어집니다.</b></p>
+  <p class="note warn" style="margin-top:14px"><b>2번이 핵심입니다.</b> “온톨로지를 어느 수준까지 할까”를 <b>토론으로 정하지 말고 질의 분포로 판정</b>하십시오. (d)(e) 유형이 거의 없으면 L3에서 멈추는 것이 명백하고, <b>고위험 업무에서 반복 출현하면서 L3 수단 실패가 기록되면</b> L4 검토가 정당합니다. 숫자는 판단을 대신하는 것이 아니라 <b>재논의를 여는 트리거</b>입니다. <b>근거 없이 정하면 나중에 반드시 재논쟁이 벌어집니다.</b></p>
 
 
   <h4>LKM은 온톨로지 없이 성립하는가 — 성립한다, 단 세 가지 조건에서</h4>
@@ -3200,10 +3211,10 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="lede">2.4는 메타 <b>값</b>의 입력 부담을 다루지만, <b>분류축·관계 정의 자체</b>의 변경 절차는 어디에도 없습니다. <b>온톨로지 실패의 가장 흔한 실제 원인</b>이 여기입니다 — 만든 사람이 떠나고 축이 굳어 현실과 어긋납니다. 다음 넷을 K5(운영·확산) 산출물에 명시하십시오 — ① <b>축·관계 정의의 소유 조직</b> ② <b>추가·변경·폐기 신청 절차와 승인자</b> ③ <b>버저닝·하위호환 규칙</b>(폐기 시 <span class="pat">deprecated</span> 표시 후 유예) ④ <b>연 1회 정합성 재검토</b>. ①의 R6 변경관리와 같은 형식으로 맞추면 ①③과 운영 체계를 공유할 수 있습니다.</p>
   <p class="note warn" style="margin-top:12px"><b>언어 문제도 L1의 실제 난이도입니다</b> — 설비 60만 기의 별칭에는 한영 혼용, 약어, 현장 호칭, 표기 흔들림(공백·하이픈·전각)이 섞여 있고, ①의 DA-02 난이도를 “고”로 만든 것이 이것입니다. <b>다국어 표기 정책과 정규화 규칙(대소문자·공백·특수문자·한영 병기)</b>을 통제어휘 산출물의 필수 항목으로 두십시오. 규칙 없이 사전을 만들면 <b>사전 자체가 중복을 갖습니다.</b></p>
 
-  <h3>Ontology 수준 정의 — W1 서면 합의 대상</h3>
-  <p class="lede">이 과업 최대의 리스크는 <b>용어가 주는 기대와 실제 산출물 수준의 괴리</b>입니다. 형식 온톨로지를 기대한 이해관계자가 있으면 중간보고에서 반드시 터집니다. <b>W1에 In/Out을 명문화하고 시작</b>하십시오.</p>
+  <h3>Ontology 수준 정의 — W1 프레임(K0-a) · W4 레벨 확정(K0-b)</h3>
+  <p class="lede">이 과업 최대의 리스크는 <b>용어가 주는 기대와 실제 산출물 수준의 괴리</b>입니다. 형식 온톨로지를 기대한 이해관계자가 있으면 중간보고에서 반드시 터집니다. <b>W1에 배제 항목(In/Out의 Out 열)을 먼저 못박고 시작</b>하십시오. 다만 <b>목표 레벨 자체는 W4</b>입니다 — 판정 근거인 질의 분포가 W3에 나오기 때문이며, W1에 레벨까지 정하면 이 절이 금지한 “토론으로 정하기”가 됩니다. <b>배제는 근거 없이 정할 수 있고, 채택은 근거가 있어야 합니다.</b></p>
 <figure>
-<svg viewBox="0 0 940 430" role="img" aria-label="본 과업의 Ontology 수준 정의. 왼쪽은 범위 내인 다면 분류체계·메타데이터 표준·통제어휘·경량 Entity-Relation, 오른쪽은 범위 외인 형식 온톨로지 추론 규칙·Triple Store 구축·전사 용어 통합이며, 가운데 굵은 점선이 W1 서면 합의 대상이다.">
+<svg viewBox="0 0 940 430" role="img" aria-label="본 과업의 Ontology 수준 정의. 왼쪽은 범위 내인 다면 분류체계·메타데이터 표준·통제어휘·경량 Entity-Relation, 오른쪽은 범위 외인 형식 온톨로지 추론 규칙·Triple Store 구축·전사 용어 통합이며, 가운데 굵은 점선이 W1(배제 항목)과 W4(목표 레벨)의 서면 합의 대상이다. 관계 모델에는 경량 Entity-Relation과 제약·검증 규칙(L3.5)이 포함된다.">
 <text x="14" y="24" class="dg-m">본 과업의 「Ontology」 = 메타데이터 표준 중심의 실용적 지식 모델</text>
 
 <text x="536" y="36" class="dg-sig" text-anchor="middle">이 선이 합의 대상</text>
@@ -3217,7 +3228,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="14" y="108" class="dg-tb">분류체계</text>
 <rect x="110" y="78" width="410" height="48" rx="4" class="dg-hi"/>
 <text x="126" y="98" class="dg-acc">다면 Taxonomy 설계 (Faceted)</text>
-<text x="126" y="116" class="dg-s">업무기능 · 설비/공정 · 문서유형 · 생애주기 · 보안등급 — 5축</text>
+<text x="126" y="114" class="dg-s">업무기능 · 설비/공정 · 문서유형 · 생애주기 · 보안등급</text>
+<text x="126" y="130" class="dg-sig">+ 설비 유형 계층 · 고장 모드 · 조치 유형 (ISO 14224 차용) — 총 8축</text>
 <text x="560" y="108" class="dg-s">— 제외 항목 없음</text>
 
 <!-- 메타데이터 -->
@@ -3239,7 +3251,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="14" y="282" class="dg-tb">관계 모델</text>
 <rect x="110" y="252" width="410" height="48" rx="4" class="dg-hi"/>
 <text x="126" y="272" class="dg-acc">경량 Entity–Relation</text>
-<text x="126" y="290" class="dg-s">Entity 10~15 · Relation 10 내외 — 질의 유형에서 역산한 관계만</text>
+<text x="126" y="288" class="dg-s">Entity 10~15 · Relation 10 내외 — 질의 유형에서 역산한 관계만</text>
+<text x="126" y="304" class="dg-sig">+ 제약·검증 규칙(L3.5) — 필수 필드 · 카디널리티 · 값 도메인 · 참조 무결성</text>
 <rect x="552" y="252" width="368" height="48" rx="4" class="dg-crit"/>
 <text x="568" y="272" class="dg-t">형식 온톨로지(OWL / RDF)</text>
 <text x="568" y="290" class="dg-s">추론 규칙 구현</text>
@@ -3255,7 +3268,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 <!-- W1 합의 배너 -->
 <rect x="14" y="376" width="906" height="44" rx="5" class="dg-warn"/>
-<text x="32" y="396" class="dg-sig">W1 착수 워크숍 2시간 — 이 표를 화면에 띄우고 항목별로 확인한 뒤 서면 합의. K0의 완료 판단기준이다.</text>
+<text x="32" y="396" class="dg-sig">W1(K0-a) 오른쪽 「범위 외」 3항목을 서면 확정 · W4(K0-b) 왼쪽 목표 레벨을 질의 분포 근거로 확정</text>
 <text x="32" y="412" class="dg-s">합의 없이 진행하면 W7 중간보고에서 기대수준이 충돌한다(리스크 KR1 — ①의 R1과 다른 번호다). 그 시점의 재작업 대상은 표준 모델 전체다.</text>
 </svg>
 <figcaption><b>이 과업 최대의 리스크는 설계 난이도가 아니라 “Ontology”라는 단어다</b> — 형식 온톨로지를 기대한 이해관계자와 메타데이터 표준을 만드는 수행팀이 같은 단어를 쓰면 W7까지 충돌이 드러나지 않는다. 굵은 점선 왼쪽만 약 3개월(14주)에 만들며, <b>오른쪽 세 항목은 못 하는 것이 아니라 이번에 하지 않기로 정한 것</b>이다. 그 구분을 <b>W1에 서면으로 남기는 것</b>이 K0의 유일한 실질 산출물이다.</figcaption>
@@ -3328,7 +3341,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="862" y="348" class="dg-m" text-anchor="end">100%</text>
 
 <!-- × 처분 -->
-<path d="M726 326 L726 362 L293 362 L293 384" class="dg-ln-c" marker-end="url(#ar-k4)"/>
+<path d="M726 326 L726 362" class="dg-ln-c"/><path d="M293 362 L760 362" class="dg-ln-c"/><path d="M293 362 L293 384" class="dg-ln-c" marker-end="url(#ar-k4)"/>
 <path d="M531 362 L531 384" class="dg-ln-c" marker-end="url(#ar-k4)"/>
 <path d="M760 362 L760 384" class="dg-ln-c" marker-end="url(#ar-k4)"/>
 <text x="20" y="402" class="dg-cr">×로 남은</text>
@@ -3381,7 +3394,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="mk">KR3</td><td>메타 수기입력 부담으로 사문화</td><td>2.4 자동화 우선 원칙, 60% 기준을 완료 판단기준에 포함</td></tr>
       <tr><td class="mk">KR4</td><td>범위 확산 (전 지식 대상화)</td><td>대표 유형 Pilot을 범위 기준선에 명시, 확장은 가이드로 이관</td></tr>
       <tr><td class="mk">KR5</td><td>Knowledge Hub와 전사 플랫폼 중복</td><td>K4-1에서 전사 체계 검토를 선행 조건으로 배치</td></tr>
-      <tr style="background:var(--crit-soft)"><td class="mk">KR1b</td><td><b>L3에서 멈춘 것이 부족한 것으로 판명</b><br><span style="font-size:12px;color:var(--ink-3)">KR1의 반대 방향 리스크</span></td><td>판단이 한쪽으로만 치우치지 않았음을 보이는 항목이다. 2.3의 <b>재판정 규칙</b>(유형 (d)(e) 가중 15% + 2인 독립판정 불일치 ≤10% + L3 수단 실패 실증)을 <b>K5 산출물에 상시 기록 체계로 탑재</b>하고, W7 중간보고에 <b>중간 집계</b>를 보고. 트리거 충족 시 차년도 과제로 승격 제안</td></tr>
+      <tr style="background:var(--crit-soft)"><td class="mk">KR1b</td><td><b>L3에서 멈춘 것이 부족한 것으로 판명</b><br><span style="font-size:12px;color:var(--ink-3)">KR1의 반대 방향 리스크</span></td><td>판단이 한쪽으로만 치우치지 않았음을 보이는 항목이다. 2.3의 <b>재판정 규칙</b>((d)(e) 유형의 고위험 업무 반복 출현 + 2인 독립판정 불일치 ≤10% + <b>L3 수단 실패 실증</b>)을 <b>K5 산출물에 상시 기록 체계로 탑재</b>하고, W7 중간보고에 <b>중간 집계</b>를 보고. 트리거 충족 시 차년도 과제로 승격 제안</td></tr>
       <tr style="background:var(--signal-soft)"><td class="mk">KR6</td><td><b>① 과업과 경계 모호</b></td><td>Tag Meta는 ① 주관·② 제공 / 근무일지·정비이력 텍스트는 <b>공동 소관, W1 분할 합의</b> — Part 4</td></tr>
     </tbody>
   </table></div>
@@ -3399,7 +3412,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="sh"><span class="n">3.1</span><h2>수행 프로세스</h2></div>
   <p class="lede">③은 ①·②와 성격이 다릅니다. <b>새로 설계하는 것이 아니라</b> 전사 현황 · CLX 현황 · Best Practice 세 원천을 <b>같은 축으로 대비해 Gap을 재고</b> 보완 방향을 제시하는 것이 본질입니다. 그래서 <b>입력 자료 확보가 곧 과업의 성패</b>입니다.</p>
 <figure>
-<svg viewBox="0 0 940 512" role="img" aria-label="③ MLOps·AgentOps 과업의 M0~M5 13주 진행과, 3원 입력을 맞대어 Gap을 재고 요건과 운영 기준을 내는 진단형 논리 구조.">
+<svg viewBox="0 0 940 546" role="img" aria-label="③ MLOps·AgentOps 과업의 M0~M6 14주 진행과, 3원 입력을 맞대어 Gap을 재고 요건과 운영 기준을 내는 진단형 논리 구조.">
 <defs>
   <marker id="ar-m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker>
@@ -3428,24 +3441,28 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <text x="756" y="40" class="dg-m" text-anchor="middle">W11</text>
 <text x="808" y="40" class="dg-m" text-anchor="middle">W12</text>
 <text x="860" y="40" class="dg-m" text-anchor="middle">W13</text>
-<line x1="210" y1="48" x2="886" y2="48" class="dg-ln" stroke-opacity=".3"/>
-<line x1="262" y1="48" x2="262" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="314" y1="48" x2="314" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="366" y1="48" x2="366" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="418" y1="48" x2="418" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="470" y1="48" x2="470" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="522" y1="48" x2="522" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="574" y1="48" x2="574" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="626" y1="48" x2="626" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="678" y1="48" x2="678" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="730" y1="48" x2="730" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="782" y1="48" x2="782" y2="240" class="dg-ln" stroke-opacity=".1"/>
-<line x1="834" y1="48" x2="834" y2="240" class="dg-ln" stroke-opacity=".1"/>
+<text x="912" y="40" class="dg-m" text-anchor="middle">W14</text>
+<line x1="210" y1="48" x2="938" y2="48" class="dg-ln" stroke-opacity=".3"/>
+<line x1="262" y1="48" x2="262" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="314" y1="48" x2="314" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="366" y1="48" x2="366" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="418" y1="48" x2="418" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="470" y1="48" x2="470" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="522" y1="48" x2="522" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="574" y1="48" x2="574" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="626" y1="48" x2="626" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="678" y1="48" x2="678" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="730" y1="48" x2="730" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="782" y1="48" x2="782" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="834" y1="48" x2="834" y2="270" class="dg-ln" stroke-opacity=".1"/>
+<line x1="886" y1="48" x2="886" y2="270" class="dg-ln" stroke-opacity=".1"/>
 
 <!-- handoff guides (막대 아래에 깔림) -->
-<path d="M548 240 L548 56" class="dg-dash" stroke="var(--signal)"/>
-<path d="M756 240 L756 56" class="dg-dash" stroke="var(--accent)"/>
-<path d="M808 240 L808 56" class="dg-dash" stroke="var(--accent)"/>
+<path d="M600 270 L600 56" class="dg-dash" stroke="var(--accent)"/>
+<path d="M860 270 L860 56" class="dg-dash" stroke="var(--accent)"/>
+<path d="M548 270 L548 56" class="dg-dash" stroke="var(--signal)"/>
+<path d="M756 270 L756 56" class="dg-dash" stroke="var(--accent)"/>
+<path d="M808 270 L808 56" class="dg-dash" stroke="var(--accent)"/>
 
 <!-- M0 -->
 <text x="14" y="75" class="dg-m">M0</text>
@@ -3475,67 +3492,77 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- M5 -->
 <text x="14" y="225" class="dg-m">M5</text>
 <text x="46" y="226" class="dg-t">운영 기준·대응체계</text>
-<rect x="678" y="210" width="208" height="22" rx="3" class="dg-hi"/>
-<text x="782" y="226" class="dg-acc" text-anchor="middle">지표·임계 · kill switch</text>
+<rect x="626" y="210" width="260" height="22" rx="3" class="dg-hi"/>
+<text x="756" y="226" class="dg-acc" text-anchor="middle">지표·임계 · kill switch</text>
+
+<!-- M6 -->
+<text x="14" y="255" class="dg-m">M6</text>
+<text x="46" y="256" class="dg-t">통합 · 보고 · 이관</text>
+<rect x="834" y="240" width="104" height="22" rx="3" class="dg-warn"/>
+<text x="886" y="256" class="dg-sig" text-anchor="middle">산출물 4종 이관</text>
 
 <!-- handoff markers -->
-<polygon points="548,244 554,254 542,254" fill="var(--signal)"/>
-<text x="548" y="270" class="dg-sig" text-anchor="middle">③→① 모델 배치 제약 · W7</text>
-<polygon points="756,254 762,244 750,244" fill="var(--accent)"/>
-<text x="756" y="270" class="dg-acc" text-anchor="middle">①→③ 도구 명세 · Agent 카드 · W11</text>
-<polygon points="808,254 814,244 802,244" fill="var(--accent)"/>
-<text x="808" y="288" class="dg-acc" text-anchor="middle">①→③ Lineage · 감사 규격 · W12</text>
+<polygon points="600,284 606,274 594,274" fill="var(--accent)"/>
+<text x="600" y="300" class="dg-acc" text-anchor="middle">①→③ 도구 명세 — 초안 W8 (#4a)</text>
+<polygon points="860,284 866,274 854,274" fill="var(--accent)"/>
+<text x="860" y="318" class="dg-acc" text-anchor="middle">①→③ Lineage 요건 W13 (#5b)</text>
+<polygon points="548,274 554,284 542,284" fill="var(--signal)"/>
+<text x="548" y="300" class="dg-sig" text-anchor="middle">③→① 모델 배치 제약 · W7 (전사 방침 조회)</text>
+<polygon points="756,284 762,274 750,274" fill="var(--accent)"/>
+<text x="756" y="300" class="dg-acc" text-anchor="middle">①→③ 도구 명세 · Agent 카드 — 확정 W11 (#4b)</text>
+<polygon points="808,284 814,274 802,274" fill="var(--accent)"/>
+<text x="808" y="318" class="dg-acc" text-anchor="middle">①→③ 감사 로그 · trace 규격 W12 (#5a)</text>
 
-<line x1="14" y1="306" x2="926" y2="306" class="dg-ln" stroke-opacity=".25"/>
-<text x="14" y="326" class="dg-tb">③의 논리 — 새로 설계하지 않는다. 잰다.</text>
+<line x1="14" y1="336" x2="926" y2="336" class="dg-ln" stroke-opacity=".25"/>
+<text x="14" y="356" class="dg-tb">③의 논리 — 새로 설계하지 않는다. 잰다.</text>
 
 <!-- 3원 입력 -->
-<text x="102" y="348" class="dg-m" text-anchor="middle">3원 입력</text>
-<rect x="14" y="356" width="176" height="30" rx="4" class="dg-box"/>
-<text x="102" y="375" class="dg-t" text-anchor="middle">전사 MLOps 현황</text>
-<rect x="14" y="394" width="176" height="30" rx="4" class="dg-box"/>
-<text x="102" y="413" class="dg-t" text-anchor="middle">CLX 현황 · SP2.0 40개</text>
-<rect x="14" y="432" width="176" height="30" rx="4" class="dg-box"/>
-<text x="102" y="451" class="dg-t" text-anchor="middle">외부 Best Practice</text>
-<path d="M190 371 L222 371 L222 402 L246 402" class="dg-ln" marker-end="url(#ar-m1)"/>
-<path d="M190 409 L246 409" class="dg-ln" marker-end="url(#ar-m1)"/>
-<path d="M190 447 L222 447 L222 416 L246 416" class="dg-ln" marker-end="url(#ar-m1)"/>
+<text x="102" y="378" class="dg-m" text-anchor="middle">3원 입력</text>
+<rect x="14" y="386" width="176" height="30" rx="4" class="dg-box"/>
+<text x="102" y="405" class="dg-t" text-anchor="middle">전사 MLOps 현황</text>
+<rect x="14" y="424" width="176" height="30" rx="4" class="dg-box"/>
+<text x="102" y="443" class="dg-t" text-anchor="middle">CLX 현황 · SP2.0 40개</text>
+<rect x="14" y="462" width="176" height="30" rx="4" class="dg-box"/>
+<text x="102" y="481" class="dg-t" text-anchor="middle">외부 Best Practice</text>
+<path d="M190 401 L222 401 L222 432 L246 432" class="dg-ln" marker-end="url(#ar-m1)"/>
+<path d="M190 439 L246 439" class="dg-ln" marker-end="url(#ar-m1)"/>
+<path d="M190 477 L222 477 L222 446 L246 446" class="dg-ln" marker-end="url(#ar-m1)"/>
 
 <!-- chain -->
-<rect x="250" y="372" width="180" height="80" rx="5" class="dg-hi"/>
-<text x="340" y="398" class="dg-acc" text-anchor="middle">Gap 분석</text>
-<text x="340" y="418" class="dg-s" text-anchor="middle">관리영역 · 프로세스</text>
-<text x="340" y="433" class="dg-s" text-anchor="middle">· R&R 3축 분해</text>
-<text x="340" y="448" class="dg-m" text-anchor="middle">M1 · M3</text>
+<rect x="250" y="402" width="180" height="80" rx="5" class="dg-hi"/>
+<text x="340" y="428" class="dg-acc" text-anchor="middle">Gap 분석</text>
+<text x="340" y="448" class="dg-s" text-anchor="middle">관리영역 · 프로세스</text>
+<text x="340" y="463" class="dg-s" text-anchor="middle">· R&amp;R 3축 분해</text>
+<text x="340" y="478" class="dg-m" text-anchor="middle">M1 · M3</text>
 
-<path d="M430 412 L466 412" class="dg-ln-a" marker-end="url(#ar-m1a)"/>
-<text x="448" y="404" class="dg-s" text-anchor="middle">1:1</text>
-<text x="448" y="430" class="dg-s" text-anchor="middle">역추적</text>
+<path d="M430 442 L466 442" class="dg-ln-a" marker-end="url(#ar-m1a)"/>
+<text x="448" y="434" class="dg-s" text-anchor="middle">1:1</text>
+<text x="448" y="460" class="dg-s" text-anchor="middle">역추적</text>
 
-<rect x="470" y="372" width="180" height="80" rx="5" class="dg-fill"/>
-<text x="560" y="398" class="dg-tb" text-anchor="middle">보완 요건 · 개선과제</text>
-<text x="560" y="418" class="dg-s" text-anchor="middle">CLX 자체 개선 /</text>
-<text x="560" y="433" class="dg-s" text-anchor="middle">전사 공통 · 협의</text>
-<text x="560" y="448" class="dg-m" text-anchor="middle">M2 · M4</text>
+<rect x="470" y="402" width="180" height="80" rx="5" class="dg-fill"/>
+<text x="560" y="428" class="dg-tb" text-anchor="middle">보완 요건 · 개선과제</text>
+<text x="560" y="448" class="dg-s" text-anchor="middle">CLX 자체 개선 /</text>
+<text x="560" y="463" class="dg-s" text-anchor="middle">전사 공통 · 협의</text>
+<text x="560" y="478" class="dg-m" text-anchor="middle">M2 · M4</text>
 
-<path d="M650 412 L686 412" class="dg-ln-a" marker-end="url(#ar-m1a)"/>
-<text x="668" y="404" class="dg-s" text-anchor="middle">운영</text>
-<text x="668" y="430" class="dg-s" text-anchor="middle">규칙화</text>
+<path d="M650 442 L686 442" class="dg-ln-a" marker-end="url(#ar-m1a)"/>
+<text x="668" y="434" class="dg-s" text-anchor="middle">운영</text>
+<text x="668" y="460" class="dg-s" text-anchor="middle">규칙화</text>
 
-<rect x="690" y="372" width="200" height="80" rx="5" class="dg-warn"/>
-<text x="790" y="398" class="dg-sig" text-anchor="middle">운영 기준 · 대응체계</text>
-<text x="790" y="418" class="dg-s" text-anchor="middle">탐지 지표 · 임계</text>
-<text x="790" y="433" class="dg-s" text-anchor="middle">kill switch 절차</text>
-<text x="790" y="448" class="dg-m" text-anchor="middle">M5</text>
+<rect x="690" y="402" width="200" height="80" rx="5" class="dg-warn"/>
+<text x="790" y="428" class="dg-sig" text-anchor="middle">운영 기준 · 대응체계</text>
+<text x="790" y="448" class="dg-s" text-anchor="middle">탐지 지표 · 임계</text>
+<text x="790" y="463" class="dg-s" text-anchor="middle">kill switch 절차</text>
+<text x="790" y="478" class="dg-m" text-anchor="middle">M5</text>
 
 <!-- 출력 -->
-<path d="M340 452 L340 466" class="dg-ln" marker-end="url(#ar-m1)"/>
-<path d="M560 452 L560 466" class="dg-ln" marker-end="url(#ar-m1)"/>
-<path d="M790 452 L790 466" class="dg-ln" marker-end="url(#ar-m1)"/>
-<rect x="250" y="470" width="640" height="32" rx="4" class="dg-box"/>
-<text x="570" y="490" class="dg-sig" text-anchor="middle">출력 = 방향성 · 요건 · 운영 주체 R&R 협의 사항 — 전사 합의 전에는 확정 불가</text>
+<path d="M340 482 L340 496" class="dg-ln" marker-end="url(#ar-m1)"/>
+<path d="M560 482 L560 496" class="dg-ln" marker-end="url(#ar-m1)"/>
+<path d="M790 482 L790 496" class="dg-ln" marker-end="url(#ar-m1)"/>
+<rect x="250" y="500" width="640" height="32" rx="4" class="dg-box"/>
+<text x="570" y="520" class="dg-sig" text-anchor="middle">출력 = 방향성 · 요건 · 운영 주체 R&amp;R 협의 사항 — 전사 합의 전에는 확정 불가</text>
 </svg>
-<figcaption><b>③은 없는 것을 만드는 과업이 아니라 있는 것을 재는 과업이다</b> — 전사 현황·CLX 현황·외부 Best Practice 3원을 맞대어 <b>Gap을 관리영역·프로세스·R&R 3축으로 분해</b>하고, 그 Gap마다 1:1로 역추적되는 보완 요건을 내고, 마지막에 운영 기준과 대응체계로 굳힌다. 앞의 절반(M1·M2)은 이미 돌고 있는 MLOps를 진단하는 구간이고, 뒤의 절반(M3~M5)은 아직 없는 AgentOps를 정의하는 구간이다. <b>점선 세 줄이 ①과의 인계 시점</b>이다. <b>주의 — W11 인계는 M4(W8–W10)가 끝난 뒤에 도착한다.</b> “늦으면”이 아니라 <b>일정상 확정된 사실</b>이므로, M4의 도구·Agent 등록 요건은 ①의 P5 중간 산출(W8 초안)로 <b>잠정 확정</b>하고 W11 확정본을 M5에서 반영하는 <b>2단 구조</b>로 짜야 한다. Part 4 인터페이스 #4a·#4b가 그 2단화다. Lineage(#5b)도 같은 이유로 W13이며, ③은 W12 초안으로 M5를 진행한다.</figcaption>
+<figcaption><b>③은 없는 것을 만드는 과업이 아니라 있는 것을 재는 과업이다</b> — 전사 현황·CLX 현황·외부 Best Practice 3원을 맞대어 <b>Gap을 관리영역·프로세스·R&amp;R 3축으로 분해</b>하고, 그 Gap마다 1:1로 역추적되는 보완 요건을 내고, 마지막에 운영 기준과 대응체계로 굳힌다. 앞의 절반(M1·M2)은 이미 돌고 있는 MLOps를 진단하는 구간이고, 뒤의 절반(M3~M5)은 아직 없는 AgentOps를 정의하는 구간이다. <b>점선 다섯 줄이 ①③ 사이의 인계 시점</b>이다. <b>주의 — W11 인계는 M4(W8–W10)가 끝난 뒤에 도착한다.</b> “늦으면”이 아니라 <b>일정상 확정된 사실</b>이므로, M4의 도구·Agent 등록 요건은 ①의 P5 중간 산출(W8 초안)로 <b>잠정 확정</b>하고 W11 확정본을 M5에서 반영하는 <b>2단 구조</b>로 짜야 한다. Part 4 인터페이스 #4a·#4b가 그 2단화다. Lineage(#5b)도 같은 이유로 W13이며, ③은 W12 초안으로 M5를 진행한다.</figcaption>
 </figure>
   <h3>③ MLOps · AgentOps 고도화 방향성 — 방법론 골격</h3>
   <p class="lede">성격이 <b>진단형</b>입니다. ①·②처럼 새로 설계하는 것이 아니라 <b>전사 체계와 Best Practice 대비 Gap을 재고 보완 방향을 제시</b>하는 것이 본질입니다.</p>
@@ -3547,7 +3574,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="mk">M2</td><td>MLOps 사용자 요건 · 개선과제</td><td class="c mk">W4–6</td><td>요건이 <b>CLX 자체 개선</b> / <b>전사 공통·협의</b> 로 이분<br>개선과제가 Gap으로 역추적 가능</td></tr>
       <tr><td class="mk">M3</td><td>AgentOps 외부 BP · 추진방향</td><td class="c mk">W6–8</td><td>Agent 운영의 <b>관리 범위 확정</b> — 무엇을 AgentOps가 책임지는가<br>①의 Agent 카드·도구 카탈로그와 <b>중복 없음</b> 확인</td></tr>
       <tr><td class="mk">M4</td><td>AgentOps 방향성 · 요건 정의</td><td class="c mk">W8–10</td><td>Agent 등록·배포·버전·평가·회수 <b>생애주기 전 단계</b> 요건<br>운영 주체 및 R&amp;R 협의 사항 도출</td></tr>
-      <tr><td class="mk">M5</td><td>운영 · 모니터링 기준 · 대응체계</td><td class="c mk">W9–13</td><td>품질 저하·오작동 <b>탐지 지표와 임계</b><br><b>비상 정지(kill switch) 절차</b> — 차단 권한자 · 경로 · 목표 소요시간 · 해제 절차. <b>차단 단위를 3단(Agent 단위 / 도구 단위 / 전체)으로 분리</b><br><b>Agent 평가셋</b> — 배포 전 통과 기준 및 배포 후 정기 실행. 규모 — <b>W14까지 확보 가능한 소재는 ②의 질의 30~50건 + ①의 대표 횡단 질의 5건 = 35~55건뿐</b>이다. 따라서 본 과업의 산출은 <b>「평가셋 설계 규격 + 초기 시드 50~80쌍」</b>이며, <b>300~500쌍은 운영 이관 후 목표치</b>로 명시한다(질의 1건에서 정상·경계·거부 3변형을 파생하는 확장 규칙 포함). <b>과업 기간 내 300~500쌍은 소재상 불가능하므로 그렇게 적으면 미달로 마감된다.</b> 소재 출처는 ②의 K3B 산출물 <b>#5 「필요 데이터 유형 및 요건」</b>과 ①의 대표 횡단 질의다, <b>점수 하락이 곧 롤백 트리거</b></td></tr>
+      <tr><td class="mk">M5</td><td>운영 · 모니터링 기준 · 대응체계</td><td class="c mk">W9–13</td><td>품질 저하·오작동 <b>탐지 지표와 임계</b><br><b>비상 정지(kill switch) 절차</b> — 차단 권한자 · 경로 · 목표 소요시간 · 해제 절차. <b>차단 단위를 3단(Agent 단위 / 도구 단위 / 전체)으로 분리</b><br><b>Agent 평가셋</b> — 배포 전 통과 기준 및 배포 후 정기 실행. 규모 — <b>W14까지 확보 가능한 소재는 ②의 질의 30~50건 + ①의 대표 횡단 질의 5건 = 35~55건뿐</b>이다. 따라서 본 과업의 산출은 <b>「평가셋 설계 규격 + 초기 시드 50~80쌍」</b>이며, <b>300~500쌍은 운영 이관 후 목표치</b>로 명시한다(질의 1건에서 정상·경계·거부 3변형을 파생하는 확장 규칙 포함). <b>과업 기간 내 300~500쌍은 소재상 불가능하므로 그렇게 적으면 미달로 마감된다.</b> 소재는 <b>②의 K1 질의 원문 목록(인터페이스 #9, W4)</b>과 <b>①의 대표 횡단 질의(인터페이스 #10, W4)</b>로 받는다. ②의 K3B 산출물 #5·#6은 <b>축적 로드맵</b>이지 질의 원문이 아니므로 시드 소재가 될 수 없다.<br><b>점수 하락이 곧 롤백 트리거</b></td></tr>
       <tr style="background:var(--signal-soft)"><td class="mk">M6</td><td><b>통합 · 보고 · 이관</b> <span style="font-size:12px">(신설)</span></td><td class="c mk">W13–14</td><td><b>기대 산출물 4종 제출 및 이관.</b> 기존 간트가 W13에 끝나 <b>①②의 W14 최종보고와 어긋나 있었다</b><br>전사 MLOps TF·DT 추진실로 운영 요건 이관, ①의 Lineage 확정본(#5b, W13) 반영 확인</td></tr>
     </tbody>
   </table></div>
@@ -3797,7 +3824,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <path d="M802 174 L816 174" class="dg-ln" marker-end="url(#ar-m3)"/>
 
 <!-- loop -->
-<path d="M750 304 L750 326 L628 326 L628 308" class="dg-ln-a" marker-end="url(#ar-m3)"/>
+<path d="M750 304 L750 326 L628 326 L628 306" class="dg-ln-a" marker-end="url(#ar-m3)"/>
 <text x="689" y="344" class="dg-acc" text-anchor="middle">재평가를 통과해야 다시 운영으로 — 상시 순환</text>
 </svg>
 <figcaption><b>①이 규격을 만들고 ③이 그 규격으로 운영한다</b> — 위 칸(주의색)은 본 과업 ①이 산출하는 양식·표준·원칙이고, 아래 칸은 ③이 실제로 수행하는 행위다. <b>경계는 ‘기획’과 ‘등록’ 사이</b>에서 갈린다. 기획·정의는 ①이 하고, 등록 시점부터 Agent는 ③의 운영 대상이 된다. 위 칸이 비면 ③은 근거 없이 운영하게 되므로, <b>Agent 카드 양식(W11)과 감사 로그·trace 규격(W12) 인계가 이 그림의 전제</b>다. 은퇴는 끝이 아니라 권한 회수·도구 등록 해제·로그 보존이 함께 일어나는 절차다.</figcaption>
@@ -3875,7 +3902,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <rect x="250" y="308" width="350" height="104" rx="5" class="dg-warn"/>
 <circle cx="272" cy="336" r="11" class="dg-warn"/>
 <text x="272" y="341" class="dg-sig" text-anchor="middle">3</text>
-<text x="292" y="341" class="dg-t">Agent 평가셋 — 300~500 Q&A쌍</text>
+<text x="292" y="341" class="dg-t">Agent 평가셋 — 설계 규격 + 시드 50~80쌍</text>
+<text x="292" y="358" class="dg-m">300~500쌍은 운영 이관 후 목표 — 기간 내 소재 35~55건</text>
 <text x="292" y="366" class="dg-s">배포 전 통과 기준 · 배포 후 정기 실행</text>
 <text x="292" y="384" class="dg-s">오호출 · 근거 없는 답 · 권한 밖 결합을 항목화</text>
 <text x="292" y="402" class="dg-m">점수 하락이 곧 롤백 트리거</text>
@@ -3897,7 +3925,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <tbody>
       <tr style="background:var(--crit-soft)"><td><b>모델ID·버전·프롬프트 해시 기록</b></td><td>같은 질문에 답이 달라지는 주된 원인은 <b>모델 교체</b>. 당시 모델을 재현할 수 없으면 <b>사고 조사와 책임 규명이 불가능</b></td><td>감사 로그 스키마 (①이 규격 정의)</td></tr>
       <tr style="background:var(--crit-soft)"><td><b>비상 정지 (kill switch)</b></td><td>Agent 오작동·원천 과부하 시 <b>누가 어떤 경로로 몇 분 안에 끊는가.</b> 레이트리밋은 남용 방지이지 kill switch가 아님</td><td>L3 횡단 관심사 — 격리·서킷 요건</td></tr>
-      <tr style="background:var(--crit-soft)"><td><b>Agent 평가셋</b></td><td>“잘 되고 있는지” 판정 수단이 없으면 <b>운영이 아니라 방치</b>. 300~500 Q&amp;A쌍 규모</td><td>②의 K3B 산출물(D06 평가셋)과 ①의 대표 횡단 질의</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>Agent 평가셋</b></td><td>“잘 되고 있는지” 판정 수단이 없으면 <b>운영이 아니라 방치</b>. 본 과업 산출은 <b>설계 규격 + 시드 50~80쌍</b>이며 300~500쌍은 <b>운영 이관 후 목표</b> (3.1 M5 · MR5)</td><td>②의 <b>K1 질의 원문 목록(인터페이스 #9)</b>과 ①의 <b>대표 횡단 질의(#10)</b> — 둘 다 <b>W4 인계</b></td></tr>
     </tbody>
   </table></div>
   <p class="note crit" style="margin-top:14px">①이 <b>P-ACT(쓰기) 제외 근거</b>로 든 <b>“책임 소재가 정리되지 않았다”</b>는 논리는, 재현이 불가능하면 <b>읽기에도 그대로 적용</b>됩니다. 모델 버전 기록이 없으면 읽기 Agent조차 보안 승인을 받기 어려울 수 있습니다.</p>
@@ -3961,17 +3989,19 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="tw"><table>
     <thead><tr><th style="width:36px">#</th><th style="width:70px">방향</th><th style="width:210px">인계 항목</th><th class="c" style="width:60px">시점</th><th>받는 쪽에서 무엇이 되는가 · 늦으면</th></tr></thead>
     <tbody>
-      <tr style="background:var(--accent-soft)"><td class="num">1a</td><td class="mk">① → ②</td><td><b>Tag · 설비 · 공정 — 스키마 층</b><br><span style="font-size:12px">Entity 명칭 · 키 구조 · <b>관계 타입 목록</b></span></td><td class="c mk">W4</td><td><b>분할 인계의 앞단.</b> ②의 K2(W5 종료)가 필요한 것은 값이 아니라 <b>스키마</b>뿐이다. 이것을 W9에 두면 “①이 만드는 것을 재사용한다”는 2.3의 원칙이 <b>일정상 불가능</b>해진다 — K2가 이미 끝난 뒤 도착하기 때문. <b>W4 선인계가 이 모순을 해소하는 유일한 방법</b></td></tr>
+      <tr style="background:var(--accent-soft)"><td class="num">1a</td><td class="mk">① → ②</td><td><b>Tag · 설비 · 공정 — 스키마 층</b><br><span style="font-size:12px">Entity 명칭 · 키 구조 · <b>관계 타입 목록</b></span></td><td class="c mk">W4</td><td><b>분할 인계의 앞단.</b> ②의 K2(W5 종료)가 필요한 것은 값이 아니라 <b>스키마</b>뿐이다. 이것을 W9에 두면 “①이 만드는 것을 재사용한다”는 2.3의 원칙이 <b>일정상 불가능</b>해진다 — K2가 이미 끝난 뒤 도착하기 때문. <b>W4 시점의 인계물은 확정 스키마가 아니라 「Entity 명칭 · 키 구조 · <b>관계 타입 후보 목록</b>」의 잠정판이다</b> — ①의 P3-2(횡단 식별자 표준화)가 W5–W8이고 표준 확정 마일스톤이 W8이기 때문이다. ②는 <b>바뀔 수 있음을 전제로 받고</b>, 차이는 <b>K2R(W9–10)에서 100% 처분 결정</b>한다. <b>시차 자체를 없애는 방법은 없으며, 이 2단 구조는 시차를 관리하는 방식이지 해소하는 방식이 아니다</b></td></tr>
       <tr style="background:var(--accent-soft)"><td class="num">1b</td><td class="mk">① → ②</td><td><b>Tag · 설비 · 공정 Meta — 데이터 층</b><br><span style="font-size:12px">값 · 매핑 인스턴스 · <span class="pat">valid_from/valid_to</span> · 매핑 신뢰도</span></td><td class="c mk">W9</td><td>K2 산출물의 <b>정합 검증 입력.</b> W9~W10에 <b>K2R 재정합 게이트</b>를 두어 W4 잠정 스키마와 실제 값의 차이를 반영한다. 게이트 없이 넘기면 어긋남이 W13에 발견된다</td></tr>
       <tr><td class="num">2</td><td class="mk">② → ①</td><td>문서 메타 표준 · 통제어휘 사전</td><td class="c mk">W6</td><td>①의 코드 사전·별칭 사전과 용어 정합. 늦으면 같은 설비를 다르게 부르는 사전이 두 개 생김</td></tr>
       <tr style="background:var(--signal-soft)"><td class="num">3</td><td class="mk">①↔②</td><td><b>근무일지 · 정비이력 텍스트 분할 기준</b><br><span style="font-size:12px">개인정보 판정 주체 포함</span></td><td class="c mk">W1</td><td><b>합의 실패 시 양쪽이 같은 데이터를 각자 설계.</b> 가장 시급</td></tr>
       <tr style="background:var(--accent-soft)"><td class="num">4a</td><td class="mk">① → ③</td><td><b>도구 명세 · Agent 카드 — 초안</b><br><span style="font-size:12px">항목 구조 · 필수 필드 목록</span></td><td class="c mk">W8</td><td><b>2단 인계의 앞단.</b> ③의 M4는 W8–W10이므로 <b>W11 확정본은 M4에 도달하지 못한다.</b> M4가 필요한 것은 양식의 <b>항목 구조</b>뿐이므로 ①의 P5 중간 산출을 초안으로 넘긴다. 이것이 없으면 ③이 자체 양식을 만들어 이중 관리가 된다</td></tr>
-      <tr style="background:var(--accent-soft)"><td class="num">4b</td><td class="mk">① → ③</td><td><b>도구 명세 표준 · Agent 카드 양식 — 확정</b></td><td class="c mk">W11</td><td>M5(W10–W13)에서 초안 대비 차이를 반영. <b>M4 산출물은 이 시점에 재확인 대상</b>이 된다</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="num">4b</td><td class="mk">① → ③</td><td><b>도구 명세 표준 · Agent 카드 양식 — 확정</b></td><td class="c mk">W11</td><td>M5(W9–W13)에서 초안 대비 차이를 반영. <b>M4 산출물은 이 시점에 재확인 대상</b>이 된다</td></tr>
       <tr style="background:var(--accent-soft)"><td class="num">5a</td><td class="mk">① → ③</td><td><b>감사 로그 헤더 규격 · trace 전파 규격</b><br><span style="font-size:12px">P5 산출의 확정 부분</span></td><td class="c mk">W12</td><td>③의 M5(관측·감사) 설계 입력. <b>W9까지 이관 범위를 확정</b>하지 못하면 Phase 6의 5주가 이중 투자</td></tr>
       <tr style="background:var(--accent-soft)"><td class="num">5b</td><td class="mk">① → ③</td><td><b>Lineage 요건 · 변경관리 · 고도화 방안</b></td><td class="c mk">W13</td><td>산출물 #11의 제출 시점(P6 종료 W13)과 일치시킨 것이다. <b>W12로 적으면 산출물 일정과 모순</b>된다. ③은 W12에 <b>초안</b>을 받아 M5를 진행하고 W13 확정본으로 갱신한다</td></tr>
       <tr><td class="num">6</td><td class="mk">③ → ①</td><td>모델 배치 방식 · 플랫폼 제약</td><td class="c mk">W7</td><td>①의 데이터 등급×모델 배치 매트릭스 확정. <b>C1 데이터 활용 가능 여부가 여기서 갈림</b></td></tr>
       <tr><td class="num">7</td><td class="mk">③ → ②</td><td>RAG 파이프라인 요건</td><td class="c mk">W11</td><td>②의 Knowledge Hub 요건과 정합. 청킹·색인 단위가 어긋나면 재작업</td></tr>
       <tr><td class="num">8</td><td class="mk">② → ③</td><td>지식 데이터 축적 로드맵</td><td class="c mk">W12</td><td>③의 학습·평가 데이터 계획 입력</td></tr>
+      <tr style="background:var(--crit-soft)"><td class="num">9</td><td class="mk">② → ③</td><td><b>현업 실제 질의 원문 목록 30~50건</b><br><span style="font-size:12px">K1 산출 · 요약하지 말고 원문 그대로</span></td><td class="c mk">W4</td><td><b>③ 평가셋 시드의 유일한 소재다.</b> 이 인계가 표에 없어서 M5의 “소재 35~55건” 계산에 도달 경로가 없었다. K1 종료(W3) 직후 전달. <b>W12까지 밀리면 W13 제출까지 1주 만에 50~80쌍을 설계·검수해야 해 불가능</b></td></tr>
+      <tr style="background:var(--crit-soft)"><td class="num">10</td><td class="mk">① → ③</td><td><b>대표 횡단 질의 5건 + 기대 답변 · 근거</b><br><span style="font-size:12px">P1 산출</span></td><td class="c mk">W4</td><td>위와 같다. ③의 평가셋에서 <b>횡단 조인이 필요한 난이도 구간</b>을 담당한다. P1 종료(W3) 직후</td></tr>
     </tbody>
   </table></div>
 
@@ -4031,7 +4061,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="pl">Part 5</div>
   <h2>수행 관리</h2>
   <p class="pd">세 과업 + 공통 과업의 산출물 명세 · 인력계획 정합 · 투입 계획 · 거버넌스 · 리스크 · 착수보고 장표 · 실무 템플릿 · 예상 질의응답. <b>상세 서술은 ① 기준</b>이며, ②③은 명세·투입·조기경보 수준으로 다룹니다.</p>
-  <div class="pm"><span><b>내부 투입</b> 약 66 M/D</span><span><b>템플릿</b> 6종</span><span><b>Q&amp;A</b> 42문항</span></div>
+  <div class="pm"><span><b>내부 투입</b> ① 66 · 3과업 합계 120~135 M/D</span><span><b>템플릿</b> 6종</span><span><b>Q&amp;A</b> 42문항</span></div>
 </div>
 
 <!-- 11 -->
@@ -4063,25 +4093,25 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <h3>② · ③ 산출물 명세와 ④ 공통 과업</h3>
   <p class="lede">본 문서는 ① 중심으로 쓰였으나, <b>수행 관리는 세 과업 + 공통 과업을 한 표에서 봐야 합니다.</b> 기획서 기준 총 <b>27종</b>이며 본 문서에 24종(① 12 · ② 8 · ③ 4)이 과업별로 명세되어 있고, <b>나머지 3종이 아래 「④ 공통 과업」</b>입니다.</p>
   <div class="tw"><table>
-    <thead><tr><th style="width:44px">#</th><th style="width:250px">② Knowledge 산출물 8종</th><th class="c" style="width:60px">Phase</th><th class="c" style="width:66px">제출</th><th>검수 통과 기준</th></tr></thead>
+    <thead><tr><th style="width:44px">#</th><th style="width:250px">② Knowledge 산출물 8종</th><th class="c" style="width:60px">Phase</th><th class="c" style="width:80px">제출</th><th style="width:100px">검수 주체</th><th>검수 통과 기준</th></tr></thead>
     <tbody>
-      <tr><td class="num">1</td><td>CLX Ontology 표준 모델</td><td class="c mk">K2</td><td class="c mk">W5</td><td>질의 목록 80% 이상 표현 가능 · <b>W1 In/Out 합의 범위 준수</b></td></tr>
-      <tr><td class="num">2</td><td>메타데이터 표준 · 태깅 체계</td><td class="c mk">K2</td><td class="c mk">W5</td><td>자동추출·양식내재 60% 이상 · 태깅 불일치 10% 이하 · 추가 입력 30초/건 이하</td></tr>
-      <tr><td class="num">3</td><td>지식 구조화 표준 (대표 유형 3종)</td><td class="c mk">K3</td><td class="c mk">W9</td><td><b>파일럿 50건 전환 완료</b> — 유형별 배분을 W5에 확정하고 총계와 일치시킬 것</td></tr>
-      <tr><td class="num">4</td><td>지식 축적 · 품질관리 방안</td><td class="c mk">K3</td><td class="c mk">W9</td><td>품질 4지표 측정치 확보 + 개선 목표치</td></tr>
-      <tr><td class="num">5</td><td>필요 데이터 유형 및 요건</td><td class="c mk">K3B</td><td class="c mk">W12</td><td>모든 요건이 실제 질의로 역추적 가능 (근거 없는 요건 0건)</td></tr>
-      <tr><td class="num">6</td><td>학습 데이터 축적 우선순위 · 개발 로드맵</td><td class="c mk">K3B</td><td class="c mk">W12</td><td>Top N의 확보 방식·기간·투입 산정</td></tr>
-      <tr><td class="num">7</td><td>Knowledge Hub 사용자 요건</td><td class="c mk">K4</td><td class="c mk">W13</td><td>페르소나별 User Story + 수용기준</td></tr>
-      <tr><td class="num">8</td><td>Knowledge Hub 구축 방안</td><td class="c mk">K4</td><td class="c mk">W13</td><td>3개 아키텍처 대안 동일 기준 평가 + 권고 사유</td></tr>
+      <tr><td class="num">1</td><td>CLX Ontology 표준 모델</td><td class="c mk">K2</td><td class="c mk">W5 (v1.0)<br><b>W10 재제출 (v1.1)</b><br><span style="font-size:12px">K2R 반영</span></td><td>DT 추진실 · ①</td><td>질의 목록 80% 이상 표현 가능 · <b>W1 In/Out 합의 범위 준수</b></td></tr>
+      <tr><td class="num">2</td><td>메타데이터 표준 · 태깅 체계</td><td class="c mk">K2</td><td class="c mk">W5</td><td>각 부서 문서 담당</td><td>자동추출·양식내재 60% 이상 · 태깅 불일치 10% 이하 · 추가 입력 30초/건 이하</td></tr>
+      <tr><td class="num">3</td><td>지식 구조화 표준 (대표 유형 3종)</td><td class="c mk">K3</td><td class="c mk">W9</td><td>생산기술 현업</td><td><b>파일럿 50건 전환 완료</b> — 유형별 배분을 W5에 확정하고 총계와 일치시킬 것</td></tr>
+      <tr><td class="num">4</td><td>지식 축적 · 품질관리 방안</td><td class="c mk">K3</td><td class="c mk">W9</td><td>생산기술 현업</td><td>품질 4지표 측정치 확보 + 개선 목표치</td></tr>
+      <tr><td class="num">5</td><td>필요 데이터 유형 및 요건</td><td class="c mk">K3B</td><td class="c mk">W12</td><td>DT 추진실 · ③</td><td>모든 요건이 실제 질의로 역추적 가능 (근거 없는 요건 0건)</td></tr>
+      <tr><td class="num">6</td><td>학습 데이터 축적 우선순위 · 개발 로드맵</td><td class="c mk">K3B</td><td class="c mk">W12</td><td>DT 추진실 · ③</td><td>Top N의 확보 방식·기간·투입 산정</td></tr>
+      <tr><td class="num">7</td><td>Knowledge Hub 사용자 요건</td><td class="c mk">K4</td><td class="c mk">W13</td><td>DT 추진실 · 전사 IT</td><td>페르소나별 User Story + 수용기준</td></tr>
+      <tr><td class="num">8</td><td>Knowledge Hub 구축 방안</td><td class="c mk">K4</td><td class="c mk">W13</td><td>DT 추진실 · 전사 IT</td><td>3개 아키텍처 대안 동일 기준 평가 + 권고 사유</td></tr>
     </tbody>
   </table></div>
   <div class="tw" style="margin-top:14px"><table>
-    <thead><tr><th style="width:44px">#</th><th style="width:250px">③ MLOps·AgentOps 산출물 4종</th><th class="c" style="width:60px">Phase</th><th class="c" style="width:66px">제출</th><th>검수 통과 기준</th></tr></thead>
+    <thead><tr><th style="width:44px">#</th><th style="width:250px">③ MLOps·AgentOps 산출물 4종</th><th class="c" style="width:60px">Phase</th><th class="c" style="width:66px">제출</th><th style="width:110px">검수 주체</th><th>검수 통과 기준</th></tr></thead>
     <tbody>
-      <tr><td class="num">1</td><td>CLX MLOps Gap 및 고도화 요건</td><td class="c mk">M1·M2</td><td class="c mk">W6</td><td>Gap이 관리영역·프로세스·R&amp;R 축으로 분해됨 · <b>표본 범위 명시</b>(MR2)</td></tr>
-      <tr><td class="num">2</td><td>CLX MLOps 개선과제 및 적용방안</td><td class="c mk">M2</td><td class="c mk">W6</td><td>과제가 Gap으로 역추적 가능 · <b>CLX 자체 / 전사 공통 이분</b></td></tr>
-      <tr><td class="num">3</td><td>전사 / CLX AgentOps 현황 및 방향성</td><td class="c mk">M3</td><td class="c mk">W8</td><td>관리 범위 확정 · ①의 Agent 카드·도구 카탈로그와 중복 없음 확인</td></tr>
-      <tr><td class="num">4</td><td>CLX AgentOps 방향성 및 요건</td><td class="c mk">M4·M5</td><td class="c mk">W13</td><td>생애주기 전 단계 요건 · kill switch 3단 · <b>평가셋 설계 규격 + 시드 50~80쌍</b></td></tr>
+      <tr><td class="num">1</td><td>CLX MLOps Gap 및 고도화 요건</td><td class="c mk">M1·M2</td><td class="c mk">W6</td><td>DT 추진실 · 전사 MLOps TF</td><td>Gap이 관리영역·프로세스·R&amp;R 축으로 분해됨 · <b>표본 범위 명시</b>(MR2)</td></tr>
+      <tr><td class="num">2</td><td>CLX MLOps 개선과제 및 적용방안</td><td class="c mk">M2</td><td class="c mk">W6</td><td>DT 추진실</td><td>과제가 Gap으로 역추적 가능 · <b>CLX 자체 / 전사 공통 이분</b></td></tr>
+      <tr><td class="num">3</td><td>전사 / CLX AgentOps 현황 및 방향성</td><td class="c mk">M3</td><td class="c mk">W8</td><td>DT 추진실 · ①</td><td>관리 범위 확정 · ①의 Agent 카드·도구 카탈로그와 중복 없음 확인</td></tr>
+      <tr><td class="num">4</td><td>CLX AgentOps 방향성 및 요건</td><td class="c mk">M4·M5</td><td class="c mk">W13</td><td>DT 추진실 · 전사 IT</td><td>생애주기 전 단계 요건 · kill switch 3단 · <b>평가셋 설계 규격 + 시드 50~80쌍</b></td></tr>
     </tbody>
   </table></div>
 
@@ -4106,7 +4136,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <tbody>
       <tr style="background:var(--crit-soft)"><td><b>투입 종료 11/30<br>vs 최종보고 W14</b></td><td>W13–14의 <b>②의 K5(통합·보고·이관), ③의 M6, 공통 과업 #3(로드맵)</b>에 담당이 없다. 세 개가 모두 마감 산출물이다</td><td>㉠ 해당 인원의 투입을 <b>12/13까지 연장</b> — 가장 단순<br>㉡ <b>W14 전용 마감 인력을 별도 배정</b>(PM + 각 과업 1명)<br>㉢ ②③의 산출물 제출을 <b>W12로 앞당기고</b> W13–14는 통합·보고만 — <b>K4·M5의 기간이 각각 1주씩 줄어드는 대가</b>를 감수<br><b>㉠을 권고합니다.</b> ㉢은 품질 저하가 K4(Hub 구축 방안)에 집중되는데, 이것이 차년도 투자 의사결정의 근거 문서다</td></tr>
       <tr style="background:var(--crit-soft)"><td><b>② 매니저 09/21 합류<br>vs K0 워크숍 W1</b></td><td>K0의 유일한 실질 산출물인 <b>「Ontology In/Out 서면 합의」</b>를 담당자 없이 하게 된다. 이 합의가 KR1의 유일한 방어선이다</td><td>㉠ <b>K0 워크숍을 W3으로 이동</b> — K1(W1–3)과 병행 가능하므로 일정 손실이 거의 없다. <b>권고</b><br>㉡ PM이 대리 진행하고 W3에 재확인 — 재확인이 실질적으로 재협상이 되면 2주를 잃는다<br>㉢ 합류를 앞당김 — 통제 밖</td></tr>
-      <tr><td><b>①②③ 겸임 인력</b></td><td>①②를 겸임하는 인원이 있다. <b>W10–W13은 세 과업이 모두 현업을 요구하는 최대 부하 구간</b>(Part 4)이라 겸임이 성립하지 않는다</td><td>겸임 인력의 <b>W10–13 배분을 주 단위로 사전 고정</b>하고, 통합 현업 캘린더(협의 #8)에 반영. 고정하지 않으면 ②가 밀린다 — ①이 계약상 앞서기 때문</td></tr>
+      <tr><td><b>①②③ 겸임 인력</b></td><td>①②를 겸임하는 인원이 있다. <b>W10–W13은 세 과업이 모두 현업을 요구하는 최대 부하 구간</b>(Part 4)이라 겸임이 성립하지 않는다</td><td>겸임 인력의 <b>W10–13 배분을 주 단위로 사전 고정</b>하고, 통합 현업 캘린더(협의 #8)에 반영. 고정하지 않으면 겸임 인력이 임계 경로(①의 P4·P7)로 흡수되어 ②가 밀린다. <b>겸임 배분은 계약이 아니라 W1 합의로 정하고</b> 통합 현업 캘린더(협의 #8)에 주 단위로 기록한다</td></tr>
     </tbody>
   </table></div>
   <p class="note crit" style="margin-top:14px"><b>착수보고에서 먼저 꺼내십시오.</b> 이 셋은 수행팀이 스스로 해결할 수 없고, W7 중간보고에 발견되면 이미 조정 불가입니다. <b>“인력계획을 봤더니 세 지점이 일정과 맞지 않아 착수 전 조정을 요청드립니다”</b>가 신뢰를 얻는 방식입니다.</p>
@@ -4133,7 +4163,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <tbody>
       <tr><td class="mk">②</td><td>생산기술 현업(공정·설비), 각 부서 문서 관리 담당, 지식 보유 베테랑</td><td class="c mk">W2–3 인터뷰<br>W5–9 파일럿</td><td class="c mk">≈35~45</td><td><b>W2–3 인터뷰 대상이 ①과 동일 인물</b> — 합동 실시(협의 #1)로 절반 절감 가능. 파일럿 50건 전환의 <b>현업 검수</b>가 W10–13에 ①의 도구 설명 작성과 정면 충돌</td></tr>
       <tr><td class="mk">③</td><td>DT 추진실, 전사 MLOps TF, SP2.0 모델 담당자</td><td class="c mk">W1–5 현황조사<br>W8–13 요건 검토</td><td class="c mk">≈20~25</td><td>대상이 <b>현업이 아니라 IT·DT 조직</b>이라 ①②와 충돌은 적다. 다만 <b>①의 착수 자료 요청과 같은 조직</b>이므로 통합 요청 필요</td></tr>
-      <tr style="border-top:2px solid var(--rule)"><td colspan="3"><b>3과업 합계 (개략)</b></td><td class="c mk"><b>≈120~135</b></td><td>합동 인터뷰·통합 요청으로 <b>15~20 M/D 절감 가능</b>. 절감분이 곧 협조 피로 감소다</td></tr>
+      <tr style="background:var(--crit-soft)"><td class="mk">④ 공통</td><td>과업 오너(DT 추진실) + 각 과업 현업 검토자</td><td class="c mk">W7–10 개선기회<br>W10–12 추진과제<br>W12–14 로드맵</td><td class="c mk">≈6</td><td><b>PM 주관.</b> 성공의 정의를 담당하는 산출물인데 이전 판에는 공수가 0으로 잡혀 있었다 — <b>“조용히 실패한다”의 실제 원인이 이것이다.</b> 수행사측 공수는 별도 제시</td></tr>
+      <tr style="border-top:2px solid var(--rule)"><td colspan="3"><b>합계 (개략, ④ 포함)</b></td><td class="c mk"><b>≈126~141</b></td><td>합동 인터뷰·통합 요청으로 <b>15~20 M/D 절감 가능</b>. 절감분이 곧 협조 피로 감소다</td></tr>
     </tbody>
   </table></div>
   <p class="note warn" style="margin-top:14px"><b>①의 최대 부하 구간은 W10–W13</b>(도구 설명 작성 · 별칭 검수)입니다. 이 구간 <b>생산기술 현업 2명의 주 1일 확보</b>가 확정되지 않으면 T4·T6 산출물 품질을 보증할 수 없습니다. W2–W3(인터뷰), W4–W6(실측 입회)도 사전 예약이 필요합니다.</p>
@@ -4254,7 +4285,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td>현업 참여 없음</td><td>현업 작성 도구 명세 0건</td><td class="c mk">W7</td><td>컨설턴트 초안 → 현업 30분 검수 방식으로 전환</td></tr>
       <tr><td>보안 반려</td><td>W7 중간보고에 보안 사전검토 결과 없음</td><td class="c mk">W7</td><td>Steering 즉시 에스컬레이션</td></tr>
       <tr style="background:var(--signal-soft)"><td colspan="4"><b>② Knowledge — 조기 경보</b></td></tr>
-      <tr><td><b>Ontology 기대 충돌</b></td><td>W1 In/Out 표에 <b>서면 합의 서명이 없음</b></td><td class="c mk">W1</td><td>K1 착수를 미루지 말되 <b>Steering 안건으로 즉시 상정.</b> W3(② 매니저 합류)까지 미합의면 KR1 발동</td></tr>
+      <tr><td><b>Ontology 범위 프레임 미합의</b></td><td>W1에 <b>K0-a(배제 3항목) 서명이 없음</b></td><td class="c mk">W1</td><td>K1 착수를 미루지 말되 <b>Steering 안건으로 즉시 상정</b></td></tr>
+      <tr><td><b>Ontology 목표 레벨 미확정</b></td><td>W4에 <b>K0-b(목표 레벨) 서명이 없음</b></td><td class="c mk">W4</td><td><b>KR1 발동.</b> K2 설계가 근거 없이 진행되므로 W5 산출물의 검수 기준이 사라진다</td></tr>
       <tr><td>질의 근거 부족</td><td>W3에 수집 질의 <b>20건 미만</b></td><td class="c mk">W3</td><td>대표 문서유형을 3종으로 축소하고, 질의 수집을 W5까지 연장(K2 착수를 2주 늦추는 대신 근거를 확보)</td></tr>
       <tr><td>메타 사문화</td><td>K2 설계 시점에 <b>자동추출·양식내재 비율 40% 미만</b></td><td class="c mk">W4</td><td>필수 메타 항목 수를 줄인다 — <b>항목을 늘려 품질을 얻으려 하면 반드시 실패한다</b></td></tr>
       <tr><td>파일럿 미달</td><td>W7에 전환 완료 <b>15건 미만</b></td><td class="c mk">W7</td><td>50건의 <b>유형별 배분</b>을 재조정(대표성 우선). 총계를 낮추려면 서면 CR</td></tr>
@@ -4287,7 +4319,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr style="background:var(--crit-soft)"><td class="mk">R8</td><td><b>IT/OT 경계 미정의</b></td><td>RTDB는 OT 인접 자산. Agent가 OT 존으로 세션을 여는 구조가 승인 없이 만들어짐 → 보안 반려</td><td>1.3 존 배치도, “OT 인바운드 금지” 원칙. <b>W4 검증 대상을 DMZ 복제본으로 명시</b></td></tr>
 <tr style="background:var(--crit-soft)"><td class="mk">R9</td><td><b>시스템 간 조인 불가</b></td><td>시스템별로는 다 붙였는데 횡단 질문에 답 못 함. <b>가장 늦게 발견되고 가장 비쌈</b></td><td>Phase 3-2 식별자 표준화, Phase 1에서 횡단 질의 비중 조기 측정</td></tr>
       <tr><td class="mk">R10</td><td>RTDB를 범용 REST로 붙이려 함</td><td>수백만 포인트 조회로 원천 부하 · 타임아웃</td><td>Phase 2-3에 <b>RTDB 대량 구간 조회 필수 포함</b>. 서버측 집계 기능 우선 확인</td></tr>
-<tr><td class="mk">R11</td><td><b>MCP 사양 개정 주기</b></td><td>약 8개월 주기 breaking change. 채택 후 마이그레이션 비용 발생</td><td>채택 판단서에 <b>버전 고정 + 마이그레이션 비용 추정 + 유예 정책</b> 필수 포함</td></tr>
+<tr><td class="mk">R11</td><td><b>MCP 사양 개정 주기</b></td><td>평균 약 5개월 간격의 개정(최근 구간은 8개월). 채택 후 마이그레이션 비용 발생</td><td>채택 판단서에 <b>버전 고정 + 마이그레이션 비용 추정 + 유예 정책</b> 필수 포함</td></tr>
 <tr><td class="mk">R12</td><td><b>협력사 3주체 모델 미정</b></td><td>“협력사에 Agent를 제공하는가”가 늦게 결정되면 P5 전체 재작업</td><td>Phase 0 <b>범위 결정 항목</b>으로 승격. 1.8 주체×등급 매트릭스</td></tr>
 <tr><td class="mk">R13</td><td>현업 메타(M2) 작성 공수 미확보</td><td>“여기에 공수를 집중”이라 한 핵심 산출물이 컨설턴트 단독 작업으로 왜곡</td><td>5.1 투입 계획 — W10–13 현업 2명 주 1일 사전 확보</td></tr>
 <tr><td class="mk">R14</td><td>프롬프트 인젝션 · 도구 오염</td><td>협력사 입력 텍스트 한 줄로 Agent 도구 선택 조작 (OWASP MCP03)</td><td>1.6 신뢰 등급 · 도구 정의 서명·해시 고정 · 판단 트리 Q5</td></tr>
@@ -4315,7 +4347,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td class="num">1</td><td><b>OCEAN-H vs TDMS</b> — 설비 마스터의 Master of Record</td><td>식별자 표준 전체의 기준점</td></tr>
       <tr><td class="num">2</td><td>AMS의 <b>알람↔공정 Tag 매핑</b> 존재 여부</td><td>LKM ‘상황’ 축 성립 여부, P-MONITOR 설계</td></tr>
       <tr><td class="num">3</td><td>세 시스템의 설비 · 공정 <b>코드 통일 여부</b></td><td>이 과업 규모를 가장 크게 좌우</td></tr>
-      <tr><td class="num">4</td><td>OASIS <b>생산일 · 교대 정의</b> 및 권한 위임(OBO) 지원 가능성</td><td>시간축 변환 규칙, Phase 5 성립의 전제</td></tr>
+      <tr><td class="num">4</td><td>OASIS <b>생산일 · 교대 정의</b> 및 권한 위임(RFC 8693 Token Exchange · 벤더에 따라 OBO) 지원 가능성</td><td>시간축 변환 규칙, Phase 5 성립의 전제</td></tr>
       <tr><td class="num">5</td><td>OCEAN-H 미정제 20%가 <b>어느 영역</b>인지</td><td>D5 신뢰 표시 설계, Agent 답변 신뢰성</td></tr>
     </tbody>
   </table></div>
@@ -4326,7 +4358,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 12 -->
 <section id="deck">
   <div class="sh"><span class="n">5.3</span><h2>착수보고 장표</h2></div>
-  <p class="lede">W1 착수보고용 10장. SK 장표 형식(제목 → 핵심 메시지 → 본문)에 맞춰 구성했습니다. <b>4번 장표가 이 보고의 목적</b>이며, 나머지는 그 합의를 받기 위한 준비입니다.</p>
+  <p class="lede">W1 착수보고용 <b>11장</b>. SK 장표 형식(제목 → 핵심 메시지 → 본문)에 맞춰 구성했습니다. <b>4번 장표가 이 보고의 목적</b>이며, 나머지는 그 합의를 받기 위한 준비입니다.</p>
 
   <div class="deck">
 
@@ -4382,7 +4414,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
     <div class="slide" style="border-color:var(--signal);border-width:1.5px">
       <div class="slide-h"><span class="sn">P4</span><span class="st">★ 착수 합의 사항 — 이 보고의 목적</span></div>
-      <div class="slide-lead" style="background:var(--signal-soft);color:var(--ink)">두 가지 범위 합의 없이는 이후 약 3개월(14주)의 판단 기준이 서지 않음. <b>W1에 서면 합의 요청</b></div>
+      <div class="slide-lead" style="background:var(--signal-soft);color:var(--ink)"><b>세 가지</b> 범위 합의 없이는 이후 약 3개월(14주)의 판단 기준이 서지 않음. <b>W1에 서면 합의 요청</b></div>
       <div class="slide-b">
         <div class="box" style="border-color:var(--signal)"><div class="bt">합의 ① &nbsp; MCP는 “배관”이 아니라 “어댑터”다</div>
           <ul>
@@ -4395,6 +4427,12 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
             <li>조회는 <b>데이터 구조·검색성</b> 문제, 쓰기는 <b>권한·감사·롤백</b> 문제 — 난이도가 자릿수 단위로 다름</li>
             <li><b>OASIS 쓰기</b>(작업지시·실적 입력)를 1차 범위 밖으로 명시</li>
             <li>쓰기는 승인 워크플로·영향범위 한정·롤백 절차를 갖춘 <b>후속 단계</b>로 분리</li>
+          </ul></div>
+        <div class="box" style="border-color:var(--signal)"><div class="bt">합의 ③ &nbsp; 설계와 구축의 경계</div>
+          <ul>
+            <li>본 과업은 <b>표준·기준·방식의 확정까지</b> — 태그·별칭·코드 사전의 <b>전량 구축은 차년도 실행 범위</b></li>
+            <li>본 과업 산출은 <b>핵심 전수(T-A) + 규칙 파생(T-B) + 잔여 계량(T-C)</b>의 3단 커버리지와 <b>차년도 예산 산정 근거(T-C 계량치)</b></li>
+            <li>이 합의가 없으면 W9 산출물 검수에서 <b>“사전을 만들라 했는데 왜 일부냐”</b>에 답할 문서가 없음 — <b>태그 사전 전수 구축은 이 과업의 가장 확실한 실패 경로</b></li>
           </ul></div>
         <p class="note crit">이 두 합의를 W1에 받지 못하면, Phase 2·3의 Legacy 고도화 과제가 <b>“불필요한 일”로 취급</b>되거나, 쓰기 요구 유입으로 <b>일정이 붕괴</b>합니다.</p>
       </div>
@@ -4439,7 +4477,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
         <div class="tw"><table>
           <thead><tr><th style="width:52px">Phase</th><th style="width:210px">과업</th><th style="width:78px">기간</th><th>완료 판단기준 (발췌)</th></tr></thead>
           <tbody>
-            <tr><td class="mk">P0</td><td>착수 · 정렬</td><td class="mk">W1</td><td>범위 2건 <b>서면 합의</b></td></tr>
+            <tr><td class="mk">P0</td><td>착수 · 정렬</td><td class="mk">W1</td><td>범위 <b>3건</b> 서면 합의</td></tr>
             <tr><td class="mk">P1</td><td>Agent 현황 · 유형 분석</td><td class="mk">W1–3</td><td>유형 5–8종 수렴 · 횡단 질의 5건 선정</td></tr>
             <tr><td class="mk">P2</td><td>Legacy Readiness 진단</td><td class="mk">W3–6</td><td>6축 점수+근거 · <b>실제 호출 검증 3건</b></td></tr>
             <tr><td class="mk">P3</td><td>데이터 · 메타 구조</td><td class="mk">W4–9</td><td><b>횡단 질의 5건이 식별자만으로 조인</b></td></tr>
@@ -4514,6 +4552,25 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       </div>
     </div>
 
+    <div class="slide">
+      <div class="slide-h"><span class="sn">P11</span><span class="st">투입 · 비용 · 효익</span></div>
+      <div class="slide-lead">이 과업은 하드웨어를 사지 않는다. 고객측 투입은 3과업 합계 약 120~135 M/D이며, <b>차년도 투자 규모는 W14에 제시</b></div>
+      <div class="slide-b">
+        <div class="tw"><table>
+          <thead><tr><th style="width:150px">항목</th><th style="width:180px">규모</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td><b>고객측 투입</b></td><td class="mk">① 66.5 M/D<br>② 35~45 · ③ 20~25<br><b>합계 120~135</b></td><td>역할·주차별 분해는 5.1. <b>합동 인터뷰·통합 요청으로 15~20 M/D 절감 가능</b>. ②③은 W1 「통합 현업 캘린더」에서 실측치로 대체</td></tr>
+            <tr><td>공통 과업 ④</td><td class="mk">고객측 ≈6 M/D</td><td>PM 주관. 과업 오너 2 + 각 과업 현업 검토 4</td></tr>
+            <tr><td>수행사 투입 · 사업비</td><td class="mk">본 문서 범위 외</td><td><b>계약서 소관</b>입니다. 본 문서는 방법론과 고객측 투입만 다룹니다</td></tr>
+            <tr style="background:var(--accent-soft)"><td><b>본 과업 하드웨어</b></td><td class="mk best">신규 투자 ≈ 0</td><td>MCP Server는 컨테이너 2대, Gateway는 기존 자산. <b>실제 변수는 RTDB DMZ 복제본 스토리지 하나이며 복제본이 이미 있으면 0</b>. W4 실측 후 W6 제시</td></tr>
+            <tr><td>LLM 추론 GPU</td><td class="mk no">③ · 전사 범위</td><td>C1 데이터는 외부 SaaS 금지이므로 온프렘이 필요하나 <b>전사 AI 플랫폼 결정 사항</b>. ①은 요건만 제시</td></tr>
+            <tr style="background:var(--signal-soft)"><td><b>차년도 실행 ROM</b></td><td class="mk">W14 제시</td><td>P8 완료기준으로 산출. 개선과제별 공수·비용을 T6에 기입해 <b>차년도 예산 편성 단위</b>로 넘김</td></tr>
+          </tbody>
+        </table></div>
+        <div class="note crit" style="margin-top:12px"><b>연 100억 절감은 본 과업의 효익이 아닙니다.</b> 그것은 스마트플랜트 2.0 40개 과제의 기대효과입니다. <b>본 과업의 효익은 “101건 중 63건이 성립하기 위한 조건을 만드는 것”</b>으로 표현하며, 절감액은 <b>차년도 실행 과제 단위로 산정</b>합니다. 이 구분을 흐리면 W14에 “그래서 100억은 언제 나오나”를 맞습니다.</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -4533,7 +4590,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tbody>
         <tr><td><b>RTDB</b></td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="c fill">1–5</td><td class="fill">태그 사전 유무, 집계 API 유무, 대량조회 실측 결과</td></tr>
         <tr><td><b>OCEAN-H</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">마스터 품질, 계층 롤업 가능 여부, 미정제 20% 범위</td></tr>
-        <tr><td><b>OASIS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">코드 사전 유무, 권한 위임(OBO) 지원 여부</td></tr>
+        <tr><td><b>OASIS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">코드 사전 유무, 권한 위임(RFC 8693 Token Exchange · 벤더에 따라 OBO) 지원 여부</td></tr>
         <tr><td><b>AMS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">알람↔Tag 매핑, 이벤트 구독 지원</td></tr>
         <tr><td><b>PMS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">OASIS 실적과의 관계</td></tr>
         <tr><td><b>TDMS</b></td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">OCEAN-H와 마스터 중복 여부</td></tr>
@@ -4569,15 +4626,15 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <div class="tmpl">
     <div class="tmpl-h"><span class="tid">T3</span><span class="tn">횡단 식별자 매핑표</span><span class="tw">Phase 3-2 · W5–W8 · 최우선</span></div>
     <div class="tmpl-b"><div class="tw tw2"><table>
-      <thead><tr><th style="width:78px">축</th><th style="width:150px">기준 원천<br><span style="font-weight:400;text-transform:none;letter-spacing:0">(Master of Record)</span></th><th style="width:190px">매핑 대상</th><th style="width:96px">현행 존재</th><th style="width:110px">구축 방식</th><th>산출물</th></tr></thead>
+      <thead><tr><th style="width:78px">축</th><th style="width:150px">기준 원천<br><span style="font-weight:400;text-transform:none;letter-spacing:0">(Master of Record)</span></th><th style="width:190px">매핑 대상</th><th style="width:96px">현행 존재</th><th style="width:110px">구축 방식</th><th style="width:96px">관계 타입 코드</th><th style="width:104px"><span class="pat">valid_from</span><br><span class="pat">valid_to</span></th><th style="width:96px">카디널리티<br>· 매핑 신뢰도</th><th>산출물</th></tr></thead>
       <tbody>
-        <tr><td><b>설비</b></td><td><span class="sys p1">OCEAN-H</span> 설비 마스터<br><span style="font-size:12px;color:var(--signal)">TDMS 중복 확인</span></td><td>RTDB 태그 / OASIS 오더 / AMS 알람</td><td class="c fill">유 · 무 · 일부</td><td class="c fill">자동/반자동/수동</td><td class="fill">설비↔태그 매핑표, 계층 롤업 규칙</td></tr>
-        <tr><td><b>시간</b></td><td>절대 시각 (KST)</td><td>OASIS 생산일·교대 / OCEAN-H 작업일자</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">시간축 변환 규칙, 교대 경계 정의</td></tr>
-        <tr><td><b>공정·유닛</b></td><td class="fill">Phase 2에서 확정</td><td>3종 시스템 공정 코드</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">표준 공정 코드 + 매핑표</td></tr>
-        <tr><td><b>오더·배치</b></td><td><span class="sys p1">OASIS</span></td><td>설비 / 시간 구간</td><td class="c fill">—</td><td class="c fill">—</td><td class="fill">오더↔설비↔시간 매핑 규칙</td></tr>
+        <tr><td><b>설비</b></td><td><span class="sys p1">OCEAN-H</span> 설비 마스터<br><span style="font-size:12px;color:var(--signal)">TDMS 중복 확인</span></td><td>RTDB 태그 / OASIS 오더 / AMS 알람</td><td class="c fill">유 · 무 · 일부</td><td class="c fill">자동/반자동/수동</td><td class="c fill">측정/제어<br>알람/계산</td><td class="c fill">필수</td><td class="c fill">1:N · 상/중/하</td><td class="fill">설비↔태그 매핑표, 계층 롤업 규칙</td></tr>
+        <tr><td><b>시간</b></td><td>절대 시각 (KST)</td><td>OASIS 생산일·교대 / OCEAN-H 작업일자</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">필수</td><td class="c fill">—</td><td class="fill">시간축 변환 규칙, 교대 경계 정의</td></tr>
+        <tr><td><b>공정·유닛</b></td><td class="fill">Phase 2에서 확정</td><td>3종 시스템 공정 코드</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">필수</td><td class="c fill">—</td><td class="fill">표준 공정 코드 + 매핑표</td></tr>
+        <tr><td><b>오더·배치</b></td><td><span class="sys p1">OASIS</span></td><td>설비 / 시간 구간</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">—</td><td class="c fill">필수</td><td class="c fill">—</td><td class="fill">오더↔설비↔시간 매핑 규칙</td></tr>
       </tbody>
     </table></div>
-    <div class="tmpl-foot"><b>검증 절차</b> — 대표 횡단 질의 <i>“3호기 압축기 지난달 트립, 원인이 뭐고 생산에 얼마나 영향 있었나?”</i> 를 아래 7단계로 통과시킵니다. <b>체크가 하나라도 비면 그 매핑이 개선과제입니다.</b></div>
+    <div class="tmpl-foot"><b>세 필드는 선택이 아니다</b> — 관계 타입이 없으면 “측정”과 “알람”이 한 칸에 뭉개지고, <span class="pat">valid_from/valid_to</span>가 없으면 개조·이설 이후 <b>과거 시점 조회가 오류 없이 틀린 답</b>을 낸다. LKM의 상황–증상–조치가 본질적으로 과거 시점 조인이므로 여기서 정확성이 무너진다(2.3 참조). <b>인터페이스 #1b의 인계 필수 필드</b>다.<br><br><b>검증 절차</b> — 대표 횡단 질의 <i>“3호기 압축기 지난달 트립, 원인이 뭐고 생산에 얼마나 영향 있었나?”</i> 를 아래 7단계로 통과시킵니다. <b>체크가 하나라도 비면 그 매핑이 개선과제입니다.</b></div>
     <div class="tw tw2"><table>
       <thead><tr><th style="width:34px">#</th><th>단계</th><th style="width:180px">필요 매핑</th><th class="c" style="width:56px">확인</th></tr></thead>
       <tbody>
@@ -4596,11 +4653,15 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
   <!-- T4 -->
   <div class="tmpl">
-    <div class="tmpl-h"><span class="tid">T4</span><span class="tn">도구(Tool) 명세서</span><span class="tw">Phase 4-7 · W10–W11</span></div>
+    <div class="tmpl-h"><span class="tid">T4</span><span class="tn">도구(Tool) 명세서</span><span class="tw">Phase 4-7 · W10–W13 <span style="font-weight:400;text-transform:none">(작성 W10–11 · 현업 검수 W12–13)</span></span></div>
     <div class="tmpl-b"><div class="tw tw2"><table>
       <tbody>
         <tr><th style="width:130px">도구 ID</th><td colspan="3"><span class="pat">OCEANH_MAINT_HISTORY_001</span></td></tr>
         <tr><th>도구명</th><td colspan="3">설비_정비이력_조회</td></tr>
+        <tr><th>엔드포인트 <span style="font-weight:400;font-size:12px">(A2A: <span class="pat">url</span>)</span></th><td colspan="3"><span class="pat">________</span></td></tr>
+        <tr><th>보안 스킴 <span style="font-weight:400;font-size:12px">(A2A: <span class="pat">securitySchemes</span>)</span></th><td colspan="3">OAuth 2.1 + PKCE · <span class="pat">aud</span> 바인딩(RFC 8707)</td></tr>
+        <tr><th>카드 서명 <span style="font-weight:400;font-size:12px">(A2A: <span class="pat">signatures</span>)</span></th><td colspan="3">JWS(RFC 7515) + JCS(RFC 8785) — <b>1단계는 미적용, 필드만 확보</b></td></tr>
+        <tr><th>소유자(사람) 사번</th><td colspan="3"><span class="pat">________</span> — <b>필수. 공석이면 Agent 자동 정지</b> (orphan 권한 방지)</td></tr>
         <tr><th>소유 조직</th><td style="width:200px">EAM 운영</td><th style="width:110px">Action Pattern</th><td><span class="pat">P-READ</span></td></tr>
         <tr><th>연계 방식</th><td>MCP (OCEAN-H)</td><th>버전</th><td class="fill">v1.0</td></tr>
         <tr style="background:var(--accent-soft)"><th>설명 <span style="font-weight:400;text-transform:none;letter-spacing:0">(Agent용)</span></th><td colspan="3" style="line-height:1.7">
@@ -4613,7 +4674,10 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
         <tr><th>출력</th><td colspan="3">건수, 이력목록[{정비일자, 정비유형, 현상, 조치내용, 담당, 협력사여부}]<br><span style="font-size:12.5px;color:var(--ink-3)">※ 조치내용은 자유서술 — ② Knowledge 구조화 대상과 경계 확인</span></td></tr>
         <tr><th>권한</th><td colspan="3">요청 사용자의 설비 열람 권한 <b>상속</b>. 협력사 인원 정보 마스킹</td></tr>
         <tr><th>신뢰 메타</th><td colspan="3">응답에 <b>정제상태</b>(검증완료/미검증), 최종갱신일, 출처 동반 — <b>OCEAN-H 미정제 20% 대응</b></td></tr>
-        <tr><th>오류 응답</th><td colspan="3">설비ID 미존재 → <b>유사 설비 후보 3건 제시</b><br><b>권한 없음 → “권한 없음”을 명시 반환</b> (빈 결과로 처리 금지)</td></tr>
+        <tr><th>오류 응답</th><td colspan="3">설비ID 미존재 → <b>유사 설비 후보 3건 제시</b><br><b>권한 없음 → 아래 「오류 노출 정책」 필드에 따름</b> (빈 결과로 처리 금지)</td></tr>
+        <tr style="background:var(--signal-soft)"><th>데이터 분류 등급</th><td colspan="3"><b>C3</b> (근무일지·정비이력) — 반출 허용: 전사 사설까지 / 외부 SaaS: 가명처리 후. <b>런타임 강제 대상</b></td></tr>
+        <tr style="background:var(--signal-soft)"><th>오류 노출 정책</th><td colspan="3">C3·C4 → <b>“권한 없음” 명시 반환</b> / C1·C2 → <b>“데이터 없음”과 구분 불가하게 반환</b> (A10). <b>감사 로그에는 구분해 기록</b></td></tr>
+        <tr style="background:var(--signal-soft)"><th>정의 해시</th><td colspan="3"><span class="pat">________</span> — 등록 시 채번. <b>변경 시 재승인 필수</b> (rug pull 방지)</td></tr>
         <tr><th>비기능</th><td colspan="3">응답 2초 이내 · 기본 50행/최대 200행 · 페이징 <span class="pat">next_cursor</span></td></tr>
         <tr><th>변경관리</th><td colspan="3">스키마 변경 시 30일 전 공지, 하위호환 1버전 유지</td></tr>
       </tbody>
@@ -4630,7 +4694,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <div class="tmpl-b"><div class="tw tw2"><table>
       <tbody>
         <tr><th style="width:130px">Agent ID / 명</th><td colspan="3"><span class="pat">AGT-EQP-001</span> &nbsp; 설비 Agent</td></tr>
-        <tr><th>소유 조직</th><td style="width:200px">EAM 운영</td><th style="width:110px">신원</th><td>사번 기반 <span style="font-size:12px;color:var(--ink-3)">(SKT AX 혁신 2.0 방식)</span></td></tr>
+        <tr><th>소유 조직</th><td style="width:200px">EAM 운영</td><th style="width:110px">신원</th><td><span class="pat">AGT-*</span> 네임스페이스 — <b>사람 사번과 분리</b><br><span style="font-size:12px;color:var(--ink-3)">인증: 워크로드 아이덴티티(mTLS · SPIFFE-SVID). SKT 사례는 사번 기반이나 <b>그대로 쓰지 않는다</b> — 1.8 참조</span></td></tr>
         <tr><th>담당 도메인</th><td colspan="3">설비 사양 · 정비 이력 · 유사 사례 탐색</td></tr>
         <tr><th>할 수 있는 것</th><td colspan="3">설비 식별(현장 호칭 → 설비ID) · 설비 기본정보·계층 조회 · 정비 이력 조회 · 유사 사례 검색</td></tr>
         <tr style="background:var(--signal-soft)"><th>할 수 없는 것 ★</th><td colspan="3">실시간 공정값 <b>(→ 공정 Agent)</b> · 생산 실적 <b>(→ 생산 Agent)</b> · 작업오더 생성 등 쓰기 <b>(1차 범위 밖)</b></td></tr>
@@ -4655,7 +4719,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <thead><tr><th style="width:62px">과제ID</th><th style="width:180px">과제명</th><th style="width:86px">대상</th><th style="width:74px">유형</th><th style="width:170px">Gap 근거 <span style="font-weight:400;text-transform:none;letter-spacing:0">(역추적)</span></th><th class="c" style="width:56px">난이도</th><th style="width:130px">선행조건</th><th style="width:88px">구분</th></tr></thead>
       <tbody>
         <tr style="background:var(--signal-soft)"><td class="mk">DA-01</td><td><b>RTDB 태그 사전 구축</b></td><td><span class="sys p1">RTDB</span></td><td>신규</td><td>D1·D2 미충족 — <b>연계 불성립</b></td><td class="c">고</td><td>태그 명명규칙 역공학</td><td>CLX 특화</td></tr>
-        <tr><td class="mk">DA-02</td><td>설비 별칭 사전 구축</td><td><span class="sys">OCEAN-H</span></td><td>신규</td><td>D1 미충족 — 60만 기 특정 불가</td><td class="c">중</td><td>정비이력 텍스트 분석</td><td>CLX 특화</td></tr>
+        <tr><td class="mk">DA-02</td><td>설비 별칭 사전 구축</td><td><span class="sys">OCEAN-H</span></td><td>신규</td><td>D1 미충족 — 60만 기 특정 불가</td><td class="c mk"><b>고</b></td><td>3단 커버리지 범위 확정 + 명명·정규화 규칙(협의 #9) 공동 확정</td><td>CLX 특화</td></tr>
         <tr><td class="mk">DA-03</td><td>업무 코드 사전</td><td><span class="sys">OASIS</span></td><td>신규</td><td>D2 미충족</td><td class="c">중</td><td>현업 메타 담당 지정</td><td>CLX 특화</td></tr>
         <tr><td class="mk">DA-0n</td><td class="fill">…</td><td class="fill">—</td><td class="fill">—</td><td class="fill">—</td><td class="c fill">—</td><td class="fill">—</td><td class="fill">—</td></tr>
       </tbody>
@@ -4698,17 +4762,17 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
   <div class="qa-cat">투입 · 효익</div>
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">우리 인력이 몇 명, 며칠 투입되나</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at">역할 8종, <b>총 약 66 M/D</b>(1인 상근 3개월 미만 규모)로 산정했습니다. 최대 부하는 <b>W10–W13</b>(도구 설명 작성·별칭 검수)이며, 이 구간 <b>생산기술 현업 2명의 주 1일 확보</b>가 확정되지 않으면 T4·T6 품질을 보증할 수 없습니다. W2–W3(인터뷰), W4–W6(실측 입회)도 사전 예약이 필요합니다. <span class="src">5.1 내부 투입 계획</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">역할 8종, <b>① 과업만 약 66 M/D</b>. <b>②③을 합치면 개략 120~135 M/D</b>이며 ②③은 W1 「통합 현업 캘린더」에서 실측치로 대체합니다(1인 상근 3개월 미만 규모)로 산정했습니다. 최대 부하는 <b>W10–W13</b>(도구 설명 작성·별칭 검수)이며, 이 구간 <b>생산기술 현업 2명의 주 1일 확보</b>가 확정되지 않으면 T4·T6 품질을 보증할 수 없습니다. W2–W3(인터뷰), W4–W6(실측 입회)도 사전 예약이 필요합니다. <span class="src">5.1 내부 투입 계획</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">현업이 메타데이터를 써야 한다는데 그 시간을 어디서 내나</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at">M2(업무 메타)는 IT가 추정해 쓰면 틀리므로 현업 작성이 불가피합니다. 다만 <b>부담을 줄이는 두 장치</b>를 둡니다 — ① 전체 코드가 아니라 <b>Phase 1 요구사항에 등장하는 것부터</b> 착수 ② 현업 참여가 확보되지 않으면 <b>컨설턴트 초안 → 현업 30분 검수</b> 방식으로 전환(실패 조기 경보 W7 발동 조치). <span class="src">1.7 · 5.1 실패 조기경보</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">얼마 들고 뭘 얻나. 이 과업의 효과는</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at"><b>본 과업은 절감액을 만드는 과업이 아니라 101건 AI 적용의 성립 조건을 만드는 과업</b>입니다. 효익은 금액이 아니라 <b>가능/불가능</b>으로 프레이밍해야 정확합니다 — 운전지원 32건 + 공정최적화 31건 = <b>63건(101건의 62%)이 RTDB·OCEAN-H에 의존</b>하며, <b>DA-01(태그 사전)이 없으면 RTDB를 쓰는 모든 Agent가 성립하지 않습니다.</b><br>
-    차년도 실행 투자 규모(ROM)는 <b>P8 완료기준</b>으로 산출해 최종보고에서 제시합니다. <span class="src">1.10 · 5.3 투자와 효익 · P8</span></div></div></div>
+    차년도 실행 투자 규모(ROM)는 <b>P8 완료기준</b>으로 산출해 최종보고에서 제시합니다. <span class="src">5.3 P11 투입·비용·효익 · P8 완료기준</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">연 100억 절감이 이 과업 효과인가</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at"><b>아닙니다.</b> 연 100억은 <b>스마트플랜트 2.0 40개 과제의 기대효과</b>이며 본 과업의 효익이 아닙니다. 문서에서도 별도 표기하고 있습니다. 본 과업의 효익은 위 62% 논리로 제시하며, 별도 절감액 추정은 하지 않습니다 — <b>효과는 차년도 실행 과제 단위로 산정</b>합니다. <span class="src">1.9 각주</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>아닙니다.</b> 연 100억은 <b>스마트플랜트 2.0 40개 과제의 기대효과</b>이며 본 과업의 효익이 아닙니다. 문서에서도 별도 표기하고 있습니다. 본 과업의 효익은 위 62% 논리로 제시하며, 별도 절감액 추정은 하지 않습니다 — <b>효과는 차년도 실행 과제 단위로 산정</b>합니다. <b>1.9 카드의 각주와 5.3 P11 장표에 그 구분을 명시해 두었습니다.</b> <span class="src">1.9 각주 · 5.3 P11</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">안 하면 어떻게 되나</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at"><b>AI 과제 13종 + SP2.0 40개 = 53개 과제가 각자 설비 별칭·태그 매핑·권한 연계를 따로 만듭니다.</b> 2년 뒤 “Agent 40개가 각자 Legacy에 직접 붙어 있고 아무도 전체를 모르는 상태” — 이는 정확히 <b>OCEAN-H 구축 전 15종 시스템이 난립하던 상황의 재현</b>이며, 그때의 통합 비용(2019 착수 → 2021.6 가동, 1,000만 건 전환)을 Agent 계층에서 다시 지불하게 됩니다. <span class="src">1.8 · 1.9</span></div></div></div>
@@ -4738,7 +4802,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <div class="qa-a"><span class="am">A</span><div class="at"><b>이분법 질문 자체가 잘못됐습니다.</b> 예상 결론은 <b>“OCEAN-H 중심 부분 채택”</b>입니다 — 도구가 많고 Agent가 자율 선택해야 하는 탐색·검색 계열에서 실익이 크고, RTDB 대량 집계는 MCP로 감싸도 이득이 없으며, OASIS는 Gateway 정책 준수가 우선입니다. 이 결론은 <b>W9–10에 6단 판단 트리로 확정</b>합니다. <span class="src">1.6 판단 트리 · CLX 적용 예상 판정</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">MCP는 계속 바뀌는 표준 아닌가. 지금 채택해도 되나</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at">맞습니다. <b>MCP는 약 8개월 주기로 breaking change를 포함해 개정</b>됩니다(2025-11-25 → 2026-07-28). 그래서 <b>MCP 채택 판단서에 「채택 사양 버전 고정 + 상위 버전 마이그레이션 비용 추정 + 유예 정책」을 필수 항목으로 포함</b>합니다. 리스크 <span class="pat">R11</span>로 등록했습니다. <span class="src">1.8 MCP·A2A 비교</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at">맞습니다. <b>MCP는 2024-11-05 이후 평균 약 5개월 간격으로 개정</b>됩니다 — 최근 구간만 보면 8개월이지만 앞선 세 구간은 2.8~5.2개월이었습니다. <b>n=1로 주기를 말하면 안 됩니다.</b> 따라서 “다음 개정 시점”을 가정하지 않고 <b>채택 버전 고정 + 2개 버전 병행 지원 기간 + 마이그레이션 유예 정책</b>을 채택 판단서의 필수 항목으로 둡니다(2025-11-25 → 2026-07-28). 그래서 <b>MCP 채택 판단서에 「채택 사양 버전 고정 + 상위 버전 마이그레이션 비용 추정 + 유예 정책」을 필수 항목으로 포함</b>합니다. 리스크 <span class="pat">R11</span>로 등록했습니다. <span class="src">1.8 MCP·A2A 비교</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">A2A는 왜 안 쓰나. 미성숙해서인가</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at"><b>미성숙해서가 아닙니다.</b> A2A는 2025.04 공개 → 2025.06 Linux Foundation 이관 → <b>2026.03 v1.0 확정</b>으로 서명 Agent Card까지 형식화된 단계입니다. 유보의 실제 근거는 <b>CLX 내 Agent 수가 편익 임계(약 10개)에 못 미쳐 이점이 발생하지 않고, 전사 AI 플랫폼 방침이 미확정</b>이라는 것입니다. 대신 <b>T5 Agent 카드 필드명을 A2A v1.0 스키마에 정렬</b>해 나중 전환 비용을 0에 가깝게 만들어 둡니다. <span class="src">1.8</span></div></div></div>
@@ -4800,7 +4864,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <div class="qa-a"><span class="am">A</span><div class="at"><b>아닙니다 — 그것이 L4를 건너뛸 수 있는 근거입니다.</b> 속성 그래프(LPG)와 대다수 GraphRAG 구현은 OWL 없이 <b>L3 + 인스턴스만으로</b> 성립합니다. L5는 L4의 상위가 아닙니다. 최근 벤치마크도 같은 방향입니다 — 단순 사실검색에서 그래프와 청크 방식은 <b>사실상 동률</b>이고, 이득은 <b>복합 추론·전역 요약</b>에 한정됩니다. 그런데 MP 정량 분석상 CLX의 AI 적용 후보 <b>101건 중 62%가 조회·분석</b> 성격입니다. 지금 필요한 것은 그래프가 아니라 <b>조인이 되는 사실 자산</b>입니다. <span class="src">2.3 레벨 표 L5행 · L4 유보 근거 ④</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">“추론 요구 20%”라는 임계는 어디서 나왔나. 30건 표본으로 20%와 30%를 어떻게 구분하나</span></div>
-    <div class="qa-a"><span class="am">A</span><div class="at"><b>정당한 지적이라 판정 규칙으로 교체했습니다.</b> 단일 임계는 근거를 대지 못하고, n=30에서 비율의 95% 신뢰구간이 대략 ±14%p라 20%와 30%가 통계적으로 구분되지 않습니다. 대신 세 조건을 <b>모두</b> 만족할 때 재판정을 엽니다 — ① 질의 유형 5분류 중 <b>(d) 분류 추론 · (e) 규칙 함의만</b> 계수해 <b>업무가치 가중 15% 이상</b>(다단 조인·계층 롤업·집합 부정은 SQL과 재귀 CTE로 풀리므로 계수 제외) ② <b>2인 독립 판정 불일치율 10% 이하</b> ③ <b>“L3 수단으로 표현하려는 실제 시도가 실패했다”는 기록.</b> 세 번째가 핵심입니다 — 의견이 아니라 실증으로 정의하면 재판정 논쟁이 사라집니다. <span class="src">2.3 재판정 조건</span></div></div></div>
+    <div class="qa-a"><span class="am">A</span><div class="at"><b>정당한 지적이라 판정 규칙으로 교체했습니다.</b> 단일 임계는 근거를 대지 못하고, n=30에서 비율의 95% 신뢰구간이 대략 ±14%p라 20%와 30%가 통계적으로 구분되지 않습니다. 대신 세 조건을 <b>모두</b> 만족할 때 재판정을 엽니다 — ① 질의 유형 5분류 중 <b>(d) 분류 추론 · (e) 규칙 함의</b>가 <b>최고 리스크 업무에 반복 출현</b>(다단 조인·계층 롤업·집합 부정은 SQL과 재귀 CTE로 풀리므로 계수 제외). <b>비율 임계는 두지 않습니다</b> — 30~50건 표본에서 어떤 비율도 ±14%p 안에서 구분되지 않으므로, 20%를 버리고 15%를 세우면 같은 오류입니다 ② <b>2인 독립 판정 불일치율 10% 이하</b> ③ <b>“L3 수단으로 표현하려는 실제 시도가 실패했다”는 기록.</b> 세 번째가 핵심입니다 — 의견이 아니라 실증으로 정의하면 재판정 논쟁이 사라집니다. <span class="src">2.3 재판정 조건</span></div></div></div>
 
   <div class="qa-i"><div class="qa-q"><span class="qm">Q</span><span class="qt">매핑표를 Relation이라 부르는데, 3년 전 개조 전 구성으로 정비이력을 조회하면 틀린 답이 나오지 않나</span></div>
     <div class="qa-a"><span class="am">A</span><div class="at"><b>그대로 두면 나옵니다. 그래서 필수 필드를 세 개 추가했습니다.</b> ①의 4축은 경량 ER의 <b>인스턴스 층</b>이지 Relation 그 자체가 아니며, 차이가 넷입니다 — 관계 타입 부재(태그↔설비만 <b>측정/제어/알람/계산</b> 4종), 전이성 미표현, 카디널리티 부재, 그리고 <b>시간 유효성</b>입니다. 매핑표는 통상 현재 상태만 담으므로 개조·이설·ID 승계가 끼면 <b>오류 없이 틀린 답</b>이 나오고, LKM의 상황–증상–조치는 본질적으로 <b>과거 시점 조인</b>이라 정확성을 직접 훼손합니다. 4축 산출물에 <b>관계 타입 코드 · <span class="pat">valid_from</span>/<span class="pat">valid_to</span> · 카디널리티·매핑 신뢰도</b>를 필수화하고, 인터페이스 #1b의 인계 필수 필드로 올렸습니다. <span class="src">2.3 ①과 중복하지 않기</span></div></div></div>

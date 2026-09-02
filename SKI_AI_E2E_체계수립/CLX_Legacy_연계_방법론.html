@@ -1206,6 +1206,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <thead><tr><th style="width:190px">절</th><th style="width:230px">대응 논점</th><th>절의 역할</th></tr></thead>
     <tbody>
       <tr><td><a href="#pr">1.2 7대 설계 원칙</a></td><td>Q1~Q6 <b>공통 기반</b><br><span style="font-size:12px;color:var(--ink-3)">원칙 07 → Q3 부분</span></td><td>여섯 논점을 <b>어떤 순서로 답할지</b>의 근거. 원칙 01·02가 Q1·Q4의 순서를, 원칙 05가 Q2의 축을, 원칙 07이 Q3의 존재 이유를 세웁니다</td></tr>
+      <tr><td><a href="#scope">1.3 과업의 시야</a></td><td>Q1~Q6 <b>공통 — 범위와 깊이</b></td><td>여섯 논점이 <b>어느 대상 위에서 어느 깊이로</b> 수행되는지를 고정합니다. 모집단 · 해상도 · 게이트 셋이 통제 수단이며, 어느 논점도 여기서 종결되지 않습니다</td></tr>
       <tr><td><a href="#arch">1.4 참조 아키텍처</a></td><td>Q4 · Q5 · Q3 <b>공통 좌표</b></td><td>결정이 어느 계층·평면·존에 속하고 <b>누가 판정하는지</b>를 고정합니다. 단독으로는 어느 논점도 종결하지 않습니다</td></tr>
       <tr><td><a href="#ph">1.11 Phase 0–8 수행 절차</a></td><td>Q1~Q6 <b>전부</b><br><span style="font-size:12px;color:var(--ink-3)">Q<i>n</i> → P<i>n</i> · 1:1</span></td><td>논점이 <b>완료 판단기준으로 바뀌는 자리</b>. 표 B의 수치 대부분이 여기서 나옵니다</td></tr>
       <tr><td><a href="#wbs">1.12 주차별 WBS</a></td><td>Q1~Q6 <b>시간 축</b></td><td>논점 간 <b>선후 제약</b>을 봅니다. 임계 경로가 Q1→Q2→Q3→Q4 순으로 지나가므로 Q1 1주 지연은 전 논점 1주 지연입니다</td></tr>
@@ -1260,6 +1261,179 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
 
 <div class="grp"><span class="gn">B</span><span class="gt">시야와 좌표 — 무엇을 어느 해상도로 보는가</span><span class="gd">과업의 대상 범위와 파고드는 깊이, 그리고 판정이 놓이는 자리. 1.3 · 1.4</span></div>
+<section id="scope">
+  <div class="sh"><span class="n">1.3</span><h2>과업의 시야 — 무엇을 어느 해상도로 보는가</h2></div>
+  <p class="note"><b>대응 논점</b> — Q1~Q6 <b>전부의 범위와 깊이</b>를 정하는 절. 어느 논점의 주답도 아니며, 여섯 논점이 <b>어느 대상 위에서 어느 깊이로</b> 수행되는지만 고정합니다 <a href="#q">→ 1.1 표 C</a></p>
+  <div class="thesis">약 3개월(14주)에 <strong>전부를 같은 깊이로 볼 수 없습니다.</strong> 그러므로 이 과업의 실질적 설계 행위는 “무엇을 볼 것인가”가 아니라 <strong>“어디를 깊게 파고 어디를 얕게 두는가”</strong>이며, 그 배분을 앞에서 밝히지 않으면 뒤의 모든 완료기준이 자의적으로 보입니다.</div>
+  <p class="lede" style="margin-top:18px">깊이를 통제하는 수단은 셋뿐입니다. <b>모집단</b>(얼마나 세는가) · <b>해상도</b>(어디까지 내려가 확인하는가) · <b>게이트</b>(무엇으로 끊는가). 1.1이 세운 여섯 논점은 성격에 따라 이 셋 중 하나에 주로 걸립니다 — 수요 논점(Q1)은 모집단으로, 진단·조인 논점(Q2 · Q3)은 해상도로, 설계 논점(Q4 · Q5 · Q6)은 게이트로 통제됩니다. <b>본 절은 새 축을 만들지 않고, 여섯 논점을 이 세 수단 위에 배치할 뿐입니다.</b></p>
+
+  <h3>논점 여섯의 깊이 통제 수단</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:60px">논점</th><th style="width:96px">주 통제 수단</th><th>이 절에서 고정하는 것</th><th class="c" style="width:104px">확정 시점</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">Q1<br><span style="font-size:12px;color:var(--ink-3)">수요 정의</span></td><td class="mk">모집단</td><td>MP 구성 기술 13종 · 스마트플랜트 2.0 40개 과제 · Process 26개를 모집단으로 고정하고, <b>전수로 셀 것과 표본으로 셀 것</b>을 가릅니다 <a href="#biz">→ 1.5</a></td><td class="c mk">W3</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">Q2<br><span style="font-size:12px;color:var(--ink-3)">현황 진단</span></td><td class="mk best">해상도</td><td>진단 대상 6종 × 진단 6축 <b>36칸 각각의 도달 깊이</b>(문 · 인 · 실)를 지정합니다 — 아래 매트릭스가 그것입니다 <a href="#sys">→ 1.6</a></td><td class="c mk">W6</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="mk">Q3<br><span style="font-size:12px;color:var(--ink-3)">횡단 조인</span></td><td class="mk best">해상도</td><td>조인 실증의 범위를 <b>1개 공장·유닛 한정</b>으로 긋고, 설비 마스터 중복 판정을 선행 지점으로 올립니다 <a href="#data">→ 1.7</a></td><td class="c mk">W9</td></tr>
+      <tr><td class="mk">Q4<br><span style="font-size:12px;color:var(--ink-3)">연계 설계</span></td><td class="mk mid">게이트</td><td>실측이 아니라 판정의 문제이므로 깊이를 배분하지 않습니다. 판단 게이트 <span class="pat">G0~G5</span>가 깊이의 대체물입니다 <a href="#p4">→ 1.8</a></td><td class="c mk">W11</td></tr>
+      <tr><td class="mk">Q5<br><span style="font-size:12px;color:var(--ink-3)">권한 설계</span></td><td class="mk mid">게이트</td><td>같은 이유로 깊이를 배분하지 않되, <b>권한 필터링의 실제 동작 한 건만</b> 실측으로 내려갑니다 <a href="#a2a">→ 1.9</a></td><td class="c mk">W12</td></tr>
+      <tr><td class="mk">Q6<br><span style="font-size:12px;color:var(--ink-3)">변경 관리</span></td><td class="mk mid">게이트</td><td>대표 변경 시나리오 <b>3건</b>이라는 모집단 상한만 이 절에서 고정하고, 절차는 <a href="#chg">1.10</a>이 다룹니다</td><td class="c mk">W13</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>세 수단의 분업이 곧 이 문서의 편성입니다.</b> 모집단은 1.5 · 1.7 · 1.13에, 해상도는 본 절과 1.11 P2 · P3의 완료기준에, 게이트는 1.8의 <span class="pat">G0~G5</span>와 1.12 마일스톤에 있습니다. 같은 수치를 두 곳에 복제하지 않고 <b>좌표만</b> 둡니다.</p>
+
+<!-- FIGURE: 논점→Phase→산출물 흐름도 -->
+<!-- 보여야 할 것 — Q1~Q6 여섯 논점이 각각 P1~P6 어느 Phase에서 어느 주차에 수행되어 최종 산출물 6종 중 무엇으로 귀결되는지를 좌→우 한 줄로 잇고, 깊이를 받는 세 지점(W4 RTDB 실측 · W5 설비 마스터 판정 · W5–W8 조인 실증)이 그 흐름의 어디에 박혀 있는지를 표시한다. -->
+
+  <h3>대상 × 해상도 매트릭스 — 진단 6축별 도달 깊이</h3>
+  <p class="note"><b>이 표가 답하는 논점</b> — Q2 주(진단 모집단과 근거의 두께) · Q3 부분(설비 마스터 축) <a href="#q">→ 1.1 표 A</a></p>
+  <p class="lede">행은 진단 대상 6종(1.6에서 확정), 열은 Agent-Readiness 진단 6축(1.2 원칙 05에서 세운 축)입니다. 각 칸은 <b>그 축을 어느 단계까지 내려가 확인하는가</b>를 나타냅니다 — 새 판정 척도가 아니라 <b>근거의 두께</b>이며, 1~5점 척도 자체는 <a href="#tmpl">5.4 T1</a>을 따릅니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:96px">대상</th><th class="c">진단 R1<br>인터페이스</th><th class="c">진단 R2<br>데이터 구조</th><th class="c">진단 R3<br>의미 명확성</th><th class="c">진단 R4<br>권한 세분성</th><th class="c">진단 R5<br>관측 · 감사</th><th class="c">진단 R6<br>변경관리</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--accent-soft)">
+        <td><b>RTDB</b><br><span style="font-size:12px;color:var(--ink-3)">1순위</span></td>
+        <td class="c mk best">실<br><span style="font-size:11px">W4 대량 구간 조회</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-04 · IV-11</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">명명규칙 역공학</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-11</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">조회 로그 실재</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">변경 통보 경로</span></td>
+      </tr>
+      <tr style="background:var(--accent-soft)">
+        <td><b>OCEAN-H</b><br><span style="font-size:12px;color:var(--ink-3)">1순위</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-05</span></td>
+        <td class="c mk best">실 <span style="font-size:11px">(제안)</span><br><span style="font-size:11px">완결성 검사 W4–W5</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">자유서술 이력</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-11</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-11</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-11</span></td>
+      </tr>
+      <tr style="background:var(--accent-soft)">
+        <td><b>OASIS</b><br><span style="font-size:12px;color:var(--ink-3)">1순위</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-06</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-06</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">코드 마스터 대조</span></td>
+        <td class="c mk best">실 <span style="font-size:11px">(제안)</span><br><span style="font-size:11px">위임 필터링 동작</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-11</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-11</span></td>
+      </tr>
+      <tr>
+        <td><b>AMS</b><br><span style="font-size:12px;color:var(--ink-3)">2순위</span></td>
+        <td class="c mk">문<br><span style="font-size:11px">명세 확인 갈음</span></td>
+        <td class="c mk">문<br><span style="font-size:11px">명세 확인 갈음</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-12 알람↔태그</span></td>
+        <td class="c mk no">미배정</td>
+        <td class="c mk no">미배정</td>
+        <td class="c mk no">미배정</td>
+      </tr>
+      <tr>
+        <td><b>PMS</b><br><span style="font-size:12px;color:var(--ink-3)">2순위</span></td>
+        <td class="c mk">문<br><span style="font-size:11px">명세 확인 갈음</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-12 실적 중복</span></td>
+        <td class="c mk">문</td>
+        <td class="c mk no">미배정</td>
+        <td class="c mk no">미배정</td>
+        <td class="c mk no">미배정</td>
+      </tr>
+      <tr>
+        <td><b>TDMS</b><br><span style="font-size:12px;color:var(--ink-3)">2순위</span></td>
+        <td class="c mk">문<br><span style="font-size:11px">명세 확인 갈음</span></td>
+        <td class="c mk mid">인<br><span style="font-size:11px">IV-12 → IV-15 승격</span></td>
+        <td class="c mk">문</td>
+        <td class="c mk no">미배정</td>
+        <td class="c mk no">미배정</td>
+        <td class="c mk no">미배정</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>단계 정의</b> — <b>문</b>은 명세 · 정의서 · 추출본을 받아 판독하는 데까지, <b>인</b>은 담당자에게 확인(A형 90분 또는 B형 30분)하는 데까지, <b>실</b>은 검증 계정으로 실제 호출하거나 전수 검사 · 추출본 대조로 값을 직접 확인하는 데까지입니다. 표기 <b>문 · 인 · 실</b>은 1.13이 이미 쓰는 근거 유형이며 새로 만든 기호가 아닙니다. <b>상위 단계는 하위를 포함합니다</b> — 「인」 칸은 문헌을 받은 위에서 묻는다는 뜻이지 인터뷰 단독이라는 뜻이 아닙니다.</p>
+  <p class="note warn" style="margin-top:10px"><b>「실」 3칸 중 문서에 확정된 것은 RTDB 진단 R1 하나뿐입니다.</b> 1.11 P2는 “1순위 3종 각 1건 이상 실호출”을 요구하지만 <b>OCEAN-H와 OASIS의 실호출 대상 축을 지정하지 않았습니다.</b> 위 표의 OCEAN-H 진단 R2와 OASIS 진단 R4는 1.13 「실측으로 확인해야 하는 것」이 이미 열거한 항목(미정제 20%의 분포 · 권한 필터링의 실제 동작)을 축에 귀속시킨 <b>본 절의 제안</b>이며, <b>W1 착수보고에서 확정을 받아야 합니다.</b> 확정 전까지 이 두 칸은 근거가 아니라 계획입니다.</p>
+
+  <h4>같은 깊이로 보지 않는 이유</h4>
+  <p>깊이를 균등 배분하면 <b>36칸 전부가 인터뷰 단독 근거로 수렴</b>합니다. 실호출 검증은 검증 계정 · 시험 환경 · 담당자 입회를 동시에 요구하고, 5.1 투입 계획상 시스템 담당의 W4–W6 배정은 RTDB 4 M/D · OCEAN-H 3 · OASIS 3 · 2순위 3종 합계 2에 불과합니다. 이 배정으로는 6종에 고르게 실측을 걸 수 없으며, 걸더라도 각각이 얕아져 <b>어느 것도 P4의 결론을 가르지 못합니다.</b></p>
+  <p>그래서 1순위 3종을 고른 기준은 중요도가 아니라 <b>“그 값이 틀리면 설계가 뒤집히는가”</b>입니다. RTDB는 대량 구간 조회 응답이 연계 방식 자체를 가르고(리스크 R10), OCEAN-H는 설비 마스터가 횡단 식별자 4축의 기준 원천이며, OASIS는 권한 위임 필터링이 Q5 성립의 전제입니다. 나머지 3종은 <b>지금 값이 틀려도 W11 설계 승인 이전에 되돌릴 수 있는</b> 대상이므로 존재 확인에 머뭅니다. 1.6이 “업무 수요 집중”(RTDB · AMS · OCEAN-H)과 “설계 대상 1순위”(RTDB · OCEAN-H · OASIS)를 다르게 둔 것도 같은 이유입니다 — <b>AMS는 수요가 크지만 설계를 뒤집지 않고, OASIS는 수요가 작지만 뒤집습니다.</b></p>
+
+  <h3>모집단 규모 — 세는 대상과 세는 방식</h3>
+  <p class="note"><b>이 표가 답하는 논점</b> — Q1~Q6 <b>전부</b>. 각 논점이 실제로 몇 개를 다루는지를 한자리에 모은 것 <a href="#q">→ 1.1 표 B</a></p>
+  <p class="lede">아래는 <b>본 문서에 실제로 기재된 수치만</b> 모은 것입니다. 값이 없는 항목은 비워 두지 않고 「미상」으로 표시하고 확인 시점을 적었습니다 — 공수 산정의 근거가 되는 숫자와 아직 근거가 아닌 숫자를 섞지 않기 위함입니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:190px">세는 대상</th><th style="width:210px">규모 (문서 기재)</th><th style="width:150px">세는 방식</th><th style="width:130px">근거 절</th><th class="c" style="width:78px">확정 시점</th></tr></thead>
+    <tbody>
+      <tr><td><b>AI 과제 MP 구성 기술</b></td><td><b>13종</b></td><td class="mk best">전수 — 「미정」 0건</td><td><a href="#biz">1.5</a> · <a href="#ph">1.11 P1</a></td><td class="c mk">W3</td></tr>
+      <tr><td><b>스마트플랜트 2.0 과제</b></td><td><b>40개</b></td><td class="mk mid">표본 — 대표 <b>10건</b> 분류<br><span style="font-size:12px">잔여는 Legacy 의존도만 1차 분류</span></td><td><a href="#ph">1.11 P1</a></td><td class="c mk">W3</td></tr>
+      <tr><td>생산기술 Process (Level 4)</td><td><b>26개</b></td><td class="mk best">전수 — Agent 유형 앵커링</td><td><a href="#biz">1.5</a></td><td class="c mk">W3</td></tr>
+      <tr><td>생산기술 업무 Coverage</td><td>대상 <b>259건</b> 중 AI 적용 <b>101건</b>(39%)<br>상위 2개 Group <b>63건 · 62%</b></td><td>기존 MP 집계 인용<br><span style="font-size:12px">본 과업이 세는 대상 아님</span></td><td><a href="#biz">1.5</a></td><td class="c">착수 전 확보</td></tr>
+      <tr><td>Agent 유형</td><td><b>5~8종</b> 수렴 <span style="font-size:12px">(10종 초과 시 재분류)</span></td><td>산출 상한</td><td><a href="#ph">1.11 P1</a></td><td class="c mk">W3</td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>진단 대상 시스템 × 진단 축</b></td><td>6종 × 6축 = <b>36칸</b></td><td class="mk best">전수 — 점수 + 판정 근거</td><td><a href="#sys">1.6</a> · <a href="#ph">1.11 P2</a></td><td class="c mk">W6</td></tr>
+      <tr style="background:var(--accent-soft)"><td><b>실호출 검증</b></td><td>1순위 3종 각 1건 이상 = <b>3건</b></td><td class="mk mid">지정 — 2순위 3종은 명세 확인 갈음</td><td><a href="#ph">1.11 P2</a></td><td class="c mk">W4–W6</td></tr>
+      <tr><td>현업 질의 원문</td><td><b>30건 이상</b> 채록 · 횡단 <b>10건 이상</b></td><td>채록 하한</td><td><a href="#itv">1.13</a></td><td class="c mk">W3</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>대표 횡단 질의</b></td><td><b>5건</b> <span style="font-size:12px">(현재 확정 1건)</span></td><td class="mk mid">선정 — 채록분에서 선별</td><td><a href="#data">1.7</a> · <a href="#itv">1.13</a></td><td class="c mk">W3</td></tr>
+      <tr><td>현장 호칭</td><td><b>40건 이상</b> <span style="font-size:12px">(2인 각 20건)</span></td><td>채록 하한</td><td><a href="#itv">1.13</a></td><td class="c mk">W3</td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>태그 사전</b></td><td>T-A <b>200~500개</b> · T-B 샘플 <b>100개</b> · T-C 계량만</td><td class="mk mid">3단 차등 — 전수 / 샘플 / 계량</td><td><a href="#data">1.7 DA-01</a></td><td class="c mk">W9</td></tr>
+      <tr><td>횡단 식별자 축</td><td><b>4축</b> — 설비 · 시간 · 공정·유닛 · 오더·배치</td><td class="mk best">전수 — 기준 원천 지정 + 사유</td><td><a href="#data">1.7</a> · <a href="#ph">1.11 P3</a></td><td class="c mk">W9</td></tr>
+      <tr><td>Before/After 예시</td><td><b>3건</b> <span style="font-size:12px">(OASIS 코드 · OCEAN-H 계층 · RTDB 태그)</span></td><td>지정</td><td><a href="#ph">1.11 P3</a></td><td class="c mk">W9</td></tr>
+      <tr><td>Action Pattern</td><td><b>5종</b> 중 <b>4종</b> 연계 방식 확정</td><td class="mk mid">차등 — <span class="pat">P-ACT</span>는 요건 기재만</td><td><a href="#p4">1.8</a> · <a href="#ph">1.11 P4</a></td><td class="c mk">W11</td></tr>
+      <tr><td>인터뷰</td><td><b>20건 · 27회차</b> <span style="font-size:12px">(A 14 · B 11 · C 2)</span></td><td class="mk mid">배급 — 투입 계획 제약</td><td><a href="#itv">1.13</a></td><td class="c mk">W1–W11</td></tr>
+      <tr><td>대표 변경 시나리오</td><td><b>3건</b></td><td>지정</td><td><a href="#chg">1.10</a> · <a href="#ph">1.11 P6</a></td><td class="c mk">W13</td></tr>
+      <tr style="background:var(--crit-soft)"><td><b>RTDB 태그 총수</b><br><b>설비 마스터 레코드 수</b><br><b>코드값 수</b></td><td class="mk no"><b>미상</b> — 본 문서에 수치 없음</td><td class="mk no">착수 전에는 셀 수 없음</td><td><a href="#data">1.7 W2 분기점</a></td><td class="c mk">W2 확인</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:14px"><b>이 표에 없는 숫자와 있는 숫자를 구분하십시오.</b> 설비 <b>60만 기</b> · OCEAN-H 15종 통합 <b>1,000만 건</b> · 정제 완료 <b>80%</b>는 과업 난이도의 <b>배경 규모</b>이지 본 과업이 세는 대상이 아닙니다(<a href="#sys">1.6</a>). 스마트플랜트 2.0의 <b>연 100억</b>은 그 40개 과제의 기대효과이며 <b>본 과업의 효익이 아닙니다</b> — 이 구분을 흐리면 착수보고에서 효익 산정 근거를 요구받습니다.</p>
+  <p class="note warn" style="margin-top:10px"><b>공수는 규모가 아니라 「세는 방식」에서 나옵니다.</b> 위 표에서 <b>전수</b>로 표시된 항목은 넷(MP 13종 · Process 26개 · 36칸 · 식별자 4축)뿐이고, 나머지는 표본 · 하한 · 계량 · 지정입니다. <b>전수 항목이 늘어나는 순간 14주는 성립하지 않으므로</b>, 범위 확대 요청은 예외 없이 “어느 전수 항목을 표본으로 내릴 것인가”와 함께 처리합니다.</p>
+
+  <h3>깊이를 받는 세 지점</h3>
+  <p class="note"><b>이 표가 답하는 논점</b> — Q2 하나(RTDB 실측) · Q3 둘(마스터 판정 · 조인 실증) <a href="#q">→ 1.1 표 B</a></p>
+  <p class="lede">아래 셋은 <b>틀렸을 때 되돌리는 비용이 나머지와 자릿수 단위로 다른</b> 지점입니다. 그래서 여기에만 실측 · 합석 · 실증이라는 비싼 수단을 씁니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:180px">지점 · 귀속 논점</th><th style="width:230px">틀렸을 때 무너지는 것</th><th>판정 수단</th><th class="c" style="width:110px">시점 · 판정 기준</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--crit-soft)">
+        <td><b>RTDB 대량 구간 조회 실측</b><br><span style="font-size:12px;color:var(--ink-3)">Q2 · 진단 R1</span></td>
+        <td>P4의 연계 방식 결론이 통째로 바뀝니다 — 집계 API 래핑(DA-05)이냐 DMZ 복제냐가 이 값 하나로 갈리고, 1.4의 L1a 원천 QPS 상한 · L1b 복제 지연과 5.1 인프라 소요 2(복제본 스토리지)가 전부 여기에 걸려 있습니다. <b>W10에 발견하면 아키텍처 재작업</b>입니다 <span style="font-size:12px">(리스크 R10)</span></td>
+        <td>검증 계정으로 <b>태그 1개월 이력</b>을 실제 조회하고, 히스토리안의 <b>서버측 집계 질의</b>(interpolated · summary · time-weighted average) 기능과 성능을 함께 확인합니다. 대상은 OT 원본이 아니라 <b>산업 DMZ 복제본</b>입니다 <span style="font-size:12px">(리스크 R8)</span>. 결과 판독은 <span class="pat">IV-16</span> 30분</td>
+        <td class="c"><b>W4</b> 실측 · <b>W5</b> 판독<br><span style="font-size:12px">5.4 <span class="pat">T4</span>의 설계 목표치 <b>응답 p95 ≤ 3초</b>를 가설로 두되, 실측치가 이를 벗어나면 목표가 아니라 <b>연계 방식</b>을 바꿉니다 (1.4 계층별 비기능)</span></td>
+      </tr>
+      <tr style="background:var(--signal-soft)">
+        <td><b>설비 마스터 중복 판정</b><br><span style="font-size:12px;color:var(--ink-3)">OCEAN-H ↔ TDMS · Q3</span></td>
+        <td>횡단 식별자 <b>설비 축</b>의 기준 원천이 서지 않으면 <span class="pat">T3</span> 매핑표 전체가 성립하지 않고, 대표 횡단 질의 5건 중 설비를 지목하는 건은 조인 자체가 불가합니다. 4축 중 <b>가장 먼저 필요하고 가장 늦게 확인되는</b> 축입니다</td>
+        <td>두 담당자를 <b>같은 자리에 앉히는 90분</b>(<span class="pat">IV-15</span>)과 양측 마스터 <b>추출본 대조</b>. 결론은 “어느 쪽이 원본인가”가 아니라 <b>“어느 쪽을 기준으로 나머지를 어떻게 동기화하는가”</b>여야 합니다</td>
+        <td class="c"><b>W1</b> 착수 · <b>W5</b> 판정 · <b>W9</b> 문서화<br><span style="font-size:12px">기준 원천 지정 + 사유 문서화 (1.11 P3)</span></td>
+      </tr>
+      <tr style="background:var(--signal-soft)">
+        <td><b>대표 횡단 질의 5건 조인 실증</b><br><span style="font-size:12px;color:var(--ink-3)">Q3</span></td>
+        <td>시스템별로는 전부 붙였는데 횡단 질문에 답하지 못하는 상태가 됩니다. <b>가장 늦게 발견되고 복구 비용이 가장 큰</b> 실패 경로입니다 <span style="font-size:12px">(리스크 R9)</span></td>
+        <td>1.7의 검증 시나리오 체크리스트에 5건을 통과시키되, <b>범위를 1개 공장·유닛으로 한정</b>합니다 — 전량 확장은 방식 · 공수 · 주체를 로드맵으로만 제시합니다(합의 ③). 통과한 흐름은 P4에서 End-to-End 호출 흐름도로 옮깁니다</td>
+        <td class="c"><b>W5–W8</b> 실증 · <b>W9</b> 확정<br><span style="font-size:12px">조기 경보 — <b>W8에 5건 중 2건 이하</b> 통과 시 P4 착수 연기</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="note crit" style="margin-top:14px"><b>세 지점의 선행 조건이 하나로 묶여 있습니다.</b> 세 번째(조인 실증)는 두 번째(설비 축 기준 원천)가 W5에 서지 않으면 착수할 수 없고, 두 번째는 <span class="pat">IV-15</span>의 <b>합석 성사</b>에 걸려 있습니다. 즉 <b>W5 한 번의 90분이 Q3 전체의 임계 경로</b>이며, 이 회차가 밀리면 W8 조기 경보 시점에 판정할 재료 자체가 없습니다. 일정 여유가 아니라 <b>일정 자체가 없는 구간</b>이므로 W1에 날짜를 확정해 두십시오.</p>
+
+  <h4>얕게 보는 대상과 그 처분</h4>
+  <p class="lede">깊이를 준다는 말은 나머지를 얕게 둔다는 말과 같습니다. 무엇을 얕게 보는지 먼저 적어 두지 않으면 <b>수행 도중에 하나씩 되살아나</b> 14주가 무너집니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th style="width:230px">대상</th><th>처분 — 본 과업에서 하는 데까지</th><th style="width:150px">근거 절</th></tr></thead>
+    <tbody>
+      <tr><td><b>AMS · PMS · TDMS</b> <span style="font-size:12px;color:var(--ink-3)">2순위 3종</span></td><td>존재 확인 <b>3항목</b>과 인터페이스 명세 확인까지. <b>실호출 검증 없음</b> — 답이 갈리는 항목만 <span class="pat">IV-15</span>로 승격</td><td><a href="#ph">1.11 P2</a> · <a href="#itv">1.13 IV-12</a></td></tr>
+      <tr><td><b>DCS</b></td><td>RTDB 경유 <b>간접</b>. 직접 진단 대상이 아니며 태그–루프–설비 관계 정보만 DA-01의 재료로 활용</td><td><a href="#sys">1.6</a> · <a href="#data">1.7</a></td></tr>
+      <tr><td>투자관리 · Teams · 사고관리 · 교육포탈</td><td><b>확장 가이드 적용 대상</b>. 진단하지 않고, 6축 진단을 스스로 적용할 수 있는 양식만 제공 — 리스크 R6 대응의 실체</td><td><a href="#sys">1.6</a></td></tr>
+      <tr><td>스마트플랜트 2.0 잔여 과제</td><td>대표 10건 외에는 <b>Legacy 의존도만 1차 분류</b>. Action Pattern 분해는 하지 않음</td><td><a href="#ph">1.11 P1</a></td></tr>
+      <tr><td>태그 T-C · 설비 별칭 잔여</td><td><b>규모와 사유만 계량</b>하고 사전은 작성하지 않음. 계량치가 차년도 예산 산정의 근거</td><td><a href="#data">1.7 DA-01 · DA-02</a></td></tr>
+      <tr><td><span class="pat">P-ACT</span> <span style="font-size:12px;color:var(--ink-3)">쓰기</span></td><td>요건 기재까지. <b>1차 범위 밖</b>이며 연계 방식 확정 대상이 아님 — 단계적 개방 경로만 제시</td><td><a href="#pr">1.2 원칙 02</a> · <a href="#p4">1.8</a></td></tr>
+      <tr style="background:var(--signal-soft)"><td><b>횡단 조인 실증 범위</b></td><td><b>1개 공장·유닛 한정</b>. 전량 확장은 방식 · 공수 · 주체를 로드맵으로만 제시 — 합의 ③(설계 대 구축 경계)에 따름</td><td><a href="#ph">1.11 P0 · P3</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>빈칸 — 축을 맞춰 보니 드러난 세 자리</h4>
+  <p class="lede">위 매트릭스를 실제로 채우자 <b>깊이가 배정되지 않은 자리와 서로 어긋나는 수치</b>가 드러났습니다. 감추면 착수보고에서 고객이 먼저 발견합니다.</p>
+  <div class="stack" style="margin-top:14px">
+    <p class="note crit"><b>첫째 — 36칸 중 9칸에 근거 수단이 없습니다.</b> 2순위 3종(AMS · PMS · TDMS)의 진단 R4 · R5 · R6에는 문헌 요청도 인터뷰 문항도 배정되어 있지 않습니다. <span class="pat">IV-01</span> 문헌 체크리스트는 <b>1순위 3종 공통</b>으로만 배포되고, <span class="pat">IV-12</span>는 30분 <b>3항목</b>뿐이며 그 3항목은 전부 진단 R2 · R3 성격입니다. 그런데 1.11 P2는 <b>“6종 전부에 R1~R6 점수와 판정 근거”</b>를, 1.13 완료기준은 <b>“36칸 중 「미확인」 4칸 이하”</b>를 요구합니다. <b>9칸과 4칸은 양립하지 않습니다.</b> 처분은 둘입니다 — <b>(가)</b> <span class="pat">IV-12</span>를 30분·3항목에서 <b>60분·6항목</b>으로 늘려 2순위 3종에도 진단 R4~R6 문항을 배정하고, <span class="pat">IV-01</span> 문헌 체크리스트를 2순위 3종에도 배포합니다. <b>공수는 제약이 아닙니다</b> — 2순위 담당의 W2–W3 배정은 0.5 M/D인데 30분을 60분으로 늘려도 소요는 0.06에서 0.12로 오를 뿐입니다. 제약은 시간이 아니라 <b>문헌 요청 경로가 지정되어 있지 않다는 것</b>입니다. <b>(나)</b> 늘리지 않는다면 2순위 3종의 진단 R4~R6을 <b>「문헌 단독 판정」으로 명시하고 완료기준의 「미확인 4칸 이하」를 「1순위 3종의 18칸 기준」으로 다시 씁니다.</b> <b>W1 착수보고에서 (가)/(나) 중 하나를 받아야 합니다.</b></p>
+    <p class="note warn"><b>둘째 — 깊이를 받는 세 지점이 전부 Q2 · Q3에 있습니다.</b> Q4 · Q5 · Q6에는 실측 지점이 하나도 없습니다. 이것은 누락이 아니라 <b>논점의 성격 차이</b>입니다 — 설계 논점은 잴 대상이 아직 존재하지 않으므로 깊이가 아니라 게이트(<span class="pat">G0~G5</span>)와 완료기준으로 통제됩니다. 다만 예외가 하나 있습니다. <b>OASIS의 권한 위임 필터링이 실제로 동작하는가</b>는 Q5의 결론을 가르는 사실인데, 이 실측 한 칸이 <b>Q5의 유일한 실물 근거</b>입니다. 이 칸이 무산되면 Q5는 전부 문헌과 인터뷰 위에 서게 되며, 그 상태로는 W11 설계 승인에서 “동작을 확인했느냐”에 답할 수 없습니다.</p>
+    <p class="note"><b>셋째 — 진단 R3의 실측 표기가 두 곳에서 다릅니다.</b> 1.13의 「6축 × 근거 유형」 프레임은 진단 R3의 실측을 <b>「–」</b>로 두었으나, 같은 절의 「실측으로 확인해야 하는 것」에는 <b>“세 시스템 코드 통일 여부 — 추출본 대조”</b>가 들어 있습니다. 본 절은 후자를 채택해 코드 마스터 대조를 <b>「실」이 아니라 「인」에 포함된 문헌 대조</b>로 분류했습니다 — 실호출이 아니기 때문입니다. <b>1.13의 프레임 표에 이 대조를 한 줄로 명기</b>하면 두 표기가 정합합니다. 척도를 복제하지 말고 표기만 맞추십시오.</p>
+  </div>
+</section>
+
+
 <section id="arch">
   <div class="sh"><span class="n">1.4</span><h2>참조 아키텍처 — 실행 스택 · 참조 평면 · 존</h2></div>
   <p class="note"><b>대응 논점</b> — Q4 · Q5 · Q3의 <b>공통 좌표</b>. 단독으로는 어느 논점도 종결하지 않음 <a href="#q">→ 1.1 표 C</a></p>
@@ -3697,7 +3871,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
         <li>검증용 계정·환경 제공 가능 시점 ____</li>
         <li class="mk"><b>답이 “없다”여도 정상입니다.</b> 없다는 사실이 R2·R6 판정의 근거가 됩니다</li>
       </ul></div>
-    <div class="box"><div class="bt">IV-12 (W3) — 2순위 3종 · 30분 · 3항목</div>
+    <div class="box"><div class="bt">IV-12 (W2) — 2순위 3종 · 30분 · 3항목</div>
       <ul>
         <li><b>AMS</b> — “알람 하나를 보고 그것이 어느 설비 · 어느 태그의 알람인지 시스템에서 바로 알 수 있습니까?” <span style="font-size:12px;color:var(--ink-3)">→ 착수 즉시 확인 2 · LKM 상황 축</span></li>
         <li><b>TDMS</b> — “설비 기본정보가 OCEAN-H 설비 마스터와 같은 ID를 씁니까? 어느 쪽이 먼저 등록됩니까?”</li>

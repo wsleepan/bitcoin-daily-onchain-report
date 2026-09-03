@@ -357,6 +357,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     <li><a href="#ph"><span class="n">1.11</span>수행 절차 P0–P8</a></li>
     <li><a href="#wbs"><span class="n">1.12</span>주차별 WBS</a></li>
     <li><a href="#itv"><span class="n">1.13</span>인터뷰 계획</a></li>
+    <li><a href="#card"><span class="n">1.14</span>Phase 카드</a></li>
   </ol>
   <div class="np">Part 2 · ② Knowledge</div>
   <ol>
@@ -398,11 +399,11 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 <!-- 0.1 -->
 <section id="ov-guide">
   <div class="sh"><span class="n">0.1</span><h2>문서 구성 및 이용 안내</h2></div>
-  <p class="lede">본 문서는 <b>6개 Part · 34개 절</b>로 구성됩니다. Part 0은 세 과업에 공통으로 적용되는 사항을, Part 1~3은 과업별 수행 방법론을, Part 4는 과업 간 인터페이스를, Part 5는 수행 관리를 다룹니다. <b>아래 카드를 선택하면 Part 1~5로 이동</b>합니다. Part 0(본 개요)은 세 과업 공통 사항을 다루며 0.2~0.5로 이어집니다.</p>
+  <p class="lede">본 문서는 <b>6개 Part · 35개 절</b>로 구성됩니다. Part 0은 세 과업에 공통으로 적용되는 사항을, Part 1~3은 과업별 수행 방법론을, Part 4는 과업 간 인터페이스를, Part 5는 수행 관리를 다룹니다. <b>아래 카드를 선택하면 Part 1~5로 이동</b>합니다. Part 0(본 개요)은 세 과업 공통 사항을 다루며 0.2~0.5로 이어집니다.</p>
 
   <div class="cards" style="margin-top:16px">
     <a class="navcard" href="#q">
-      <div class="ct">Part 1 · 13개 절</div>
+      <div class="ct">Part 1 · 14개 절</div>
       <div class="ch">① Legacy 연계 체계 설계</div>
       <p>Agent가 Legacy 데이터를 안전하게 활용하기 위한 <b>연결 규칙 · 횡단 식별자 · 권한 체계</b>. 진단형과 설계형이 결합된 과업.</p>
       <span class="nx">산출물 6종 · 논점 Q1~Q6 = Phase P1~P6 · 진입 → 1.1 핵심 논점</span>
@@ -443,8 +444,8 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="lede">전체를 순서대로 읽을 필요는 없습니다. 역할에 따라 아래 순서로 읽으면 필요한 판단 근거에 가장 빠르게 도달합니다.</p>
   <table class="rmap">
     <tr><td>경영층</td><td><a href="#ov-why">0.3 추진 배경</a> → <a href="#deck">5.3 착수보고 장표</a>(특히 P4 착수 합의 · P11 투입·비용·효익) → <a href="#risk">5.2 리스크 · 착수 준비</a></td></tr>
-    <tr><td>PM · 과업 오너</td><td><a href="#itf">4.1 인터페이스 · 협의</a> → <a href="#plan">5.1 산출물 · 조직 · 거버넌스</a> → <a href="#risk">5.2 리스크 · 착수 준비</a> → <a href="#qa">5.5 Q&amp;A</a></td></tr>
-    <tr><td>① 수행자</td><td><a href="#q">1.1 핵심 논점</a> → <a href="#scope">1.3 과업의 시야</a> → 담당 논점의 절(<a href="#biz">1.5</a>~<a href="#chg">1.10</a>) → <a href="#ph">1.11 수행 절차</a> → <a href="#tmpl">5.4 템플릿</a></td></tr>
+    <tr><td>PM · 과업 오너</td><td><a href="#card">1.14 Phase 카드</a>(세 과업 한 화면) → <a href="#itf">4.1 인터페이스 · 협의</a> → <a href="#plan">5.1 산출물 · 조직 · 거버넌스</a> → <a href="#risk">5.2 리스크 · 착수 준비</a> → <a href="#qa">5.5 Q&amp;A</a></td></tr>
+    <tr><td>① 수행자</td><td><a href="#q">1.1 핵심 논점</a> → <a href="#card">1.14 Phase 카드</a> → <a href="#scope">1.3 과업의 시야</a> → 담당 논점의 절(<a href="#biz">1.5</a>~<a href="#chg">1.10</a>) → <a href="#ph">1.11 수행 절차</a> → <a href="#tmpl">5.4 템플릿</a></td></tr>
     <tr><td>② 수행자</td><td><a href="#k-proc">2.1 수행 프로세스</a> → <a href="#k-onto">2.3 온톨로지 적용 수준 판정</a> → <a href="#itf">4.1 인터페이스</a>(#1a · #1b · #9)</td></tr>
     <tr><td>③ 수행자</td><td><a href="#m-proc">3.1 수행 프로세스</a> → <a href="#m-miss">3.4 빈번한 누락 3종</a> → <a href="#itf">4.1 인터페이스</a>(#4a · #4b · #5a-초 · #5a-확 · #5b-초 · #5b-확 · #10 · <b>#11</b>)</td></tr>
     <tr><td>전사 IT · 보안</td><td><a href="#arch">1.4 참조 아키텍처</a>(존 4개 · 도관) → <a href="#p4">1.8 신뢰 경계 · 인젝션 통제</a> → <a href="#data">1.7 데이터 분류 등급</a> → <a href="#a2a">1.9 권한 전파 · 감사 로그</a></td></tr>
@@ -1225,6 +1226,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
       <tr><td><a href="#ph">1.11 Phase 0–8 수행 절차</a></td><td>Q1~Q6 <b>전부</b><br><span style="font-size:12px;color:var(--ink-3)">Q<i>n</i> → P<i>n</i> · 1:1</span></td><td>논점이 <b>완료 판단기준으로 바뀌는 자리</b>. 표 B의 수치 대부분이 여기서 나옵니다</td></tr>
       <tr><td><a href="#wbs">1.12 주차별 WBS</a></td><td>Q1~Q6 <b>시간 축</b></td><td>논점 간 <b>선후 제약</b>을 봅니다. 임계 경로가 Q1→Q2→Q3→Q4 순으로 지나가므로 Q1 1주 지연은 전 논점 1주 지연입니다</td></tr>
       <tr><td><a href="#itv">1.13 인터뷰 계획</a></td><td>Q1~Q6 <b>근거 확보 수단</b><br><span style="font-size:12px;color:var(--ink-3)">Q2 진단 프레임은 사실상 이 절에 있음</span></td><td>각 논점의 답을 <b>사람에게서 받아오는 배분표</b>. 표 B의 인터뷰 열이 이 절의 인터뷰 지도와 1:1입니다</td></tr>
+      <tr><td><a href="#card">1.14 Phase 카드</a></td><td>Q1~Q6 <b>전부의 요약</b><br><span style="font-size:12px;color:var(--ink-3)">P1~P6 = Q1~Q6 · P0·P7·P8 수렴</span></td><td>앞 절들의 결론을 <b>Phase 카드 아홉 장</b>으로 압축한 장표 원고. 새 판단을 담지 않으며 모든 수치와 절 번호는 원본 절에서 그대로 옮깁니다</td></tr>
     </tbody>
   </table></div>
 
@@ -3800,7 +3802,7 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
   <p class="note crit" style="margin-top:14px"><b>이 절의 산출물은 6권 章1이며 확정 시점이 W13입니다.</b> 그 발췌가 ③으로 나가는 인계 <b>#5b-확</b>인데, <b>W13 첫날인 11/30에 ③ 인력 7명의 계약이 끝납니다</b>(협의 #12 · ③ 리스크 MR8). 꽉 채워 보내도 받을 사람이 없다는 뜻이며, 이것은 지연 가능성이 아니라 <b>인력계획상 확정된 사실</b>입니다. 처분은 둘을 함께 씁니다 — ㉠ <b>#5b를 초안(W12) · 확정(W13) 2단으로 분할</b>해 실질 인계를 W12에 끝내고 W13은 차이분 갱신만 남깁니다(Part 4 인계 표에 정식 행으로 올렸습니다) ㉡ <b>수령 측 담당의 존속을 협의 #12에서 함께 확정</b>합니다. 협의 #12가 W1에 미결로 끝나면 <b>수령 주체를 ③ 수행팀이 아니라 DT 추진실 · 전사 MLOps TF로 지정</b>하고 그 사실을 착수보고에 적습니다. 그리고 기준 6(역할 경계)은 <b>W9 확정</b>이 전제이며, W9를 넘기면 남은 4주가 경계 없는 상태로 진행됩니다 — 그 경우의 조기 경보와 처분은 <a href="#plan">5.1 「성공 기준과 실패 조기 경보」</a>에 행으로 두었습니다. <b>Q6은 논점 여섯 중 마지막이자 마감이 가장 늦은 논점</b>이며, 그만큼 앞선 다섯이 밀리면 가장 먼저 압축되는 자리입니다.</p>
 </section>
 
-<div class="grp"><span class="gn">D</span><span class="gt">실행과 근거 — 주차와 근거 확보 수단</span><span class="gd">앞의 여섯 논점을 주차와 근거 확보 수단으로 옮긴다. 1.11 · 1.12 · 1.13</span></div>
+<div class="grp"><span class="gn">D</span><span class="gt">실행과 근거 — 주차와 근거 확보 수단</span><span class="gd">앞의 여섯 논점을 주차와 근거 확보 수단으로 옮기고, 마지막에 장표 단위로 압축한다. 1.11 · 1.12 · 1.13 · 1.14</span></div>
 <section id="ph">
   <div class="sh"><span class="n">1.11</span><h2>Phase 0–8 수행 절차</h2></div>
   <p class="note"><b>대응 논점</b> — Q1~Q6 <b>전부</b>. 논점이 완료 판단기준으로 바뀌는 자리 (Q<i>n</i> → P<i>n</i> · 1:1) <a href="#q">→ 1.1 표 B</a></p>
@@ -4500,6 +4502,239 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
     </tbody>
   </table></div>
   <p class="note"><b>인터뷰 흐름도 — 작성 예정</b>. W1부터 W11까지의 28회차를 시간축에 배치하고, 각 회차의 답이 어느 Phase의 어느 완료 판단기준으로 흘러 들어가는지를 잇습니다. <b>답이 늦게 도착하는 회차와 그 회차가 막는 완료기준</b>이 함께 보이는 것이 이 그림의 요지입니다.</p>
+</section>
+
+<!-- 1.14 -->
+<section id="card">
+  <div class="sh"><span class="n">1.14</span><h2>Phase 카드 — 방법론 한눈에</h2></div>
+  <p class="note"><b>대응 논점</b> — Q1~Q6 <b>전부의 요약</b>. 어느 논점의 주답도 아니며, 앞 절의 결론을 장표 단위로 압축한 자리 <a href="#q">→ 1.1 표 A · 표 B</a></p>
+  <p class="lede">아홉 장의 카드는 모두 같은 여섯 칸 — <b>목적 · 입력 · 핵심 활동 · 산출 · 완료 판단 · 주차·논점·절</b> — 을 갖습니다. 수치와 절 번호는 <a href="#ph">1.11</a> · <a href="#wbs">1.12</a> · <a href="#plan">5.1</a>에서 그대로 옮긴 것이며 이 절에서 새로 정한 값은 없습니다. <b>P1~P6은 논점 Q1~Q6과 1:1</b>이고 <b>P0 · P7 · P8은 논점에 대응하지 않는 수렴 단계</b>입니다.</p>
+
+  <h3>① Phase 카드 P0–P8</h3>
+
+  <div class="stage-bar"><span class="sn">Stage 1 · 현황 분석</span><span class="ln"></span><span class="mini">W1–W6</span></div>
+  <div class="stack wide" style="gap:12px">
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P0</span><span class="pt">착수 · 정렬</span><span class="pw">W1</span><span class="pw">수렴 단계 · <a href="#ph">1.11 P0</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">1차 범위와 MCP 판단 시점이 서면으로 고정되어 <b>이후 14주의 판단 기준선이 섰다</b>고 말할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">기획서 · 착수 자료(<a href="#risk">5.2</a> 우선순위) · 전사 Endpoint/Gateway 방침 · <span class="pat">IV-03</span> <span class="pat">IV-09</span> <span class="pat">IV-10</span></p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li>1차 범위(읽기 전용) 서면 합의</li>
+            <li>시스템별 담당자 지정 · 인터뷰 일정 확정</li>
+            <li>착수보고 장표 11장 제시</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">착수보고 장표 11장(<a href="#deck">5.3</a>) · <b>합의 ③ 설계–구축 경계</b> 서면</p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li>1차 범위(읽기 전용) <b>서면 합의</b> — 미합의 시 P5 일정 불성립</li>
+            <li><b>MCP 판단 시점 합의</b>(Phase 4)</li>
+            <li>시스템별 담당자 지정 및 인터뷰 일정 확정</li>
+          </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P1</span><span class="pt">CLX AI Agent 현황 및 유형 분석</span><span class="pw">W1–W3</span><span class="pw">Q1 · <a href="#biz">1.5</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">Agent가 Legacy에 <b>무엇을 요구하는가</b>를 유형 5~8종과 Action Pattern으로 확정했다고 말할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">P0 범위 합의 · AI 과제 MP 구성 기술 <b>13종</b> · 스마트플랜트 2.0 <b>40개 과제</b> · <span class="pat">IV-07</span> <span class="pat">IV-08</span> <span class="pat">IV-09</span> <span class="pat">IV-13</span></p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li>26개 Process Hierarchy 앵커링 기반 유형 역산</li>
+            <li>Action Pattern 5종 분해 · 정량 요건 부여</li>
+            <li>대표 횡단 질의 5건 선정</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">산출물 <b>1</b> CLX Agent 수요 정의서(W3) · <span class="pat">T2</span> 수요–시스템 매트릭스</p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li>Agent 유형 <b>5~8종 수렴</b>(10종 초과 시 재분류)</li>
+            <li>MP 13종 <b>「미정」 0건</b> · SP2.0 <b>대표 10건 표본</b> 분류</li>
+            <li><b>대표 횡단 질의 5건 선정</b></li>
+          </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P2</span><span class="pt">Legacy Agent-Readiness 진단</span><span class="pw">W3–W6</span><span class="pw">Q2 · <a href="#sys">1.6</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">진단 대상 6종의 <b>공급 현황</b>을 6축 단일 기준으로 재고 수요와의 Gap을 확정했다고 말할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">P1 수요 요건 · 진단 대상 6종 인터페이스 명세 · <span class="pat">T1</span> 6축 진단표 · RTDB DMZ 복제본(가정 3 · W3) · <span class="pat">IV-01</span> <span class="pat">IV-04</span>~<span class="pat">IV-06</span> <span class="pat">IV-11</span> <span class="pat">IV-12</span> <span class="pat">IV-16</span></p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li>진단 6축(R1~R6) 병렬 진단</li>
+            <li>1순위 3종 실호출 검증 · <b>W4 RTDB 대량 구간 조회 실측</b></li>
+            <li>수요–공급 Gap 판정 · 공통/특화 과제 분리</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">산출물 <b>2</b> Agent-Readiness 진단 및 Gap 분석서(W6)</p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li><b>6종 × 6축 36칸 전부</b>에 점수와 판정 근거</li>
+            <li>1순위 3종 <b>실호출 검증 각 1건 이상</b></li>
+            <li>P1 요건 <b>100% Gap 판정</b></li>
+          </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-bar"><span class="sn">Stage 2 · To-be 방향성</span><span class="ln"></span><span class="mini">W4–W13</span></div>
+  <div class="stack wide" style="gap:12px">
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P3</span><span class="pt">데이터 · 메타 구조 고도화</span><span class="pw">W4–W9</span><span class="pw">Q3 · <a href="#data">1.7</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">시스템을 <b>가로지르는 질문</b>이 어떤 식별자 위에서 성립하는지를 실증으로 말할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">P2 Gap(진단 R축) · 대표 횡단 질의 5건 · <span class="pat">T3</span> 횡단 식별자 매핑표 · <span class="pat">IV-05</span> <span class="pat">IV-06</span> <span class="pat">IV-07</span> <span class="pat">IV-08</span> · <span class="pat">IV-15</span> 설비 마스터 중복 판정(W5)</p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li><b>3-2 횡단 식별자 4축 기준 원천 확정</b>(W5–W8)</li>
+            <li>메타데이터 3계층 정의 · 태그 사전 3단 커버리지</li>
+            <li>검증 시나리오 통과 판정</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">산출물 <b>3</b> Legacy 데이터·메타 표준 및 설계 가이드(W9) · 인계 <b>#1b</b>(→②) · <b>#10</b>(→③)</p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li>대표 횡단 질의 5건이 <b>1개 공장·유닛 한정 범위에서 조인 성립 실증</b></li>
+            <li><b>4개 축 전부</b>에 기준 원천 지정 및 사유 문서화</li>
+            <li>Before/After 예시 <b>3건</b>(OASIS 상태코드 · OCEAN-H 설비 계층 · RTDB 태그)</li>
+          </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P4</span><span class="pt">연계 구조 및 적용 기준 수립 ★</span><span class="pw">W6–W11</span><span class="pw">Q4 · <a href="#p4">1.8</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">패턴별 연계 방식과 <b>MCP 채택 여부</b>를 판정해 이 과업의 Key Question에 직접 답할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">P1 Action Pattern · P2 Gap · P3 식별자 표준 · 전사 Gateway·IdP 방침(<span class="pat">IV-03</span> W2 · <span class="pat">IV-10</span>) · 인계 <b>#6</b> 모델 배치 제약(③ → W7)</p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li>패턴별 적합성 매트릭스</li>
+            <li>MCP 채택 판단 게이트 <span class="pat">G0</span>~<span class="pat">G5</span></li>
+            <li>Build vs Buy 판정 · 하드웨어 소요 산정</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">산출물 <b>4</b> Agent–Legacy 연계 구조 설계서(W11) · 부록A 전사 협의 안건 발췌본 · <span class="pat">T4</span> 도구 명세서 · 인계 <b>#4b</b></p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li><b>P-READ~P-MONITOR 4개 패턴</b> 연계 방식 확정(P-ACT는 요건 기재만)</li>
+            <li><b>MCP 채택 판단 완료</b> — 조건부면 조건 명시</li>
+            <li>산출이 <b>(a) CLX 적용 기준 / (b) 전사 협의사항</b> 2갈래로 章 분리</li>
+          </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P5</span><span class="pt">권한 관리체계 고도화</span><span class="pw">W7–W12</span><span class="pw">Q5 · <a href="#a2a">1.9</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">“<b>누구의 권한으로</b> 접근하는가”를 신뢰 경계별로 지정해 보안 승인의 근거를 갖췄다고 말할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">P4 연계 방식과 신뢰 경계 수 · D6 데이터 분류 등급 · 보안 심의 기준서 · <span class="pat">IV-02</span> <span class="pat">IV-14</span>(W4) <span class="pat">IV-17</span> <span class="pat">IV-20</span></p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li>신뢰 경계별 인가 방식 지정 — <b>RFC 8693 토큰 교환</b> 기본</li>
+            <li>주체 유형 × 데이터 등급 매트릭스 · 허용 위임 그래프</li>
+            <li>보안 사전검토 의견 수령 및 처분</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">산출물 <b>5</b> 권한관리 요건 및 고도화 방안(W12) · <span class="pat">T5</span> Agent 카드 · 인계 <b>#5a-확</b></p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li>1차 범위 <b>4개 패턴 전부</b>에 권한 모델 지정</li>
+            <li><b>결과 필터링 요건 명시</b> — 요청자 권한 밖 데이터 미반환</li>
+            <li><b>보안 사전검토 의견 100% 처분</b>(반영 또는 미반영 사유 기록)</li>
+          </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P6</span><span class="pt">Lineage · 변경관리 체계 설계</span><span class="pw">W9–W13</span><span class="pw">Q6 · <a href="#chg">1.10</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">무언가 바뀌었을 때 <b>무엇이 영향받는지</b>를 등록부와 영향 경로로 답할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">P2 진단 R6 통보 경로 실태 · P5 권한 정책 · 인계 <b>#11</b> 프롬프트 저장소·모델 레지스트리 소재(③ → W9) · <span class="pat">IV-11</span> <span class="pat">IV-18</span> <span class="pat">IV-21</span>(W9)</p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li>관리 대상 구성요소 <b>10종</b> 등록부 고정</li>
+            <li>변경 유형 <b>7종</b>에 영향 경로 · 탐지 수단 지정</li>
+            <li>③ AgentOps와 역할 경계 확정(협의 #3 · W9)</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">산출물 <b>6 章1</b> Lineage 및 변경관리 요건(<b>W13 확정</b>) · <span class="pat">T7</span> 변경관리 대상 등록부 · 인계 <b>#5b-확</b></p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li><b>10종 전부</b> 등록 — 소유 조직 · 원본 소재 기재</li>
+            <li><b>7종 전부</b>에 영향 경로 · 탐지 수단 — 자동 탐지 불가 유형은 대체 통제 명시</li>
+            <li><b>차단 · 해제 · 예외 권한자 「미정」 0건</b></li>
+          </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage-bar"><span class="sn">Stage 3 · 실행과제</span><span class="ln"></span><span class="mini">W10–W14</span></div>
+  <div class="stack wide" style="gap:12px">
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P7</span><span class="pt">Agent-ready Legacy 목표구조 및 고도화 방안</span><span class="pw">W10–W13</span><span class="pw">수렴 단계 · <a href="#ph">1.11 P7</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">P3~P6의 요건을 시스템별 <b>To-be 구조도와 3단계 전환 로드맵</b>으로 종합했다고 말할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">P2 Gap(진단 R축) · P3~P6 요건 전부 · 현업 도구 설명 작성 및 별칭 검수(W10–W13 · 고객 참여 최대 부하 구간)</p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li>시스템별 To-be 구조도 작성(동일 양식)</li>
+            <li>전환 로드맵 3단계 · 선행조건 지정</li>
+            <li>고도화 항목 역추적 검증</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">산출물 <b>6 章2</b> 목표구조 · 개선과제 정의서</p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li>고도화 항목 <b>100%가 P2 Gap 또는 P1 요구로 역추적</b> 가능</li>
+            <li>진단 대상 시스템 전부의 To-be 구조도가 <b>동일 양식</b></li>
+            <li>전환 로드맵 3단계의 시점 · <b>선행조건</b> 명시</li>
+          </ul></div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-h"><span class="pn">P8</span><span class="pt">실행과제 정의 및 통합</span><span class="pw">W12–W14</span><span class="pw">수렴 단계 · <a href="#ph">1.11 P8</a></span></div>
+      <div class="ph-b">
+        <div><div class="mini">목적</div><p class="goal">전 과제를 <b>전사 / CLX</b>로 가르고 차년도 추진 범위를 <b>의사결정 가능한 수준</b>으로 제시했다고 말할 수 있게 됩니다.</p></div>
+        <div><div class="mini">입력</div><p class="goal">P7 목표구조 · P1~P6 산출물 전부 · 인력 투입 종료 일정(11/30 7명 · 12/07 3명)</p></div>
+        <div><div class="mini">핵심 활동</div>
+          <ul class="exits">
+            <li>과제의 전사 / CLX 이분</li>
+            <li>차년도 ROM(개략 투자비) 산정</li>
+            <li>지식 이전 워크숍 2회</li>
+          </ul></div>
+        <div><div class="mini">산출</div><p class="goal">산출물 <b>6 章3</b> 차년도 추진계획 · ROM · 최종보고(W14)</p></div>
+        <div><div class="mini">완료 판단</div>
+          <ul class="exits">
+            <li>전 과제 <b>전사 / CLX 이분 완료</b></li>
+            <li><b>차년도 ROM 제시</b> — 예산 없는 실행계획은 승인 대상이 아님</li>
+            <li>기대산출물 <b>6종 검수 통과</b>(<a href="#plan">5.1</a> 명세 기준)</li>
+          </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>②③ Phase 요약</h3>
+  <div class="tw"><table>
+    <thead><tr><th class="c" style="width:44px">과업</th><th style="width:56px">Phase</th><th style="width:230px">Phase 이름</th><th class="c" style="width:76px">주차</th><th>산출</th></tr></thead>
+    <tbody>
+      <tr><td class="c mk">②</td><td class="mk">K0-a</td><td>착수 · 범위 프레임 합의</td><td class="c mk">W1</td><td>배제 항목 서면 확인 (OWL 구현 · Triple Store · 전사 용어 통합 범위 외)</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="c mk">②</td><td class="mk">K0-b</td><td><b>목표 레벨 확정</b></td><td class="c mk">W4</td><td>L0~L3.5 목표 레벨 · In/Out 표 서면 합의</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="c mk">②</td><td class="mk">K1</td><td><b>지식 현황 진단</b></td><td class="c mk">W1–3</td><td>현업 질의 원문 <b>30건 이상</b> 목록 (부속 자료 · 인계 #9의 소재)</td></tr>
+      <tr><td class="c mk">②</td><td class="mk">K2</td><td>지식 표준 모델 설계</td><td class="c mk">W2–5</td><td>산출물 1 Ontology 표준 모델 · 2 설계 및 확장 가이드</td></tr>
+      <tr><td class="c mk">②</td><td class="mk">K3</td><td>지식 구조화 · 축적 방안</td><td class="c mk">W5–9</td><td>산출물 3 대상별 구조화 방안 · 4 축적·갱신 가이드</td></tr>
+      <tr><td class="c mk">②</td><td class="mk">K3B</td><td>도메인 LLM 데이터 확보 <span style="font-size:12px">(병렬)</span></td><td class="c mk">W5–12</td><td>산출물 5 필요 데이터 유형·요건 · 6 축적 우선순위 및 개발 로드맵</td></tr>
+      <tr><td class="c mk">②</td><td class="mk">K4</td><td>Knowledge Hub 구축 방안</td><td class="c mk">W9–13</td><td>산출물 7 사용자 요건 · 8 구축 방안</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="c mk">②</td><td class="mk">K2R</td><td><b>Entity 재정합 게이트</b></td><td class="c mk">W9–10</td><td>차이 항목 처분 기록 (①의 인계 #1b 대조)</td></tr>
+      <tr><td class="c mk">②</td><td class="mk">K5</td><td>통합 · 보고 · 이관</td><td class="c mk">W13–14</td><td>산출물 <b>8종</b> 제출 및 이관 · 어휘·분류축 변경관리 체계</td></tr>
+      <tr style="border-top:2px solid var(--rule)"><td class="c mk">③</td><td class="mk">M0</td><td>착수 · 입력 확보</td><td class="c mk">W1</td><td>전사 MLOps TF 산출물 · Agent/Asset 관리체계 문서 확보</td></tr>
+      <tr style="background:var(--accent-soft)"><td class="c mk">③</td><td class="mk">M1</td><td><b>MLOps 현황 · Gap 분석</b></td><td class="c mk">W1–5</td><td>산출물 1 MLOps Gap 및 고도화 요건</td></tr>
+      <tr><td class="c mk">③</td><td class="mk">M2</td><td>MLOps 사용자 요건 · 개선과제</td><td class="c mk">W4–6</td><td>산출물 1 · 2 MLOps 개선과제 및 적용방안</td></tr>
+      <tr><td class="c mk">③</td><td class="mk">M3</td><td>AgentOps 외부 BP · 추진방향</td><td class="c mk">W6–8</td><td>산출물 3 전사/CLX AgentOps 현황 및 방향성 · <b>인계 #6 회신(W7)</b></td></tr>
+      <tr><td class="c mk">③</td><td class="mk">M4</td><td>AgentOps 방향성 · 요건 정의</td><td class="c mk">W8–10</td><td>산출물 4 章1 생애주기 요건 · <b>인계 #11 회신(W9)</b></td></tr>
+      <tr><td class="c mk">③</td><td class="mk">M5</td><td>운영 · 모니터링 기준 · 대응체계</td><td class="c mk">W9–13</td><td>산출물 4 章2 · <b>章3 RAG 파이프라인 요건 W11 단독 확정</b>(인계 #7)</td></tr>
+      <tr style="background:var(--signal-soft)"><td class="c mk">③</td><td class="mk">M6</td><td><b>통합 · 보고 · 이관</b></td><td class="c mk">W13–14</td><td>산출물 <b>4종</b> 제출 및 이관 · ①의 #5b-확(W13) 반영 확인</td></tr>
+    </tbody>
+  </table></div>
 </section>
 
 <div class="part-hd">

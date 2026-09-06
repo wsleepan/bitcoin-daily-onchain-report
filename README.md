@@ -27,5 +27,16 @@ Claude Code 예약 루틴(클라우드에서 자동 실행되는 스케줄 에�
 - alternative.me — Fear & Greed Index
 - CoinMetrics Community API — MVRV (best-effort, 무료 한도로 인해 일부 날짜는 미수집될 수 있음)
 
+## 유튜브 쇼츠 만들기
+리포트 하나로 9:16 쇼츠 영상(약 54초, 자막 전용·무음)과 업로드용 제목·설명·태그를 생성할 수 있습니다.
+
+```bash
+pip install pillow imageio-ffmpeg && apt-get install -y fonts-nanum
+python3 video/make_short.py                 # 가장 최근 리포트로 생성
+python3 video/make_short.py reports/2026-07-02.md
+```
+
+결과물은 `video/out/` 에 저장됩니다. 자세한 구성과 커스터마이즈는 [video/README.md](video/README.md) 참고.
+
 ## ⚠️ 안내
 이 시스템이 생성하는 모든 리포트와 신호는 공개 데이터를 활용한 규칙 기반 정보 제공용 콘텐츠이며, **투자 자문이 아닙니다**. 투자 판단과 그 결과에 대한 책임은 전적으로 투자자 본인에게 있습니다.

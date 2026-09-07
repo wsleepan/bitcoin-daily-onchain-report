@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLX AI 과제 정의 인터뷰</title>
+<style>
+:root{
+  --ink:#12191c; --ink-2:#33454a; --ink-3:#5f7378; --ink-4:#8ba0a3;
+  --paper:#f1f4f3; --surface:#fdfefe; --surface-2:#e7ecea; --rule:#cfd9d7; --rule-2:#dfe6e4;
+  --accent:#0e6b70; --accent-soft:#d9eaea; --accent-ink:#0a4f53;
+  --signal:#b06a15; --signal-soft:#f6e8d4;
+  --crit:#a63a2c; --crit-soft:#f6dfda;
+  --ok:#37704a; --ok-soft:#dcebe0;
+  --shadow:0 1px 2px rgba(18,25,28,.05),0 8px 24px -12px rgba(18,25,28,.18);
+  --sans:"IBM Plex Sans KR",-apple-system,BlinkMacSystemFont,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+input,textarea,select{font-family:inherit;font-size:inherit}
+a{color:var(--accent-ink)}
+
+/* ─ 골격 ─ */
+.top{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--rule);box-shadow:var(--shadow)}
+.top-in{max-width:1180px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-weight:600;font-size:15px;letter-spacing:-.01em}
+.brand span{font-family:var(--mono);font-size:11px;color:var(--ink-4);letter-spacing:.08em;margin-left:9px;text-transform:uppercase}
+.top-sp{flex:1}
+.who{font-size:12.5px;color:var(--ink-3);display:flex;align-items:center;gap:7px}
+.who b{color:var(--ink-2);font-weight:600}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 20px 90px}
+
+/* ─ 공통 부품 ─ */
+.btn{border:1px solid var(--rule);background:var(--surface);color:var(--ink-2);padding:7px 14px;border-radius:5px;font-size:13.5px;transition:.12s;white-space:nowrap}
+.btn:hover{border-color:var(--ink-4);color:var(--ink)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn.pri:hover{background:var(--accent-ink);border-color:var(--accent-ink);color:#fff}
+.btn.sm{padding:4px 10px;font-size:12.5px}
+.btn.gh{background:transparent;border-color:transparent;color:var(--ink-3);text-decoration:underline;text-underline-offset:3px}
+.btn.gh:hover{color:var(--ink)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:7px;box-shadow:var(--shadow)}
+.mini{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)}
+.pat{font-family:var(--mono);font-size:12px;background:var(--surface-2);border:1px solid var(--rule-2);border-radius:3px;padding:1px 5px;white-space:nowrap}
+.note{background:var(--surface-2);border-left:3px solid var(--ink-4);padding:11px 15px;border-radius:0 5px 5px 0;font-size:13.5px;color:var(--ink-2);margin:14px 0}
+.note.warn{background:var(--signal-soft);border-left-color:var(--signal)}
+.note.crit{background:var(--crit-soft);border-left-color:var(--crit)}
+.note.ok{background:var(--ok-soft);border-left-color:var(--ok)}
+.note b{color:var(--ink)}
+h1{font-size:23px;font-weight:600;letter-spacing:-.02em;margin:0 0 8px}
+h2{font-size:18px;font-weight:600;letter-spacing:-.01em;margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+h3{font-size:15px;font-weight:600;margin:22px 0 9px}
+.lede{color:var(--ink-2);max-width:74ch}
+.hide{display:none !important}
+
+/* ─ 홈 ─ */
+.hero{padding:26px 28px;margin-bottom:22px}
+.idbar{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-top:18px;padding-top:18px;border-top:1px solid var(--rule-2)}
+.fld{display:flex;flex-direction:column;gap:4px}
+.fld label{font-size:12px;color:var(--ink-3);font-weight:600}
+.fld input,.fld select{border:1px solid var(--rule);border-radius:5px;padding:7px 10px;background:var(--surface);min-width:170px}
+.fld input:focus,.fld select:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:13px}
+.tk{padding:15px 17px;display:flex;flex-direction:column;gap:9px;text-align:left;transition:.12s;background:var(--surface);border:1px solid var(--rule);border-radius:7px;box-shadow:var(--shadow)}
+.tk:hover{border-color:var(--accent);transform:translateY(-1px)}
+.tk-h{display:flex;align-items:baseline;gap:9px}
+.tk-n{font-family:var(--mono);font-size:11.5px;font-weight:600;color:var(--accent)}
+.tk-t{font-weight:600;font-size:14.5px;flex:1;line-height:1.4}
+.tk-m{font-size:12.5px;color:var(--ink-3);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tag{font-family:var(--mono);font-size:10.5px;background:var(--surface-2);border:1px solid var(--rule-2);border-radius:3px;padding:1px 6px;color:var(--ink-3)}
+.tag.x{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.bar{height:5px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.bar.done i{background:var(--ok)}
+.st{font-size:11.5px;font-family:var(--mono);color:var(--ink-4)}
+.st.on{color:var(--signal)}
+.st.done{color:var(--ok);font-weight:600}
+
+/* ─ 인터뷰 ─ */
+.iv{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+@media(max-width:900px){.iv{grid-template-columns:1fr}}
+.chat{padding:0;overflow:hidden;background:var(--surface);border:1px solid var(--rule);border-radius:7px;box-shadow:var(--shadow)}
+.chat-h{padding:13px 20px;background:var(--surface-2);border-bottom:1px solid var(--rule-2);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.chat-h .t{font-weight:600;flex:1;min-width:160px}
+.log{padding:20px;display:flex;flex-direction:column;gap:15px;max-height:none}
+.msg{display:flex;gap:11px;align-items:flex-start}
+.av{width:26px;height:26px;border-radius:50%;flex:0 0 26px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;font-weight:600;margin-top:2px}
+.av.q{background:var(--accent-soft);color:var(--accent-ink);border:1px solid var(--accent)}
+.av.a{background:var(--surface-2);color:var(--ink-3);border:1px solid var(--rule)}
+.bub{flex:1;min-width:0}
+.bub .qq{font-weight:600;font-size:15.5px;line-height:1.5;margin-bottom:5px}
+.bub .why{font-size:12.5px;color:var(--ink-3);background:var(--surface-2);border-radius:5px;padding:8px 11px;margin:7px 0 2px}
+.bub .why b{color:var(--ink-2)}
+.bub .eg{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+.bub .eg em{font-style:normal;background:var(--signal-soft);padding:1px 5px;border-radius:3px;color:var(--ink-2)}
+.ans{font-size:14px;color:var(--ink-2);background:var(--surface-2);border-radius:5px;padding:9px 12px;white-space:pre-wrap;word-break:break-word}
+.ans.skip{background:var(--signal-soft);color:var(--ink-2)}
+.form{margin-top:11px;display:flex;flex-direction:column;gap:9px}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opts.row{flex-direction:row;flex-wrap:wrap}
+.op{display:flex;align-items:flex-start;gap:8px;border:1px solid var(--rule);border-radius:5px;padding:8px 12px;background:var(--surface);transition:.1s;font-size:14px;text-align:left;color:var(--ink-2)}
+.op:hover{border-color:var(--ink-4)}
+.op.sel{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+.op .k{font-family:var(--mono);font-size:11px;color:var(--ink-4);flex:0 0 auto;margin-top:2px}
+.op.sel .k{color:var(--accent-ink)}
+.op .sub{display:block;font-size:12px;color:var(--ink-3);font-weight:400;margin-top:2px}
+.op.sel .sub{color:var(--accent-ink);opacity:.85}
+textarea,input.ti{width:100%;border:1px solid var(--rule);border-radius:5px;padding:9px 12px;background:var(--surface);resize:vertical;line-height:1.6}
+textarea:focus,input.ti:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.multi{display:flex;flex-direction:column;gap:7px}
+.multi .r{display:flex;gap:7px;align-items:flex-start}
+.multi .r textarea{flex:1}
+.acts{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:3px}
+.sysq{border:1px solid var(--rule-2);border-radius:5px;padding:10px 12px;background:var(--surface)}
+.sysq label{display:block;font-size:12.5px;font-weight:600;color:var(--accent-ink);margin-bottom:5px}
+
+/* ─ 사이드 ─ */
+.side{position:sticky;top:70px;display:flex;flex-direction:column;gap:14px}
+.side .card{padding:15px 17px}
+.steps{display:flex;flex-direction:column;gap:2px;margin-top:9px}
+.sg{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-4);margin:9px 0 3px}
+.sg:first-child{margin-top:0}
+.si{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:3px 6px;border-radius:4px;color:var(--ink-3);width:100%;text-align:left;border:none;background:none}
+.si:hover{background:var(--surface-2)}
+.si .d{width:7px;height:7px;border-radius:50%;background:var(--rule);flex:0 0 7px}
+.si.done .d{background:var(--ok)}
+.si.skip .d{background:var(--signal)}
+.si.cur{background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+.si.cur .d{background:var(--accent)}
+.si .n{font-family:var(--mono);font-size:11px;opacity:.7}
+
+/* ─ 표 ─ */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-2);vertical-align:top}
+th{background:var(--surface-2);font-weight:600;font-size:12.5px;color:var(--ink-2);white-space:nowrap;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+td.c{text-align:center}
+td.mk,th.mk{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.miss{color:var(--crit);font-weight:600}
+.und{color:var(--signal)}
+
+/* ─ 정의서 ─ */
+.doc{padding:30px 34px;background:var(--surface);border:1px solid var(--rule);border-radius:7px;box-shadow:var(--shadow)}
+.doc-h{border-bottom:2px solid var(--ink);padding-bottom:13px;margin-bottom:19px}
+.doc-h .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)}
+.doc-h h1{margin:5px 0 4px;font-size:21px}
+.doc-h .s{font-size:13px;color:var(--ink-3)}
+.jd{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px;margin:15px 0}
+.jd .b{border:1px solid var(--rule-2);border-radius:5px;padding:10px 12px;background:var(--surface-2)}
+.jd .b .l{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:3px}
+.jd .b .v{font-weight:600;font-size:14px;color:var(--ink)}
+.jd .b .v.warn{color:var(--signal)}
+.jd .b .v.crit{color:var(--crit)}
+.jd .b .v.ok{color:var(--ok)}
+
+/* ─ 취합 ─ */
+.drop{border:2px dashed var(--rule);border-radius:8px;padding:34px;text-align:center;color:var(--ink-3);background:var(--surface);transition:.15s}
+.drop.over{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-ink)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+.chip{font-size:12px;background:var(--surface-2);border:1px solid var(--rule-2);border-radius:20px;padding:3px 11px;display:flex;gap:6px;align-items:center}
+.chip button{border:none;background:none;color:var(--ink-4);padding:0;font-size:14px;line-height:1}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:6px;font-size:13.5px;box-shadow:var(--shadow);transition:.22s;opacity:0;z-index:99}
+.toast.on{transform:translateX(-50%) translateY(0);opacity:1}
+
+@media print{
+  .top,.side,.noprint{display:none !important}
+  body{background:#fff}
+  .wrap{padding:0;max-width:none}
+  .doc{border:none;box-shadow:none;padding:0}
+  .tw{border-color:#999}
+}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="top-in">
+  <div class="brand">CLX AI 과제 정의 인터뷰 <span>Phase 1</span></div>
+  <div class="top-sp"></div>
+  <div class="who" id="who"></div>
+  <button class="btn sm" id="navHome">과제 목록</button>
+  <button class="btn sm" id="navRoll">취합</button>
+</div></div>
+
+<div class="wrap">
+
+<!-- ══ 홈 ══ -->
+<section id="vHome">
+  <div class="hero card">
+    <h1>이 Agent가 Legacy에 무엇을 요구하는지 정합니다</h1>
+    <p class="lede">담당하신 AI 과제를 골라 <b>15개 항목</b>에 답해 주시면 <b>과제 정의서</b>가 자동으로 만들어집니다.
+    답변은 이 브라우저에 자동 저장되므로 중간에 닫으셔도 이어서 하실 수 있습니다.</p>
+    <div class="note"><b>왜 묻는가</b> — 과제 기획서는 목적과 기대효과로 쓰여 있는데, 시스템 연계 설계에 필요한 것은 그것이 아니라
+    <b>그 Agent가 Legacy에 던질 질문의 형태</b>입니다. 무엇을 · 어느 범위로 · 몇 초 안에 · 누구의 권한으로 묻는가.
+    <b>여기서 답해 주신 값이 시스템 진단(Phase 2)과 연계 설계(Phase 4)의 입력이 됩니다.</b></div>
+    <div class="note warn"><b>1차 5문만 답하셔도 제출됩니다.</b> ①~⑤는 5분이면 끝나고, 이어지는 심층 9문과 실증 1문은
+    시간이 되실 때 이어서 하시면 됩니다. <b>모르는 항목은 「모르겠습니다」로 넘기셔도 됩니다</b> —
+    빈칸으로 두는 것보다 모른다고 표시된 것이 훨씬 쓸모 있습니다.</div>
+    <div class="note ok"><b>다 하시면</b> 정의서 화면에서 <b>파일로 내려받아 첨부</b>하시거나 <b>본문을 복사</b>해
+    메일 · Teams로 회신해 주시면 됩니다. 이 페이지는 답변을 어디로도 전송하지 않습니다 —
+    <b>회신은 직접 해 주셔야 합니다.</b></div>
+    <div class="idbar">
+      <div class="fld"><label for="fNm">성함</label><input class="ti" id="fNm" placeholder="예: 홍길동"></div>
+      <div class="fld"><label for="fOrg">소속</label><input class="ti" id="fOrg" placeholder="예: 생산기술팀"></div>
+      <div class="fld"><label for="fTel">연락처 <span style="font-weight:400;color:var(--ink-4)">(선택)</span></label><input class="ti" id="fTel" placeholder="내선 또는 메일"></div>
+    </div>
+  </div>
+
+  <h2>과제 목록 <span class="mini" id="cntHome"></span></h2>
+  <p class="lede" style="margin-top:-4px">CLX AI 과제 MP의 <b>AI 생산 Engineer 구성 기술 13종</b>입니다.
+  담당하신 과제가 없으면 맨 아래에서 <b>직접 추가</b>하십시오.</p>
+  <div class="grid" id="grid"></div>
+  <div style="margin-top:16px;display:flex;gap:9px;flex-wrap:wrap">
+    <button class="btn" id="addTask">+ 목록에 없는 과제 추가</button>
+    <button class="btn gh" id="expAll">진행 중인 답변 전체 내려받기</button>
+    <button class="btn gh" id="wipe">이 브라우저의 답변 모두 지우기</button>
+  </div>
+</section>
+
+<!-- ══ 인터뷰 ══ -->
+<section id="vIv" class="hide">
+  <div class="iv">
+    <div class="chat">
+      <div class="chat-h">
+        <div class="t" id="ivTitle"></div>
+        <span class="tag" id="ivStage"></span>
+        <button class="btn sm" id="ivDoc">정의서 보기</button>
+      </div>
+      <div class="log" id="log"></div>
+    </div>
+    <div class="side noprint">
+      <div class="card">
+        <div class="mini">진행</div>
+        <div style="display:flex;align-items:baseline;gap:8px;margin:5px 0 8px">
+          <span style="font-size:24px;font-weight:600" id="pcNum">0</span>
+          <span style="font-size:13px;color:var(--ink-3)">/ 15 항목</span>
+        </div>
+        <div class="bar"><i id="pcBar" style="width:0%"></i></div>
+        <div class="steps" id="steps"></div>
+      </div>
+      <div class="card">
+        <div class="mini">지금까지 판정된 것</div>
+        <div id="live" style="margin-top:8px;display:flex;flex-direction:column;gap:7px;font-size:13px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 정의서 ══ -->
+<section id="vDoc" class="hide">
+  <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px" class="noprint">
+    <button class="btn" id="docBack">인터뷰로 돌아가기</button>
+    <button class="btn pri" id="docJson">정의서 파일 내려받기 (.json)</button>
+    <button class="btn" id="docCopy">본문 복사 (메일 · Teams 붙여넣기)</button>
+    <button class="btn" id="docPrint">인쇄 · PDF</button>
+  </div>
+  <div class="doc" id="doc"></div>
+</section>
+
+<!-- ══ 취합 ══ -->
+<section id="vRoll" class="hide">
+  <h1>취합 — 회신받은 정의서를 모아 봅니다</h1>
+  <p class="lede">담당자들이 내려받아 보내 준 <span class="pat">.json</span> 파일을 아래에 끌어다 놓으십시오.
+  파일은 이 브라우저 안에서만 열리며 어디로도 전송되지 않습니다.</p>
+  <div class="drop" id="drop">
+    <div style="font-size:15px;font-weight:600;color:var(--ink-2)">여기에 .json 파일을 끌어다 놓으십시오</div>
+    <div style="margin-top:7px;font-size:13px">또는 <button class="btn sm" id="pick">파일 고르기</button>
+    <input type="file" id="file" accept=".json" multiple class="hide"></div>
+    <div class="chips" id="chips"></div>
+  </div>
+  <div id="rollOut"></div>
+</section>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+/* ══════════════ 1. 시드 — CLX AI 과제 MP 「AI 생산 Engineer 구성 기술」 13종 ══════════════
+   출처: SKI_CLX_AI과제_MP_참고.pptx · 방법론서 1.5 「AI 과제 13종 — Action Pattern 역산」
+   pattern/systems 는 방법론서의 사전 판정값이며, 인터뷰 답변으로 덮어씁니다.        */
+var SEED = [
+ {id:'MP01', n:'생산 성과 분석 AI',                    grp:'예산 수립 및 운영 최적화', pat:['P-ANALYZE'],            sys:['OASIS','PMS'],              hint:'예산 대비 미달 원인 분석 · O/I 과제 성과 모니터링'},
+ {id:'MP02', n:'투자 사업 정보 저장·분류 자동화',        grp:'투자 사업 기획 및 관리',   pat:['P-READ','P-ACT'],       sys:['투자관리','Teams'],          hint:'투자 사업 문서의 자동 분류·저장'},
+ {id:'MP03', n:'Engineer 공정 분석 AI',                grp:'공정 최적화 및 개선',     pat:['P-ANALYZE'],            sys:['RTDB','PMS'],               hint:'공정 운전 실적 분석 · 생산계획 대비 실적 분석'},
+ {id:'MP04', n:'[생산 공통] 공정 Trouble 대응 지원 AI',  grp:'운전 지원 및 Troubleshooting', pat:['P-SEARCH','P-ANALYZE'], sys:['RTDB','AMS','OCEAN-H','문서'], hint:'공정 Trouble 상황 분류 · 유사 사례 기반 조치 방안 제안', cross:true},
+ {id:'MP05', n:'[생산 공통] 공정 Data Smart Monitoring',grp:'운전 지원 및 Troubleshooting', pat:['P-MONITOR'],        sys:['RTDB','AMS'],               hint:'공정 全 Tag Trend 모니터링 · 핵심 Tag 주요 지표 확인'},
+ {id:'MP06', n:'기술 정보 수집 Agent',                  grp:'전략 과제 기획 및 관리',   pat:['P-SEARCH'],             sys:['외부DB'],                    hint:'논문 · 뉴스 · 특허 수집'},
+ {id:'MP07', n:'생산 운영 정보 저장·분류 자동화',        grp:'공장 운영 및 운전 정보 제공', pat:['P-READ','P-ACT'],     sys:['RTDB','Teams'],              hint:'생산 운영 정보의 자동 분류·저장'},
+ {id:'MP08', n:'[SHE] 화학물질 Data 추출·비교 검증 AI', grp:'안전/환경 관리',          pat:['P-SEARCH'],             sys:['문서'],                hint:'점검 대응 등 SHE 필요 Data 추출'},
+ {id:'MP09', n:'[SHE] 환경운영 Data DB화·검증 Agent',   grp:'안전/환경 관리',          pat:['P-READ','P-ACT'],       sys:['환경시스템'],                 hint:'환경 운영 Data DB화 및 검증'},
+ {id:'MP10', n:'[SHE] CLX 법률 지식 Q&A Chat-Bot',      grp:'안전/환경 관리',          pat:['P-SEARCH'],             sys:['문서'],                      hint:'사내 규정·법규 질의응답'},
+ {id:'MP11', n:'[설비 공통] 이상현상/고장증상 분석 AI',  grp:'운전 지원 및 Troubleshooting', pat:['P-SEARCH','P-ANALYZE'], sys:['OCEAN-H','RTDB','AMS'],  hint:'설비 이상현상·고장증상 분석', cross:true},
+ {id:'MP12', n:'촉매 구매 ITB 작성 지원 Agent',         grp:'공정 최적화 및 개선',     pat:['P-SEARCH'],             sys:['OCEAN-H','문서'],            hint:'촉매 구매 ITB 초안 작성'},
+ {id:'MP13', n:'[SHE] 사고분석 보고서 작성 AI',         grp:'안전/환경 관리',          pat:['P-SEARCH'],             sys:['사고관리','문서'],            hint:'사고 조사 결과 보고서 초안'}
+];
+
+var SYSTEMS = [
+ ['RTDB','공정 실시간 데이터 (DCS · 태그)'],
+ ['OCEAN-H','설비 · 정비 (EAM) · 근무일지'],
+ ['OASIS','생산 · 실적 · 코드 체계'],
+ ['AMS','알람 관리'],
+ ['PMS','공정 성능 · 수율'],
+ ['TDMS','기술자료'],
+ ['투자관리','투자 사업 정보'],
+ ['사고관리','사고 · 안전 기록'],
+ ['환경시스템','환경 배출 · 규제 대응'],
+ ['교육포탈','교육 이력'],
+ ['Teams','개인 · 팀 문서'],
+ ['문서','작업표준 · 사내 규정 등 문서'],
+ ['외부DB','논문 · 뉴스 · 특허 등 사외']
+];
+
+var PATTERN_OF = {
+  read:['P-READ','값·기록을 그대로 찾아 보여줍니다'],
+  search:['P-SEARCH','문서·사례를 찾아 요약해 줍니다'],
+  analyze:['P-ANALYZE','여러 값을 엮어 원인·경향을 추정합니다'],
+  monitor:['P-MONITOR','상시 지켜보다 조건이 되면 알려 줍니다'],
+  act:['P-ACT','시스템에 값을 쓰거나 등록합니다']
+};
+
+/* ══════════════ 2. 질문 정의 — 15개 항목 ══════════════ */
+var Q = [
+/* ─ 1차 ─ */
+{k:'own', no:'①', stage:1, t:'추진 단계', ask:'이 과제는 지금 어디까지 와 있습니까?',
+ why:'추진 단계에 따라 아래 질문 중 답할 수 있는 것이 달라집니다. <b>기획 단계면 뒤쪽 항목이 대부분 비는 것이 정상</b>이며, 그것 자체가 저희에게는 정보입니다.',
+ type:'radio', opts:[['기획','아이디어 · 기획서 단계'],['PoC','시범 적용 중이거나 완료'],['구축','개발이 진행 중'],['운영','이미 쓰이고 있음']]},
+
+{k:'ask', no:'②', stage:1, t:'대표 질문 문장', ask:'이 Agent가 완성되면 현업이 여기에 <u>뭐라고 물어볼까요?</u>',
+ why:'<b>이 절의 가장 중요한 항목입니다.</b> 이 문장 하나에서 어느 시스템의 어떤 값이 필요한지를 역산합니다. 요약하거나 정리하지 마시고 <b>실제 쓰실 말 그대로</b> 적어 주십시오.',
+ eg:'3호기 압축기 지난주에 진동 이상 있었나? / 어제 야간에 T-201 온도 튄 원인이 뭐야? / 이번 달 촉매 교체 예정인 설비 알려줘',
+ type:'multi', max:3, ph:'현업이 실제로 던질 질문을 그대로'},
+
+{k:'out', no:'③', stage:1, t:'산출 형태', ask:'물어보면 <u>무엇이</u> 돌아옵니까?',
+ why:'돌아오는 것의 성격이 연계 방식을 가릅니다 — 값을 그대로 주는 것과, 여러 값을 엮어 판단해 주는 것은 시스템에 요구하는 바가 다릅니다.',
+ type:'check', opts:[
+   ['read','값 · 기록을 찾아서 그대로','예: 지난주 진동 측정값, 정비 이력 목록'],
+   ['search','문서 · 사례를 찾아 요약','예: 비슷한 트러블 사례와 그때 조치'],
+   ['analyze','여러 값을 엮어 원인 · 경향 추정','예: 온도가 튄 이유를 공정값으로 추정'],
+   ['monitor','상시 지켜보다 알림','예: 임계 벗어나면 알려줌'],
+   ['act','시스템에 기록 · 등록','예: 결과를 문서로 저장, 대장에 등록']]},
+
+{k:'write', no:'④', stage:1, t:'쓰기 여부', ask:'이 Agent가 어느 시스템에 <u>값을 쓰거나 등록</u>합니까?',
+ why:'본 과업의 1차 범위는 <b>읽기 전용</b>입니다. 쓰기가 있는 과제는 요건만 기재하고 실제 개방은 다음 단계로 넘깁니다 — 그 경계를 여기서 가릅니다.',
+ type:'radio', opts:[['no','읽기만 합니다','조회 · 검색 · 분석만'],['yes','씁니다','어느 시스템에 무엇을 쓰는지 아래에 적어 주십시오']],
+ follow:{on:'yes', ph:'예: OCEAN-H 정비이력에 조치 결과를 등록'}},
+
+{k:'sys', no:'⑤', stage:1, t:'필요 시스템', ask:'답을 만들려면 <u>어느 시스템</u>의 데이터가 필요합니까?',
+ why:'이 답이 모이면 어느 시스템을 먼저 진단할지가 정해집니다. <b>2개 이상 고르시면 「횡단 과제」</b>로 분류되어 다음 질문이 하나 더 나옵니다.',
+ type:'syscheck'},
+
+/* ─ 2차 ─ */
+{k:'obj', no:'⑥', stage:2, t:'필요 데이터 객체', ask:'시스템 이름 말고, <u>그 안의 무엇</u>이 필요합니까?',
+ why:'「RTDB가 필요하다」로는 진단할 수 없습니다. 태그가 몇 점인지, 어느 테이블인지, 무슨 문서인지까지 좁혀야 <b>그 대상만 진단</b>할 수 있습니다.',
+ eg:'RTDB → 2유닛 온도·압력 태그 약 300점 / OCEAN-H → 설비 마스터와 정비이력 / 문서 → 공정 작업표준',
+ type:'persys', ph:'필요한 태그군 · 테이블 · 문서 유형'},
+
+{k:'join', no:'⑦', stage:2, t:'조인 키', ask:'두 시스템의 데이터를 <u>무엇으로 맞춰 붙입니까?</u>', onlyCross:true,
+ why:'<b>이 항목이 이 인터뷰의 핵심입니다.</b> 예를 들어 알람은 AMS에 있고 공정값은 RTDB에 있는데, 그 둘이 같은 설비·같은 시각의 것인지 판단할 공통 열쇠가 없으면 답이 만들어지지 않습니다. <b>모르셔도 됩니다</b> — 모른다는 답이 곧 저희가 만들 표준의 대상 목록이 됩니다.',
+ type:'check', opts:[
+   ['eq','설비 ID로 붙입니다','양쪽이 같은 설비 번호를 씁니다'],
+   ['time','시각으로 붙입니다','타임스탬프를 맞춰 봅니다'],
+   ['batch','배치 · 생산일로 붙입니다','생산일자 · 교대 단위'],
+   ['code','코드값으로 붙입니다','상태코드 · 분류코드'],
+   ['etc','다른 것으로 붙입니다',''],
+   ['unknown','모르겠습니다 · 사람이 눈으로 맞춥니다','지금은 담당자가 화면 두 개를 놓고 대조합니다']],
+ follow:{on:'etc', ph:'무엇으로 붙이는지'}},
+
+{k:'range', no:'⑧', stage:2, t:'조회 범위', ask:'한 번 물어볼 때 <u>얼마나 넓은 범위</u>를 봅니까?',
+ why:'범위가 응답 속도를 가릅니다. 1유닛 하루치와 전 공장 1년치는 같은 시스템이라도 전혀 다른 이야기입니다 — <b>이 값으로 실측 조건을 정합니다.</b>',
+ type:'grid2',
+ g1:{label:'기간', opts:[['1d','최근 하루'],['1w','최근 일주일'],['1m','최근 한 달'],['1y','최근 1년'],['1y+','1년 넘게']]},
+ g2:{label:'공간', opts:[['unit','1개 유닛'],['plant','1개 공장'],['all','전 공장']]}},
+
+{k:'sla', no:'⑨', stage:2, t:'응답 목표 시간', ask:'물어보고 <u>몇 초까지</u> 기다릴 수 있습니까?',
+ why:'「빠르게」는 진단의 합격선이 되지 못합니다. 숫자가 있어야 시스템이 그 요구를 감당하는지 판정할 수 있습니다.',
+ type:'radio', opts:[['3','3초 이내','대화하듯 주고받아야 함'],['10','10초쯤','한숨 돌릴 정도'],['30','30초쯤','기다릴 각오는 됨'],['60','1분쯤',''],['rep','몇 분 걸려도 됩니다','리포트를 받아 보는 성격']]},
+
+{k:'user', no:'⑩', stage:2, t:'사용자 집단', ask:'누가 씁니까?',
+ why:'권한 모델의 주체가 됩니다. <b>협력사 인원이 쓰는지</b>가 특히 중요합니다 — 사내 인원과 다른 통제가 붙습니다.',
+ type:'usergrid'},
+
+{k:'grade', no:'⑪', stage:2, t:'데이터 민감도', ask:'다루는 데이터 중 <u>밖으로 나가면 안 되는 것</u>이 있습니까?',
+ why:'등급이 높으면 <b>외부 AI 서비스를 쓸 수 없어</b> 모델을 사내에 두어야 합니다. 최종 판정은 정보보호에서 하며, 여기서는 <b>짐작으로</b> 표시해 주시면 됩니다.',
+ type:'check', opts:[
+   ['op','공정 운전조건 · 수율',''],['cat','촉매 사양 · 배합',''],
+   ['pi','개인정보 (근무일지 · 작업자명 등)',''],['par','협력사 정보',''],
+   ['she','안전 · 환경 규제 대응 자료',''],
+   ['none','해당 없음',''],['unknown','모르겠습니다','']]},
+
+{k:'deleg', no:'⑫', stage:2, t:'위임 조회', ask:'질문한 사람이 <u>원래 볼 수 없는 데이터</u>까지 대신 봐야 합니까?',
+ why:'Agent가 자기 권한으로 데이터를 가져와 보여 주면, 요청한 사람의 권한 범위를 넘길 수 있습니다. 그런 경우가 있는지에 따라 설계가 달라집니다.',
+ type:'radio', opts:[['no','아니오 · 본인이 볼 수 있는 것만',''],['yes','예 · 그런 경우가 있습니다','아래에 어떤 경우인지'],['unknown','모르겠습니다','']],
+ follow:{on:'yes', ph:'예: 타 공장 실적을 요약해 보여줘야 함'}},
+
+{k:'know', no:'⑬', stage:2, t:'참조 지식', ask:'값 말고 <u>문서 · 규정 · 경험</u>을 참조합니까?',
+ why:'문서와 경험은 다른 과업(② 지식체계)이 맡습니다. 여기서 표시해 주셔야 두 과업이 같은 문서를 각자 만들거나, 반대로 아무도 안 맡는 일이 없습니다.',
+ type:'check', opts:[
+   ['std','작업표준 · 절차서',''],['log','근무일지',''],
+   ['mnt','정비이력 (사람이 쓴 문장)',''],['reg','사내 규정 · 법규',''],
+   ['tdms','기술자료 (TDMS)',''],['tacit','사람 머릿속에만 있는 노하우',''],
+   ['none','없음 · 값만 봅니다','']]},
+
+{k:'model', no:'⑭', stage:2, t:'모델 · 프롬프트', ask:'쓰기로 한 <u>AI 모델</u>이 정해져 있습니까?',
+ why:'무엇이 어디에서 도는지를 알아야 나중에 「모델이 바뀌면 무엇이 영향받는가」를 관리할 수 있습니다. <b>미정이 정상입니다</b> — 미정이라고만 표시해 주십시오.',
+ type:'radio', opts:[
+   ['und','아직 미정입니다',''],['on','사내 서버 (온프렘)',''],
+   ['pc','사내 사설 클라우드',''],['saas','외부 서비스 (ChatGPT · Claude 등)',''],
+   ['unknown','모르겠습니다','']]},
+
+/* ─ 3차 ─ */
+{k:'truth', no:'⑮', stage:3, t:'기대 답변과 근거', ask:'앞에서 적으신 질문의 <u>정답</u>은 무엇이어야 합니까?', onlyCross:true,
+ why:'정답지가 있어야 「연결이 됐는지 안 됐는지」를 판정할 수 있습니다. 답변 문장과, <b>그 근거가 어느 시스템의 무슨 값인지</b>를 함께 적어 주십시오.',
+ eg:'답 → "3호기 압축기는 9/2 14시경 진동 6.2mm/s로 경보, 베어링 교체함" / 근거 → AMS 알람 이력 + RTDB 진동 태그 + OCEAN-H 정비이력',
+ type:'truth'}
+];
+
+/* ══════════════ 3. 상태 ══════════════ */
+var LS='clx_ai_iv_v1';
+var DB={me:{},ans:{},extra:[]};
+try{ var raw=localStorage.getItem(LS); if(raw) DB=JSON.parse(raw); }catch(e){}
+if(!DB.me)DB.me={}; if(!DB.ans)DB.ans={}; if(!DB.extra)DB.extra=[];
+var CUR=null, IDX=0, ROLL=[];
+
+function save(){ try{ localStorage.setItem(LS,JSON.stringify(DB)); }catch(e){ toast('저장 공간이 가득 찼습니다 — 정의서를 내려받아 두십시오'); } }
+function tasks(){ return SEED.concat(DB.extra); }
+function task(id){ var a=tasks(); for(var i=0;i<a.length;i++) if(a[i].id===id) return a[i]; return null; }
+function A(id){ if(!DB.ans[id]) DB.ans[id]={}; return DB.ans[id]; }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function $(x){ return document.getElementById(x); }
+var TT;
+function toast(m){ var t=$('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(TT); TT=setTimeout(function(){t.classList.remove('on');},2600); }
+
+/* 이 과제가 횡단인가 — ⑤ 답이 있으면 그것으로, 없으면 시드 판정으로 */
+function isCross(id){
+  var a=A(id), t=task(id);
+  if(a.sys && a.sys.v && a.sys.v.length) return a.sys.v.length>=2;
+  return !!(t && t.sys && t.sys.length>=2);
+}
+/* 이 과제에 실제로 물을 질문들 */
+function qs(id){ return Q.filter(function(q){ return !q.onlyCross || isCross(id); }); }
+function answered(id){
+  var a=A(id), n=0;
+  qs(id).forEach(function(q){ if(a[q.k]) n++; });
+  return n;
+}
+function stageDone(id,st){
+  var a=A(id), list=qs(id).filter(function(q){return q.stage===st;});
+  if(!list.length) return true;
+  return list.every(function(q){ return !!a[q.k]; });
+}
+
+/* ══════════════ 4. 홈 ══════════════ */
+function drawHome(){
+  $('fNm').value=DB.me.nm||''; $('fOrg').value=DB.me.org||''; $('fTel').value=DB.me.tel||'';
+  var g=$('grid'); g.innerHTML='';
+  var all=tasks(), done=0;
+  all.forEach(function(t){
+    var tot=qs(t.id).length, n=answered(t.id), pc=Math.round(n/tot*100);
+    if(n>=tot) done++;
+    var b=document.createElement('button'); b.className='tk';
+    var st = n===0 ? '<span class="st">시작 전</span>'
+           : n>=tot ? '<span class="st done">완료 · '+n+'/'+tot+'</span>'
+           : '<span class="st on">진행 중 · '+n+'/'+tot+'</span>';
+    b.innerHTML =
+      '<div class="tk-h"><span class="tk-n">'+esc(t.id)+'</span><span class="tk-t">'+esc(t.n)+'</span></div>'+
+      '<div class="tk-m">'+(isCross(t.id)?'<span class="tag x">횡단</span>':'')+
+        (t.pat||[]).map(function(p){return '<span class="tag">'+esc(p)+'</span>';}).join('')+
+        '<span style="flex:1"></span>'+st+'</div>'+
+      '<div class="bar'+(n>=tot?' done':'')+'"><i style="width:'+pc+'%"></i></div>'+
+      (t.hint?'<div style="font-size:12.5px;color:var(--ink-3)">'+esc(t.hint)+'</div>':'');
+    b.onclick=function(){ open(t.id); };
+    g.appendChild(b);
+  });
+  $('cntHome').textContent = all.length+'건 · 완료 '+done+'건';
+  $('who').innerHTML = DB.me.nm ? '<b>'+esc(DB.me.nm)+'</b> '+esc(DB.me.org||'') : '';
+}
+['fNm','fOrg','fTel'].forEach(function(f){
+  var key={fNm:'nm',fOrg:'org',fTel:'tel'}[f];
+  $(f).addEventListener('input',function(){ DB.me[key]=this.value; save();
+    $('who').innerHTML = DB.me.nm ? '<b>'+esc(DB.me.nm)+'</b> '+esc(DB.me.org||'') : ''; });
+});
+
+/* ══════════════ 5. 인터뷰 ══════════════ */
+function show(v){ ['vHome','vIv','vDoc','vRoll'].forEach(function(x){ $(x).classList.toggle('hide',x!==v); }); window.scrollTo(0,0); }
+function open(id){
+  CUR=id; var a=A(id), list=qs(id);
+  IDX=0; for(var i=0;i<list.length;i++){ if(!a[list[i].k]){ IDX=i; break; } IDX=i+1; }
+  if(IDX>=list.length) IDX=list.length;
+  show('vIv'); drawIv();
+}
+function drawIv(){
+  var t=task(CUR), list=qs(CUR), a=A(CUR);
+  $('ivTitle').innerHTML='<span class="mini">'+esc(t.id)+'</span> '+esc(t.n);
+  $('ivStage').textContent = isCross(CUR)?'횡단 과제 · '+list.length+'문':list.length+'문';
+  var n=answered(CUR);
+  $('pcNum').textContent=n; $('pcBar').style.width=Math.round(n/list.length*100)+'%';
+
+  /* 좌측 단계 목록 */
+  var st=$('steps'); st.innerHTML=''; var lastStage=0;
+  list.forEach(function(q,i){
+    if(q.stage!==lastStage){
+      lastStage=q.stage;
+      var h=document.createElement('div'); h.className='sg';
+      h.textContent = q.stage===1?'1차 · 필수 5문' : q.stage===2?'2차 · 심층' : '3차 · 실증';
+      st.appendChild(h);
+    }
+    var v=a[q.k], b=document.createElement('button');
+    b.className='si'+(v?(v.skip?' skip':' done'):'')+(i===IDX?' cur':'');
+    b.innerHTML='<span class="d"></span><span class="n">'+q.no+'</span><span>'+esc(q.t)+'</span>';
+    b.onclick=function(){ IDX=i; drawIv(); };
+    st.appendChild(b);
+  });
+
+  /* 판정 요약 */
+  var L=$('live'), j=judge(CUR), h='';
+  h+=liveRow('Action Pattern', j.pat.length?j.pat.join(' · '):'—', j.pat.length?'':'u');
+  h+=liveRow('횡단 여부', j.cross?'횡단 — 시스템 '+j.nsys+'종':(a.sys?'단일 시스템':'—'), j.cross?'w':'');
+  h+=liveRow('1차 범위', j.scope, j.scope==='범위 밖 — 쓰기 포함'?'c':(j.scope==='—'?'u':'o'));
+  h+=liveRow('조인 키', j.join, j.join==='없음 — Phase 3 대상'?'c':(j.join==='—'?'u':'o'));
+  h+=liveRow('미정 항목', j.und?j.und+'건':'0건', j.und?'w':'o');
+  L.innerHTML=h;
+
+  /* 대화 */
+  var log=$('log'); log.innerHTML='';
+  for(var i=0;i<=IDX && i<list.length;i++) log.appendChild(bubble(list[i], i===IDX));
+  if(IDX>=list.length) log.appendChild(endBlock());
+  var cur=log.querySelector('.form'); if(cur) cur.scrollIntoView({block:'nearest'});
+}
+function liveRow(l,v,c){
+  var cls = c==='c'?'style="color:var(--crit);font-weight:600"' : c==='w'?'style="color:var(--signal);font-weight:600"'
+          : c==='o'?'style="color:var(--ok);font-weight:600"' : 'style="color:var(--ink-4)"';
+  return '<div style="display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--rule-2);padding-bottom:5px">'+
+    '<span style="color:var(--ink-3)">'+l+'</span><span '+cls+'>'+esc(v)+'</span></div>';
+}
+function bubble(q,active){
+  var a=A(CUR), v=a[q.k], d=document.createElement('div');
+  d.className='msg';
+  var body='<div class="qq">'+q.ask+'</div>';
+  if(active){
+    body+='<div class="why">'+q.why+'</div>';
+    if(q.eg) body+='<div class="eg">예 — <em>'+esc(q.eg)+'</em></div>';
+    body+='<div class="form"></div>';
+  } else if(v){
+    body+='<div class="ans'+(v.skip?' skip':'')+'">'+esc(fmt(q,v))+'</div>';
+  }
+  d.innerHTML='<div class="av q">'+q.no+'</div><div class="bub">'+body+'</div>';
+  if(active) buildForm(d.querySelector('.form'), q);
+  return d;
+}
+function endBlock(){
+  var d=document.createElement('div'); d.className='msg';
+  var j=judge(CUR), list=qs(CUR), a=A(CUR), n=answered(CUR);
+  var msg = n>=list.length ? '<b>모두 답해 주셨습니다.</b> 정의서를 내려받아 회신해 주십시오.'
+        : stageDone(CUR,1) ? '<b>1차 5문이 끝났습니다.</b> 여기서 제출하셔도 되고, 심층 항목을 이어서 하셔도 됩니다.'
+        : '아직 1차 항목이 남았습니다.';
+  var warn='';
+  if(j.join==='없음 — Phase 3 대상') warn+='<div class="note crit"><b>조인 키가 확인되지 않았습니다.</b> 이 과제는 지금 구조로는 답이 만들어지지 않습니다 — 저희가 Phase 3에서 만들 식별자 표준의 대상이 됩니다. <b>문제가 있다는 뜻이 아니라, 저희가 할 일이 하나 확정됐다는 뜻입니다.</b></div>';
+  if(j.scope==='범위 밖 — 쓰기 포함') warn+='<div class="note warn"><b>쓰기가 포함된 과제입니다.</b> 본 과업의 1차 범위는 읽기 전용이므로 이 과제는 <b>요건만 기재</b>하고 실제 쓰기 개방은 다음 단계로 넘깁니다.</div>';
+  if(j.und) warn+='<div class="note warn"><b>미정 '+j.und+'건</b>이 있습니다. 그대로 제출하셔도 됩니다 — 미정인 항목은 저희가 가정을 두거나 실측으로 대신합니다.</div>';
+  d.innerHTML='<div class="av q">✓</div><div class="bub"><div class="qq">'+msg+'</div>'+warn+
+    '<div class="acts" style="margin-top:12px">'+
+    '<button class="btn pri" id="goDoc">정의서 보기 · 내려받기</button>'+
+    '<button class="btn" id="goHome">다른 과제 하기</button></div></div>';
+  setTimeout(function(){
+    var a1=$('goDoc'), a2=$('goHome');
+    if(a1) a1.onclick=function(){ drawDoc(); show('vDoc'); };
+    if(a2) a2.onclick=function(){ drawHome(); show('vHome'); };
+  },0);
+  return d;
+}
+
+/* ── 답변 표시 문자열 ── */
+function fmt(q,v){
+  if(v.skip) return '모르겠습니다' + (v.disp?' — 처분: '+v.disp:'');
+  var x=v.v;
+  switch(q.type){
+    case 'radio': var o=(q.opts||[]).filter(function(p){return p[0]===x||p[0]===x;})[0];
+      return (o?o[1]:x) + (v.txt?' — '+v.txt:'');
+    case 'check': return (x||[]).map(function(k){
+        var o=(q.opts||[]).filter(function(p){return p[0]===k;})[0]; return o?o[1]:k; }).join(' · ') + (v.txt?' — '+v.txt:'');
+    case 'syscheck': return (x||[]).join(' · ');
+    case 'multi': return (x||[]).join('\n');
+    case 'persys': return Object.keys(x||{}).map(function(s){ return s+' → '+x[s]; }).join('\n');
+    case 'grid2': var g1=(q.g1.opts.filter(function(p){return p[0]===(x||{}).a;})[0]||['',''])[1];
+      var g2=(q.g2.opts.filter(function(p){return p[0]===(x||{}).b;})[0]||['',''])[1];
+      return [g1,g2].filter(Boolean).join(' · ') + ((x||{}).vol?' · 약 '+x.vol:'');
+    case 'usergrid': return [(x||{}).who, (x||{}).par==='y'?'협력사 포함':(x||{}).par==='n'?'사내만':'', (x||{}).n]
+      .filter(Boolean).join(' · ');
+    case 'truth': return (x||[]).map(function(r,i){ return (i+1)+'. '+r.a+(r.src?'\n   근거 — '+r.src:''); }).join('\n');
+  }
+  return String(x);
+}
+
+/* ── 입력 폼 ── */
+function buildForm(el,q){
+  var a=A(CUR), cur=a[q.k]||{}, S={v:cur.v}, wrap=document.createElement('div');
+  wrap.style.cssText='display:flex;flex-direction:column;gap:9px';
+
+  function commit(skip,disp){
+    if(skip) a[q.k]={skip:true,disp:disp||''};
+    else {
+      if(!valid(q,S)) { toast('답을 하나 이상 골라 주십시오'); return; }
+      a[q.k]={v:S.v, txt:S.txt||''};
+    }
+    save();
+    var list=qs(CUR); IDX=Math.min(IDX+1,list.length);
+    drawIv();
+  }
+
+  if(q.type==='radio'||q.type==='check'){
+    var box=document.createElement('div'); box.className='opts';
+    if(q.type==='check' && !Array.isArray(S.v)) S.v=[];
+    q.opts.forEach(function(o){
+      var b=document.createElement('button'); b.className='op'; b.type='button';
+      b.innerHTML='<span class="k">'+(q.type==='check'?'☐':'○')+'</span><span>'+esc(o[1])+
+        (o[2]?'<span class="sub">'+esc(o[2])+'</span>':'')+'</span>';
+      function paint(){
+        var on = q.type==='check' ? S.v.indexOf(o[0])>=0 : S.v===o[0];
+        b.classList.toggle('sel',on);
+        b.querySelector('.k').textContent = q.type==='check' ? (on?'☑':'☐') : (on?'●':'○');
+      }
+      b.onclick=function(){
+        if(q.type==='check'){
+          var i=S.v.indexOf(o[0]);
+          if(i>=0) S.v.splice(i,1); else S.v.push(o[0]);
+          /* 「해당 없음 · 모르겠습니다」는 단독 선택 */
+          if(o[0]==='none'||o[0]==='unknown'){ if(S.v.indexOf(o[0])>=0) S.v=[o[0]]; }
+          else { S.v=S.v.filter(function(k){return k!=='none'&&k!=='unknown';}); }
+          Array.prototype.forEach.call(box.children,function(c,ci){
+            var kk=q.opts[ci][0], on=S.v.indexOf(kk)>=0;
+            c.classList.toggle('sel',on); c.querySelector('.k').textContent=on?'☑':'☐';
+          });
+        } else {
+          S.v=o[0];
+          Array.prototype.forEach.call(box.children,function(c,ci){
+            var on=q.opts[ci][0]===S.v; c.classList.toggle('sel',on); c.querySelector('.k').textContent=on?'●':'○';
+          });
+        }
+        syncFollow();
+      };
+      paint(); box.appendChild(b);
+    });
+    wrap.appendChild(box);
+    var fw=null;
+    if(q.follow){
+      fw=document.createElement('div'); fw.className='hide';
+      fw.innerHTML='<input class="ti" placeholder="'+esc(q.follow.ph)+'">';
+      fw.querySelector('input').value=cur.txt||'';
+      fw.querySelector('input').addEventListener('input',function(){ S.txt=this.value; });
+      wrap.appendChild(fw);
+    }
+    function syncFollow(){
+      if(!fw) return;
+      var on = q.type==='check' ? S.v.indexOf(q.follow.on)>=0 : S.v===q.follow.on;
+      fw.classList.toggle('hide',!on);
+    }
+    S.txt=cur.txt||''; syncFollow();
+
+  } else if(q.type==='syscheck'){
+    if(!Array.isArray(S.v)) S.v = (task(CUR).sys||[]).slice();
+    var box=document.createElement('div'); box.className='opts';
+    SYSTEMS.forEach(function(o){
+      var b=document.createElement('button'); b.className='op'; b.type='button';
+      b.innerHTML='<span class="k">☐</span><span>'+esc(o[0])+'<span class="sub">'+esc(o[1])+'</span></span>';
+      function paint(){ var on=S.v.indexOf(o[0])>=0; b.classList.toggle('sel',on); b.querySelector('.k').textContent=on?'☑':'☐'; }
+      b.onclick=function(){ var i=S.v.indexOf(o[0]); if(i>=0)S.v.splice(i,1); else S.v.push(o[0]); paint();
+        hintCross.innerHTML = S.v.length>=2
+          ? '<div class="note warn" style="margin:4px 0 0"><b>횡단 과제입니다</b> — '+S.v.length+'개 시스템을 동시에 씁니다. 이 경우 <b>조인 키</b> 질문이 하나 더 나옵니다.</div>'
+          : ''; };
+      paint(); box.appendChild(b);
+    });
+    wrap.appendChild(box);
+    var etc=document.createElement('input'); etc.className='ti'; etc.placeholder='목록에 없는 시스템이 있으면 적어 주십시오';
+    etc.value=cur.txt||''; etc.addEventListener('input',function(){ S.txt=this.value; });
+    wrap.appendChild(etc); S.txt=cur.txt||'';
+    var hintCross=document.createElement('div'); wrap.appendChild(hintCross);
+    if(S.v.length>=2) hintCross.innerHTML='<div class="note warn" style="margin:4px 0 0"><b>횡단 과제입니다</b> — '+S.v.length+'개 시스템을 동시에 씁니다. 이 경우 <b>조인 키</b> 질문이 하나 더 나옵니다.</div>';
+
+  } else if(q.type==='multi'){
+    if(!Array.isArray(S.v)) S.v=[''];
+    var m=document.createElement('div'); m.className='multi';
+    function redraw(){
+      m.innerHTML='';
+      S.v.forEach(function(val,i){
+        var r=document.createElement('div'); r.className='r';
+        var ta=document.createElement('textarea'); ta.rows=2; ta.placeholder=q.ph+' '+(i+1);
+        ta.value=val; ta.addEventListener('input',function(){ S.v[i]=this.value; });
+        r.appendChild(ta);
+        if(S.v.length>1){ var x=document.createElement('button'); x.className='btn sm'; x.type='button'; x.textContent='−';
+          x.onclick=function(){ S.v.splice(i,1); redraw(); }; r.appendChild(x); }
+        m.appendChild(r);
+      });
+      if(S.v.length<(q.max||3)){
+        var add=document.createElement('button'); add.className='btn sm'; add.type='button'; add.textContent='+ 질문 하나 더';
+        add.onclick=function(){ S.v.push(''); redraw(); }; m.appendChild(add);
+      }
+    }
+    redraw(); wrap.appendChild(m);
+
+  } else if(q.type==='persys'){
+    var chosen=(a.sys&&a.sys.v&&a.sys.v.length)?a.sys.v:(task(CUR).sys||[]);
+    if(typeof S.v!=='object'||!S.v) S.v={};
+    if(!chosen.length){ wrap.innerHTML='<div class="note">⑤에서 시스템을 먼저 골라 주십시오.</div>'; }
+    chosen.forEach(function(s){
+      var d=document.createElement('div'); d.className='sysq';
+      d.innerHTML='<label>'+esc(s)+'</label>';
+      var ta=document.createElement('textarea'); ta.rows=2; ta.placeholder=q.ph;
+      ta.value=S.v[s]||''; ta.addEventListener('input',function(){ S.v[s]=this.value; });
+      d.appendChild(ta); wrap.appendChild(d);
+    });
+
+  } else if(q.type==='grid2'){
+    if(typeof S.v!=='object'||!S.v) S.v={};
+    [['g1','a'],['g2','b']].forEach(function(pair){
+      var g=q[pair[0]], key=pair[1];
+      var d=document.createElement('div');
+      d.innerHTML='<div class="mini" style="margin-bottom:5px">'+esc(g.label)+'</div>';
+      var box=document.createElement('div'); box.className='opts row';
+      g.opts.forEach(function(o){
+        var b=document.createElement('button'); b.className='op'; b.type='button'; b.textContent=o[1];
+        if(S.v[key]===o[0]) b.classList.add('sel');
+        b.onclick=function(){ S.v[key]=o[0];
+          Array.prototype.forEach.call(box.children,function(c,ci){ c.classList.toggle('sel',g.opts[ci][0]===S.v[key]); }); };
+        box.appendChild(b);
+      });
+      d.appendChild(box); wrap.appendChild(d);
+    });
+    var vol=document.createElement('input'); vol.className='ti';
+    vol.placeholder='한 번에 돌아오는 양이 짐작되시면 (예: 태그 300점 × 1분 간격) — 선택';
+    vol.value=(S.v.vol||''); vol.addEventListener('input',function(){ S.v.vol=this.value; });
+    wrap.appendChild(vol);
+
+  } else if(q.type==='usergrid'){
+    if(typeof S.v!=='object'||!S.v) S.v={};
+    var w1=document.createElement('input'); w1.className='ti'; w1.placeholder='누가 씁니까 — 예: 생산기술팀 공정 담당 엔지니어';
+    w1.value=S.v.who||''; w1.addEventListener('input',function(){ S.v.who=this.value; }); wrap.appendChild(w1);
+    var d1=document.createElement('div'); d1.innerHTML='<div class="mini" style="margin:6px 0 5px">협력사 인원이 씁니까</div>';
+    var b1=document.createElement('div'); b1.className='opts row';
+    [['n','사내 인원만'],['y','협력사도 씁니다'],['u','모르겠습니다']].forEach(function(o){
+      var b=document.createElement('button'); b.className='op'; b.type='button'; b.textContent=o[1];
+      if(S.v.par===o[0]) b.classList.add('sel');
+      b.onclick=function(){ S.v.par=o[0]; Array.prototype.forEach.call(b1.children,function(c){ c.classList.toggle('sel',c===b); }); };
+      b1.appendChild(b);
+    });
+    d1.appendChild(b1); wrap.appendChild(d1);
+    var d2=document.createElement('div'); d2.innerHTML='<div class="mini" style="margin:6px 0 5px">동시에 쓰는 인원 규모</div>';
+    var b2=document.createElement('div'); b2.className='opts row';
+    [['10','10명 안팎'],['50','50명 안팎'],['200','200명 안팎'],['200+','그 이상'],['u','모르겠습니다']].forEach(function(o){
+      var b=document.createElement('button'); b.className='op'; b.type='button'; b.textContent=o[1];
+      if(S.v.n===o[0]) b.classList.add('sel');
+      b.onclick=function(){ S.v.n=o[0]; Array.prototype.forEach.call(b2.children,function(c){ c.classList.toggle('sel',c===b); }); };
+      b2.appendChild(b);
+    });
+    d2.appendChild(b2); wrap.appendChild(d2);
+
+  } else if(q.type==='truth'){
+    var asks=(a.ask&&a.ask.v)?a.ask.v.filter(function(s){return s&&s.trim();}):[];
+    if(!Array.isArray(S.v)) S.v=[];
+    if(!asks.length){ wrap.innerHTML='<div class="note">②에서 질문을 먼저 적어 주십시오.</div>'; }
+    asks.forEach(function(qq,i){
+      if(!S.v[i]) S.v[i]={a:'',src:''};
+      var d=document.createElement('div'); d.className='sysq';
+      d.innerHTML='<label>'+esc(qq)+'</label>';
+      var t1=document.createElement('textarea'); t1.rows=2; t1.placeholder='이 질문에 대한 정답 문장';
+      t1.value=S.v[i].a; t1.addEventListener('input',function(){ S.v[i].a=this.value; });
+      var t2=document.createElement('input'); t2.className='ti'; t2.style.marginTop='6px';
+      t2.placeholder='근거 — 어느 시스템의 무슨 값입니까';
+      t2.value=S.v[i].src; t2.addEventListener('input',function(){ S.v[i].src=this.value; });
+      d.appendChild(t1); d.appendChild(t2); wrap.appendChild(d);
+    });
+  }
+
+  el.appendChild(wrap);
+
+  var acts=document.createElement('div'); acts.className='acts';
+  var ok=document.createElement('button'); ok.className='btn pri'; ok.type='button';
+  ok.textContent = (IDX>=qs(CUR).length-1) ? '이 답으로 마칩니다' : '다음';
+  ok.onclick=function(){ commit(false); };
+  acts.appendChild(ok);
+
+  /* 미정 처분 — ⑧⑨⑪만 처분을 함께 받습니다 */
+  if(['range','sla','grade'].indexOf(q.k)>=0){
+    var sel=document.createElement('select');
+    sel.style.cssText='border:1px solid var(--rule);border-radius:5px;padding:6px 9px;background:var(--surface);color:var(--ink-2)';
+    sel.innerHTML='<option value="">모르겠습니다 → 처분 고르기</option>'+
+      '<option value="가정">저희가 가정을 두고 진행</option>'+
+      '<option value="실측">실측 결과로 대신</option>'+
+      '<option value="범위밖">이 과제는 범위 밖</option>';
+    sel.onchange=function(){ if(this.value) commit(true,this.value); };
+    acts.appendChild(sel);
+  } else {
+    var sk=document.createElement('button'); sk.className='btn gh'; sk.type='button'; sk.textContent='모르겠습니다 · 건너뛰기';
+    sk.onclick=function(){ commit(true); };
+    acts.appendChild(sk);
+  }
+  if(IDX>0){
+    var bk=document.createElement('button'); bk.className='btn gh'; bk.type='button'; bk.textContent='← 앞 질문';
+    bk.onclick=function(){ IDX--; drawIv(); }; acts.appendChild(bk);
+  }
+  el.appendChild(acts);
+}
+function valid(q,S){
+  switch(q.type){
+    case 'radio': return !!S.v;
+    case 'check': case 'syscheck': return Array.isArray(S.v)&&S.v.length>0;
+    case 'multi': return Array.isArray(S.v)&&S.v.some(function(x){return x&&x.trim();});
+    case 'persys': return S.v&&Object.keys(S.v).some(function(k){return S.v[k]&&S.v[k].trim();});
+    case 'grid2': return S.v&&S.v.a&&S.v.b;
+    case 'usergrid': return S.v&&(S.v.who||S.v.par);
+    case 'truth': return Array.isArray(S.v)&&S.v.some(function(r){return r&&r.a&&r.a.trim();});
+  }
+  return true;
+}
+
+/* ══════════════ 6. 판정 ══════════════ */
+function judge(id){
+  var a=A(id), t=task(id), r={};
+  r.cross=isCross(id);
+  r.nsys=(a.sys&&a.sys.v)?a.sys.v.length:((t.sys||[]).length);
+  r.pat = (a.out&&a.out.v) ? a.out.v.map(function(k){ return (PATTERN_OF[k]||[k])[0]; }) : [];
+  r.scope = !a.write ? '—' : (a.write.skip ? '미정' : (a.write.v==='yes' ? '범위 밖 — 쓰기 포함' : '1차 범위 안 — 읽기 전용'));
+  if(!r.cross) r.join='해당 없음 — 단일 시스템';
+  else if(!a.join) r.join='—';
+  else if(a.join.skip || (a.join.v&&a.join.v.indexOf('unknown')>=0)) r.join='없음 — Phase 3 대상';
+  else r.join=(a.join.v||[]).map(function(k){
+    return {eq:'설비 ID',time:'시각',batch:'배치·생산일',code:'코드값',etc:'기타'}[k]||k; }).join(' · ');
+  r.und = qs(id).filter(function(q){ return a[q.k]&&a[q.k].skip; }).length;
+  r.sens = (a.grade&&a.grade.v&&a.grade.v.length&&a.grade.v.indexOf('none')<0&&a.grade.v.indexOf('unknown')<0);
+  return r;
+}
+
+/* ══════════════ 7. 정의서 ══════════════ */
+function payload(id){
+  var t=task(id), a=A(id), j=judge(id), list=qs(id);
+  return {
+    schema:'clx-ai-task-def/1', ts:new Date().toISOString(),
+    task:{id:t.id, name:t.n, group:t.grp||'', seedPattern:t.pat||[], seedSystems:t.sys||[]},
+    by:{name:DB.me.nm||'', org:DB.me.org||'', contact:DB.me.tel||''},
+    answers:a,
+    verdict:{cross:j.cross, systems:j.nsys, pattern:j.pat, scope:j.scope, joinKey:j.join, undecided:j.und, sensitive:!!j.sens},
+    progress:{answered:answered(id), total:list.length}
+  };
+}
+function drawDoc(){
+  var t=task(CUR), a=A(CUR), j=judge(CUR), list=qs(CUR), n=answered(CUR);
+  var rows=list.map(function(q){
+    var v=a[q.k];
+    var val = !v ? '<span class="miss">미응답</span>'
+            : v.skip ? '<span class="und">모름'+(v.disp?' · 처분: '+esc(v.disp):'')+'</span>'
+            : esc(fmt(q,v)).replace(/\n/g,'<br>');
+    return '<tr><td class="mk">'+q.no+'</td><td><b>'+esc(q.t)+'</b><br><span style="font-size:12px;color:var(--ink-3)">'+
+      q.ask.replace(/<\/?u>/g,'')+'</span></td><td>'+val+'</td></tr>';
+  }).join('');
+  $('doc').innerHTML =
+    '<div class="doc-h"><div class="k">CLX AI 과제 정의서 · Phase 1</div>'+
+    '<h1>'+esc(t.id)+' '+esc(t.n)+'</h1>'+
+    '<div class="s">'+esc(t.grp||'')+(DB.me.nm?' · 작성 '+esc(DB.me.nm)+' ('+esc(DB.me.org||'')+')':'')+
+    ' · '+new Date().toLocaleDateString('ko-KR')+' · 응답 '+n+'/'+list.length+'</div></div>'+
+    '<div class="jd">'+
+      box('Action Pattern', j.pat.length?j.pat.join(' · '):'미정', j.pat.length?'':'warn')+
+      box('시스템', j.cross?'횡단 · '+j.nsys+'종':(j.nsys?'단일':'미정'), j.cross?'warn':'')+
+      box('1차 범위', j.scope, j.scope==='범위 밖 — 쓰기 포함'?'crit':(j.scope.indexOf('안')>0?'ok':'warn'))+
+      box('조인 키', j.join, j.join==='없음 — Phase 3 대상'?'crit':(j.join==='—'?'warn':'ok'))+
+      box('민감 데이터', j.sens?'있음':(!a.grade?'미정':a.grade.skip?'모름':'없음'), j.sens?'warn':(a.grade&&!a.grade.skip?'ok':'warn'))+
+      box('미정 항목', j.und+'건', j.und?'warn':'ok')+
+    '</div>'+
+    (j.join==='없음 — Phase 3 대상'
+      ? '<div class="note crit"><b>이 과제는 현재 구조에서 조인이 성립하지 않습니다.</b> 두 시스템을 맞춰 붙일 공통 열쇠가 확인되지 않았습니다 — '+
+        '<b>Phase 3 횡단 식별자 표준의 대상</b>으로 등재됩니다.</div>' : '')+
+    '<div class="tw"><table><thead><tr><th class="mk" style="width:38px">#</th><th style="width:34%">확인 항목</th><th>답변</th></tr></thead><tbody>'+
+    rows+'</tbody></table></div>'+
+    '<div class="note ok noprint" style="margin-top:18px"><b>이제 이렇게 회신해 주십시오</b> — 위의 '+
+    '<b>「정의서 파일 내려받기」</b>를 눌러 <span class="pat">.json</span> 파일을 받아 회신 메일에 첨부하시거나, '+
+    '<b>「본문 복사」</b>를 눌러 메일 · Teams 대화에 그대로 붙여넣어 주십시오. '+
+    '<b>답변은 이 브라우저에 남아 있으므로</b> 나중에 같은 링크로 다시 들어오시면 이어서 고치실 수 있습니다.</div>'+
+    '<div class="note" style="margin-top:12px"><b>이 정의서의 쓰임</b> — ②③은 Agent 유형과 Action Pattern 확정에, '+
+    '⑤⑥은 어느 시스템을 먼저 진단할지에, ⑦은 횡단 식별자 표준 대상 선정에, ⑧⑨는 성능 실측 조건과 합격선에, '+
+    '⑩⑪⑫는 권한 모델과 모델 배치 제약에, ⑬⑭는 지식체계 과업과의 경계 및 변경관리 대상 등재에 쓰입니다.</div>';
+}
+function box(l,v,c){ return '<div class="b"><div class="l">'+l+'</div><div class="v '+(c||'')+'">'+esc(v)+'</div></div>'; }
+
+function dl(name,text,mime){
+  var b=new Blob([text],{type:(mime||'application/json')+';charset=utf-8'});
+  var u=URL.createObjectURL(b), a=document.createElement('a');
+  a.href=u; a.download=name; document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(u); },400);
+}
+function plain(id){
+  var t=task(id), a=A(id), j=judge(id);
+  var L=['[CLX AI 과제 정의서] '+t.id+' '+t.n,
+    '작성 '+(DB.me.nm||'')+' '+(DB.me.org||'')+' · '+new Date().toLocaleDateString('ko-KR'),
+    '판정 — Pattern '+(j.pat.join('·')||'미정')+' / '+(j.cross?'횡단 '+j.nsys+'종':'단일')+
+    ' / '+j.scope+' / 조인 키 '+j.join+' / 미정 '+j.und+'건',''];
+  qs(id).forEach(function(q){
+    var v=a[q.k];
+    L.push(q.no+' '+q.t+' — '+(!v?'(미응답)':(v.skip?'모름'+(v.disp?' · 처분 '+v.disp:''):fmt(q,v).replace(/\n/g,' / '))));
+  });
+  return L.join('\n');
+}
+
+/* ══════════════ 8. 취합 ══════════════ */
+function addRoll(txt,fname){
+  try{
+    var o=JSON.parse(txt);
+    if(o.schema!=='clx-ai-task-def/1') throw 0;
+    ROLL=ROLL.filter(function(r){ return !(r.task.id===o.task.id && (r.by.name||'')===(o.by.name||'')); });
+    ROLL.push(o); drawRoll();
+  }catch(e){ toast(fname+' — 이 도구가 만든 정의서 파일이 아닙니다'); }
+}
+function drawRoll(){
+  var c=$('chips'); c.innerHTML='';
+  ROLL.forEach(function(r,i){
+    var s=document.createElement('span'); s.className='chip';
+    s.innerHTML=esc(r.task.id)+' '+esc(r.by.name||'')+' <button title="빼기">×</button>';
+    s.querySelector('button').onclick=function(){ ROLL.splice(i,1); drawRoll(); };
+    c.appendChild(s);
+  });
+  var out=$('rollOut');
+  if(!ROLL.length){ out.innerHTML=''; return; }
+
+  var noJoin=ROLL.filter(function(r){ return r.verdict.joinKey==='없음 — Phase 3 대상'; });
+  var wr=ROLL.filter(function(r){ return r.verdict.scope==='범위 밖 — 쓰기 포함'; });
+  var cross=ROLL.filter(function(r){ return r.verdict.cross; });
+  var cnt={};
+  ROLL.forEach(function(r){ ((r.answers.sys&&r.answers.sys.v)||r.task.seedSystems||[]).forEach(function(s){ cnt[s]=(cnt[s]||0)+1; }); });
+  var sysRows=Object.keys(cnt).sort(function(x,y){return cnt[y]-cnt[x];})
+    .map(function(s){ return '<tr><td><b>'+esc(s)+'</b></td><td class="c mk">'+cnt[s]+'</td>'+
+      '<td>'+(cnt[s]>=3?'<b>1순위 후보</b> — 수요가 몰림':cnt[s]===2?'2순위 후보':'단일 과제 전용')+'</td></tr>'; }).join('');
+
+  out.innerHTML=
+    '<h2>취합 결과 <span class="mini">'+ROLL.length+'건</span></h2>'+
+    '<div class="jd">'+
+      box('회신',ROLL.length+'건','')+
+      box('횡단 과제',cross.length+'건',cross.length?'warn':'')+
+      box('조인 키 없음',noJoin.length+'건',noJoin.length?'crit':'ok')+
+      box('쓰기 포함',wr.length+'건',wr.length?'warn':'ok')+
+    '</div>'+
+    (noJoin.length?'<div class="note crit"><b>Phase 3 착수 지시서 — 조인 키가 확인되지 않은 '+noJoin.length+'건</b><br>'+
+      noJoin.map(function(r){ return esc(r.task.id)+' '+esc(r.task.name); }).join(' · ')+
+      '<br><span style="font-size:12.5px">이 목록이 횡단 식별자 표준이 무엇을 먼저 풀어야 하는지를 정합니다.</span></div>':'')+
+    '<h3>수요–시스템 매트릭스</h3>'+
+    '<div class="tw"><table><thead><tr><th class="mk">과제</th><th>이름</th><th>Pattern</th><th>시스템</th>'+
+    '<th>조인 키</th><th>응답 목표</th><th class="mk">미정</th><th class="mk">응답</th></tr></thead><tbody>'+
+    ROLL.map(function(r){
+      var a=r.answers;
+      var sla = !a.sla ? '—' : a.sla.skip ? ('미정'+(a.sla.disp?'·'+a.sla.disp:''))
+        : ({'3':'3초','10':'10초','30':'30초','60':'1분','rep':'리포트'}[a.sla.v]||a.sla.v);
+      return '<tr><td class="mk"><b>'+esc(r.task.id)+'</b></td><td>'+esc(r.task.name)+'</td>'+
+        '<td class="mk">'+esc((r.verdict.pattern||[]).join(' '))+'</td>'+
+        '<td>'+esc(((a.sys&&a.sys.v)||r.task.seedSystems||[]).join(' · '))+'</td>'+
+        '<td'+(r.verdict.joinKey==='없음 — Phase 3 대상'?' class="miss"':'')+'>'+esc(r.verdict.joinKey)+'</td>'+
+        '<td class="mk">'+esc(sla)+'</td>'+
+        '<td class="c mk'+(r.verdict.undecided?' und':'')+'">'+r.verdict.undecided+'</td>'+
+        '<td class="c mk">'+r.progress.answered+'/'+r.progress.total+'</td></tr>';
+    }).join('')+'</tbody></table></div>'+
+    '<h3>시스템별 수요 건수 — 진단 우선순위 근거</h3>'+
+    '<div class="tw"><table><thead><tr><th>시스템</th><th class="mk">과제 수</th><th>판정</th></tr></thead><tbody>'+sysRows+'</tbody></table></div>'+
+    '<div style="margin-top:16px"><button class="btn pri" id="rollDl">취합본 내려받기 (.json)</button></div>';
+  var rd=$('rollDl'); if(rd) rd.onclick=function(){ dl('CLX_AI과제_취합_'+ROLL.length+'건.json', JSON.stringify(ROLL,null,2)); };
+}
+
+/* ══════════════ 9. 배선 ══════════════ */
+$('navHome').onclick=function(){ drawHome(); show('vHome'); };
+$('navRoll').onclick=function(){ drawRoll(); show('vRoll'); };
+$('ivDoc').onclick=function(){ drawDoc(); show('vDoc'); };
+$('docBack').onclick=function(){ drawIv(); show('vIv'); };
+$('docPrint').onclick=function(){ window.print(); };
+$('docJson').onclick=function(){
+  var t=task(CUR);
+  dl('과제정의서_'+t.id+'_'+(DB.me.nm||'미기재')+'.json', JSON.stringify(payload(CUR),null,2));
+  toast('내려받았습니다 — 이 파일을 회신해 주십시오');
+};
+$('docCopy').onclick=function(){
+  var txt=plain(CUR);
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){ toast('복사했습니다 — 메일이나 Teams에 붙여넣으십시오'); },fallback);
+  } else fallback();
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); toast('복사했습니다'); }catch(e){ toast('복사에 실패했습니다 — 정의서를 인쇄해 주십시오'); }
+    document.body.removeChild(ta);
+  }
+};
+$('addTask').onclick=function(){
+  var n=prompt('과제 이름을 적어 주십시오');
+  if(!n||!n.trim()) return;
+  var id='EX'+String(DB.extra.length+1).padStart(2,'0');
+  DB.extra.push({id:id, n:n.trim(), grp:'', pat:[], sys:[], hint:'담당자가 직접 추가한 과제'});
+  save(); drawHome(); toast(id+' 추가했습니다');
+};
+$('expAll').onclick=function(){
+  var out=tasks().filter(function(t){ return answered(t.id)>0; }).map(function(t){ var s=CUR; CUR=t.id; var p=payload(t.id); CUR=s; return p; });
+  if(!out.length){ toast('아직 답변한 과제가 없습니다'); return; }
+  dl('과제정의서_전체_'+(DB.me.nm||'미기재')+'.json', JSON.stringify(out,null,2));
+};
+$('wipe').onclick=function(){
+  if(!confirm('이 브라우저에 저장된 답변을 모두 지웁니다. 되돌릴 수 없습니다.')) return;
+  DB={me:{},ans:{},extra:[]}; save(); drawHome(); toast('지웠습니다');
+};
+var dz=$('drop');
+['dragenter','dragover'].forEach(function(e){ dz.addEventListener(e,function(ev){ ev.preventDefault(); dz.classList.add('over'); }); });
+['dragleave','drop'].forEach(function(e){ dz.addEventListener(e,function(ev){ ev.preventDefault(); dz.classList.remove('over'); }); });
+dz.addEventListener('drop',function(ev){ read(ev.dataTransfer.files); });
+$('pick').onclick=function(){ $('file').click(); };
+$('file').onchange=function(){ read(this.files); this.value=''; };
+function read(files){
+  Array.prototype.forEach.call(files,function(f){
+    var r=new FileReader();
+    r.onload=function(){
+      try{
+        var o=JSON.parse(r.result);
+        if(Array.isArray(o)) o.forEach(function(x){ addRoll(JSON.stringify(x),f.name); });
+        else addRoll(r.result,f.name);
+      }catch(e){ toast(f.name+' — 읽을 수 없는 파일입니다'); }
+    };
+    r.readAsText(f,'utf-8');
+  });
+}
+drawHome();
+</script>
+</body>
+</html>

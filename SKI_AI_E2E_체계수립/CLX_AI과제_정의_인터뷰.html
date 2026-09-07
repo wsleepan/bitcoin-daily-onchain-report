@@ -405,9 +405,11 @@ var Q = [
    ['act','시스템에 기록 · 등록','예: 결과를 문서로 저장, 대장에 등록']]},
 
 {k:'write', no:'④', stage:1, t:'쓰기 여부', ask:'이 Agent가 어느 시스템에 <u>값을 쓰거나 등록</u>합니까?',
- why:'본 과업의 1차 범위는 <b>읽기 전용</b>입니다. 쓰기가 있는 과제는 요건만 기재하고 실제 개방은 다음 단계로 넘깁니다 — 그 경계를 여기서 가릅니다.',
+ why:'본 과업의 1차 범위는 <b>읽기 전용</b>입니다. 쓰기가 있는 과제는 요건만 기재하고 실제 개방은 다음 단계로 넘깁니다 — 그 경계를 여기서 가릅니다.<br><b>아래 「답하면 안 되는 것」이 특히 중요합니다.</b> 이것이 비어 있으면 Agent는 <b>모른다고 하지 않고 추측해서 답합니다.</b> 지금 아시는 것을 적어 주시면 나중에 다시 여쭙지 않아도 됩니다.',
  type:'radio', opts:[['no','읽기만 합니다','조회 · 검색 · 분석만'],['yes','씁니다','어느 시스템에 무엇을 쓰는지 아래에 적어 주십시오']],
- follow:{on:'yes', ph:'예: OCEAN-H 정비이력에 조치 결과를 등록'}},
+ follow:{on:'yes', ph:'예: OCEAN-H 정비이력에 조치 결과를 등록'},
+ extra:{label:'이 Agent가 <u>답하면 안 되는 것</u>이 있습니까? <span style="font-weight:400;color:var(--ink-3)">(없으면 비워 두십시오)</span>',
+  ph:'예: 타 공장 실적은 답하지 않는다 · 개인 인사 정보는 답하지 않는다 · 확실하지 않으면 추정하지 말고 모른다고 한다'}},
 
 {k:'sys', no:'⑤', stage:1, t:'필요 시스템', ask:'답을 만들려면 <u>어느 시스템</u>의 데이터가 필요합니까?',
  why:'이 답이 모이면 어느 시스템을 먼저 진단할지가 정해집니다. <b>2개 이상 고르시면 「횡단 과제」</b>로 분류되어 다음 질문이 하나 더 나옵니다.',
@@ -431,10 +433,11 @@ var Q = [
  follow:{on:'etc', ph:'무엇으로 붙이는지'}},
 
 {k:'range', no:'⑧', stage:2, t:'조회 범위', ask:'한 번 물어볼 때 <u>얼마나 넓은 범위</u>를 봅니까?',
- why:'범위가 응답 속도를 가릅니다. 1유닛 하루치와 전 공장 1년치는 같은 시스템이라도 전혀 다른 이야기입니다 — <b>이 값으로 실측 조건을 정합니다.</b>',
+ why:'범위가 응답 속도를 가릅니다. 1유닛 하루치와 전 공장 1년치는 같은 시스템이라도 전혀 다른 이야기입니다 — <b>이 값으로 실측 조건을 정합니다.</b><br><b>상시 감시형 과제는 갱신주기가 특히 중요합니다</b> — 1분마다 보는 것과 1시간마다 보는 것은 같은 설계가 아닙니다.',
  type:'grid2',
  g1:{label:'기간', opts:[['1d','최근 하루'],['1w','최근 일주일'],['1m','최근 한 달'],['1y','최근 1년'],['1y+','1년 넘게']]},
- g2:{label:'공간', opts:[['unit','1개 유닛'],['plant','1개 공장'],['all','전 공장']]}},
+ g2:{label:'공간', opts:[['unit','1개 유닛'],['plant','1개 공장'],['all','전 공장']]},
+ g3:{label:'갱신주기 — 얼마나 최신이어야 합니까', opts:[['rt','실시간 · 초 단위'],['min','몇 분 이내'],['hour','한 시간 이내'],['day','하루 지난 것도 무방'],['adhoc','물어볼 때만 최신이면 됨']]}},
 
 {k:'sla', no:'⑨', stage:2, t:'응답 목표 시간', ask:'물어보고 <u>몇 초까지</u> 기다릴 수 있습니까?',
  why:'「빠르게」는 진단의 합격선이 되지 못합니다. 숫자가 있어야 시스템이 그 요구를 감당하는지 판정할 수 있습니다.',
@@ -736,7 +739,7 @@ function fmtRaw(q,v){
   var x=v.v;
   switch(q.type){
     case 'radio': var o=(q.opts||[]).filter(function(p){return p[0]===x||p[0]===x;})[0];
-      return (o?o[1]:x) + (v.txt?' — '+v.txt:'');
+      return (o?o[1]:x) + (v.txt?' — '+v.txt:'') + (v.txt2?'\n답하면 안 되는 것 — '+v.txt2:'');
     case 'check': return (x||[]).map(function(k){
         var o=(q.opts||[]).filter(function(p){return p[0]===k;})[0]; return o?o[1]:k; }).join(' · ') + (v.txt?' — '+v.txt:'');
     case 'syscheck': return (x||[]).join(' · ');
@@ -744,7 +747,9 @@ function fmtRaw(q,v){
     case 'persys': return Object.keys(x||{}).map(function(s){ return s+' → '+x[s]; }).join('\n');
     case 'grid2': var g1=(q.g1.opts.filter(function(p){return p[0]===(x||{}).a;})[0]||['',''])[1];
       var g2=(q.g2.opts.filter(function(p){return p[0]===(x||{}).b;})[0]||['',''])[1];
-      return [g1,g2].filter(Boolean).join(' · ') + ((x||{}).vol?' · 약 '+x.vol:'');
+      var g3=q.g3?(q.g3.opts.filter(function(p){return p[0]===(x||{}).c;})[0]||['',''])[1]:'';
+      return [g1,g2].filter(Boolean).join(' · ') + ((x||{}).vol?' · 약 '+x.vol:'') +
+        (g3?' · 갱신 '+g3:'');
     case 'usergrid': return [(x||{}).who, (x||{}).par==='y'?'협력사 포함':(x||{}).par==='n'?'사내만':'', (x||{}).n]
       .filter(Boolean).join(' · ');
     case 'truth': return (x||[]).map(function(r,i){ return (i+1)+'. '+r.a+(r.src?'\n   근거 — '+r.src:''); }).join('\n');
@@ -761,7 +766,7 @@ function buildForm(el,q){
     if(skip) a[q.k]={skip:true,disp:disp||''};
     else {
       if(!valid(q,S)) { toast('답을 하나 이상 골라 주십시오'); return; }
-      a[q.k]={v:S.v, txt:S.txt||''};
+      a[q.k]={v:S.v, txt:S.txt||'', txt2:S.txt2||''};
     }
     save();
     var list=qs(CUR); IDX=Math.min(IDX+1,list.length);
@@ -816,6 +821,13 @@ function buildForm(el,q){
       fw.classList.toggle('hide',!on);
     }
     S.txt=cur.txt||''; syncFollow();
+    if(q.extra){
+      var ex=document.createElement('div'); ex.className='sysq'; ex.style.marginTop='4px';
+      ex.innerHTML='<label>'+q.extra.label+'</label>';
+      var eta=document.createElement('textarea'); eta.rows=2; eta.placeholder=q.extra.ph;
+      eta.value=cur.txt2||''; eta.addEventListener('input',function(){ S.txt2=this.value; });
+      ex.appendChild(eta); wrap.appendChild(ex); S.txt2=cur.txt2||'';
+    }
 
   } else if(q.type==='syscheck'){
     if(!Array.isArray(S.v)) S.v = (task(CUR).sys||[]).slice();
@@ -872,8 +884,9 @@ function buildForm(el,q){
 
   } else if(q.type==='grid2'){
     if(typeof S.v!=='object'||!S.v) S.v={};
-    [['g1','a'],['g2','b']].forEach(function(pair){
+    [['g1','a'],['g2','b'],['g3','c']].forEach(function(pair){
       var g=q[pair[0]], key=pair[1];
+      if(!g) return;
       var d=document.createElement('div');
       d.innerHTML='<div class="mini" style="margin-bottom:5px">'+esc(g.label)+'</div>';
       var box=document.createElement('div'); box.className='opts row';

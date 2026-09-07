@@ -4319,15 +4319,15 @@ nav .np:first-of-type{margin-top:0;padding-top:0;border-top:0}
 
   <h4>공통 프레임 — 6축 × 근거 유형 × 인터뷰 유형</h4>
   <div class="tw"><table>
-    <thead><tr><th style="width:120px">진단 축</th><th style="width:210px">문헌으로 확보 <span style="font-weight:400;text-transform:none;letter-spacing:0">(인터뷰 전 수령)</span></th><th>사람에게만 물을 수 있는 것</th><th class="c" style="width:44px">유형</th><th class="c" style="width:56px">실측</th></tr></thead>
+    <thead><tr><th style="width:110px">진단 축</th><th style="width:195px">문헌으로 확보 <span style="font-weight:400;text-transform:none;letter-spacing:0">(인터뷰 전 수령)</span></th><th>사람에게만 물을 수 있는 것</th><th style="width:180px">못 받으면 무너지는 것 <span style="font-weight:400;text-transform:none;letter-spacing:0">(정본 1.6)</span></th><th class="c" style="width:44px">유형</th><th class="c" style="width:56px">실측</th></tr></thead>
     <tbody>
-      <tr><td><b>R1</b> 인터페이스</td><td>API 명세 · 프로토콜 · 인증 방식 · 연동 이력 목록</td><td>명세와 실제 운용의 차이, 과거 대량 조회로 장애가 났던 사례, <b>어느 연동이 사실상 죽어 있는지</b></td><td class="c mk">A</td><td class="c mk">있음</td></tr>
-      <tr><td><b>R2</b> 데이터 구조</td><td>ERD · 테이블·컬럼 목록 · 키 · 제약 · 파티션 정책</td><td>스키마에 있으나 채워지지 않는 컬럼, 다른 용도로 전용된 컬럼, 이관 시 버려진 이력</td><td class="c mk">A</td><td class="c mk">있음</td></tr>
-      <tr><td><b>R3</b> 의미 명확성</td><td>코드 마스터 전량 · 태그 목록 · 명명규칙 문서 유무</td><td><b>실제로 쓰이는 코드값과 사문화된 코드값의 구분</b>, 같은 뜻의 두 코드가 병존하는 사유</td><td class="c mk">A</td><td class="c">–</td></tr>
-      <tr><td><b>R4</b> 권한 세분성</td><td>역할·권한 매트릭스 · 사용자 그룹 정의 · 협력사 계정 정책</td><td>행·열 수준 필터링이 실제로 동작하는지, 예외 부여가 어떤 절차로 이루어지는지</td><td class="c mk">A</td><td class="c mk">있음</td></tr>
-      <tr><td><b>R5</b> 관측 · 감사</td><td>로그 항목 정의 · 보존기간 · 감사 대상 이벤트 목록</td><td>로그를 누가 보는지, 조회 로그가 실제로 남는지, <b>그 로그로 사고 조사를 해 본 적이 있는지</b></td><td class="c mk">A</td><td class="c mk">있음</td></tr>
-      <tr><td><b>R6</b> 변경관리</td><td>변경관리 절차서 · 최근 1년 변경 이력</td><td><b>스키마가 바뀔 때 누가 통보를 받는지</b>, 통보 없이 바뀐 적이 있는지, 실제 리드타임</td><td class="c mk">A</td><td class="c">–</td></tr>
-      <tr style="background:var(--signal-soft)"><td colspan="2"><b>문헌 보유 여부 자체</b></td><td>“그 문서가 있습니까 · 최신입니까 · 누가 갖고 있습니까” — <b>내용이 아니라 소재를 묻는 30분</b></td><td class="c mk">B</td><td class="c">–</td></tr>
+      <tr><td><b>R1</b> 인터페이스</td><td>API 명세 · 프로토콜 · 인증 방식 · 연동 이력 목록</td><td>명세와 실제 운용의 차이, 과거 대량 조회로 장애가 났던 사례, <b>어느 연동이 사실상 죽어 있는지</b></td><td><b>연계 방식 선정</b>이 성립하지 않음 — <a href="#p4">1.8</a> 적합성 매트릭스</td><td class="c mk">A</td><td class="c mk">있음</td></tr>
+      <tr><td><b>R2</b> 데이터 구조</td><td>ERD · 테이블·컬럼 목록 · 키 · 제약 · 파티션 정책</td><td>스키마에 있으나 채워지지 않는 컬럼, 다른 용도로 전용된 컬럼, 이관 시 버려진 이력</td><td><b>횡단 식별자 4축의 기준 원천</b>을 세울 수 없음 — <a href="#data">1.7 D1 · D3</a></td><td class="c mk">A</td><td class="c mk">있음</td></tr>
+      <tr><td><b>R3</b> 의미 명확성</td><td>코드 마스터 전량 · 태그 목록 · 명명규칙 문서 유무</td><td><b>실제로 쓰이는 코드값과 사문화된 코드값의 구분</b>, 같은 뜻의 두 코드가 병존하는 사유</td><td><b>Agent가 오류 없이 틀린 답</b>을 냄 — <a href="#data">1.7 D2 · DA-01 · DA-03</a></td><td class="c mk">A</td><td class="c">–</td></tr>
+      <tr><td><b>R4</b> 권한 세분성</td><td>역할·권한 매트릭스 · 사용자 그룹 정의 · 협력사 계정 정책</td><td>행·열 수준 필터링이 실제로 동작하는지, 예외 부여가 어떤 절차로 이루어지는지</td><td><b>권한 전파 설계</b>가 서지 않음 — <a href="#a2a">1.9</a> · <a href="#data">1.7 D6</a></td><td class="c mk">A</td><td class="c mk">있음</td></tr>
+      <tr><td><b>R5</b> 관측 · 감사</td><td>로그 항목 정의 · 보존기간 · 감사 대상 이벤트 목록</td><td>로그를 누가 보는지, 조회 로그가 실제로 남는지, <b>그 로그로 사고 조사를 해 본 적이 있는지</b></td><td><b>반출 감사와 비상 정지 요건</b>이 성립하지 않음 — <a href="#a2a">1.9</a> · <a href="#arch">1.4 P-OPS</a></td><td class="c mk">A</td><td class="c mk">있음</td></tr>
+      <tr><td><b>R6</b> 변경관리</td><td>변경관리 절차서 · 최근 1년 변경 이력</td><td><b>스키마가 바뀔 때 누가 통보를 받는지</b>, 통보 없이 바뀐 적이 있는지, 실제 리드타임</td><td><b>변경이 조용한 오답</b>으로 나타남 — <a href="#chg">1.10</a> · 리스크 R15</td><td class="c mk">A</td><td class="c">–</td></tr>
+      <tr style="background:var(--signal-soft)"><td colspan="2"><b>문헌 보유 여부 자체</b></td><td>“그 문서가 있습니까 · 최신입니까 · 누가 갖고 있습니까” — <b>내용이 아니라 소재를 묻는 30분</b></td><td>이것이 비면 <b>A형 90분이 받아쓰기로 끝납니다</b> — 위 여섯 줄 전부가 함께 얕아짐</td><td class="c mk">B</td><td class="c">–</td></tr>
     </tbody>
   </table></div>
   <p class="note" style="margin-top:14px"><b>IV-01(B형)이 이 표의 마지막 행입니다.</b> 문헌을 요청만 해 놓고 도착 여부를 W2에 확인하면 이미 늦습니다. W1에 30분을 들여 <b>“어느 문서가 있고 어느 문서가 없는가”를 먼저 확정</b>하면, A형 90분을 없는 문서의 내용을 캐는 데 쓸 수 있습니다.</p>

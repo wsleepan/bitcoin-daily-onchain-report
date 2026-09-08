@@ -289,7 +289,7 @@ td.mk,th.mk{font-family:var(--mono);font-size:12px;white-space:nowrap}
   <div id="orgWrap" class="hide">
     <h2>LLM으로 정리 <span class="mini">컨설턴트용</span></h2>
     <p class="lede" style="margin-top:-4px">회신은 담당자마다 표현이 제각각입니다. 같은 시스템을 다르게 부르고,
-    조인 키가 없다는 사실이 「사람이 눈으로 맞춘다」처럼 적혀 옵니다. 그것을 <b>진단과 식별자 표준의 입력으로 쓸 수 있게</b> 정리합니다.</p>
+    공통 키가 없다는 사실이 「사람이 눈으로 맞춘다」처럼 적혀 옵니다. 그것을 <b>진단과 식별자 표준의 입력으로 쓸 수 있게</b> 정리합니다.</p>
     <div class="note"><b>두 가지 방법이 있습니다.</b> <b>①</b> 「정리 지시문 복사」로 지시문과 회신 전체를 복사해
     쓰시는 LLM에 붙여넣으십시오 — <b>키를 다루지 않으므로 이쪽을 권합니다.</b>
     <b>②</b> 사내 엔드포인트를 설정하면 아래 버튼으로 바로 돌립니다.</div>
@@ -341,22 +341,22 @@ td.mk,th.mk{font-family:var(--mono);font-size:12px;white-space:nowrap}
 <script>
 'use strict';
 /* ══════════════ 1. 시드 — CLX AI 과제 MP 「AI 생산 Engineer 구성 기술」 13종 ══════════════
-   출처: SKI_CLX_AI과제_MP_참고.pptx · 방법론서 1.5 「AI 과제 13종 — Action Pattern 역산」
+   출처: SKI_CLX_AI과제_MP_참고.pptx · 방법론서 1.5 「AI 과제 13종 — 연계 유형 역산」
    pattern/systems 는 방법론서의 사전 판정값이며, 인터뷰 답변으로 덮어씁니다.        */
 var SEED = [
- {id:'MP01', n:'생산 성과 분석 AI',                    grp:'예산 수립 및 운영 최적화', pat:['P-ANALYZE'],            sys:['OASIS','PMS'],              hint:'예산 대비 미달 원인 분석 · O/I 과제 성과 모니터링'},
- {id:'MP02', n:'투자 사업 정보 저장·분류 자동화',        grp:'투자 사업 기획 및 관리',   pat:['P-READ','P-ACT'],       sys:['투자관리','Teams'],          hint:'투자 사업 문서의 자동 분류·저장'},
- {id:'MP03', n:'Engineer 공정 분석 AI',                grp:'공정 최적화 및 개선',     pat:['P-ANALYZE'],            sys:['RTDB','PMS'],               hint:'공정 운전 실적 분석 · 생산계획 대비 실적 분석'},
- {id:'MP04', n:'[생산 공통] 공정 Trouble 대응 지원 AI',  grp:'운전 지원 및 Troubleshooting', pat:['P-SEARCH','P-ANALYZE'], sys:['RTDB','AMS','OCEAN-H','문서'], hint:'공정 Trouble 상황 분류 · 유사 사례 기반 조치 방안 제안', cross:true},
- {id:'MP05', n:'[생산 공통] 공정 Data Smart Monitoring',grp:'운전 지원 및 Troubleshooting', pat:['P-MONITOR'],        sys:['RTDB','AMS'],               hint:'공정 全 Tag Trend 모니터링 · 핵심 Tag 주요 지표 확인'},
- {id:'MP06', n:'기술 정보 수집 Agent',                  grp:'전략 과제 기획 및 관리',   pat:['P-SEARCH'],             sys:['외부DB'],                    hint:'논문 · 뉴스 · 특허 수집'},
- {id:'MP07', n:'생산 운영 정보 저장·분류 자동화',        grp:'공장 운영 및 운전 정보 제공', pat:['P-READ','P-ACT'],     sys:['RTDB','Teams'],              hint:'생산 운영 정보의 자동 분류·저장'},
- {id:'MP08', n:'[SHE] 화학물질 Data 추출·비교 검증 AI', grp:'안전/환경 관리',          pat:['P-SEARCH'],             sys:['문서'],                hint:'점검 대응 등 SHE 필요 Data 추출'},
- {id:'MP09', n:'[SHE] 환경운영 Data DB화·검증 Agent',   grp:'안전/환경 관리',          pat:['P-READ','P-ACT'],       sys:['환경시스템'],                 hint:'환경 운영 Data DB화 및 검증'},
- {id:'MP10', n:'[SHE] CLX 법률 지식 Q&A Chat-Bot',      grp:'안전/환경 관리',          pat:['P-SEARCH'],             sys:['문서'],                      hint:'사내 규정·법규 질의응답'},
- {id:'MP11', n:'[설비 공통] 이상현상/고장증상 분석 AI',  grp:'운전 지원 및 Troubleshooting', pat:['P-SEARCH','P-ANALYZE'], sys:['OCEAN-H','RTDB','AMS'],  hint:'설비 이상현상·고장증상 분석', cross:true},
- {id:'MP12', n:'촉매 구매 ITB 작성 지원 Agent',         grp:'공정 최적화 및 개선',     pat:['P-SEARCH'],             sys:['OCEAN-H','문서'],            hint:'촉매 구매 ITB 초안 작성'},
- {id:'MP13', n:'[SHE] 사고분석 보고서 작성 AI',         grp:'안전/환경 관리',          pat:['P-SEARCH'],             sys:['사고관리','문서'],            hint:'사고 조사 결과 보고서 초안'}
+ {id:'MP01', n:'생산 성과 분석 AI',                    grp:'예산 수립 및 운영 최적화', pat:['분석형'],            sys:['OASIS','PMS'],              hint:'예산 대비 미달 원인 분석 · O/I 과제 성과 모니터링'},
+ {id:'MP02', n:'투자 사업 정보 저장·분류 자동화',        grp:'투자 사업 기획 및 관리',   pat:['조회형','등록형'],       sys:['투자관리','Teams'],          hint:'투자 사업 문서의 자동 분류·저장'},
+ {id:'MP03', n:'Engineer 공정 분석 AI',                grp:'공정 최적화 및 개선',     pat:['분석형'],            sys:['RTDB','PMS'],               hint:'공정 운전 실적 분석 · 생산계획 대비 실적 분석'},
+ {id:'MP04', n:'[생산 공통] 공정 Trouble 대응 지원 AI',  grp:'운전 지원 및 Troubleshooting', pat:['검색형','분석형'], sys:['RTDB','AMS','OCEAN-H','문서'], hint:'공정 Trouble 상황 분류 · 유사 사례 기반 조치 방안 제안', cross:true},
+ {id:'MP05', n:'[생산 공통] 공정 Data Smart Monitoring',grp:'운전 지원 및 Troubleshooting', pat:['감시형'],        sys:['RTDB','AMS'],               hint:'공정 全 Tag Trend 모니터링 · 핵심 Tag 주요 지표 확인'},
+ {id:'MP06', n:'기술 정보 수집 Agent',                  grp:'전략 과제 기획 및 관리',   pat:['검색형'],             sys:['외부DB'],                    hint:'논문 · 뉴스 · 특허 수집'},
+ {id:'MP07', n:'생산 운영 정보 저장·분류 자동화',        grp:'공장 운영 및 운전 정보 제공', pat:['조회형','등록형'],     sys:['RTDB','Teams'],              hint:'생산 운영 정보의 자동 분류·저장'},
+ {id:'MP08', n:'[SHE] 화학물질 Data 추출·비교 검증 AI', grp:'안전/환경 관리',          pat:['검색형'],             sys:['문서'],                hint:'점검 대응 등 SHE 필요 Data 추출'},
+ {id:'MP09', n:'[SHE] 환경운영 Data DB화·검증 Agent',   grp:'안전/환경 관리',          pat:['조회형','등록형'],       sys:['환경시스템'],                 hint:'환경 운영 Data DB화 및 검증'},
+ {id:'MP10', n:'[SHE] CLX 법률 지식 Q&A Chat-Bot',      grp:'안전/환경 관리',          pat:['검색형'],             sys:['문서'],                      hint:'사내 규정·법규 질의응답'},
+ {id:'MP11', n:'[설비 공통] 이상현상/고장증상 분석 AI',  grp:'운전 지원 및 Troubleshooting', pat:['검색형','분석형'], sys:['OCEAN-H','RTDB','AMS'],  hint:'설비 이상현상·고장증상 분석', cross:true},
+ {id:'MP12', n:'촉매 구매 ITB 작성 지원 Agent',         grp:'공정 최적화 및 개선',     pat:['검색형'],             sys:['OCEAN-H','문서'],            hint:'촉매 구매 ITB 초안 작성'},
+ {id:'MP13', n:'[SHE] 사고분석 보고서 작성 AI',         grp:'안전/환경 관리',          pat:['검색형'],             sys:['사고관리','문서'],            hint:'사고 조사 결과 보고서 초안'}
 ];
 
 var SYSTEMS = [
@@ -376,11 +376,11 @@ var SYSTEMS = [
 ];
 
 var PATTERN_OF = {
-  read:['P-READ','값·기록을 그대로 찾아 보여줍니다'],
-  search:['P-SEARCH','문서·사례를 찾아 요약해 줍니다'],
-  analyze:['P-ANALYZE','여러 값을 엮어 원인·경향을 추정합니다'],
-  monitor:['P-MONITOR','상시 지켜보다 조건이 되면 알려 줍니다'],
-  act:['P-ACT','시스템에 값을 쓰거나 등록합니다']
+  read:['조회형','값·기록을 그대로 찾아 보여줍니다'],
+  search:['검색형','문서·사례를 찾아 요약해 줍니다'],
+  analyze:['분석형','여러 값을 엮어 원인·경향을 추정합니다'],
+  monitor:['감시형','상시 지켜보다 조건이 되면 알려 줍니다'],
+  act:['등록형','시스템에 값을 쓰거나 등록합니다']
 };
 
 /* ══════════════ 2. 질문 정의 — 15개 항목 ══════════════ */
@@ -412,7 +412,7 @@ var Q = [
   ph:'예: 타 공장 실적은 답하지 않는다 · 개인 인사 정보는 답하지 않는다 · 확실하지 않으면 추정하지 말고 모른다고 한다'}},
 
 {k:'sys', no:'⑤', stage:1, t:'필요 시스템', ask:'답을 만들려면 <u>어느 시스템</u>의 데이터가 필요합니까?',
- why:'이 답이 모이면 어느 시스템을 먼저 진단할지가 정해집니다. <b>2개 이상 고르시면 「횡단 과제」</b>로 분류되어 다음 질문이 하나 더 나옵니다.',
+ why:'이 답이 모이면 어느 시스템을 먼저 진단할지가 정해집니다. <b>2개 이상 고르시면 「시스템 간 과제」</b>로 분류되어 다음 질문이 하나 더 나옵니다.',
  type:'syscheck'},
 
 /* ─ 2차 ─ */
@@ -421,7 +421,7 @@ var Q = [
  eg:'RTDB → 2유닛 온도·압력 태그 약 300점 / OCEAN-H → 설비 마스터와 정비이력 / 문서 → 공정 작업표준',
  type:'persys', ph:'필요한 태그군 · 테이블 · 문서 유형'},
 
-{k:'join', no:'⑦', stage:2, t:'조인 키', ask:'두 시스템의 데이터를 <u>무엇으로 맞춰 붙입니까?</u>', onlyCross:true,
+{k:'join', no:'⑦', stage:2, t:'공통 키', ask:'두 시스템의 데이터를 <u>무엇으로 맞춰 붙입니까?</u>', onlyCross:true,
  why:'<b>이 항목이 이 인터뷰의 핵심입니다.</b> 예를 들어 알람은 AMS에 있고 공정값은 RTDB에 있는데, 그 둘이 같은 설비·같은 시각의 것인지 판단할 공통 열쇠가 없으면 답이 만들어지지 않습니다. <b>모르셔도 됩니다</b> — 모른다는 답이 곧 저희가 만들 표준의 대상 목록이 됩니다.',
  type:'check', opts:[
    ['eq','설비 ID로 붙입니다','양쪽이 같은 설비 번호를 씁니다'],
@@ -534,7 +534,7 @@ function llmSystem(){
  '이것을 Phase 2 진단과 Phase 3 식별자 표준의 입력으로 쓸 수 있게 정리하라.',
  '',
  '회신의 항목 — ① 추진 단계 · ② 현업 질문 원문 · ③ 산출 형태 · ④ 쓰기 여부 · ⑤ 필요 시스템',
- '⑥ 시스템 안의 데이터 · ⑦ 조인 키 · ⑧ 조회 범위 · ⑨ 응답 목표 · ⑩ 사용자 · ⑪ 민감도',
+ '⑥ 시스템 안의 데이터 · ⑦ 공통 키 · ⑧ 조회 범위 · ⑨ 응답 목표 · ⑩ 사용자 · ⑪ 민감도',
  '⑫ 위임 조회 · ⑬ 참조 지식 · ⑭ 모델 · ⑮ 기대 답변과 근거.',
  '표준 시스템 이름: '+SYSTEMS.map(function(x){return x[0];}).join(', '),
  '',
@@ -568,8 +568,8 @@ function rollData(){
   return ROLL.map(function(r){
     var L=['── '+r.task.id+' '+r.task.name+' ('+(r.task.group||'')+')',
            '회신자: '+(r.by.name||'미기재')+' '+(r.by.org||''),
-           '판정: '+(r.verdict.cross?'횡단 '+r.verdict.systems+'종':'단일')+' / '+r.verdict.scope+
-           ' / 조인 키 '+r.verdict.joinKey+' / 미정 '+r.verdict.undecided+'건'];
+           '판정: '+(r.verdict.cross?'시스템 간 '+r.verdict.systems+'종':'단일')+' / '+r.verdict.scope+
+           ' / 공통 키 '+r.verdict.joinKey+' / 미정 '+r.verdict.undecided+'건'];
     QK.forEach(function(q){
       var v=r.answers[q.k]; if(!v) return;
       L.push(q.no+' '+q.t+': '+(v.skip?'모름'+(v.disp?'(처분 '+v.disp+')':''):fmt(q,v)));
@@ -589,7 +589,7 @@ function $(x){ return document.getElementById(x); }
 var TT;
 function toast(m){ var t=$('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(TT); TT=setTimeout(function(){t.classList.remove('on');},2600); }
 
-/* 이 과제가 횡단인가 — ⑤ 답이 있으면 그것으로, 없으면 시드 판정으로 */
+/* 이 과제가 시스템 간인가 — ⑤ 답이 있으면 그것으로, 없으면 시드 판정으로 */
 function isCross(id){
   var a=A(id), t=task(id);
   if(a.sys && a.sys.v && a.sys.v.length) return a.sys.v.length>=2;
@@ -622,7 +622,7 @@ function drawHome(){
            : '<span class="st on">진행 중 · '+n+'/'+tot+'</span>';
     b.innerHTML =
       '<div class="tk-h"><span class="tk-n">'+esc(t.id)+'</span><span class="tk-t">'+esc(t.n)+'</span></div>'+
-      '<div class="tk-m">'+(isCross(t.id)?'<span class="tag x">횡단</span>':'')+
+      '<div class="tk-m">'+(isCross(t.id)?'<span class="tag x">시스템 간</span>':'')+
         (t.pat||[]).map(function(p){return '<span class="tag">'+esc(p)+'</span>';}).join('')+
         '<span style="flex:1"></span>'+st+'</div>'+
       '<div class="bar'+(n>=tot?' done':'')+'"><i style="width:'+pc+'%"></i></div>'+
@@ -650,7 +650,7 @@ function open(id){
 function drawIv(){
   var t=task(CUR), list=qs(CUR), a=A(CUR);
   $('ivTitle').innerHTML='<span class="mini">'+esc(t.id)+'</span> '+esc(t.n);
-  $('ivStage').textContent = isCross(CUR)?'횡단 과제 · '+list.length+'문':list.length+'문';
+  $('ivStage').textContent = isCross(CUR)?'시스템 간 과제 · '+list.length+'문':list.length+'문';
   var n=answered(CUR);
   $('pcNum').textContent=n; $('pcBar').style.width=Math.round(n/list.length*100)+'%';
 
@@ -672,10 +672,10 @@ function drawIv(){
 
   /* 판정 요약 */
   var L=$('live'), j=judge(CUR), h='';
-  h+=liveRow('Action Pattern', j.pat.length?j.pat.join(' · '):'—', j.pat.length?'':'u');
-  h+=liveRow('횡단 여부', j.cross?'횡단 — 시스템 '+j.nsys+'종':(a.sys?'단일 시스템':'—'), j.cross?'w':'');
+  h+=liveRow('연계 유형', j.pat.length?j.pat.join(' · '):'—', j.pat.length?'':'u');
+  h+=liveRow('시스템 간 여부', j.cross?'시스템 간 — 시스템 '+j.nsys+'종':(a.sys?'단일 시스템':'—'), j.cross?'w':'');
   h+=liveRow('1차 범위', j.scope, j.scope==='범위 밖 — 쓰기 포함'?'c':(j.scope==='—'?'u':'o'));
-  h+=liveRow('조인 키', j.join, j.join==='없음 — Phase 3 대상'?'c':(j.join==='—'?'u':'o'));
+  h+=liveRow('공통 키', j.join, j.join==='없음 — Phase 3 대상'?'c':(j.join==='—'?'u':'o'));
   h+=liveRow('미정 항목', j.und?j.und+'건':'0건', j.und?'w':'o');
   L.innerHTML=h;
 
@@ -713,7 +713,7 @@ function endBlock(){
         : stageDone(CUR,1) ? '<b>1차 5문이 끝났습니다.</b> 여기서 제출하셔도 되고, 심층 항목을 이어서 하셔도 됩니다.'
         : '아직 1차 항목이 남았습니다.';
   var warn='';
-  if(j.join==='없음 — Phase 3 대상') warn+='<div class="note crit"><b>조인 키가 확인되지 않았습니다.</b> 이 과제는 지금 구조로는 답이 만들어지지 않습니다 — 저희가 Phase 3에서 만들 식별자 표준의 대상이 됩니다. <b>문제가 있다는 뜻이 아니라, 저희가 할 일이 하나 확정됐다는 뜻입니다.</b></div>';
+  if(j.join==='없음 — Phase 3 대상') warn+='<div class="note crit"><b>공통 키가 확인되지 않았습니다.</b> 이 과제는 지금 구조로는 답이 만들어지지 않습니다 — 저희가 Phase 3에서 만들 식별자 표준의 대상이 됩니다. <b>문제가 있다는 뜻이 아니라, 저희가 할 일이 하나 확정됐다는 뜻입니다.</b></div>';
   if(j.scope==='범위 밖 — 쓰기 포함') warn+='<div class="note warn"><b>쓰기가 포함된 과제입니다.</b> 본 과업의 1차 범위는 읽기 전용이므로 이 과제는 <b>요건만 기재</b>하고 실제 쓰기 개방은 다음 단계로 넘깁니다.</div>';
   if(j.und) warn+='<div class="note warn"><b>미정 '+j.und+'건</b>이 있습니다. 그대로 제출하셔도 됩니다 — 미정인 항목은 저희가 가정을 두거나 실측으로 대신합니다.</div>';
   d.innerHTML='<div class="av q">✓</div><div class="bub"><div class="qq">'+msg+'</div>'+warn+
@@ -838,7 +838,7 @@ function buildForm(el,q){
       function paint(){ var on=S.v.indexOf(o[0])>=0; b.classList.toggle('sel',on); b.querySelector('.k').textContent=on?'☑':'☐'; }
       b.onclick=function(){ var i=S.v.indexOf(o[0]); if(i>=0)S.v.splice(i,1); else S.v.push(o[0]); paint();
         hintCross.innerHTML = S.v.length>=2
-          ? '<div class="note warn" style="margin:4px 0 0"><b>횡단 과제입니다</b> — '+S.v.length+'개 시스템을 동시에 씁니다. 이 경우 <b>조인 키</b> 질문이 하나 더 나옵니다.</div>'
+          ? '<div class="note warn" style="margin:4px 0 0"><b>시스템 간 과제입니다</b> — '+S.v.length+'개 시스템을 동시에 씁니다. 이 경우 <b>공통 키</b> 질문이 하나 더 나옵니다.</div>'
           : ''; };
       paint(); box.appendChild(b);
     });
@@ -847,7 +847,7 @@ function buildForm(el,q){
     etc.value=cur.txt||''; etc.addEventListener('input',function(){ S.txt=this.value; });
     wrap.appendChild(etc); S.txt=cur.txt||'';
     var hintCross=document.createElement('div'); wrap.appendChild(hintCross);
-    if(S.v.length>=2) hintCross.innerHTML='<div class="note warn" style="margin:4px 0 0"><b>횡단 과제입니다</b> — '+S.v.length+'개 시스템을 동시에 씁니다. 이 경우 <b>조인 키</b> 질문이 하나 더 나옵니다.</div>';
+    if(S.v.length>=2) hintCross.innerHTML='<div class="note warn" style="margin:4px 0 0"><b>시스템 간 과제입니다</b> — '+S.v.length+'개 시스템을 동시에 씁니다. 이 경우 <b>공통 키</b> 질문이 하나 더 나옵니다.</div>';
 
   } else if(q.type==='multi'){
     if(!Array.isArray(S.v)) S.v=[''];
@@ -1031,24 +1031,24 @@ function drawDoc(){
     '<div class="s">'+esc(t.grp||'')+(DB.me.nm?' · 작성 '+esc(DB.me.nm)+' ('+esc(DB.me.org||'')+')':'')+
     ' · '+new Date().toLocaleDateString('ko-KR')+' · 응답 '+n+'/'+list.length+'</div></div>'+
     '<div class="jd">'+
-      box('Action Pattern', j.pat.length?j.pat.join(' · '):'미정', j.pat.length?'':'warn')+
-      box('시스템', j.cross?'횡단 · '+j.nsys+'종':(j.nsys?'단일':'미정'), j.cross?'warn':'')+
+      box('연계 유형', j.pat.length?j.pat.join(' · '):'미정', j.pat.length?'':'warn')+
+      box('시스템', j.cross?'시스템 간 · '+j.nsys+'종':(j.nsys?'단일':'미정'), j.cross?'warn':'')+
       box('1차 범위', j.scope, j.scope==='범위 밖 — 쓰기 포함'?'crit':(j.scope.indexOf('안')>0?'ok':'warn'))+
-      box('조인 키', j.join, j.join==='없음 — Phase 3 대상'?'crit':(j.join==='—'?'warn':'ok'))+
+      box('공통 키', j.join, j.join==='없음 — Phase 3 대상'?'crit':(j.join==='—'?'warn':'ok'))+
       box('민감 데이터', j.sens?'있음':(!a.grade?'미정':a.grade.skip?'모름':'없음'), j.sens?'warn':(a.grade&&!a.grade.skip?'ok':'warn'))+
       box('미정 항목', j.und+'건', j.und?'warn':'ok')+
     '</div>'+
     (j.join==='없음 — Phase 3 대상'
-      ? '<div class="note crit"><b>이 과제는 현재 구조에서 조인이 성립하지 않습니다.</b> 두 시스템을 맞춰 붙일 공통 열쇠가 확인되지 않았습니다 — '+
-        '<b>Phase 3 횡단 식별자 표준의 대상</b>으로 등재됩니다.</div>' : '')+
+      ? '<div class="note crit"><b>이 과제는 현재 구조에서 결합이 성립하지 않습니다.</b> 두 시스템을 맞춰 붙일 공통 열쇠가 확인되지 않았습니다 — '+
+        '<b>Phase 3 시스템 간 공통 키 표준의 대상</b>으로 등재됩니다.</div>' : '')+
     '<div class="tw"><table><thead><tr><th class="mk" style="width:38px">#</th><th style="width:34%">확인 항목</th><th>답변</th></tr></thead><tbody>'+
     rows+'</tbody></table></div>'+
     '<div class="note ok noprint" style="margin-top:18px"><b>이제 이렇게 회신해 주십시오</b> — 위의 '+
     '<b>「정의서 파일 내려받기」</b>를 눌러 <span class="pat">.json</span> 파일을 받아 회신 메일에 첨부하시거나, '+
     '<b>「본문 복사」</b>를 눌러 메일 · Teams 대화에 그대로 붙여넣어 주십시오. '+
     '<b>답변은 이 브라우저에 남아 있으므로</b> 나중에 같은 링크로 다시 들어오시면 이어서 고치실 수 있습니다.</div>'+
-    '<div class="note" style="margin-top:12px"><b>이 정의서의 쓰임</b> — ②③은 Agent 유형과 Action Pattern 확정에, '+
-    '⑤⑥은 어느 시스템을 먼저 진단할지에, ⑦은 횡단 식별자 표준 대상 선정에, ⑧⑨는 성능 실측 조건과 합격선에, '+
+    '<div class="note" style="margin-top:12px"><b>이 정의서의 쓰임</b> — ②③은 Agent 유형과 연계 유형 확정에, '+
+    '⑤⑥은 어느 시스템을 먼저 진단할지에, ⑦은 시스템 간 공통 키 표준 대상 선정에, ⑧⑨는 성능 실측 조건과 합격선에, '+
     '⑩⑪⑫는 권한 모델과 모델 배치 제약에, ⑬⑭는 지식체계 과업과의 경계 및 변경관리 대상 등재에 쓰입니다.</div>';
 }
 function box(l,v,c){ return '<div class="b"><div class="l">'+l+'</div><div class="v '+(c||'')+'">'+esc(v)+'</div></div>'; }
@@ -1063,8 +1063,8 @@ function plain(id){
   var t=task(id), a=A(id), j=judge(id);
   var L=['[CLX AI 과제 정의서] '+t.id+' '+t.n,
     '작성 '+(DB.me.nm||'')+' '+(DB.me.org||'')+' · '+new Date().toLocaleDateString('ko-KR'),
-    '판정 — Pattern '+(j.pat.join('·')||'미정')+' / '+(j.cross?'횡단 '+j.nsys+'종':'단일')+
-    ' / '+j.scope+' / 조인 키 '+j.join+' / 미정 '+j.und+'건',''];
+    '판정 — Pattern '+(j.pat.join('·')||'미정')+' / '+(j.cross?'시스템 간 '+j.nsys+'종':'단일')+
+    ' / '+j.scope+' / 공통 키 '+j.join+' / 미정 '+j.und+'건',''];
   qs(id).forEach(function(q){
     var v=a[q.k];
     L.push(q.no+' '+q.t+' — '+(!v?'(미응답)':(v.skip?'모름'+(v.disp?' · 처분 '+v.disp:''):fmt(q,v).replace(/\n/g,' / '))));
@@ -1105,16 +1105,16 @@ function drawRoll(){
     '<h2>취합 결과 <span class="mini">'+ROLL.length+'건</span></h2>'+
     '<div class="jd">'+
       box('회신',ROLL.length+'건','')+
-      box('횡단 과제',cross.length+'건',cross.length?'warn':'')+
-      box('조인 키 없음',noJoin.length+'건',noJoin.length?'crit':'ok')+
+      box('시스템 간 과제',cross.length+'건',cross.length?'warn':'')+
+      box('공통 키 없음',noJoin.length+'건',noJoin.length?'crit':'ok')+
       box('쓰기 포함',wr.length+'건',wr.length?'warn':'ok')+
     '</div>'+
-    (noJoin.length?'<div class="note crit"><b>Phase 3 착수 지시서 — 조인 키가 확인되지 않은 '+noJoin.length+'건</b><br>'+
+    (noJoin.length?'<div class="note crit"><b>Phase 3 착수 지시서 — 공통 키가 확인되지 않은 '+noJoin.length+'건</b><br>'+
       noJoin.map(function(r){ return esc(r.task.id)+' '+esc(r.task.name); }).join(' · ')+
-      '<br><span style="font-size:12.5px">이 목록이 횡단 식별자 표준이 무엇을 먼저 풀어야 하는지를 정합니다.</span></div>':'')+
+      '<br><span style="font-size:12.5px">이 목록이 시스템 간 공통 키 표준이 무엇을 먼저 풀어야 하는지를 정합니다.</span></div>':'')+
     '<h3>수요–시스템 매트릭스</h3>'+
     '<div class="tw"><table><thead><tr><th class="mk">과제</th><th>이름</th><th>Pattern</th><th>시스템</th>'+
-    '<th>조인 키</th><th>응답 목표</th><th class="mk">미정</th><th class="mk">응답</th></tr></thead><tbody>'+
+    '<th>공통 키</th><th>응답 목표</th><th class="mk">미정</th><th class="mk">응답</th></tr></thead><tbody>'+
     ROLL.map(function(r){
       var a=r.answers;
       var sla = !a.sla ? '—' : a.sla.skip ? ('미정'+(a.sla.disp?'·'+a.sla.disp:''))
@@ -1138,7 +1138,7 @@ function drawRoll(){
 function drawOrg(o){
   var h='', S=o.systems||[], G=o.joinGaps||[], C=o.crossQueries||[], P=o.patternCheck||[], D=o.duplicates||[], Q2=o.askAgain||[];
   if(G.length){
-    h+='<h3>조인 키 공백 — Phase 3 착수 지시서</h3>'+
+    h+='<h3>공통 키 공백 — Phase 3 착수 지시서</h3>'+
     '<p class="lede" style="margin-top:-2px;font-size:13.5px">어느 축이 없는지까지 정리한 것입니다. <b>추론</b> 표시가 붙은 줄은 회신에 명시가 없어 LLM이 짐작한 것이므로 담당자에게 확인하십시오.</p>'+
     '<div class="tw"><table><thead><tr><th class="mk">과제</th><th>축</th><th>무엇이 없는가</th><th>근거가 된 담당자 표현</th></tr></thead><tbody>'+
     G.map(function(g){ return '<tr><td class="mk"><b>'+esc(g.task)+'</b></td><td class="mk">'+esc(g.axis||'')+
@@ -1146,7 +1146,7 @@ function drawOrg(o){
       '</td><td style="color:var(--ink-3)">'+esc(g.evidence||'')+'</td></tr>'; }).join('')+'</tbody></table></div>';
   }
   if(C.length){
-    h+='<h3>대표 횡단 질의 후보 <span class="mini">인계 #10 · '+C.length+'건</span></h3>'+
+    h+='<h3>대표 시스템 간 질의 후보 <span class="mini">인계 #10 · '+C.length+'건</span></h3>'+
     '<div class="tw"><table><thead><tr><th class="mk">과제</th><th>질문 원문</th><th>가로지르는 시스템</th><th>고른 이유</th></tr></thead><tbody>'+
     C.map(function(c){ return '<tr><td class="mk"><b>'+esc(c.task)+'</b></td><td><b>'+esc(c.query||'')+
       '</b></td><td class="mk">'+esc((c.systems||[]).join(' · '))+'</td><td style="color:var(--ink-3)">'+esc(c.why||'')+'</td></tr>'; }).join('')+'</tbody></table></div>';
@@ -1159,7 +1159,7 @@ function drawOrg(o){
       '</td><td>'+esc((x.objects||[]).join(' · '))+'</td></tr>'; }).join('')+'</tbody></table></div>';
   }
   if(P.length){
-    h+='<h3>Action Pattern 재판정 <span class="mini">담당자 선택과 질문 원문이 어긋난 곳</span></h3>'+
+    h+='<h3>연계 유형 재판정 <span class="mini">담당자 선택과 질문 원문이 어긋난 곳</span></h3>'+
     '<div class="tw"><table><thead><tr><th class="mk">과제</th><th class="mk">담당자 선택</th><th class="mk">질문으로 본 것</th><th>근거</th></tr></thead><tbody>'+
     P.map(function(x){ return '<tr><td class="mk"><b>'+esc(x.task)+'</b></td><td class="mk">'+esc((x.chosen||[]).join(' '))+
       '</td><td class="mk und">'+esc((x.suggest||[]).join(' '))+'</td><td style="color:var(--ink-3)">'+esc(x.why||'')+'</td></tr>'; }).join('')+'</tbody></table></div>';
